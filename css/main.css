@@ -1,0 +1,209 @@
+/* start of fine tuning */
+
+body {
+  overflow-y: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* end of fine tuning */
+
+/* start of header stuff */
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+}
+
+.header-content-box {
+  width: 250px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.logo-div {
+  width: 40%;
+  height: 100px;
+  /*background-color: chartreuse;*/
+}
+
+.logo-div img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.title-div {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  /*background-color: aquamarine;*/
+}
+
+.title-div p {
+  width: 100%;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* end of header stuff*/
+
+/* start of main section */
+
+.notepad-title  {
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+  top: 125px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.notepad-title p {
+  position: relative;
+  bottom: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.storyline-notepad-section {
+  width: fit-content;
+  min-width: 100%;
+  height: 92vh;
+  display: flex;
+  align-items: center;
+}
+
+#storylineNotepad {
+  position: relative;
+  top: 30px;
+  width: fit-content;
+  height: 255px;
+  border: 2px solid yellow;
+  display: flex;
+  padding: 10px;
+}
+
+#StoryBoxSection {
+  display: flex;
+  /*border: 1px solid pink;*/
+}
+
+/* end of main section :O */
+
+/* start of storyBox stuff */
+
+.box-container {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  height: 255px;
+  box-sizing: content-box
+}
+
+.storyBox{
+  width: 238px;
+  height: 238px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+  border: none;
+  resize: none;
+  outline: none;
+  text-align: center;
+}
+
+.arrow {
+  position: relative;
+  top: 50%;
+  transform: translate(0 , -50% );
+  width: 200px;
+  height: 50px;
+  padding: 0 5px 0 7px;
+}
+
+.arrow img {
+  width: 200px;
+  height: 50px;
+}
+
+
+/* start of storyBox Stuff*/
+
+/* start of addButton stuff */
+
+#addNewButton {
+  position: relative;
+  top: 50%;
+  transform: translate(0 , -50%);
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.button-background {
+  width: 100%;
+  height: 100%;
+}
+
+.button-background img {
+  width: 100%;
+  border-radius: 15px;
+  height: 100%;
+}
+
+.button-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  transform: translate(-50% , -50%);
+}
+
+.button-center img {
+  width: 65px;
+  height: 65px; 
+}
+
+
+/* end of addButton stuff */
+
+/* start of removeButton */
+
+
+
+/* end of removeButton */
+
+/* start of clearDataButton */
+
+
+
+/* end of clearDataButton*/
+
+/* start of footer */
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 8vh;
+}
+
+footer p {
+  font-size: 20px;
+}
+
+/* end of footer */

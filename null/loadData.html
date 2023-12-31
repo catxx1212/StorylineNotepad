@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="Kiki Hawes"/>
+    <meta name="Description" content="A storyline notepad editor (WIP)"/>
+    <link rel="stylesheet" href="../css/load-save-data-screen.css"/>
+    <link rel="stylesheet" href="../css/animations.css"/>
+    <link rel="stylesheet" href="../css/themes.css"/>
+  </head>
+  <body>
+    <header class="header-background-color">
+      <div class="header-content-box center-header-color">
+        <div class="logo-div">
+          <img src="../img/tmp-icon.png" alt="TMP Logo"/>
+        </div>
+        <div class="title-div header-text-color">
+          <p>Storyline Notepad</p>
+        </div>
+        <div class="theme-menu-container">
+          <label for="themeSelect">Theme:</label>
+          <select id="themeSelect">
+            <option value="seaView"selected>Sea view</option>
+            <option value="midnight">Midnight</option>
+            <option value="hellScape">HellScape</option>
+            <option value="grass">G r a s s</option>
+          </select>
+        </div>
+      </div>
+    </header>
+    <div class="main-section main-color">
+      <div id="loaded-data-boxes-section">
+        <div id="startNewButton"></div>
+      </div>
+    </div>
+    <footer class="footer-color footer-text-color">
+      <p>&copy; Storyline Notepad</p>
+    </footer>
+    <script src="../JS/color-theme-for-load-data-page.js"></script>
+    <script src="../JS/loadSavedDataPage.js"></script>
+    <script src="../JS/localStorageDUPE.js"></script>
+  </body>
+</html>
