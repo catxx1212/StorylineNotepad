@@ -73,8 +73,8 @@ header {
 
 .notepad-title  {
   background-color: rgba(0,0,0,0);
-  position: absolute;
-  top: 125px;
+  position: fixed;
+  top: 18%;
   width: 100%;
   display: flex;
   justify-content: center;

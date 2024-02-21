@@ -127,3 +127,9 @@ header {
   text-decoration: underline;
 }
 /* end of main section stuff */
+
+
+
+.boldText {
+  font-weight: bold;
+}

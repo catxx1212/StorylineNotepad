@@ -9,18 +9,22 @@ let dataLoaded = false;
 let LoadedBoxes = false;
 let loadedStoryBoxText = false;
 let allLoaded = false;
-let noLoadNeeded = false
-;
+let noLoadNeeded = false;
+var storyline_data = JSON.parse(localStorage.getItem("storylineNotepad_data"));
 
 function loadSavedData() {
-  const loadedStoryBoxTextData = JSON.parse(localStorage.getItem("savedStoryBoxTextData"));
-  const loadedBoxNumberData = localStorage.getItem("savedBoxNumberData");
-  const loadedData = {
-    loadedStoryBoxTextData,
-    loadedBoxNumberData,
-  };
-
-  return loadedData;
+  if(storyline_data) {
+    var loadedStoryBoxTextData = storyline_data.textData;
+    var loadedBoxNumberData = storyline_data.indexData;
+    var loadedData = {
+      loadedStoryBoxTextData,
+      loadedBoxNumberData,
+    };
+  
+    return loadedData;
+  } else {
+    return false;
+  }
 };
 
 const loadedData = loadSavedData();
@@ -80,19 +84,32 @@ if(loadedData.loadedBoxNumberData && loadedData.loadedStoryBoxTextData) {
 } else {
   noLoadNeeded = true;
   boxNumber = 0;
-  console.log();
-  storylineTitle.textContent = "Untitled Notepad";
-  localStorage.setItem("savedStorylineTitle" , "Untitled Notepad")
+  // console.log();
+  // storylineTitle.textContent = "Untitled Notepad";
+  // sessionStorage.setItem("savedStorylineTitle" , "Untitled Notepad");
+  storyline_data = {
+    storyLineTitle: "Untitled Notepad",
+  }
 }
 
 
 
+function saveStoryLineData(textData, numberData, titleData, saveToDisk) {
+  let storyLineData = {
+    textData: textData,
+    indexData: numberData,
+    storyLineTitle: titleData,
+  }
+  if(saveToDisk) {
+    localStorage.setItem("storylineNotepad_data", JSON.stringify(storyLineData));
+  }
+}
 
 
 if(allLoaded || noLoadNeeded) {
   
-  let currentActiveStorylineNotepad_whenOpened = localStorage.getItem("savedStorylineTitle");
-  console.log(currentActiveStorylineNotepad_whenOpened);
+  // let currentActiveStorylineNotepad_whenOpened = storyline_data.storyLineTitle;
+  // console.log(currentActiveStorylineNotepad_whenOpened);
   // if(currentActiveStorylineNotepad_whenOpened.indexOf(" ") !== -1) {
   //    currentActiveStorylineNotepad_whenOpened = currentActiveStorylineNotepad_whenOpened.replace(/ /g, "_");
   // }
@@ -101,12 +118,10 @@ if(allLoaded || noLoadNeeded) {
 
   const exitMessage = "Your work has hopfully been saved, unless you have local storage for websites disabled";
 
-  function saveTextDataForStoryBox() {
-
+  function saveDataForStoryBox() {
     function noSave() {
       console.log("No Text Save Happened (good thing)")
     };
-
     const textareas = document.querySelectorAll("textarea");
     const storyBoxSaveData = {};
     textareas.forEach((textarea , index) => {
@@ -124,7 +139,14 @@ if(allLoaded || noLoadNeeded) {
     if(Object.keys(storyBoxSaveData).length === 0){
       noSave()
     } else {
-      localStorage.setItem("savedStoryBoxTextData" , JSON.stringify(storyBoxSaveData));
+      let boxNumberValue = boxNumber
+      if(boxNumberValue >= 1) {
+        let currentTitle = sessionStorage.getItem("savedStorylineTitle");  //MAKE CURRENT TITLE TMP TORE IN SESSION STORAGE AND THEN RETRIVE IT HERE :££:£:£:£:£
+        saveStoryLineData(storyBoxSaveData, boxNumberValue, currentTitle, true);
+      } else {
+        noSave();
+      }
+      // localStorage.setItem("savedStoryBoxTextData" , JSON.stringify(storyBoxSaveData));
     }
   };
 
@@ -138,8 +160,9 @@ if(allLoaded || noLoadNeeded) {
   };
 
   function beforeUnloadEvent(event) {
-    saveTextDataForStoryBox();
-    saveStoryBoxNumber();
+    saveDataForStoryBox();
+    // saveStoryBoxNumber();
+    sessionStorage.clear();
     event.returnValue = exitMessage;
     return exitMessage;
   };
@@ -210,8 +233,7 @@ if(allLoaded || noLoadNeeded) {
     const askIfUserWantsToClearAllData = confirm("Are you sure you want to clear all data linked to your notepad?");
     if (askIfUserWantsToClearAllData) {
       window.removeEventListener("beforeunload" , beforeUnloadEvent);
-      localStorage.removeItem("savedStoryBoxTextData");
-      localStorage.removeItem("savedBoxNumberData");
+      localStorage.removeItem("storylineNotepad_data");
       location.reload();
     } else {
       console.warn("Clear Data Not Done")
@@ -219,15 +241,15 @@ if(allLoaded || noLoadNeeded) {
   });
 
 
-  //the two eventlisteners under here save thier data diffrently to the others. note to me: do not fuck with them
+  //the two eventlisteners under here save thier data diffrently to the others. note to me: do not fuck with them (2024 me: girl calm tf down :3 )
   const storylineTitle = document.getElementById("storylineTitle");
-  const loadedStorylineTitleData = localStorage.getItem("savedStorylineTitle");
-
+  var loadedStorylineTitleData = storyline_data.storyLineTitle;
   if(loadedStorylineTitleData) {
     storylineTitle.textContent = loadedStorylineTitleData;
+    sessionStorage.setItem("savedStorylineTitle", loadedStorylineTitleData);
   } else {
       storylineTitle.textContent = "Untitled Notepad";
-      localStorage.setItem("savedStorylineTitle" , "Untitled Notepad")
+      sessionStorage.setItem("savedStorylineTitle" , "Untitled Notepad")
   }
 
   storylineTitle.addEventListener("click" , () => {
@@ -235,10 +257,10 @@ if(allLoaded || noLoadNeeded) {
     console.log("any errors to do with the title changing is fine, dw about that");
     if(newTitle.trim() !== ``){
       storylineTitle.textContent = newTitle;
-      localStorage.setItem("savedStorylineTitle" , newTitle)
+      sessionStorage.setItem("savedStorylineTitle" , newTitle)
     } else {
-      storylineTitle.textContent = "Untitled Notepad";
-      localStorage.setItem("savedStorylineTitle" , "Untitled Notepad")
+      // storylineTitle.textContent = "Untitled Notepad";
+      // sessionStorage.setItem("savedStorylineTitle" , "Untitled Notepad")
     }
   });
 
