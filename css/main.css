@@ -5,7 +5,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 /* end of fine tuning */
 
 /* start of header stuff */
@@ -51,6 +50,22 @@ header {
   text-align: center;
 }
 
+.theme-menu-container {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20%;
+}
+.theme-menu { 
+  width: 50%;
+  border-radius: 5%;
+  aspect-ratio: 3/1;
+}
+.theme-menu:focus {
+  outline: none;
+}
+
 
 /* end of header stuff*/
 
@@ -85,7 +100,7 @@ header {
   top: 30px;
   width: fit-content;
   height: 255px;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
   display: flex;
   padding: 10px;
 }
@@ -183,13 +198,22 @@ textarea {
 
 /* start of removeButton */
 
-
+#removeButton {
+  height: 100%;
+}
 
 /* end of removeButton */
 
 /* start of clearDataButton */
 
-
+#clearDataButton {
+  position: absolute;
+  left: 5%;
+  width: 10%;
+  aspect-ratio: 4/1;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 /* end of clearDataButton*/
 

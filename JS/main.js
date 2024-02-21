@@ -1,7 +1,6 @@
 //SESSION STORAGE
 
 
-
 const storyBoxSection = document.getElementById("StoryBoxSection");
 
 let boxNumber = 1;
@@ -94,10 +93,10 @@ if(allLoaded || noLoadNeeded) {
   
   let currentActiveStorylineNotepad_whenOpened = localStorage.getItem("savedStorylineTitle");
   console.log(currentActiveStorylineNotepad_whenOpened);
-  if(currentActiveStorylineNotepad_whenOpened.indexOf(" ") !== -1) {
-     currentActiveStorylineNotepad_whenOpened = currentActiveStorylineNotepad_whenOpened.replace(/ /g, "_");
-  }
-  console.log(currentActiveStorylineNotepad_whenOpened);
+  // if(currentActiveStorylineNotepad_whenOpened.indexOf(" ") !== -1) {
+  //    currentActiveStorylineNotepad_whenOpened = currentActiveStorylineNotepad_whenOpened.replace(/ /g, "_");
+  // }
+  // console.log(currentActiveStorylineNotepad_whenOpened);
 
 
   const exitMessage = "Your work has hopfully been saved, unless you have local storage for websites disabled";
@@ -188,19 +187,19 @@ if(allLoaded || noLoadNeeded) {
   const removeButton = document.getElementById("removeButton");
 
   removeButton.addEventListener("click" , () => {
-    const boxId = document.querySelectorAll(`[id^="box"]`);
-    if(boxId.length > 0) {
-      const lastBox = boxId[boxId.length -1];
-      const lastBoxId = lastBox.getAttribute("id");
-      removeStoryBox(lastBoxId);
-      boxNumber--;
-    } else {
-      alert("no box to remove");
+    let confirmRemove = confirm("Do you want to remove this box?");
+    if(confirmRemove) {
+      const boxId = document.querySelectorAll(`[id^="box"]`);
+      if(boxId.length > 0) {
+        const lastBox = boxId[boxId.length -1];
+        const lastBoxId = lastBox.getAttribute("id");
+        removeStoryBox(lastBoxId);
+        boxNumber--;
+      } else {
+        alert("no box to remove");
+      }
     }
-    
     console.log("box number" , boxNumber)
-
-
     reloadWindowEventListener();
   });
   
@@ -250,7 +249,7 @@ if(allLoaded || noLoadNeeded) {
   const loadedLastTheme = localStorage.getItem("savedLastTheme");
   if(loadedLastTheme) {
     document.body.classList.add(`${loadedLastTheme}-theme`);
-    themeSelect.option = `${loadedLastTheme}`
+    themeSelect.value = `${loadedLastTheme}`
   } else {
     document.body.classList.add(defaultTheme);
   }

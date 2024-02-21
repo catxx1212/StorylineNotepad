@@ -6,6 +6,9 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* end of fine tuning */
@@ -13,15 +16,16 @@ body {
 /* start of header stuff */
 
 header {
+  position: relative;
   width: 100%;
-  height: 100px;
+  height: 20%;
   background-color: rgb(1, 13, 179);
   
 }
 
 .header-content-box {
-  width: 250px;
-  height: 100px;
+  width: 40%;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -30,14 +34,13 @@ header {
 }
 
 .logo-div {
-  width: 40%;
-  height: 100px;
+  height: 100%;
   /*background-color: chartreuse;*/
 }
 
 .logo-div img {
-  width: 100px;
-  height: 100px;
+  aspect-ratio: 1/1;
+  height: 100%;
   border-radius: 10px;
 }
 
@@ -61,7 +64,7 @@ header {
 /* start of main section stuff */
 
 .main-section {
-  placeholder: yes;
+
 }
 
 .main-content-div {
@@ -72,22 +75,33 @@ header {
 
 .explanation-div {
   width: 50%;
-  height: 100%;
+  height: 90%;
   background-color: blueviolet;
+  overflow-y: scroll;
 }
 
 .example-image-div {
   width: 50%;
-  height: 100%;
+  height: 90%;
   background-color: aqua;
 }
+  .howToUseTextHeading {
+    font-size: 4vh;
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: center;
+  }
+  .howToUseText {
+    font-size: 3vh;
+    text-align: center;
 
+  }
 .begin-button-div {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  margin-top: 20px;
   display: flex;
   justify-content: center;
-  border: 1px solid red;
 }
 
 .begin-button {
@@ -98,6 +112,11 @@ header {
   border-radius: 50px;
   border: 2px solid rgb(17, 29, 194);
   background-color: rgb(56, 68, 240);
+  transition: 0.5s all;
+}
+.begin-button:hover {
+  transform: translateY(-10%);
+  transition: 0.5s all;
 }
 
 .begin-button:active {
