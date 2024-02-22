@@ -29,7 +29,7 @@
 }
 
 .seaView-theme .footer-color {
-  border-top: 2px solid rgb(20,20,20);
+  border-top: 4px solid rgb(20,20,20);
   background-color: rgb(200,200,255);
 }
 
@@ -70,7 +70,7 @@
 }
 
 .midnight-theme .footer-color {
-  border-top: 2px solid rgb(20,20,20);
+  border-top: 4px solid rgb(20,20,20);
   background-color: rgb(30,30,60);
 }
 
@@ -111,10 +111,52 @@
 }
 
 .hellScape-theme .footer-color {
-  border-top: 2px solid rgb(20,20,20);
+  border-top: 4px solid rgb(20,20,20);
   background-color: rgb(150,0,0);
 }
 
 .hellScape-theme .footer-text-color {
   color: rgb(250,250,250);
+}
+
+
+
+.void-theme {
+  background-color: rgb(20, 8, 18);
+  color: rgb(230,230,230);
+}
+
+.void-theme .header-background-color {
+  background-color: rgb(32, 14, 30);
+}
+
+.void-theme .center-header-color{
+  background-color: rgb(78, 31, 57);
+}
+
+.void-theme .header-text-color {
+  color: rgb(230, 230, 230);
+}
+
+.void-theme .main-color {
+  background-color: rgb(20, 8, 18);
+}
+
+.void-theme .story-box-color {
+  background-color: rgb(100, 83, 99);
+  border: 2px solid rgb(20,20,20);
+}
+
+.void-theme textarea {
+  background-color: rgb(100, 83, 99);
+  color: rgb(10,10,10);
+}
+
+.void-theme .footer-color {
+  border-top: 4px solid rgb(20,20,20);
+  background-color: rgb(32, 14, 30);
+}
+
+.void-theme .footer-text-color {
+  color: rgb(230,230,255);
 }

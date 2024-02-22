@@ -278,8 +278,113 @@ if(allLoaded || noLoadNeeded) {
 
   themeSelect.addEventListener("change" , () => {
     let currentTheme = themeSelect.value;
-    document.body.classList.remove("seaView-theme" , "midnight-theme" , "hellScape-theme" , "grass");
+    document.body.classList.remove("seaView-theme" , "midnight-theme" , "hellScape-theme" , "grass-theme", "void-theme");
     document.body.classList.add(currentTheme + "-theme");
     localStorage.setItem("savedLastTheme" , themeSelect.value);
   });
 }
+
+function copyTextToClipboard(text) {
+  function copyToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      const successful = document.execCommand("copy");
+      const message = successful ? "Copied to clipboard" : "Failed to copy";
+      console.log(message);
+    } catch (err) {
+      console.error("Unable to copy", err);
+    }
+    document.body.removeChild(textArea);
+  };
+  copyToClipboard(text);
+};
+
+async function exportImportPopup(exportOrImport) {
+  var popUpMainElement = document.createElement("div");
+  popUpMainElement.classList.add("popUpBackground");
+  if(exportOrImport === "export") {
+    popUpMainElement.innerHTML = `
+      <div class="exportDataOutputDiv center-header-color">
+        <p>Your storyline data has been copied to your clipboard.</p>
+        <p>You can either share the data with someone else and have them "import" it, or just store it in a text file until you need it again.</p>
+        <button id="okButton" class="story-box-color">Ok, thanks :)</button>
+      </div>
+    `;
+    document.body.appendChild(popUpMainElement);
+    return new Promise((resolve, reject) => {
+      var okButton = document.getElementById("okButton");
+      okButton.addEventListener("click", function(event) {
+        popUpMainElement.remove();
+        resolve();
+      });
+    });
+  } else if (exportOrImport === "import") {
+    popUpMainElement.innerHTML = `
+      <div class="importDataOutputDiv center-header-color">
+        <p class="importDataOutputHeading">Please paste the StorylineNotepad_data here:</p>
+        <input type="text" id="importDataInput" placeholder="Import data only please :3"/>
+        <p>Import will NOT WORK if you already have data present. If you do have an active storyline, please export your current storyline and then "clear data" afterward.</p>
+        <button id="ImportButton" class="story-box-color">Import</button>
+        <button id="cancelImportButton" class="story-box-color">Cancel</button>
+      </div>
+    `;
+    document.body.appendChild(popUpMainElement);
+    return new Promise((resolve, reject) => {
+      var importButton = document.getElementById("ImportButton");
+      var cancelImportButton = document.getElementById("cancelImportButton");
+      importButton.addEventListener("click", function(event) {
+        let importDataInputValue = document.getElementById("importDataInput").value;
+        popUpMainElement.remove();
+        resolve(importDataInputValue);
+      });
+      cancelImportButton.addEventListener("click", function() {
+        popUpMainElement.remove();
+        resolve();
+      });
+    });
+  }
+}
+
+
+const exportDataButton = document.getElementById("exportDataButton");
+const importDataButton = document.getElementById("importDataButton");
+
+exportDataButton.addEventListener("click", function(event) {
+  saveDataForStoryBox();
+  exportImportPopup("export");
+  let exportData = localStorage.getItem("storylineNotepad_data");
+  copyTextToClipboard(exportData);
+});
+importDataButton.addEventListener("click", async function() {
+  var importOutput = await exportImportPopup("import");
+  if(importOutput) {
+    localStorage.setItem("storylineNotepad_data", importOutput);
+    location.reload();
+  }
+});
+
+const saveButton = document.getElementById("saveButton");
+
+saveButton.addEventListener("click", function() {
+  saveDataForStoryBox()
+  this.classList.add("flashGreen")
+  this.addEventListener("animationend", function() {
+    this.classList.remove("flashGreen");
+  });
+});
+
+document.addEventListener('keydown', function(event) {
+  if ((event.ctrlKey || event.metaKey) && event.key === 's') {
+    event.preventDefault();
+    saveDataForStoryBox()
+    saveButton.classList.add("flashGreen")
+    saveButton.addEventListener("animationend", function() {
+      saveButton.classList.remove("flashGreen");
+    });
+  }
+});

@@ -1,10 +1,13 @@
 /* start of fine tuning */
-
 body {
   overflow-y: hidden;
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
+/* ::-webkit-scrollbar {
+  height: 10px;
+} */
 /* end of fine tuning */
 
 /* start of header stuff */
@@ -45,14 +48,14 @@ header {
 
 .title-div p {
   width: 100%;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
 }
 
 .theme-menu-container {
   position: absolute;
-  right: 10%;
+  right: 17%;
   top: 50%;
   transform: translateY(-50%);
   width: 20%;
@@ -65,8 +68,124 @@ header {
 .theme-menu:focus {
   outline: none;
 }
+.importExportDiv {
+  position: absolute;
+  right: 5%;
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#importDataButton {
+  width: 48%;
+  height: 25%;
+}
+#exportDataButton {
+  width: 48%;
+  height: 25%;
+}
+.popUpBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(30,30,30,0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+  .exportDataOutputDiv {
+    position: relative;
+    width: 60vw;
+    height: 40vh;
+    border-radius: 5%;
+  }
+  .exportDataOutputDiv > p:nth-child(1) {
+    font-size: 2vw;
+    text-align: center;
+  }
+  .exportDataOutputDiv > p:nth-child(2) {
+    font-size: 1.5vw;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 5% 0 5%;
+  }
 
+  .importDataOutputDiv {
+    position: relative;
+    width: 60vw;
+    height: 40vh;
+    border-radius: 5%;
+  }
+  .importDataOutputDiv > p:nth-child(1) {
+    font-size: 2vw;
+    text-align: center;
+  }
+  #importDataInput {
+    width: 90%;
+    height: 10%;
+    margin-left: 5%;
+  }
+  #importDataInput:focus {
+    outline: none;
+  }
+  .importDataOutputDiv > p:nth-child(3) {
+    font-size: 1.5vw;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 5% 0 5%;
+  }
+  #ImportButton {
+    position: absolute;
+    width: 10%;
+    bottom: 5%;
+    left: 45%;
+    transform: translateX(-50%);
+  }
+  #ImportButton:hover {
+    iSeeTheIssueNow: yeh;
+  }
+  #cancelImportButton {
+    position: absolute;
+    width: 10%;
+    bottom: 5%;
+    right: 45%;
+    transform: translateX(50%);
+  }
+  #cancelImportButton:hover {
+    iSeeTheIssueNow: yeh;
+  }
 
+#okButton {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#saveButton {
+  position: absolute;
+  width: 10%;
+  aspect-ratio: 4/1;
+  left: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.flashGreen {
+  animation: flashGreen 1s ease 0s forwards;
+}
+@keyframes flashGreen {
+  50% {
+    background-color: rgb(70,200,70);
+  }
+}
 /* end of header stuff*/
 
 /* start of main section */
@@ -208,7 +327,7 @@ textarea {
 
 #clearDataButton {
   position: absolute;
-  left: 5%;
+  left: 2%;
   width: 10%;
   aspect-ratio: 4/1;
   top: 50%;
