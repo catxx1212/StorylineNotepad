@@ -160,3 +160,48 @@
 .void-theme .footer-text-color {
   color: rgb(230,230,255);
 }
+
+
+.muah1-theme {
+  background-color: rgb(125, 20, 100);
+  color: rgb(230,230,230);
+}
+
+.muah1-theme .header-background-color {
+  background-color: rgb(100, 0, 75);
+}
+
+.muah1-theme .center-header-color{
+  background-color: rgb(80, 0, 55);
+}
+
+.muah1-theme .header-text-color {
+  color: rgb(230, 230, 230);
+}
+
+.muah1-theme .main-color {
+  /* background-color: rgb(20, 8, 18); */
+  background: url("../img/backgroundUwU1.png") no-repeat;
+  background-size: contain;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.muah1-theme .story-box-color {
+  background-color: rgb(150, 0, 125);
+  border: 2px solid rgb(20,20,20);
+}
+
+.muah1-theme textarea {
+  background-color: rgb(150, 0, 125);
+  color: rgb(10,10,10);
+}
+
+.muah1-theme .footer-color {
+  border-top: 4px solid rgb(20,20,20);
+  background-color: rgb(100, 0, 75);
+}
+
+.muah1-theme .footer-text-color {
+  color: rgb(230,230,255);
+}
