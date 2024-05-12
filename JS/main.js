@@ -278,7 +278,7 @@ if(allLoaded || noLoadNeeded) {
 
   themeSelect.addEventListener("change" , () => {
     let currentTheme = themeSelect.value;
-    document.body.classList.remove("seaView-theme" , "midnight-theme" , "hellScape-theme" , "grass-theme", "void-theme", "muah1-theme");
+    document.body.classList.remove("seaView-theme" , "midnight-theme" , "hellScape-theme" , "grass-theme", "void-theme");
     document.body.classList.add(currentTheme + "-theme");
     localStorage.setItem("savedLastTheme" , themeSelect.value);
   });
