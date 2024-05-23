@@ -1,52 +1,86 @@
+// The only thing stopping me from redoing all of this now is the fact i have a 
+// game i want to finish first. Dosnt mean i havent added and redone some bits anyways :)
+
+// most of this code is from 2023 me, and i hate it all
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
     <meta name="Author" content="CatXx1212"/>
-    <meta name="Description" content="A storyline notepad editor (WIP)"/>
-    <link rel="stylesheet" href="css/title-page.css"/>
+    <meta name="Description" content="This is Storyline Notepad> A place to write full storylines bursting with exsitment or full deep of lore, or just write your mind on pap- *ahem* screen."/>
     <link rel="stylesheet" href="css/animations.css"/>
+    <link rel="stylesheet" href="styles/main.css"/>
   </head>
   <body>
     <header>
-      <div class="header-content-box">
-        <div class="logo-div">
-          <img src="img/pain.png" alt="TMP Logo"/>
-        </div>
-        <div class="title-div">
-          <p>Storyline Notepad</p>
-        </div>
+      <div class="logoAndTitleContainer">
+        <img class="logoAndTitleContainer_logo" src="assets/pain.png"/>
+        <p class="logoAndTitleContainer_title">Storyline Notepad</p>
       </div>
     </header>
-    <div class="main-section">
-      <div class="main-content-div">
-        <div class="explanation-div">
-          <p>This is only the personal version for me, if youve been sent this then it means that, i trust you? (i think, idk my own mind).</br></br> reguardless, if your not me reading this then, thank you for testing this out (assuming thats what future me would do), and i hope there isnt too many bugs for you. </br> </br>however, if its me reading this, then: </br></br> 2023 me: HIIIIIIIIIII!!!!!</br></br>early 2023 me: :3</br></br> 2023 me: >;3</br></br>early 2023 me:  :0 :0</br></br>2023 me: what am i doing?</br></br>early 2023 me: you think i know?? x3 lmao</br></br>2024 me: Hahahahhahahahahahahahahaaha past me be going mental :D </br></br> 2023 me: HAIIIIII YOUR BACK YOUR FINALLY WORKING ON THIS PROJECT AGAIN AAAAAAA</br></br> 2024 me: u crazy fr, but yeh I am</br></br> 2023 me: Welp GOOD LUCK :3</br></br>2024 me: Yeh thanks, im gonna need it with the way you layed this whole thing out</br></br></br></br></br></br></br></br></p>
-        </div>
-        <div class="example-image-div">
-          <p class="howToUseTextHeading">How To Use</p>
-          <div class="howToUseListDiv">
-            <ul>
-              <li>Click the "+" icon to create a new box.</li>
-              <li>Click the "remove" button to delete the last box.</li>
-              <li>Click the "Clear Data" button to erase all current Storyline Notepad data (theme not included).</li>
-              <li>Click the title to modify it.</li>
-              <li>You can change the theme using the "Change Theme" dropdown menu.</li>
-              <li class="boldText">Saving is automatic; it happens when you leave the page.</li>
-              <li>Hint: Hold Shift while using the mouse wheel to scroll horizontally.</li>
-              <li></li>
-            </ul>
-          </div>
+    <main>
+      <div class="sectionWrapper_left">
+        <div id="firstSection_intro">
+          <p class="firstSection_intro_heading">Welcome!!</p>
+          <p class="firstSection_intro_text1">This is Storyline Notepad, a place to write full storylines bursting with exsitment or full deep of lore, or just write your mind on pap- *ahem* screen.</p>
         </div>
       </div>
-      <div class="begin-button-div">
-        <a href="null/null2/storyline-notepad.html">
-          <button class="begin-button">Begin</button>
-        </a>
+      <div class="sectionWrapper_right">
+        <div id="secondSection_features">
+          <p class="secondSection_features_heading">Features:</p>
+          <p class="secondSection_features_text1">Although Storyline Notepad is still in early stages, it still has lots of features. Such as:</p>
+          <ul class="secondSection_features_list">
+            <li class="secondSection_features_listItem">Diffrent themes for diffrent moods and environments. To really get you in the mood of your current story (hopefully)</li>
+            <li class="secondSection_features_listItem">An export and import system to allow for multiple storyline notepad saves and being able to share your work-in-progress with others.</li>
+            <li class="secondSection_features_listItem">Being able to change the title :D</li>
+            <li class="secondSection_features_listItem">One save slot!</li>
+            <li class="secondSection_features_listItem">Auto saving apon exiting.</li>
+            <li class="secondSection_features_listItem">You can change the font size too!</li>
+          </ul>
+        </div>
       </div>
-    </div>
+      <div class="sectionWrapper_left">
+        <div id="thirdSection_issues">
+          <p class="thirdSection_issues_heading">Issues you should know about:</p>
+          <p class="thirdSection_issues_text1">This is still an early version of Storyline Notepad, so issues and bugs are expected.</p>
+          <ul class="thirdSection_issues_list">
+            <li class="thirdSection_issues_listItem">There is only one save slot in localStorage at the moment, meaning that data from one storyline CAN be overwritten by another open storyline window / tab.</li>
+            <li class="thirdSection_issues_listItem">Some screen ratios (and most likely phones too) might not work with the current layout.</li>
+            <li class="thirdSection_issues_listItem pleaseReportIssues">If you find another issue or bug with Storyline Notepad, then please report it using the "report issue" button in footer.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sectionWrapper_right">
+        <div id="fourthSection_howToUse">
+          <p class="fourthSection_howToUse_heading">How to use: (tips and tricks)</p>
+          <p class="fourthSection_howToUse_text1"></p>
+          <ul class="fourthSection_howToUse_list">
+            <li class="fourthSection_howToUse_listItem">Click the smaller title to change the title of your current storyline.</li>
+            <li class="fourthSection_howToUse_listItem">If you export your current storyline and save it as a text file, you can start a new one and keep the old one. You can import the old storyline whenever you need it and repeat this process as many times as you want!</li>
+            <li class="fourthSection_howToUse_listItem">Right click the add button to bring up the remove button.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sectionWrapper_center">
+        <div id="fithSection_endOfPage">
+          <p class="fithSection_endOfPAge_text">you've hit the bottom of the page, click here to start writing your next amazing story!</p>
+          <div class="fithSection_endOfPage_arrow"></div>
+        </div>
+      </div>
+    </main>
     <footer>
-
+      <p class="copyright">© 2024 CatXx1212. All Rights Reserved.</p>
+      <a href="storylineNotepad/storyline-notepad.html">
+        <div id="startWritingButton">
+          <p class="startWritingButton_text">Start Writing</p>
+        </div>
+      </a>
+      <a href="about:blank" target="_blank"> <!-- https://github.com/Midnightandstillup/StorylineNotepad/issues/new -->
+        <div id="reportIssueButton" title="Report an issue">
+          <p class="reportIssueButton_text">Report Issue</p>
+        </div>
+      </a>
+      <p class="versionNumber">VERSION: 0.1.6</p>
     </footer>
   </body>
-</html>
+  </html>

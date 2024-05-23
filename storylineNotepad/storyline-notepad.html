@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="CatXx1212"/>
+    <meta name="Description" content="A storyline notepad editor (WIP)"/>
+    <link rel="stylesheet" href="../styles/main.css"/>
+    <link rel="stylesheet" href="../styles/animations.css"/>
+    <link rel="stylesheet" href="../styles/themes.css"/>
+  </head>
+  <body>
+    <header class="header-background-color">
+      <div class="logoAndTitleContainer center-header-color">
+        <img class="logoAndTitleContainer_logo" src="../assets/pain.png"/>
+        <p class="logoAndTitleContainer_title header-text-color">Storyline Notepad</p>
+      </div>
+      <div class="clearAllAndSaveDiv">
+        <button id="clearDataButton" class="story-box-color">Clear All Data</button>
+        <button id="saveButton" class="story-box-color">Manual save</button>
+      </div>
+      <div class="theme-menu-container">
+        <label for="themeSelect" class="themeSelect-label header-text-color">Theme:</label>
+        <select id="themeSelect" class="story-box-color theme-menu" title="Change current theme">
+          <option value="seaView"selected>Sea view</option>
+          <option value="midnight">Midnight</option>
+          <option value="hellScape">HellScape</option>
+          <option value="void">Void</option>
+        </select>
+      </div>
+      <div class="fontSizeSelect-menu-container">
+        <label for="fontSizeSelect" class="fontSizeSelect-menu-label header-text-color">Font Size:</label>
+        <select id="fontSizeSelect" class="story-box-color theme-menu" title="Change font size">
+          <option value="small" selected>Small</option>
+          <option value="normal">Normal</option>
+          <option value="large">Large</option>
+        </select>
+      </div>
+      <div class="importAndExportDiv">
+        <button id="exportDataButton" class="story-box-color">Export</button>
+        <button id="importDataButton" class="story-box-color">Import</button>
+      </div>
+    </header>
+    <main class="storylineNotepad_main main-color">
+      <p title="Click to change" id="storylineTitle" class="header-text-color"></p>
+      <div id="storylineNotepad">
+        <div id="StoryBoxSection">
+
+        </div>
+        <div id="addNewButton" title="Add a new section">
+            <img class="button-background" src="../assets/background-for-addButton.png"/>
+          <div class="button-center">
+            <img src="../assets/center-button-image.png" class="button-center-spin"/>
+          </div>
+        </div>
+      </div>
+      <div id="contextMenu">
+        <ul>
+          <li onclick="removeLastStorybox()">Remove Last Box</li>
+        </ul>
+    </div>
+    </main>
+    <footer class="footer-color">
+      <p class="copyright">© 2024 CatXx1212. All Rights Reserved.</p>
+      <a href="about:blank" target="_blank"> <!-- https://github.com/Midnightandstillup/StorylineNotepad/issues/new -->
+        <div id="reportIssueButton" title="Report an issue">
+          <p class="reportIssueButton_text">Report Issue</p>
+        </div>
+      </a>
+      <p class="versionNumber">VERSION: 0.1.6</p>
+    </footer>
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

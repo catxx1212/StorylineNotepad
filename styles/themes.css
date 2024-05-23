@@ -1,5 +1,17 @@
+.fontSize-small .text {
+  font-size: 2vh;
+}
+.fontSize-normal .text {
+  font-size: 2.5vh;
+}
+.fontSize-large .text {
+  font-size: 3.5vh;
+}
+
+/*  NOTE:  CHANGE PX TO VH!! <<<<<<<<<<<<   done <3 */   
+
 .seaView-theme {
-  background-color: rgb(255,255,255);
+  background-color: rgb(240,240,240);
 }
 
 .seaView-theme .header-background-color {
@@ -31,16 +43,13 @@
 .seaView-theme .footer-color {
   border-top: 4px solid rgb(20,20,20);
   background-color: rgb(200,200,255);
-}
-
-.seaView-theme .footer-text-color {
   color: rgb(30,30,30);
 }
 
 
 
 .midnight-theme {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(50,50,60);
 }
 
 .midnight-theme .header-background-color {
@@ -72,16 +81,13 @@
 .midnight-theme .footer-color {
   border-top: 4px solid rgb(20,20,20);
   background-color: rgb(30,30,60);
-}
-
-.midnight-theme .footer-text-color {
   color: rgb(220,220,220);
 }
 
 
 
 .hellScape-theme {
-  background-color: rgb(190, 20, 20);
+  background-color: rgb(180, 30, 30); 
 }
 
 .hellScape-theme .header-background-color {
@@ -113,9 +119,6 @@
 .hellScape-theme .footer-color {
   border-top: 4px solid rgb(20,20,20);
   background-color: rgb(150,0,0);
-}
-
-.hellScape-theme .footer-text-color {
   color: rgb(250,250,250);
 }
 
@@ -155,53 +158,5 @@
 .void-theme .footer-color {
   border-top: 4px solid rgb(20,20,20);
   background-color: rgb(32, 14, 30);
-}
-
-.void-theme .footer-text-color {
   color: rgb(230,230,255);
 }
-
-
-/* .muah1-theme {
-  background-color: rgb(125, 20, 100);
-  color: rgb(230,230,230);
-}
-
-.muah1-theme .header-background-color {
-  background-color: rgb(100, 0, 75);
-}
-
-.muah1-theme .center-header-color{
-  background-color: rgb(80, 0, 55);
-}
-
-.muah1-theme .header-text-color {
-  color: rgb(230, 230, 230);
-}
-
-.muah1-theme .main-color {
-  background-color: rgb(20, 8, 18);
-  background: url("../img/backgroundUwU1.png") no-repeat;
-  background-size: contain;
-  background-position: center center;
-  background-attachment: fixed;
-}
-
-.muah1-theme .story-box-color {
-  background-color: rgb(150, 0, 125);
-  border: 2px solid rgb(20,20,20);
-}
-
-.muah1-theme textarea {
-  background-color: rgb(150, 0, 125);
-  color: rgb(10,10,10);
-}
-
-.muah1-theme .footer-color {
-  border-top: 4px solid rgb(20,20,20);
-  background-color: rgb(100, 0, 75);
-}
-
-.muah1-theme .footer-text-color {
-  color: rgb(230,230,255);
-} */

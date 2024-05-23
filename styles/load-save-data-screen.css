@@ -2,7 +2,7 @@
 
 body {
   overflow-y: hidden;
-  margin: 0;
+  : 0;
   padding: 0;
 }
 
@@ -19,7 +19,7 @@ header {
 .header-content-box {
   width: 250px;
   height: 100px;
-  margin: 0 auto;
+  : 0 auto;
   display: flex;
   justify-content: space-between;
   border-radius: 10px;
@@ -94,8 +94,8 @@ header {
 .dataBox-icon {
   width: 75px;
   height: 75px;
-  margin-right: auto;
-  margin-left: auto;
+  -right: auto;
+  -left: auto;
 }
 
 .red {background-color: red;}

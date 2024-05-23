@@ -1,5 +1,7 @@
-//SESSION STORAGE
+// The only thing stopping me from redoing all of this now is the fact i have a 
+// game i want to finish first. Dosnt mean i havent added and redone some bits anyways :)
 
+// most of this code is from 2023 me, and i hate it all
 
 const storyBoxSection = document.getElementById("StoryBoxSection");
 
@@ -10,7 +12,11 @@ let LoadedBoxes = false;
 let loadedStoryBoxText = false;
 let allLoaded = false;
 let noLoadNeeded = false;
-var storyline_data = JSON.parse(localStorage.getItem("storylineNotepad_data"));
+try {
+  var storyline_data = JSON.parse(localStorage.getItem("storylineNotepad_data"));
+} catch (error) {
+  alert("something went wrong with loading your data, This is most likey because of incorrect import data. Please try again. If this does not work, then report the issue. Error code: 2")
+}
 
 function loadSavedData() {
   if(storyline_data) {
@@ -42,17 +48,17 @@ if(loadedData.loadedBoxNumberData && loadedData.loadedStoryBoxTextData) {
       let storyBox = `
         <div class="box-container" id="box${boxNumber}">
           <div class="storyBox story-box-color">
-            <textarea id="textarea${boxNumber}" placeholder="storyBox${boxNumber}"></textarea>
+            <textarea class="text" id="textarea${boxNumber}" placeholder="storyBox${boxNumber}"></textarea>
           </div>
           <div class="arrow">
-            <img src="../../img/arrow-for-storyline-notepad--black.png" alt="Arrow"/>
+            <img src="../assets/arrow-for-storyline-notepad--black.png" alt="Arrow"/>
           </div>
         </div>`;
       console.log(boxNumber);
       storyBoxSection.insertAdjacentHTML("beforeend" , storyBox);
       boxNumber++;
     };
-    boxNumber = boxNumber - 1;
+    boxNumber--;
     LoadedBoxes = true; 
   };
 
@@ -186,17 +192,17 @@ if(allLoaded || noLoadNeeded) {
     let storyBox = `
       <div class="box-container" id="box${boxNumber}">
         <div class="storyBox story-box-color">
-          <textarea id="textarea${boxNumber}" placeholder="storyBox${boxNumber}"></textarea>
+          <textarea class="text" id="textarea${boxNumber}" placeholder="storyBox${boxNumber}"></textarea>
         </div>
         <div class="arrow">
-          <img src="../../img/arrow-for-storyline-notepad--black.png" alt="Arrow"/>
+          <img src="../assets/arrow-for-storyline-notepad--black.png" alt="Arrow"/>
         </div>
       </div>`;
 
       storyBoxSection.insertAdjacentHTML("beforeend" , storyBox);
 
       reloadWindowEventListener();
-      //MERGE SAVE.JS  WITH THIS  :( :( :(
+      //MERGE SAVE.JS  WITH THIS
       //Done :D
   });
 
@@ -207,37 +213,29 @@ if(allLoaded || noLoadNeeded) {
     }
   };
 
-  const removeButton = document.getElementById("removeButton");
-
-  removeButton.addEventListener("click" , () => {
-    let confirmRemove = confirm("Do you want to remove this box?");
-    if(confirmRemove) {
-      const boxId = document.querySelectorAll(`[id^="box"]`);
-      if(boxId.length > 0) {
-        const lastBox = boxId[boxId.length -1];
-        const lastBoxId = lastBox.getAttribute("id");
-        removeStoryBox(lastBoxId);
-        boxNumber--;
-      } else {
-        alert("no box to remove");
-      }
-    }
-    console.log("box number" , boxNumber)
-    reloadWindowEventListener();
-  });
-  
-
   const clearDataButton = document.getElementById("clearDataButton");
 
-  clearDataButton.addEventListener("click" , () => {
+  function clearAllData(whereButton) {
     const askIfUserWantsToClearAllData = confirm("Are you sure you want to clear all data linked to your notepad?");
     if (askIfUserWantsToClearAllData) {
+      saveDataForStoryBox();
+      let exportData = localStorage.getItem("storylineNotepad_data");
+      copyTextToClipboard(exportData);
+      if(whereButton === "clearAllData") {
+        alert("Your current storyline has been copied to your clipboard in case of regret.");
+      } else if(whereButton === "import") {
+        alert("Your current storyline has been copied to your clipboard so that you can use it later. Keep it safe!!");
+      }
       window.removeEventListener("beforeunload" , beforeUnloadEvent);
       localStorage.removeItem("storylineNotepad_data");
       location.reload();
     } else {
-      console.warn("Clear Data Not Done")
+      console.warn("Clear Data Not Done");
     }
+  }
+
+  clearDataButton.addEventListener("click" , () => {
+    clearAllData("clearAllData");
   });
 
 
@@ -267,7 +265,7 @@ if(allLoaded || noLoadNeeded) {
 
 
   const themeSelect = document.getElementById("themeSelect");
-  const defaultTheme = "seaView-theme";
+  const defaultTheme = "void-theme";
   const loadedLastTheme = localStorage.getItem("savedLastTheme");
   if(loadedLastTheme) {
     document.body.classList.add(`${loadedLastTheme}-theme`);
@@ -278,9 +276,27 @@ if(allLoaded || noLoadNeeded) {
 
   themeSelect.addEventListener("change" , () => {
     let currentTheme = themeSelect.value;
-    document.body.classList.remove("seaView-theme" , "midnight-theme" , "hellScape-theme" , "grass-theme", "void-theme");
+    document.body.classList.remove("seaView-theme" , "midnight-theme" , "hellScape-theme" , "void-theme");
     document.body.classList.add(currentTheme + "-theme");
     localStorage.setItem("savedLastTheme" , themeSelect.value);
+  });
+
+  const fontSizeSelect = document.getElementById("fontSizeSelect");
+  const defaultFontSize = "normal";
+  const loadedLastFontSize = localStorage.getItem("savedLastFontSize");
+  if(loadedLastTheme) {
+    document.body.classList.add(`fontSize-${loadedLastFontSize}`);
+    fontSizeSelect.value = `${loadedLastFontSize}`
+  } else {
+    document.body.classList.add(defaultFontSize);
+  }
+
+  fontSizeSelect.addEventListener("change" , () => {
+    let currentFontSize = fontSizeSelect.value;
+    console.log(currentFontSize)
+    document.body.classList.remove("fontSize-small", "fontSize-normal", "fontSize-large", );
+    document.body.classList.add("fontSize-" + currentFontSize);
+    localStorage.setItem("savedLastFontSize" , fontSizeSelect.value);
   });
 }
 
@@ -363,6 +379,7 @@ exportDataButton.addEventListener("click", function(event) {
 importDataButton.addEventListener("click", async function() {
   var importOutput = await exportImportPopup("import");
   if(importOutput) {
+    clearAllData("import");
     localStorage.setItem("storylineNotepad_data", importOutput);
     location.reload();
   }
@@ -378,8 +395,8 @@ saveButton.addEventListener("click", function() {
   });
 });
 
-document.addEventListener('keydown', function(event) {
-  if ((event.ctrlKey || event.metaKey) && event.key === 's') {
+document.addEventListener("keydown", function(event) {
+  if ((event.ctrlKey || event.metaKey) && event.key === "s") {
     event.preventDefault();
     saveDataForStoryBox()
     saveButton.classList.add("flashGreen")
@@ -388,3 +405,40 @@ document.addEventListener('keydown', function(event) {
     });
   }
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const contextMenu = document.getElementById("contextMenu");
+  const addNewButton = document.getElementById("addNewButton");
+
+  addNewButton.addEventListener("contextmenu", function(event) {
+      event.preventDefault();
+      showContextMenu(event.pageX, event.pageY);
+  });
+
+  document.addEventListener("click", function(event) {
+      if (contextMenu.style.display === "block") {
+          contextMenu.style.display = "none";
+      }
+  });
+  document.addEventListener("contextmenu", function(event) {
+    event.preventDefault();
+  })
+  function showContextMenu(x, y) {
+      contextMenu.style.display = "block";
+      contextMenu.style.left = `${x}px`;
+      contextMenu.style.top = `${y}px`;
+  }
+});
+
+
+
+function removeLastStorybox() {
+  const boxId = document.querySelectorAll(`[id^="box"]`);
+  if(boxId.length > 0) {
+    const lastBox = boxId[boxId.length -1];
+    const lastBoxId = lastBox.getAttribute("id");
+    removeStoryBox(lastBoxId);
+    boxNumber--;
+  }
+}
