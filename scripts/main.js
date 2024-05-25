@@ -3,6 +3,8 @@
 
 // most of this code is from 2023 me, and i hate it all
 
+const versionNumber = "0.2.2";
+
 const storyBoxSection = document.getElementById("StoryBoxSection");
 
 let boxNumber = 1;
@@ -102,12 +104,19 @@ if(loadedData.loadedBoxNumberData && loadedData.loadedStoryBoxTextData) {
 
 function saveStoryLineData(textData, numberData, titleData, saveToDisk) {
   let storyLineData = {
+    versionNumber: versionNumber,
     textData: textData,
     indexData: numberData,
-    storyLineTitle: titleData,
+    storylineTitle: titleData,
   }
   if(saveToDisk) {
-    localStorage.setItem("storylineNotepad_data", JSON.stringify(storyLineData));
+    try {
+      localStorage.setItem("storylineNotepad_data", JSON.stringify(storyLineData));
+      return true;
+    } catch {
+      alert("There was an issue saving, please don't close or refresh page and try again. Error code: 1")
+      return false;
+    }
   }
 }
 
@@ -148,7 +157,9 @@ if(allLoaded || noLoadNeeded) {
       let boxNumberValue = boxNumber
       if(boxNumberValue >= 1) {
         let currentTitle = sessionStorage.getItem("savedStorylineTitle");  //MAKE CURRENT TITLE TMP TORE IN SESSION STORAGE AND THEN RETRIVE IT HERE :££:£:£:£:£
-        saveStoryLineData(storyBoxSaveData, boxNumberValue, currentTitle, true);
+        if(saveStoryLineData(storyBoxSaveData, boxNumberValue, currentTitle, true)) {
+          console.log("Saved <3");
+        }
       } else {
         noSave();
       }
@@ -276,7 +287,7 @@ if(allLoaded || noLoadNeeded) {
 
   themeSelect.addEventListener("change" , () => {
     let currentTheme = themeSelect.value;
-    document.body.classList.remove("seaView-theme" , "midnight-theme" , "hellScape-theme" , "void-theme");
+    document.body.classList.remove("plainLight-theme", "plainDark-theme", "coralReef-theme" , "midnight-theme" , "hellScape-theme" , "void-theme", "sunset-theme", "candyIsland-theme");
     document.body.classList.add(currentTheme + "-theme");
     localStorage.setItem("savedLastTheme" , themeSelect.value);
   });
@@ -294,7 +305,7 @@ if(allLoaded || noLoadNeeded) {
   fontSizeSelect.addEventListener("change" , () => {
     let currentFontSize = fontSizeSelect.value;
     console.log(currentFontSize)
-    document.body.classList.remove("fontSize-small", "fontSize-normal", "fontSize-large", );
+    document.body.classList.remove("fontSize-small", "fontSize-smallBold", "fontSize-normal", "fontSize-normalBold", "fontSize-large", "fontSize-largeBold");
     document.body.classList.add("fontSize-" + currentFontSize);
     localStorage.setItem("savedLastFontSize" , fontSizeSelect.value);
   });
@@ -327,7 +338,7 @@ async function exportImportPopup(exportOrImport) {
     popUpMainElement.innerHTML = `
       <div class="exportDataOutputDiv center-header-color">
         <p>Your storyline data has been copied to your clipboard.</p>
-        <p>You can either share the data with someone else and have them "import" it, or just store it in a text file until you need it again.</p>
+        <p>It's recommended that you store it in a text file until you need it again.</p>
         <button id="okButton" class="story-box-color">Ok, thanks :)</button>
       </div>
     `;
@@ -343,8 +354,8 @@ async function exportImportPopup(exportOrImport) {
     popUpMainElement.innerHTML = `
       <div class="importDataOutputDiv center-header-color">
         <p class="importDataOutputHeading">Please paste the StorylineNotepad_data here:</p>
-        <input type="text" id="importDataInput" placeholder="Import data only please :3"/>
-        <p>Import will NOT WORK if you already have data present. If you do have an active storyline, please export your current storyline and then "clear data" afterward.</p>
+        <input autocomplete="off" type="text" id="importDataInput" placeholder="Import data only please."/>
+        <p>For "just in case", when you import, your current storyline is copied to your clipboard, you can import it again later.</p>
         <button id="ImportButton" class="story-box-color">Import</button>
         <button id="cancelImportButton" class="story-box-color">Cancel</button>
       </div>
@@ -370,7 +381,7 @@ async function exportImportPopup(exportOrImport) {
 const exportDataButton = document.getElementById("exportDataButton");
 const importDataButton = document.getElementById("importDataButton");
 
-exportDataButton.addEventListener("click", function(event) {
+exportDataButton.addEventListener("click", function() {
   saveDataForStoryBox();
   exportImportPopup("export");
   let exportData = localStorage.getItem("storylineNotepad_data");
@@ -442,3 +453,23 @@ function removeLastStorybox() {
     boxNumber--;
   }
 }
+
+function refreshImageDragPrevention() {
+  var images = document.querySelectorAll('img');
+  images.forEach(function(image) {
+      // Remove existing event listener
+      image.removeEventListener('dragstart', preventDefaultDrag);
+      // Add event listener to prevent image dragging
+      image.addEventListener('dragstart', preventDefaultDrag);
+  });
+};
+setTimeout(() => {
+  refreshImageDragPrevention();
+}, 2500);
+
+document.querySelector(".storylineNotepad_main").addEventListener("wheel", function(event) {
+  if(event.deltaY !== 0) {
+      event.preventDefault();
+      this.scrollLeft += event.deltaY;
+  }
+});
