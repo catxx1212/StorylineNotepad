@@ -13,10 +13,7 @@ All features(subject to current version):
 - 
 ## Known issues (Found by me, if you find one that isnt listed here, please open an issue)
   - There is only one save slot in localStorage, meaning that data from one storyline can be overwritten by another open storyline window / tab.
-    - How to avoid: Use only one window at a time, to avoid overwritting. and if you must edit two at once them please remember to ***export*** the data of the first one you close
-  
-  - This was developed on a 1280 x 720 screen, so on a larger screen it might visually brake :<
-    - Zoom in?  i'm not sure how you would counter this
+    - I have added failsafe's now, so you should.nt lose your storyline when you import 
 
 
 ### Features that will be in the next version:
