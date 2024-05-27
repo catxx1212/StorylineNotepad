@@ -3,7 +3,7 @@
 
 // most of this code is from 2023 me, and i hate it all
 
-const versionNumber = "0.2.2";
+const versionNumber = "0.2.3";
 
 const storyBoxSection = document.getElementById("StoryBoxSection");
 
@@ -454,18 +454,7 @@ function removeLastStorybox() {
   }
 }
 
-function refreshImageDragPrevention() {
-  var images = document.querySelectorAll('img');
-  images.forEach(function(image) {
-      // Remove existing event listener
-      image.removeEventListener('dragstart', preventDefaultDrag);
-      // Add event listener to prevent image dragging
-      image.addEventListener('dragstart', preventDefaultDrag);
-  });
-};
-setTimeout(() => {
-  refreshImageDragPrevention();
-}, 2500);
+
 
 document.querySelector(".storylineNotepad_main").addEventListener("wheel", function(event) {
   if(event.deltaY !== 0) {
