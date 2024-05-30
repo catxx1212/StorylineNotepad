@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Author" content="CatXx1212"/>
-    <meta name="Description" content="A storyline notepad editor (WIP)"/>
+    <meta name="Description" content="This is Storyline Notepad. A place to write full storylines bursting with exsitment or full deep of lore, or just write your mind on pap- *ahem* screen."/>
     <link rel="stylesheet" href="../styles/main.css"/>
     <link rel="stylesheet" href="../styles/animations.css"/>
     <link rel="stylesheet" href="../styles/themes.css"/>
@@ -13,7 +13,9 @@
   <body>
     <header class="header-background-color">
       <div class="logoAndTitleContainer center-header-color">
-        <img class="logoAndTitleContainer_logo" src="../assets/storylineNotepad_logo1x1.png"/>
+        <a href="../index.html">
+          <img class="logoAndTitleContainer_logo" src="../assets/storylineNotepad_logo1x1.png"/>
+        </a>
         <p class="logoAndTitleContainer_title header-text-color">Storyline Notepad</p>
       </div>
       <div class="clearAllAndSaveDiv">
@@ -31,6 +33,10 @@
           <option value="void">Void</option>
           <option value="sunset">Sunset</option>
           <option value="candyIsland">Candy Island</option>
+          <option value="dreamySkies">Dreamy Skies</option>
+          <option value="lightboundFields">Lightbound Fields</option>
+          <option value="pinkNeonDisco">Pink Neon Disco</option>
+          <option value="milkyCappuccino">Milky Cappuccino</option>
         </select>
       </div>
       <div class="fontSizeSelect-menu-container">
@@ -75,8 +81,9 @@
           <p class="reportIssueButton_text">Report Issue</p>
         </div>
       </a>
-      <p class="versionNumber">VERSION: 0.2.3</p>
+      <p id="versionNumber"></p>
     </footer>
+    <script src="../scripts/version.js"></script>
     <script src="../scripts/main.js"></script>
   </body>
 </html>

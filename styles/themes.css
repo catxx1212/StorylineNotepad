@@ -142,6 +142,7 @@
 }
 
 
+
 .void-theme {
   background-color: rgb(20, 8, 18);
   color: rgb(230,230,230);
@@ -180,6 +181,7 @@
   border: 0.5vh solid rgb(18, 6, 16);
   background-color: rgb(78, 31, 56);
 }
+
 
 
 .sunset-theme {
@@ -222,6 +224,7 @@
 }
 
 
+
 .candyIsland-theme {
   background-color: rgb(20, 8, 18);
   color: rgb(20,20,20);
@@ -260,6 +263,7 @@
   border: 0.5vh solid rgb(218, 106, 134);
   background-color: rgb(188, 184, 191);
 }
+
 
 
 .plainLight-theme {
@@ -304,7 +308,6 @@
   transform: color 0.5s;
 }
 
-
 .plainDark-theme {
   background-color: rgb(15, 35, 15);
   color: rgb(240, 240, 240);
@@ -343,3 +346,168 @@
   border: 0.5vh solid rgb(15, 35, 15);
   background-color: rgb(55, 55, 55);
 }
+
+
+
+.dreamySkies-theme {
+  background-color: rgb(15, 35, 15);
+  color: rgb(240, 240, 240);
+}
+.dreamySkies-theme .header-background-color {
+  background-color: rgb(190, 173, 250);
+}
+.dreamySkies-theme .center-header-color{
+  background-color: rgb(180, 163, 240);
+}
+.dreamySkies-theme .header-text-color {
+  color: rgb(20, 20, 20);
+}
+.dreamySkies-theme .main-color {
+  background: linear-gradient(180deg, rgb(190, 173, 250) 5%, rgb(208, 191, 255) 50%, rgb(223, 204, 251) 100%);
+}
+.dreamySkies-theme .story-box-color {
+  background-color: rgb(188, 171, 235);
+  border: 0.5vh solid rgb(20,20,20);
+}
+.dreamySkies-theme textarea {
+  background-color: rgb(188, 171, 235);
+  color: rgb(20, 20, 20);
+}
+.dreamySkies-theme .footer-color {
+  border-top: 0.5vh solid rgb(20,20,20);
+  background: linear-gradient(180deg, rgb(223, 204, 251) 0%, rgb(255, 243, 218) 100%);
+  color: rgb(20, 20, 20);
+}
+.dreamySkies-theme #reportIssueButton {
+  background-color: rgb(223, 204, 251);
+  border: 0.5vh solid rgb(255, 243, 218);
+  color: rgb(20, 20, 20);
+}
+.dreamySkies-theme #reportIssueButton:hover {
+  border: 0.5vh solid rgb(223, 204, 251);
+  background-color: rgb(255, 243, 218);
+}
+
+
+
+.lightboundFields-theme {
+  background-color: rgb(15, 35, 15);
+  color: rgb(240, 240, 240);
+}
+.lightboundFields-theme .header-background-color {
+  background-color: rgb(181, 193, 142);
+}
+.lightboundFields-theme .center-header-color{
+  background-color: rgb(181, 193, 142);
+}
+.lightboundFields-theme .header-text-color {
+  color: rgb(20, 20, 20);
+}
+.lightboundFields-theme .main-color {
+  background: linear-gradient(180deg, rgb(181, 193, 142) 5%, rgb(247, 220, 185) 100%);
+}
+.lightboundFields-theme .story-box-color {
+  background-color: rgb(237, 210, 175);
+  border: 0.5vh solid rgb(20,20,20);
+}
+.lightboundFields-theme textarea {
+  background-color: rgb(237, 210, 175);
+  color: rgb(20, 20, 20);
+}
+.lightboundFields-theme .footer-color {
+  border-top: 0.5vh solid rgb(20,20,20);
+  background: linear-gradient(180deg, rgb(222, 172, 128) 0%, rgb(185, 148, 112) 100%);
+  color: rgb(20, 20, 20);
+}
+.lightboundFields-theme #reportIssueButton {
+  background-color: rgb(222, 172, 128);
+  border: 0.5vh solid rgb(185, 148, 112);
+  color: rgb(20, 20, 20);
+}
+.lightboundFields-theme #reportIssueButton:hover {
+  border: 0.5vh solid rgb(222, 172, 128);
+  background-color: rgb(185, 148, 112);
+}
+
+
+
+.pinkNeonDisco-theme {
+  background-color: rgb(15, 35, 15);
+  color: rgb(240, 240, 240);
+}
+.pinkNeonDisco-theme .header-background-color {
+  background-color: rgb(255, 32, 78);
+}
+.pinkNeonDisco-theme .center-header-color{
+  background-color: rgb(245, 22, 68);
+}
+.pinkNeonDisco-theme .header-text-color {
+  color: rgb(240, 240, 240);
+}
+.pinkNeonDisco-theme .main-color {
+  background: linear-gradient(180deg, rgb(255, 32, 78) 5%, rgb(160, 21, 62) 50%, rgb(93, 14, 65) 100%);
+}
+.pinkNeonDisco-theme .story-box-color {
+  background-color: rgb(255, 52, 98);
+  border: 0.5vh solid rgb(20,20,20);
+}
+.pinkNeonDisco-theme textarea {
+  background-color: rgb(255, 52, 98);
+  color: rgb(20, 20, 20);
+}
+.pinkNeonDisco-theme .footer-color {
+  border-top: 0.5vh solid rgb(20,20,20);
+  background: linear-gradient(180deg, rgb(93, 14, 65) 0%, rgb(0, 34, 77) 100%);
+  color: rgb(240, 240, 240);
+}
+.pinkNeonDisco-theme #reportIssueButton {
+  background-color: rgb(93, 14, 65);
+  border: 0.5vh solid rgb(0, 34, 77);
+  color: rgb(240, 240, 240);
+}
+.pinkNeonDisco-theme #reportIssueButton:hover {
+  border: 0.5vh solid rgb(93, 14, 65);
+  background-color: rgb(0, 34, 77);
+}
+
+
+
+.milkyCappuccino-theme {
+  background-color: rgb(15, 35, 15);
+  color: rgb(20, 20, 20);
+}
+.milkyCappuccino-theme .header-background-color {
+  background-color: rgb(241, 229, 209);
+}
+.milkyCappuccino-theme .center-header-color{
+  background-color: rgb(231, 219, 199);
+}
+.milkyCappuccino-theme .header-text-color {
+  color: rgb(20, 20, 20);
+}
+.milkyCappuccino-theme .main-color {
+  background: linear-gradient(180deg, rgb(241, 229, 209) 5%, rgb(219, 181, 181) 100%);
+}
+.milkyCappuccino-theme .story-box-color {
+  background-color: rgb(209, 171, 171);
+  border: 0.5vh solid rgb(20,20,20);
+}
+.milkyCappuccino-theme textarea {
+  background-color: rgb(209, 171, 171);
+  color: rgb(20, 20, 20);
+}
+.milkyCappuccino-theme .footer-color {
+  border-top: 0.5vh solid rgb(20,20,20);
+  background: linear-gradient(180deg, rgb(219, 181, 181) 0%, rgb(131, 95, 95) 100%);
+  color: rgb(20, 20, 20);
+}
+.milkyCappuccino-theme #reportIssueButton {
+  background-color: rgb(219, 181, 181);
+  border: 0.5vh solid rgb(131, 95, 95);
+  color: rgb(20, 20, 20);
+}
+.milkyCappuccino-theme #reportIssueButton:hover {
+  border: 0.5vh solid rgb(219, 181, 181);
+  background-color: rgb(131, 95, 95);
+}
+

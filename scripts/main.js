@@ -95,16 +95,16 @@ if(loadedData.loadedBoxNumberData && loadedData.loadedStoryBoxTextData) {
   // console.log();
   // storylineTitle.textContent = "Untitled Notepad";
   // sessionStorage.setItem("savedStorylineTitle" , "Untitled Notepad");
-  storyline_data = {
-    storyLineTitle: "Untitled Notepad",
-  }
+  // storyline_data = {
+  //   storyLineTitle: "Untitled Notepad",
+  // }
 }
 
 
 
 function saveStoryLineData(textData, numberData, titleData, saveToDisk) {
   let storyLineData = {
-    versionNumber: versionNumber,
+    versionNumber: currentVersionNumber,
     textData: textData,
     indexData: numberData,
     storylineTitle: titleData,
@@ -129,7 +129,7 @@ if(allLoaded || noLoadNeeded) {
   //    currentActiveStorylineNotepad_whenOpened = currentActiveStorylineNotepad_whenOpened.replace(/ /g, "_");
   // }
   // console.log(currentActiveStorylineNotepad_whenOpened);
-
+  
 
   const exitMessage = "Your work has hopfully been saved, unless you have local storage for websites disabled";
 
@@ -252,8 +252,9 @@ if(allLoaded || noLoadNeeded) {
 
   //the two eventlisteners under here save thier data diffrently to the others. note to me: do not fuck with them (2024 me: girl calm tf down :3 )
   const storylineTitle = document.getElementById("storylineTitle");
-  var loadedStorylineTitleData = storyline_data.storyLineTitle;
-  if(loadedStorylineTitleData) {
+  var loadedStorylineTitleData;
+  if(storyline_data) {
+    loadedStorylineTitleData = storyline_data.storylineTitle;
     storylineTitle.textContent = loadedStorylineTitleData;
     sessionStorage.setItem("savedStorylineTitle", loadedStorylineTitleData);
   } else {
@@ -276,18 +277,32 @@ if(allLoaded || noLoadNeeded) {
 
 
   const themeSelect = document.getElementById("themeSelect");
-  const defaultTheme = "void-theme";
+  const defaultTheme = "void";
   const loadedLastTheme = localStorage.getItem("savedLastTheme");
   if(loadedLastTheme) {
     document.body.classList.add(`${loadedLastTheme}-theme`);
     themeSelect.value = `${loadedLastTheme}`
   } else {
-    document.body.classList.add(defaultTheme);
+    document.body.classList.add(`${defaultTheme}-theme`);
+    themeSelect.value = `${defaultTheme}`
   }
 
   themeSelect.addEventListener("change" , () => {
     let currentTheme = themeSelect.value;
-    document.body.classList.remove("plainLight-theme", "plainDark-theme", "coralReef-theme" , "midnight-theme" , "hellScape-theme" , "void-theme", "sunset-theme", "candyIsland-theme");
+    document.body.classList.remove(
+    "plainLight-theme", 
+    "plainDark-theme", 
+    "coralReef-theme" , 
+    "midnight-theme", 
+    "hellScape-theme", 
+    "void-theme", 
+    "sunset-theme", 
+    "candyIsland-theme", 
+    "dreamySkies-theme",
+    "lightboundFields-theme",
+    "pinkNeonDisco-theme",
+    "milkyCappuccino-theme",
+  );
     document.body.classList.add(currentTheme + "-theme");
     localStorage.setItem("savedLastTheme" , themeSelect.value);
   });
@@ -299,7 +314,8 @@ if(allLoaded || noLoadNeeded) {
     document.body.classList.add(`fontSize-${loadedLastFontSize}`);
     fontSizeSelect.value = `${loadedLastFontSize}`
   } else {
-    document.body.classList.add(defaultFontSize);
+    document.body.classList.add(`fontSize-${defaultFontSize}`);
+    fontSizeSelect.value = defaultFontSize;
   }
 
   fontSizeSelect.addEventListener("change" , () => {
@@ -462,3 +478,14 @@ document.querySelector(".storylineNotepad_main").addEventListener("wheel", funct
       this.scrollLeft += event.deltaY;
   }
 });
+
+
+if(window.innerHeight > window.innerWidth) {
+  var wrongScreenAspectRatioElement = document.createElement("div");
+  wrongScreenAspectRatioElement.classList.add("wrongScreenAspectRatioElement", "center-header-color");
+  wrongScreenAspectRatioElement.innerHTML = `
+    <p class="wrongScreenAspectRatioElement_firstText">Hold on a second</p>
+    <p class="wrongScreenAspectRatioElement_lastText">Your screen height is larger than your screen width. Storyline Notepad was designed for laptop / monitors. Maybe in a future version _(0.0)/ </p>
+  `;
+  document.body.appendChild(wrongScreenAspectRatioElement);
+}

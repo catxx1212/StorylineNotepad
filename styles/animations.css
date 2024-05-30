@@ -1,12 +1,12 @@
   /* animations for addButton */
   
   .button-center-spin {
-    transition: transform 1s;
+    transition: transform 0.5s;
   }
 
   #addNewButton:hover .button-center-spin {
     transform: rotate(360deg);
-    transition: all 1s;
+    transition: all 0.5s;
   }
   /* end of animations for addButton */
 

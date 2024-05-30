@@ -1,20 +1,26 @@
-VER 0.2.3
+VER 0.2.4
+
+Changes in this update:
+- Fixed an issue with the storyline title not saving.
+- Added a screen to help prevent phone users. 
+- MORE THEMES!!
+- Other minor fixes.
+
 
 ### Storyline notepad is a website that allows you to plan or outline your next potential story
 ### I made storyline notepad originally to help (and procrastinate) with a game's base story. Since then i have revisted and added new features :D
 
 All features(subject to current version):
-  - Theme changing
+  - Theme changing (many themes >:3 )
   - Import and export storyline data (plan copied data)
   - Storyline title changing
   - Auto saving on exiting, and manual (ctrl + s) saving too
   - Clear all data
-  - A cat logo (Will be the actual logo when I think of one)
-- 
+  - 
 ## Known issues (Found by me, if you find one that isnt listed here, please open an issue)
   - There is only one save slot in localStorage, meaning that data from one storyline can be overwritten by another open storyline window / tab.
-    - I have added failsafe's now, so you should'nt lose your storyline when you import 
-
+    - I have added failsafes now, so you shouldnt lose your storyline when you import or clear data, as "just in case", it copies the data your clearing to your clipboard.
+  - Storyline Notepad still isnt made for phone uses yet.
 
 ### Features that will be in the next version:
 - The ability to remove boxes anywhere in the storyline
@@ -23,6 +29,3 @@ All features(subject to current version):
 - Storyline saves will be a file instead of a copied JSON string, possibly under the `.storylinenotepad` file extension
 - Better themes
 - OH MY GOD I COULD ADD THEME RELATED BACKGROUND MUSIC!! (I might, but not a definite yes)
-
-
-That's it for this file, i will clean up the project more and release this publically

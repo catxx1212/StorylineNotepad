@@ -43,6 +43,12 @@ header {
       position: absolute;
       left: 0;
       top: 0;
+      transition: all 0.5s;
+    }
+    .logoAndTitleContainer_logo:hover {
+      filter: brightness(115%);
+      transform: scale(95%);
+      transition: all 0.5s;
     }
     .logoAndTitleContainer_title {
       height: 100%;
@@ -305,7 +311,7 @@ footer {
     transform: color 0.5s;
     font-weight: bold;
   }
-  .versionNumber {
+  #versionNumber {
     text-align: center;
     font-size: 2vh;
     font-weight: bold;
@@ -326,8 +332,8 @@ footer {
 }
   .theme-menu { 
     height: 30%;
-    border-radius: 0.5vh;
-    aspect-ratio: 7 / 2;
+    width: fit-content;
+    /* aspect-ratio: 7 / 2; */
     font-size: 2vh;
     transition: background-color 0.5s
   }
@@ -350,7 +356,8 @@ footer {
   .fontSizeSelect-menu { 
     height: 30%;
     border-radius: 0.5vh;
-    aspect-ratio: 3 / 1;
+    width: fit-content;
+    /* aspect-ratio: 3 / 1; */
     font-size: 2vh;
     transition: background-color 0.5s
   }
@@ -629,3 +636,30 @@ textarea {
 #contextMenu ul li:hover {
   background-color: rgb(255, 230, 255);
 }
+
+
+.wrongScreenAspectRatioElement {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center
+}
+  .wrongScreenAspectRatioElement_firstText {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 10vw;
+  }
+  .wrongScreenAspectRatioElement_lastText {
+    position: relative;
+    width: 90%;
+    text-align: center;
+    font-size: 5vw;
+    padding: 0 5% 0 5%;
+  }
