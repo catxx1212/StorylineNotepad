@@ -263,7 +263,7 @@ footer {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 75%;
+    width: 14%;
     aspect-ratio: 4 / 1;
     background-color: rgb(78, 31, 57);
     border-radius: 2vh;
@@ -282,7 +282,7 @@ footer {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      font-size: 3.5vh;
+      font-size: 2vw;
       text-align: center;
       width: 100%;
       color: rgb(230, 230, 230)
@@ -292,7 +292,7 @@ footer {
     right: 15%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 50%;
+    width: 11%;
     aspect-ratio: 4 / 1;
     border-radius: 2vh;
     transition: all 0.5s;
@@ -305,7 +305,7 @@ footer {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.5vh;
+    font-size: 1.5vw;
     text-align: center;
     width: 100%;
     transform: color 0.5s;
@@ -321,101 +321,104 @@ footer {
     transform: translateY(-50%);
   }
 
-.theme-menu-container {
+.theme_menu_container {
   position: absolute;
-  right: 20%;
+  right: 15%;
   height: 100%;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-  .theme-menu { 
-    height: 30%;
+  .theme_menu { 
+    height: fit-content;
     width: fit-content;
-    /* aspect-ratio: 7 / 2; */
-    font-size: 2vh;
+    font-size: 1vw;
+    padding: 1%;
     transition: background-color 0.5s
   }
-    .themeSelect-label {
-      font-size: 2vh;
-      margin-right: 1vh;
+    .themeSelect_label {
+      font-size: 1.25vw;
+      margin-right: 0.5vw;
     }
-  .theme-menu:focus {
+  .theme_menu:focus {
     outline: none;
   }
-.fontSizeSelect-menu-container {
+.fontSizeSelect_menu_container {
   position: absolute;
-  left: 20%;
+  left: 13.5%;
   height: 100%;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-  .fontSizeSelect-menu { 
-    height: 30%;
-    border-radius: 0.5vh;
+  .fontSizeSelect_menu { 
+    height: fit-content;
     width: fit-content;
-    /* aspect-ratio: 3 / 1; */
-    font-size: 2vh;
+    font-size: 1vw;
+    padding: 1%;
     transition: background-color 0.5s
   }
-    .fontSizeSelect-menu-label {
-      font-size: 2vh;
-      margin-right: 1vh;
+    .fontSizeSelect_menu_label {
+      font-size: 1.25vw;
+      position: relative;
+      left: 10%;
+      /* margin-right: 0.5vw; */
     }
-  .fontSizeSelect-menu:focus {
+  .fontSizeSelect_menu:focus {
     outline: none;
   }
 .clearAllAndSaveDiv {
   position: absolute;
-  left: 1.5%;
-  aspect-ratio: 5 / 2;
+  left: 0%;
+  /* aspect-ratio: 5 / 2; */
   height: 100%;
+  width: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
   #clearDataButton {
-    width: 48%;
-    height: 25%;
-    font-size: 2vh;
+    width: 60%;
+    height: fit-content;
+    font-size: 1vw;
     border-radius: 0.5vh;
     margin-bottom: 0.5vh;
     transition: background-color 0.5s
   }
   #saveButton {
-    width: 48%;
-    height: 25%;
-    font-size: 2vh;
+    width: 60%;
+    height: fit-content;
+    font-size: 1vw;
     border-radius: 0.5vh;
     margin-top: 0.5vh;
     transition: background-color 0.5s
 } 
 .importAndExportDiv {
   position: absolute;
-  right: 1.5%;
-  aspect-ratio: 3 / 2;
+  right: 0%;
+  /* aspect-ratio: 3 / 2; */
   height: 100%;
+  width: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 #importDataButton {
-  width: 48%;
-  height: 25%;
-  font-size: 2vh;
+  width: 60%;
+  height: fit-content;
+  font-size: 1vw;
   border-radius: 0.5vh;
   margin-top: 0.5vh;
   transition: background-color 0.5s
 }
 #exportDataButton {
-  width: 48%;
-  height: 25%;
-  font-size: 2vh;
+  width: 60%;
+  height: fit-content;
+  font-size: 1vw;
   border-radius: 0.5vh;
   margin-bottom: 0.5vh;
   transition: background-color 0.5s
@@ -507,13 +510,21 @@ footer {
   transform: translateX(-50%);
 }
 
-#storylineTitle{
+.stroylineTitle_div {
   position: fixed;
   top: 17%;
   width: 100%;
+  height: fit-content;
   font-size: 5vh;
   text-align: center;
   z-index: 24;
+  display: flex;
+  justify-content: center;
+}
+
+#storylineTitle{
+  width: 50%;
+  height: 100%;
 }
 
 #storylineNotepad {
@@ -532,7 +543,7 @@ footer {
 }
 
 
-.box-container {
+.box_container {
   position: relative;
   display: flex;
   width: fit-content;
@@ -584,7 +595,7 @@ textarea {
   cursor: pointer;
 }
 
-.button-background {
+.button_background {
   position: absolute;
   top: 0;
   left: 0;
@@ -593,7 +604,7 @@ textarea {
   height: 100%;
 }
 
-.button-center {
+.button_center {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -604,7 +615,7 @@ textarea {
   align-items: center;
 }
 
-.button-center img {
+.button_center img {
   height: 30%;
   aspect-ratio: 1 / 1;
 }
@@ -662,4 +673,85 @@ textarea {
     text-align: center;
     font-size: 5vw;
     padding: 0 5% 0 5%;
+  }
+
+
+
+#newUpdateElement {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  aspect-ratio: 5 / 3;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  border: 1vh solid rgb(20, 20, 20);
+  border-radius: 2vh;
+}
+  #newUpdateElement_closeButton {
+    position: absolute;
+    right: 2.5%;
+    top: 2.5%;
+    height: 10%;
+    aspect-ratio: 1 / 1;
+    background-color: red;
+    border-radius: 0.5vh;
+    transition: all 0.5s;
+  }
+  #newUpdateElement_closeButton:hover {
+    transition: all 0.5s;
+    filter: brightness(125%);
+    transform: scale(105%);
+  }
+  .newUpdateElement_title {
+    position: relative;
+    margin-top: 5%;
+    width: 90%;
+    padding: 0 5%;
+    font-size: 3vw;
+    pointer-events: none;
+    text-align: center;
+    text-decoration: underline;
+  }
+  .newUpdateElement_version {
+    position: relative;
+    margin-top: 2.5%;
+    width: 90%;
+    padding: 0 5%;
+    font-size: 1.75vw;
+    pointer-events: none;
+    text-align: center;
+  }
+  .newUpdateElement_changedTitle {
+    position: relative;
+    margin-top: 5%;
+    width: 90%;
+    padding: 0 5%;
+    font-size: 2.5vw;
+    pointer-events: none;
+    text-align: center;
+  }
+  .newUpdateElement_list {
+    position: relative;
+    width: 75%;
+    padding: 0 5%;
+    font-size: 1.5vw;
+    pointer-events: none;
+    text-align: center;
+    margin:  2.5% auto 0 auto;
+  }
+    .newUpdateElement_list li {
+      text-align: center;
+      list-style-position: inside;
+      list-style-type: square;
+      margin-bottom: 1%;
+    }
+  .newUpdateElement_text1 {
+    position: relative;
+    margin-top: 5%;
+    width: 90%;
+    padding: 0 5%;
+    font-size: 1.75vw;
+    pointer-events: none;
+    text-align: center;
   }

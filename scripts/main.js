@@ -1,9 +1,6 @@
-// The only thing stopping me from redoing all of this now is the fact i have a 
-// game i want to finish first. Dosnt mean i havent added and redone some bits anyways :)
+// massive changes are under way in a diffren folder outside of this folder >:3
 
-// most of this code is from 2023 me, and i hate it all
 
-const versionNumber = "0.2.3";
 
 const storyBoxSection = document.getElementById("StoryBoxSection");
 
@@ -48,8 +45,8 @@ if(loadedData.loadedBoxNumberData && loadedData.loadedStoryBoxTextData) {
   
     while(storyBoxesToMake >= boxNumber) {
       let storyBox = `
-        <div class="box-container" id="box${boxNumber}">
-          <div class="storyBox story-box-color">
+        <div class="box_container" id="box${boxNumber}">
+          <div class="storyBox story_box_color">
             <textarea class="text" id="textarea${boxNumber}" placeholder="storyBox${boxNumber}"></textarea>
           </div>
           <div class="arrow">
@@ -184,12 +181,12 @@ if(allLoaded || noLoadNeeded) {
     return exitMessage;
   };
 
-  function reloadWindowEventListener() {
-    window.removeEventListener("beforeunload" , beforeUnloadEvent);
-    window.addEventListener("beforeunload" , beforeUnloadEvent);
-  };
+  // function reloadWindowEventListener() {           // im concerned becuase i remember that this was needed because of some issue. i just tested it without 1 year later and it all seems fine..
+  //   window.removeEventListener("beforeunload" , beforeUnloadEvent);
+  //   window.addEventListener("beforeunload" , beforeUnloadEvent);
+  // };
 
-  window.addEventListener("beforeunload" , beforeUnloadEvent );
+  window.addEventListener("beforeunload", beforeUnloadEvent);
 
 
 
@@ -201,8 +198,8 @@ if(allLoaded || noLoadNeeded) {
     console.warn(boxNumber);
 
     let storyBox = `
-      <div class="box-container" id="box${boxNumber}">
-        <div class="storyBox story-box-color">
+      <div class="box_container" id="box${boxNumber}">
+        <div class="storyBox story_box_color">
           <textarea class="text" id="textarea${boxNumber}" placeholder="storyBox${boxNumber}"></textarea>
         </div>
         <div class="arrow">
@@ -212,9 +209,7 @@ if(allLoaded || noLoadNeeded) {
 
       storyBoxSection.insertAdjacentHTML("beforeend" , storyBox);
 
-      reloadWindowEventListener();
-      //MERGE SAVE.JS  WITH THIS
-      //Done :D
+      // reloadWindowEventListener();
   });
 
   function removeStoryBox(id) {
@@ -253,7 +248,7 @@ if(allLoaded || noLoadNeeded) {
   //the two eventlisteners under here save thier data diffrently to the others. note to me: do not fuck with them (2024 me: girl calm tf down :3 )
   const storylineTitle = document.getElementById("storylineTitle");
   var loadedStorylineTitleData;
-  if(storyline_data) {
+  if(storyline_data && storyline_data.storylineTitle !== null) {
     loadedStorylineTitleData = storyline_data.storylineTitle;
     storylineTitle.textContent = loadedStorylineTitleData;
     sessionStorage.setItem("savedStorylineTitle", loadedStorylineTitleData);
@@ -265,7 +260,11 @@ if(allLoaded || noLoadNeeded) {
   storylineTitle.addEventListener("click" , () => {
     let newTitle = prompt("New Title:");
     console.log("any errors to do with the title changing is fine, dw about that");
-    if(newTitle.trim() !== ``){
+    if(newTitle.trim() !== ``) {
+      if(newTitle.length >= 40) {
+        alert("Storyline title too large. Must be under 40 characters.");
+        return;
+      }
       storylineTitle.textContent = newTitle;
       sessionStorage.setItem("savedStorylineTitle" , newTitle)
     } else {
@@ -277,33 +276,33 @@ if(allLoaded || noLoadNeeded) {
 
 
   const themeSelect = document.getElementById("themeSelect");
-  const defaultTheme = "void";
-  const loadedLastTheme = localStorage.getItem("savedLastTheme");
+  var defaultTheme = "void";
+  var loadedLastTheme = localStorage.getItem("savedLastTheme");
   if(loadedLastTheme) {
-    document.body.classList.add(`${loadedLastTheme}-theme`);
+    document.body.classList.add(`${loadedLastTheme}_theme`);
     themeSelect.value = `${loadedLastTheme}`
   } else {
-    document.body.classList.add(`${defaultTheme}-theme`);
+    document.body.classList.add(`${defaultTheme}_theme`);
     themeSelect.value = `${defaultTheme}`
   }
 
   themeSelect.addEventListener("change" , () => {
     let currentTheme = themeSelect.value;
     document.body.classList.remove(
-    "plainLight-theme", 
-    "plainDark-theme", 
-    "coralReef-theme" , 
-    "midnight-theme", 
-    "hellScape-theme", 
-    "void-theme", 
-    "sunset-theme", 
-    "candyIsland-theme", 
-    "dreamySkies-theme",
-    "lightboundFields-theme",
-    "pinkNeonDisco-theme",
-    "milkyCappuccino-theme",
+    "plainLight_theme", 
+    "plainDark_theme", 
+    "coralReef_theme" , 
+    "midnight_theme", 
+    "hellScape_theme", 
+    "void_theme", 
+    "sunset_theme", 
+    "candyIsland_theme", 
+    "dreamySkies_theme",
+    "lightboundFields_theme",
+    "pinkNeonDisco_theme",
+    "milkyCappuccino_theme",
   );
-    document.body.classList.add(currentTheme + "-theme");
+    document.body.classList.add(currentTheme + "_theme");
     localStorage.setItem("savedLastTheme" , themeSelect.value);
   });
 
@@ -311,18 +310,18 @@ if(allLoaded || noLoadNeeded) {
   const defaultFontSize = "normal";
   const loadedLastFontSize = localStorage.getItem("savedLastFontSize");
   if(loadedLastTheme) {
-    document.body.classList.add(`fontSize-${loadedLastFontSize}`);
+    document.body.classList.add(`fontSize_${loadedLastFontSize}`);
     fontSizeSelect.value = `${loadedLastFontSize}`
   } else {
-    document.body.classList.add(`fontSize-${defaultFontSize}`);
+    document.body.classList.add(`fontSize_${defaultFontSize}`);
     fontSizeSelect.value = defaultFontSize;
   }
 
   fontSizeSelect.addEventListener("change" , () => {
     let currentFontSize = fontSizeSelect.value;
     console.log(currentFontSize)
-    document.body.classList.remove("fontSize-small", "fontSize-smallBold", "fontSize-normal", "fontSize-normalBold", "fontSize-large", "fontSize-largeBold");
-    document.body.classList.add("fontSize-" + currentFontSize);
+    document.body.classList.remove("fontSize_small", "fontSize_smallBold", "fontSize_normal", "fontSize_normalBold", "fontSize_large", "fontSize_largeBold");
+    document.body.classList.add("fontSize_" + currentFontSize);
     localStorage.setItem("savedLastFontSize" , fontSizeSelect.value);
   });
 }
@@ -332,7 +331,7 @@ function copyTextToClipboard(text) {
     const textArea = document.createElement("textarea");
     textArea.value = text;
     textArea.style.position = "fixed";
-    textArea.style.left = "-9999px";
+    textArea.style.left = "-9999%";
     document.body.appendChild(textArea);
     textArea.select();
     try {
@@ -352,10 +351,10 @@ async function exportImportPopup(exportOrImport) {
   popUpMainElement.classList.add("popUpBackground");
   if(exportOrImport === "export") {
     popUpMainElement.innerHTML = `
-      <div class="exportDataOutputDiv center-header-color">
+      <div class="exportDataOutputDiv center_header_color">
         <p>Your storyline data has been copied to your clipboard.</p>
         <p>It's recommended that you store it in a text file until you need it again.</p>
-        <button id="okButton" class="story-box-color">Ok, thanks :)</button>
+        <button id="okButton" class="story_box_color">Ok, thanks :)</button>
       </div>
     `;
     document.body.appendChild(popUpMainElement);
@@ -368,12 +367,12 @@ async function exportImportPopup(exportOrImport) {
     });
   } else if (exportOrImport === "import") {
     popUpMainElement.innerHTML = `
-      <div class="importDataOutputDiv center-header-color">
+      <div class="importDataOutputDiv center_header_color">
         <p class="importDataOutputHeading">Please paste the StorylineNotepad_data here:</p>
         <input autocomplete="off" type="text" id="importDataInput" placeholder="Import data only please."/>
         <p>For "just in case", when you import, your current storyline is copied to your clipboard, you can import it again later.</p>
-        <button id="ImportButton" class="story-box-color">Import</button>
-        <button id="cancelImportButton" class="story-box-color">Cancel</button>
+        <button id="ImportButton" class="story_box_color">Import</button>
+        <button id="cancelImportButton" class="story_box_color">Cancel</button>
       </div>
     `;
     document.body.appendChild(popUpMainElement);
@@ -448,9 +447,9 @@ document.addEventListener("DOMContentLoaded", function() {
           contextMenu.style.display = "none";
       }
   });
-  document.addEventListener("contextmenu", function(event) {
-    event.preventDefault();
-  })
+  // document.addEventListener("contextmenu", function(event) {
+  //   event.preventDefault();
+  // })
   function showContextMenu(x, y) {
       contextMenu.style.display = "block";
       contextMenu.style.left = `${x}px`;
@@ -482,10 +481,61 @@ document.querySelector(".storylineNotepad_main").addEventListener("wheel", funct
 
 if(window.innerHeight > window.innerWidth) {
   var wrongScreenAspectRatioElement = document.createElement("div");
-  wrongScreenAspectRatioElement.classList.add("wrongScreenAspectRatioElement", "center-header-color");
+  wrongScreenAspectRatioElement.classList.add("wrongScreenAspectRatioElement", "center_header_color");
   wrongScreenAspectRatioElement.innerHTML = `
     <p class="wrongScreenAspectRatioElement_firstText">Hold on a second</p>
     <p class="wrongScreenAspectRatioElement_lastText">Your screen height is larger than your screen width. Storyline Notepad was designed for laptop / monitors. Maybe in a future version _(0.0)/ </p>
   `;
   document.body.appendChild(wrongScreenAspectRatioElement);
+}
+
+
+
+var newUpdateElement = document.createElement("div");
+newUpdateElement.id = "newUpdateElement";
+newUpdateElement.classList.add("footer_color");
+newUpdateElement.innerHTML = `
+  <img id="newUpdateElement_closeButton" src="../assets/closeButton.png" title="Close"/>
+  <p class="newUpdateElement_title">There has been an update!!</p>
+  <p class="newUpdateElement_version">Version 0.2.4 => 0.2.5</p>
+  <p class="newUpdateElement_changedTitle">Here's what has changed:</p>
+  <ul class="newUpdateElement_list">
+    <li>Fixed an issue with the context menu not coming up for spelling corrections.</li>
+    <li>Added the update pop-up.</li>
+    <li>Fixed and adjusted some CSS.</li>
+    <li>Fixed an issue with the storyline title showing "null".</li>
+    <li>Changes to the storyline title code too!</li>
+  </ul>
+  <p class="newUpdateElement_text1">I hope these updates make it a better experience for you. <br/> Have a nice day too!!</p>
+  
+`;
+
+var popUpMainElement = document.createElement("div");
+popUpMainElement.classList.add("popUpBackground");
+popUpMainElement.appendChild(newUpdateElement);
+
+
+
+var flipToUse = 1;  // <<<<<<<  change this each update PLEASE :3   last changed: 0.2.5 = 1    <<< (this might help)
+var otherFlip = function() {
+  if(flipToUse === 1) {
+    return 2
+  } else if(flipToUse === 2) {
+    return 1;
+  }
+}
+if(!localStorage.getItem("newUpdate_flip1") && !localStorage.getItem("newUpdate_flip2")) {
+  localStorage.setItem("newUpdate_flip1", true);
+  localStorage.setItem("newUpdate_flip2", false);
+}
+
+if(localStorage.getItem(`newUpdate_flip${flipToUse}`) === 'true') {
+  document.body.appendChild(popUpMainElement);
+  setTimeout(() => {
+    document.getElementById("newUpdateElement_closeButton").addEventListener("click", function() {
+      popUpMainElement.remove();
+    });
+  }, 500);
+  localStorage.setItem(`newUpdate_flip${flipToUse}`, false);
+  localStorage.setItem(`newUpdate_flip${otherFlip()}`, true);
 }

@@ -1,512 +1,512 @@
-.fontSize-small .text {
+.fontSize_small .text {
   font-size: 2vh;
 }
-.fontSize-smallBold .text {
+.fontSize_smallBold .text {
   font-size: 2vh;
   font-weight: bold;
 }
-.fontSize-normal .text {
+.fontSize_normal .text {
   font-size: 2.5vh;
 }
-.fontSize-normalBold .text {
+.fontSize_normalBold .text {
   font-size: 2.5vh;
   font-weight: bold;
 }
-.fontSize-large .text {
+.fontSize_large .text {
   font-size: 3.5vh;
 }
-.fontSize-largeBold .text {
+.fontSize_largeBold .text {
   font-size: 3.5vh;
   font-weight: bold;
 }
 
 /*  NOTE:  CHANGE PX TO VH!! <<<<<<<<<<<<   done <3 */   
 
-.coralReef-theme {
+.coralReef_theme {
   background-color: rgb(6, 189, 193);
 }
-.coralReef-theme .header-background-color {
+.coralReef_theme .header_background_color {
   background: linear-gradient(180deg, rgb(188, 102, 167) 0%, rgb(56, 44, 142) 35%, rgb(6, 189, 193) 100%);
 }
-.coralReef-theme .center-header-color{
+.coralReef_theme .center_header_color {
   background: linear-gradient(180deg, rgb(188, 102, 167) 0%, rgb(56, 44, 142) 35%, rgb(6, 189, 193) 100%);
 }
-.coralReef-theme .header-text-color {
+.coralReef_theme .header_text_color {
   color: rgb(20,20,20);
 }
-.coralReef-theme .main-color {
+.coralReef_theme .main_color {
   background: linear-gradient(180deg, rgb(6, 189, 193) 0%, rgb(5, 180, 214) 100%);
 }
-.coralReef-theme .story-box-color {
+.coralReef_theme .story_box_color {
   background-color: rgb(200, 255, 255);
   border: 0.5vh solid rgb(20,20,20);
 }
-.coralReef-theme textarea {
+.coralReef_theme textarea {
   background-color: rgb(200, 255, 255);
   color: rgb(20,20,20);
 }
 
-.coralReef-theme .footer-color {
+.coralReef_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(5, 180, 214) 0%, rgb(0, 103, 169) 100%);
   color: rgb(20,20,20);
 }
-.coralReef-theme #reportIssueButton {
+.coralReef_theme #reportIssueButton {
   background-color: rgb(0, 103, 169);
   border: 0.5vh solid rgb(5, 180, 214);
   color: rgb(20, 20, 20);
 }
-.coralReef-theme #reportIssueButton:hover {
+.coralReef_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(0, 103, 169);
   background-color: rgb(5, 180, 214);
 }
 
 
 
-.midnight-theme {
+.midnight_theme {
   background-color: rgb(50,50,60);
 }
-.midnight-theme .header-background-color {
+.midnight_theme .header_background_color {
   background-color: rgb(34, 21, 38);
 }
-.midnight-theme .center-header-color{
+.midnight_theme .center_header_color{
   background: linear-gradient(180deg, rgb(34, 21, 38) 0%, rgb(65, 55, 89) 100%);
 }
-.midnight-theme .header-text-color {
+.midnight_theme .header_text_color {
   color: rgb(240,240,240);
 }
-.midnight-theme .main-color {
+.midnight_theme .main_color {
   background: linear-gradient(180deg, rgb(34, 21, 38) 10%, rgb(65, 55, 89) 75%, rgb(155, 192, 168) 100%);
 }
-.midnight-theme .story-box-color {
+.midnight_theme .story_box_color {
   background-color: rgb(175, 149, 241);
   border: 0.5vh solid rgb(20,20,20);
 }
-.midnight-theme textarea {
+.midnight_theme textarea {
   background-color: rgb(175, 149, 241);
   color: rgb(20, 20, 20);
 }
-.midnight-theme .footer-color {
+.midnight_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(155, 192, 168) 0%, rgb(100, 112, 138) 100%);
   color: rgb(20, 20, 20);
 }
-.midnight-theme #reportIssueButton {
+.midnight_theme #reportIssueButton {
   background-color: rgb(100, 112, 138);
   border: 0.5vh solid rgb(155, 192, 168);
   color: rgb(20, 20, 20);
 }
-.midnight-theme #reportIssueButton:hover {
+.midnight_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(100, 112, 138);
   background-color: rgb(155, 192, 168);
 }
 
 
 
-.hellScape-theme {
+.hellScape_theme {
   background-color: rgb(180, 30, 30); 
 }
-.hellScape-theme .header-background-color {
+.hellScape_theme .header_background_color {
   background: linear-gradient(180deg, rgb(19, 0, 3) 0%, rgb(64, 3, 10) 100%);
 }
-.hellScape-theme .center-header-color{
+.hellScape_theme .center_header_color{
   background: linear-gradient(180deg, rgb(19, 0, 3) 0%, rgb(64, 3, 10) 100%);
 }
-.hellScape-theme .header-text-color {
+.hellScape_theme .header_text_color {
   color: rgb(250, 250, 250);
 }
-.hellScape-theme .main-color {
+.hellScape_theme .main_color {
   background: linear-gradient(180deg, rgb(64, 3, 10) 0%, rgb(88, 9, 5) 75%, rgb(37, 2, 9) 100%);
 }
-.hellScape-theme .story-box-color {
+.hellScape_theme .story_box_color {
   background-color: rgb(255, 190, 190);
   border: 0.5vh solid rgb(20,20,20);
 }
-.hellScape-theme textarea {
+.hellScape_theme textarea {
   background-color: rgb(255, 190, 190);
   color: rgb(20,20,20);
 }
-.hellScape-theme .footer-color {
+.hellScape_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(37, 2, 9) 25%, rgb(42, 0, 25) 100%);
   color: rgb(240, 240, 240);
 }
-.hellScape-theme #reportIssueButton {
+.hellScape_theme #reportIssueButton {
   background-color: rgb(42, 0, 25);
   border: 0.5vh solid rgb(37, 2, 9);
   color: rgb(240, 240, 240);
 }
-.hellScape-theme #reportIssueButton:hover {
+.hellScape_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(42, 0, 25);
   background-color: rgb(37, 2, 9);
 }
 
 
 
-.void-theme {
+.void_theme {
   background-color: rgb(20, 8, 18);
   color: rgb(230,230,230);
 }
-.void-theme .header-background-color {
+.void_theme .header_background_color {
   background: linear-gradient(180deg, rgb(54, 45, 37) 0%, rgb(31, 13, 29) 100%);
 }
-.void-theme .center-header-color {
+.void_theme .center_header_color {
   background-color: rgb(78, 31, 57);
 }
-.void-theme .header-text-color {
+.void_theme .header_text_color {
   color: rgb(230, 230, 230);
 }
-.void-theme .main-color {
+.void_theme .main_color {
   background: linear-gradient(180deg, rgb(31, 13, 29) 0%, rgb(20, 8, 18) 50%, rgb(18, 6, 16) 100%);
 }
-.void-theme .story-box-color {
+.void_theme .story_box_color {
   background-color: rgb(100, 83, 99);
   border: 0.5vh solid rgb(20,20,20);
 }
-.void-theme textarea {
+.void_theme textarea {
   background-color: rgb(100, 83, 99);
   color: rgb(10,10,10);
 }
-.void-theme .footer-color {
+.void_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(18, 6, 16) 0%, rgb(78, 31, 56) 100%);
   color: rgb(230,230,255);
 }
-.void-theme #reportIssueButton {
+.void_theme #reportIssueButton {
   background-color: rgb(18, 6, 16);
   border: 0.5vh solid rgb(78, 31, 56);
   color: rgb(240, 240, 240);
 }
-.void-theme #reportIssueButton:hover {
+.void_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(18, 6, 16);
   background-color: rgb(78, 31, 56);
 }
 
 
 
-.sunset-theme {
+.sunset_theme {
   background-color: rgb(20, 8, 18);
   color: rgb(20,20,20);
 }
-.sunset-theme .header-background-color {
+.sunset_theme .header_background_color {
   background-color: rgb(233, 120, 88);
 }
-.sunset-theme .center-header-color{
+.sunset_theme .center_header_color{
   background: linear-gradient(180deg, rgb(233, 120, 88) 0%, rgb(203, 90, 58) 100%);
 }
-.sunset-theme .header-text-color {
+.sunset_theme .header_text_color {
   color: rgb(20,20,20);
 }
-.sunset-theme .main-color {
+.sunset_theme .main_color {
   background: linear-gradient(180deg, rgb(233, 120, 88) 5%, rgb(210, 68, 72) 30%, rgb(84, 70, 85) 65%, rgb(84, 70, 85) 85%, rgb(165, 197, 186) 100%);
 }
-.sunset-theme .story-box-color {
+.sunset_theme .story_box_color {
   background-color: rgb(253, 140, 108);
   border: 0.5vh solid rgb(20,20,20);
 }
-.sunset-theme textarea {
+.sunset_theme textarea {
   background-color: rgb(253, 140, 108);
   color: rgb(20,20,20);
 }
-.sunset-theme .footer-color {
+.sunset_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background-color: rgb(165, 197, 186);
   color: rgb(20,20,20);
 }
-.sunset-theme #reportIssueButton {
+.sunset_theme #reportIssueButton {
   background-color: rgb(135, 167, 156);
   border: 0.5vh solid rgb(165, 197, 186);
   color: rgb(20, 20, 20);
 }
-.sunset-theme #reportIssueButton:hover {
+.sunset_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(135, 167, 156);
   background-color: rgb(165, 197, 186);
 }
 
 
 
-.candyIsland-theme {
+.candyIsland_theme {
   background-color: rgb(20, 8, 18);
   color: rgb(20,20,20);
 }
-.candyIsland-theme .header-background-color {
+.candyIsland_theme .header_background_color {
   background: linear-gradient(180deg, rgb(29, 164, 129) 0%, rgb(192, 243, 236) 100%);
 }
-.candyIsland-theme .center-header-color{
+.candyIsland_theme .center_header_color{
   background: linear-gradient(180deg, rgb(29, 164, 129) 0%, rgb(192, 243, 236) 100%);
 }
-.candyIsland-theme .header-text-color {
+.candyIsland_theme .header_text_color {
   color: rgb(20,20,20);
 }
-.candyIsland-theme .main-color {
+.candyIsland_theme .main_color {
   background: linear-gradient(180deg, rgb(192, 243, 236) 5%, rgb(217, 155, 132) 50%, rgb(218, 106, 134) 100%);
 }
-.candyIsland-theme .story-box-color {
+.candyIsland_theme .story_box_color {
   background-color: rgb(119, 254, 219);
   border: 0.5vh solid rgb(20,20,20);
 }
-.candyIsland-theme textarea {
+.candyIsland_theme textarea {
   background-color: rgb(119, 254, 219);
   color: rgb(20,20,20);
 }
-.candyIsland-theme .footer-color {
+.candyIsland_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(218, 106, 134) 0%, rgb(188, 184, 191) 100%);
   color: rgb(20,20,20);
 }
-.candyIsland-theme #reportIssueButton {
+.candyIsland_theme #reportIssueButton {
   background-color: rgb(218, 106, 134);
   border: 0.5vh solid rgb(188, 184, 191);
   color: rgb(20, 20, 20);
 }
-.candyIsland-theme #reportIssueButton:hover {
+.candyIsland_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(218, 106, 134);
   background-color: rgb(188, 184, 191);
 }
 
 
 
-.plainLight-theme {
+.plainLight_theme {
   background-color: rgb(240, 200, 240);
   color: rgb(20,20,20);
 }
-.plainLight-theme .header-background-color {
+.plainLight_theme .header_background_color {
   background: linear-gradient(180deg, rgb(240, 220, 240) 0%, rgb(200, 200, 200) 100%);
 }
-.plainLight-theme .center-header-color{
+.plainLight_theme .center_header_color{
   background: linear-gradient(180deg, rgb(240, 220, 240) 0%, rgb(200, 200, 200) 100%);
 }
-.plainLight-theme .header-text-color {
+.plainLight_theme .header_text_color {
   color: rgb(20,20,20);
 }
-.plainLight-theme .main-color {
+.plainLight_theme .main_color {
   background-color: rgb(200, 200, 200);
 }
-.plainLight-theme .story-box-color {
+.plainLight_theme .story_box_color {
   background-color: rgb(170, 170, 170);
   border: 0.5vh solid rgb(20,20,20);
 }
-.plainLight-theme textarea {
+.plainLight_theme textarea {
   background-color: rgb(170, 170, 170);
   color: rgb(20,20,20);
 }
-.plainLight-theme .footer-color {
+.plainLight_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(200, 200, 200) 0%, rgb(240, 220, 240) 100%);
   color: rgb(20,20,20);
 }
-.plainLight-theme #reportIssueButton {
+.plainLight_theme #reportIssueButton {
   background-color: rgb(240, 220, 240);
   border: 0.5vh solid rgb(200, 200, 200);
 }
-.plainLight-theme #reportIssueButton:hover {
+.plainLight_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(240, 220, 240);
   background-color: rgb(200, 200, 200);
 }
-.plainLight-theme .reportIssueButton_text {
+.plainLight_theme .reportIssueButton_text {
   color: rgb(20, 20, 20);
   transform: color 0.5s;
 }
 
-.plainDark-theme {
+.plainDark_theme {
   background-color: rgb(15, 35, 15);
   color: rgb(240, 240, 240);
 }
-.plainDark-theme .header-background-color {
+.plainDark_theme .header_background_color {
   background: linear-gradient(180deg, rgb(15, 35, 15) 0%, rgb(55, 55, 55) 100%);
 }
-.plainDark-theme .center-header-color{
+.plainDark_theme .center_header_color{
   background: linear-gradient(180deg, rgb(15, 35, 15) 0%, rgb(55, 55, 55) 100%);
 }
-.plainDark-theme .header-text-color {
+.plainDark_theme .header_text_color {
   color: rgb(240, 240, 240);
 }
-.plainDark-theme .main-color {
+.plainDark_theme .main_color {
   background-color: rgb(55, 55, 55);
 }
-.plainDark-theme .story-box-color {
+.plainDark_theme .story_box_color {
   background-color: rgb(180, 180, 180);
   border: 0.5vh solid rgb(20,20,20);
 }
-.plainDark-theme textarea {
+.plainDark_theme textarea {
   background-color: rgb(180, 180, 180);
   color: rgb(20, 20, 20);
 }
-.plainDark-theme .footer-color {
+.plainDark_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(55, 55, 55) 0%, rgb(15, 35, 15) 100%);
   color: rgb(240, 240, 240);
 }
-.plainDark-theme #reportIssueButton {
+.plainDark_theme #reportIssueButton {
   background-color: rgb(15, 35, 15);
   border: 0.5vh solid rgb(55, 55, 55);
   color: rgb(240, 240, 240);
 }
-.plainDark-theme #reportIssueButton:hover {
+.plainDark_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(15, 35, 15);
   background-color: rgb(55, 55, 55);
 }
 
 
 
-.dreamySkies-theme {
+.dreamySkies_theme {
   background-color: rgb(15, 35, 15);
   color: rgb(240, 240, 240);
 }
-.dreamySkies-theme .header-background-color {
+.dreamySkies_theme .header_background_color {
   background-color: rgb(190, 173, 250);
 }
-.dreamySkies-theme .center-header-color{
+.dreamySkies_theme .center_header_color{
   background-color: rgb(180, 163, 240);
 }
-.dreamySkies-theme .header-text-color {
+.dreamySkies_theme .header_text_color {
   color: rgb(20, 20, 20);
 }
-.dreamySkies-theme .main-color {
+.dreamySkies_theme .main_color {
   background: linear-gradient(180deg, rgb(190, 173, 250) 5%, rgb(208, 191, 255) 50%, rgb(223, 204, 251) 100%);
 }
-.dreamySkies-theme .story-box-color {
+.dreamySkies_theme .story_box_color {
   background-color: rgb(188, 171, 235);
   border: 0.5vh solid rgb(20,20,20);
 }
-.dreamySkies-theme textarea {
+.dreamySkies_theme textarea {
   background-color: rgb(188, 171, 235);
   color: rgb(20, 20, 20);
 }
-.dreamySkies-theme .footer-color {
+.dreamySkies_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(223, 204, 251) 0%, rgb(255, 243, 218) 100%);
   color: rgb(20, 20, 20);
 }
-.dreamySkies-theme #reportIssueButton {
+.dreamySkies_theme #reportIssueButton {
   background-color: rgb(223, 204, 251);
   border: 0.5vh solid rgb(255, 243, 218);
   color: rgb(20, 20, 20);
 }
-.dreamySkies-theme #reportIssueButton:hover {
+.dreamySkies_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(223, 204, 251);
   background-color: rgb(255, 243, 218);
 }
 
 
 
-.lightboundFields-theme {
+.lightboundFields_theme {
   background-color: rgb(15, 35, 15);
   color: rgb(240, 240, 240);
 }
-.lightboundFields-theme .header-background-color {
+.lightboundFields_theme .header_background_color {
   background-color: rgb(181, 193, 142);
 }
-.lightboundFields-theme .center-header-color{
+.lightboundFields_theme .center_header_color{
   background-color: rgb(181, 193, 142);
 }
-.lightboundFields-theme .header-text-color {
+.lightboundFields_theme .header_text_color {
   color: rgb(20, 20, 20);
 }
-.lightboundFields-theme .main-color {
+.lightboundFields_theme .main_color {
   background: linear-gradient(180deg, rgb(181, 193, 142) 5%, rgb(247, 220, 185) 100%);
 }
-.lightboundFields-theme .story-box-color {
+.lightboundFields_theme .story_box_color {
   background-color: rgb(237, 210, 175);
   border: 0.5vh solid rgb(20,20,20);
 }
-.lightboundFields-theme textarea {
+.lightboundFields_theme textarea {
   background-color: rgb(237, 210, 175);
   color: rgb(20, 20, 20);
 }
-.lightboundFields-theme .footer-color {
+.lightboundFields_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(222, 172, 128) 0%, rgb(185, 148, 112) 100%);
   color: rgb(20, 20, 20);
 }
-.lightboundFields-theme #reportIssueButton {
+.lightboundFields_theme #reportIssueButton {
   background-color: rgb(222, 172, 128);
   border: 0.5vh solid rgb(185, 148, 112);
   color: rgb(20, 20, 20);
 }
-.lightboundFields-theme #reportIssueButton:hover {
+.lightboundFields_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(222, 172, 128);
   background-color: rgb(185, 148, 112);
 }
 
 
 
-.pinkNeonDisco-theme {
+.pinkNeonDisco_theme {
   background-color: rgb(15, 35, 15);
   color: rgb(240, 240, 240);
 }
-.pinkNeonDisco-theme .header-background-color {
+.pinkNeonDisco_theme .header_background_color {
   background-color: rgb(255, 32, 78);
 }
-.pinkNeonDisco-theme .center-header-color{
+.pinkNeonDisco_theme .center_header_color{
   background-color: rgb(245, 22, 68);
 }
-.pinkNeonDisco-theme .header-text-color {
+.pinkNeonDisco_theme .header_text_color {
   color: rgb(240, 240, 240);
 }
-.pinkNeonDisco-theme .main-color {
+.pinkNeonDisco_theme .main_color {
   background: linear-gradient(180deg, rgb(255, 32, 78) 5%, rgb(160, 21, 62) 50%, rgb(93, 14, 65) 100%);
 }
-.pinkNeonDisco-theme .story-box-color {
+.pinkNeonDisco_theme .story_box_color {
   background-color: rgb(255, 52, 98);
   border: 0.5vh solid rgb(20,20,20);
 }
-.pinkNeonDisco-theme textarea {
+.pinkNeonDisco_theme textarea {
   background-color: rgb(255, 52, 98);
   color: rgb(20, 20, 20);
 }
-.pinkNeonDisco-theme .footer-color {
+.pinkNeonDisco_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(93, 14, 65) 0%, rgb(0, 34, 77) 100%);
   color: rgb(240, 240, 240);
 }
-.pinkNeonDisco-theme #reportIssueButton {
+.pinkNeonDisco_theme #reportIssueButton {
   background-color: rgb(93, 14, 65);
   border: 0.5vh solid rgb(0, 34, 77);
   color: rgb(240, 240, 240);
 }
-.pinkNeonDisco-theme #reportIssueButton:hover {
+.pinkNeonDisco_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(93, 14, 65);
   background-color: rgb(0, 34, 77);
 }
 
 
 
-.milkyCappuccino-theme {
+.milkyCappuccino_theme {
   background-color: rgb(15, 35, 15);
   color: rgb(20, 20, 20);
 }
-.milkyCappuccino-theme .header-background-color {
+.milkyCappuccino_theme .header_background_color {
   background-color: rgb(241, 229, 209);
 }
-.milkyCappuccino-theme .center-header-color{
+.milkyCappuccino_theme .center_header_color{
   background-color: rgb(231, 219, 199);
 }
-.milkyCappuccino-theme .header-text-color {
+.milkyCappuccino_theme .header_text_color {
   color: rgb(20, 20, 20);
 }
-.milkyCappuccino-theme .main-color {
+.milkyCappuccino_theme .main_color {
   background: linear-gradient(180deg, rgb(241, 229, 209) 5%, rgb(219, 181, 181) 100%);
 }
-.milkyCappuccino-theme .story-box-color {
+.milkyCappuccino_theme .story_box_color {
   background-color: rgb(209, 171, 171);
   border: 0.5vh solid rgb(20,20,20);
 }
-.milkyCappuccino-theme textarea {
+.milkyCappuccino_theme textarea {
   background-color: rgb(209, 171, 171);
   color: rgb(20, 20, 20);
 }
-.milkyCappuccino-theme .footer-color {
+.milkyCappuccino_theme .footer_color {
   border-top: 0.5vh solid rgb(20,20,20);
   background: linear-gradient(180deg, rgb(219, 181, 181) 0%, rgb(131, 95, 95) 100%);
   color: rgb(20, 20, 20);
 }
-.milkyCappuccino-theme #reportIssueButton {
+.milkyCappuccino_theme #reportIssueButton {
   background-color: rgb(219, 181, 181);
   border: 0.5vh solid rgb(131, 95, 95);
   color: rgb(20, 20, 20);
 }
-.milkyCappuccino-theme #reportIssueButton:hover {
+.milkyCappuccino_theme #reportIssueButton:hover {
   border: 0.5vh solid rgb(219, 181, 181);
   background-color: rgb(131, 95, 95);
 }

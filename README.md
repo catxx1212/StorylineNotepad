@@ -1,11 +1,11 @@
-VER 0.2.4
+VER 0.2.5
 
 Changes in this update:
-- Fixed an issue with the storyline title not saving.
-- Added a screen to help prevent phone users. 
-- MORE THEMES!!
-- Other minor fixes.
-
+- Fixed an issue with the context menu not coming up for spelling errors.
+- Added update alerts (on screen pop-ups that only show when you vist after a new version).
+- Fixed and adjusted some CSS.
+- Fixed an issue with the storyline title showing "null".
+- Changes to the storyline title code too!
 
 ### Storyline notepad is a website that allows you to plan or outline your next potential story
 ### I made storyline notepad originally to help (and procrastinate) with a game's base story. Since then i have revisted and added new features :D

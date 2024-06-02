@@ -9,22 +9,23 @@
     <link rel="stylesheet" href="../styles/animations.css"/>
     <link rel="stylesheet" href="../styles/themes.css"/>
     <link rel="icon" href="../assets/ico/favicon.ico" />
+    <title>Storyline Notepad</title>
   </head>
   <body>
-    <header class="header-background-color">
-      <div class="logoAndTitleContainer center-header-color">
+    <header class="header_background_color">
+      <div class="logoAndTitleContainer center_header_color">
         <a href="../index.html">
           <img class="logoAndTitleContainer_logo" src="../assets/storylineNotepad_logo1x1.png"/>
         </a>
-        <p class="logoAndTitleContainer_title header-text-color">Storyline Notepad</p>
+        <p class="logoAndTitleContainer_title header_text_color">Storyline Notepad</p>
       </div>
       <div class="clearAllAndSaveDiv">
-        <button id="clearDataButton" class="story-box-color">Clear All Data</button>
-        <button id="saveButton" class="story-box-color">Manual save</button>
+        <button id="clearDataButton" class="story_box_color">Clear All Data</button>
+        <button id="saveButton" class="story_box_color">Manual save</button>
       </div>
-      <div class="theme-menu-container">
-        <label for="themeSelect" class="themeSelect-label header-text-color">Theme:</label>
-        <select id="themeSelect" class="story-box-color theme-menu" title="Change current theme">
+      <div class="theme_menu_container">
+        <label for="themeSelect" class="themeSelect_label header_text_color">Theme:</label>
+        <select id="themeSelect" class="story_box_color theme_menu" title="Change current theme">
           <option value="plainLight"selected>Plain Light</option>
           <option value="plainDark"selected>Plain Dark</option>
           <option value="coralReef"selected>Coral Reef</option>
@@ -39,9 +40,9 @@
           <option value="milkyCappuccino">Milky Cappuccino</option>
         </select>
       </div>
-      <div class="fontSizeSelect-menu-container">
-        <label for="fontSizeSelect" class="fontSizeSelect-menu-label header-text-color">Font Size:</label>
-        <select id="fontSizeSelect" class="story-box-color theme-menu" title="Change font size">
+      <div class="fontSizeSelect_menu_container">
+        <label for="fontSizeSelect" class="fontSizeSelect_menu_label header_text_color">Font Size:</label>
+        <select id="fontSizeSelect" class="story_box_color theme_menu" title="Change font size">
           <option value="small">Small</option>
           <option value="smallBold">Small Bold</option>
           <option value="normal" selected>Normal</option>
@@ -51,20 +52,22 @@
         </select>
       </div>
       <div class="importAndExportDiv">
-        <button id="exportDataButton" class="story-box-color">Export</button>
-        <button id="importDataButton" class="story-box-color">Import</button>
+        <button id="exportDataButton" class="story_box_color">Export</button>
+        <button id="importDataButton" class="story_box_color">Import</button>
       </div>
     </header>
-    <main class="storylineNotepad_main main-color">
-      <p title="Click to change" id="storylineTitle" class="header-text-color"></p>
+    <main class="storylineNotepad_main main_color">
+      <div class="stroylineTitle_div">
+        <p title="Click to change" id="storylineTitle" class="header_text_color"></p>
+      </div>
       <div id="storylineNotepad">
         <div id="StoryBoxSection">
 
         </div>
         <div id="addNewButton" title="Add a new section">
-            <img class="button-background" src="../assets/background-for-addButton.png"/>
-          <div class="button-center">
-            <img src="../assets/center-button-image.png" class="button-center-spin"/>
+            <img class="button_background" src="../assets/background-for-addButton.png"/>
+          <div class="button_center">
+            <img src="../assets/center-button-image.png" class="button_center_spin"/>
           </div>
         </div>
       </div>
@@ -74,7 +77,7 @@
         </ul>
     </div>
     </main>
-    <footer class="footer-color">
+    <footer class="footer_color">
       <p class="copyright">© 2024 CatXx1212. All Rights Reserved.</p>
       <a href="https://github.com/Midnightandstillup/StorylineNotepad/issues" target="_blank">
         <div id="reportIssueButton" title="Report an issue" class="reportButton">

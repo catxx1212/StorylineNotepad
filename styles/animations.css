@@ -1,10 +1,10 @@
   /* animations for addButton */
   
-  .button-center-spin {
+  .button_center_spin {
     transition: transform 0.5s;
   }
 
-  #addNewButton:hover .button-center-spin {
+  #addNewButton:hover .button_center_spin {
     transform: rotate(360deg);
     transition: all 0.5s;
   }
