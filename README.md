@@ -1,31 +1,27 @@
-VER 0.2.5
+# VER 0.3.0
 
-Changes in this update:
-- Fixed an issue with the context menu not coming up for spelling errors.
-- Added update alerts (on screen pop-ups that only show when you vist after a new version).
-- Fixed and adjusted some CSS.
-- Fixed an issue with the storyline title showing "null".
-- Changes to the storyline title code too!
+## Changes in this update:
+  - Significant UI changes and additions, including new menus and icons.
+  - New storyline save data structure.
+  - Import and export now use files instead of text.
+  - You can now add or remove any story box in any part of your storyline.
+  - Added theme categories and brand new themes.
+  - Added a custom context menu (right-click the arrows).
+  - New title page.
+  - Started the changelog.
+  - Some optimizations and bug fixes.  
+
+---
 
 ### Storyline notepad is a website that allows you to plan or outline your next potential story
-### I made storyline notepad originally to help (and procrastinate) with a game's base story. Since then i have revisted and added new features :D
 
-All features(subject to current version):
-  - Theme changing (many themes >:3 )
-  - Import and export storyline data (plan copied data)
-  - Storyline title changing
-  - Auto saving on exiting, and manual (ctrl + s) saving too
-  - Clear all data
-  - 
+### I made storyline notepad originally to help (and procrastinate) with a game's base story. Since then I have revisted and added new features :D
+
 ## Known issues (Found by me, if you find one that isnt listed here, please open an issue)
-  - There is only one save slot in localStorage, meaning that data from one storyline can be overwritten by another open storyline window / tab.
-    - I have added failsafes now, so you shouldnt lose your storyline when you import or clear data, as "just in case", it copies the data your clearing to your clipboard.
-  - Storyline Notepad still isnt made for phone uses yet.
+  - Having the same storyline open in two tabs or windows will result in one overwriting the other.
+  - Storyline Notepad still isnt made for phone users yet.
 
-### Features that will be in the next version:
-- The ability to remove boxes anywhere in the storyline
-- Being able to add boxes anywhere in the storyline
+### Features that will eventually be in storyline notepad:
 - More save slots
-- Storyline saves will be a file instead of a copied JSON string, possibly under the `.storylinenotepad` file extension
-- Better themes
-- OH MY GOD I COULD ADD THEME RELATED BACKGROUND MUSIC!! (I might, but not a definite yes)
+- More themes
+- I COULD ADD THEME RELATED BACKGROUND MUSIC!! (I might, but not a definite yes)

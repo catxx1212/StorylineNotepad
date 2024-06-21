@@ -1,83 +1,152 @@
-<!-- // The only thing stopping me from redoing all of this now is the fact i have a 
-// game i want to finish first. Dosnt mean i havent added and redone some bits anyways :)
-
-// most of this code is from 2023 me, and i hate it all -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
     <meta name="Author" content="CatXx1212"/>
     <meta name="Description" content="This is Storyline Notepad. A place to write full storylines bursting with exsitment or full deep of lore, or just write your mind on pap- *ahem* screen."/>
-    <link rel="stylesheet" href="styles/animations.css"/>
-    <link rel="stylesheet" href="styles/main.css"/>
-    <link rel="stylesheet" href="styles/themes.css"/>
-    <link rel="icon" href="assets/ico/favicon.ico" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <style>
+      .loadingScreen {
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(230, 230, 230);
+        z-index: 999999999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+        .loadingScreen_spinner {
+          height: 25%;
+          aspect-ratio: 1 / 1;
+          background-image: url("assets/loadingDots.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          animation: loadingSpin 4s linear 0s infinite;
+        }
+          @keyframes loadingSpin { 
+            0% {
+              transform: rotate(0deg);
+            } 100% {
+              transform: rotate(360deg);
+            }
+          }
+        .loadingScreenError {
+          font-size: 2vw;
+          text-align: center;
+          color: black;
+        }
+    </style>
+    <script>
+      var currentVersionNumber = "0.3.0";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
+
+      let styleArray = ["styles/animations.css", "styles/titlePage.css", "styles/themes.css"]
+      let loadedStyles = 0;
+      styleArray.forEach((stylesheetREF) => {
+        let stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = `${stylesheetREF}?v=${currentVersionNumber}`;
+        document.head.appendChild(stylesheet);
+
+        stylesheet.onload = function() {
+          loadedStyles++;
+          if(loadedStyles === styleArray.length) {
+            setTimeout(() => {
+              document.querySelector(".loadingScreen").remove();
+            }, 550);
+          }
+        }
+
+        stylesheet.onerror = function(event) {
+          document.querySelector(".loadingScreen").innerHTML = `
+          <p class="loadingScreenError">There was an error loading Storyline Notepad: stylesheet(${stylesheetREF}) could not be loaded.<br/> 
+            Please hard reload the page, if this does not fix the issue the please report it <span style="font-weight: bold;"><a href="https://github.com/Midnightandstillup/StorylineNotepad/issues">here</a></span>
+          </p>`;
+        }
+      });
+    </script>
+    <link rel="icon" href="assets/favicon/favicon.ico" />
     <title>Storyline Notepad</title>
   </head>
-  <body class="void_theme">
-    <header class="header_background_color">
-      <div class="logoAndTitleContainer center_header_color">
+  <body class="white_theme">
+    <header class="header_color">
+      <div class="logoAndTitleContainer">
         <a href="index.html">
-          <img class="logoAndTitleContainer_logo" src="assets/storylineNotepad_logo1x1.png"/>
+          <img class="logoAndTitleContainer_logo" src="assets/icons/storylineNotepad_logo1x1.png" title="Return to title page"/>
         </a>
-        <p class="logoAndTitleContainer_title header_text_color">Storyline Notepad</p>
+        <p class="logoAndTitleContainer_title header_textColor">Storyline Notepad</p>
       </div>
     </header>
     <main class="main_color">
-      <div class="sectionWrapper_left">
-        <div id="firstSection_intro">
-          <p class="firstSection_intro_heading">Welcome!!</p>
-          <p class="firstSection_intro_text1">This is Storyline Notepad, a place to write full storylines bursting with exsitment or full deep of lore, or just write your mind on pap- *ahem* screen.</p>
+      <div class="firstSectionWelcome">
+        <div class="leftSideText">
+          <p class="firstSectionWelcome_leftSideText_text">
+            Welcome to Storyline Notepad! A place to weave your own stories, full of lore and excitement, 
+            or maybe something more mysterious, looped with loopholes and intriguing catches and alleyways. 
+            Whatever your story is, the first thing you need is to plan it, right? The storyline of any 
+            good story is a solid foundation to start from, even if you decide to change things later on.
+          </p>
+        </div>
+        <div class="rightSideImage">
+          <img class="firstSectionWelcome_rightSideImage_image storyBox_color" src="assets/stroylineExample.png"/>
         </div>
       </div>
-      <div class="sectionWrapper_right">
-        <div id="secondSection_features">
-          <p class="secondSection_features_heading">Features:</p>
-          <p class="secondSection_features_text1">Although Storyline Notepad is still in early stages, it still has lots of features. Such as:</p>
-          <ul class="secondSection_features_list">
-            <li class="secondSection_features_listItem">Diffrent themes for diffrent moods and environments. To really get you in the mood of your current story (hopefully)</li>
-            <li class="secondSection_features_listItem">An export and import system to allow for multiple storyline notepad saves and being able to share your work-in-progress with others.</li>
-            <li class="secondSection_features_listItem">Being able to change the title :D</li>
-            <li class="secondSection_features_listItem">One save slot!</li>
-            <li class="secondSection_features_listItem">Auto saving apon exiting.</li>
-            <li class="secondSection_features_listItem">You can change the font size too!</li>
-          </ul>
+      <div class="secondSection">
+        <div class="rightSideText">
+          <p class="secondSection_rightSideText_text">
+            Storyline Notepad offers a vast variety of themes and colors to enhance your writing experience. 
+            Immerse yourself in your unique world as you type, with backgrounds matching the mood and 
+            setting of your story. With an ever-expanding library of themes and new additions regularly, 
+            your creative possibilities are endless!
+          </p>
+        </div>
+        <div class="leftSideImage">
+          <img class="secondSection_leftSideImage_image storyBox_color" src="assets/storylineThemeExample.png"/>
         </div>
       </div>
-      <div class="sectionWrapper_left">
-        <div id="thirdSection_issues">
-          <p class="thirdSection_issues_heading">Issues you should know about:</p>
-          <p class="thirdSection_issues_text1">This is still an early version of Storyline Notepad, so issues and bugs are expected.</p>
-          <ul class="thirdSection_issues_list">
-            <li class="thirdSection_issues_listItem">There is only one save slot in localStorage at the moment, meaning that data from one storyline CAN be overwritten by another open storyline window / tab.</li>
-            <li class="thirdSection_issues_listItem">Some screen ratios (and most likely phones too) might not work with the current layout.</li>
-            <li class="thirdSection_issues_listItem pleaseReportIssues">If you find another issue or bug with Storyline Notepad, then please report it using the "report issue" button in footer.</li>
-          </ul>
+      <div class="thirdSection">
+        <div class="leftSideText">
+          <p class="thirdSection_leftSideText_text">
+            Storyline Notepad was one of my earliest utility products. I built it for personal use in 2023 and didn't really think about 
+            its appearance since it was just for me. It started as a tool to help me plan story plots for a game idea I had. After major 
+            redesigns and script updates, I'm proud of what Storyline Notepad has become.
+          </p>
+        </div>
+        <div class="rightSideImage">
+          <img class="thirdSection_rightSideImage_image storyBox_color" src="assets/loveForStorylineNotepad.png"/>
         </div>
       </div>
-      <div class="sectionWrapper_right">
-        <div id="fourthSection_howToUse">
-          <p class="fourthSection_howToUse_heading">How to use: (tips and tricks)</p>
-          <p class="fourthSection_howToUse_text1"></p>
-          <ul class="fourthSection_howToUse_list">
-            <li class="fourthSection_howToUse_listItem">Click the smaller title to change the title of your current storyline.</li>
-            <li class="fourthSection_howToUse_listItem">If you export your current storyline and save it as a text file, you can start a new one and keep the old one. You can import the old storyline whenever you need it and repeat this process as many times as you want!</li>
-            <li class="fourthSection_howToUse_listItem">Right click the add button to bring up the remove button. (only removes the last box currently stage)</li>
-          </ul>
+      <!-- <div class="forthSection">
+        <div class="rightSideText">
+          <p class="forthSection_rightSideText_text">
+
+          </p>
         </div>
-      </div>
-      <div class="sectionWrapper_center">
-        <div id="fithSection_endOfPage">
-          <p class="fithSection_endOfPAge_text">you've hit the bottom of the page, click here to start writing your next amazing story!</p>
-          <div class="fithSection_endOfPage_arrow"></div>
+        <div class="leftSideImage">
+          <img class="forthSection_leftSideImage_image storyBox_color" src=""/>
+        </div>
+      </div> -->
+      <div class="bottomSection">
+        <div id="bottomSection_endOfPage">
+          <p class="bottomSection_endOfPage_text">you've hit the bottom of the page, click here to start writing your next amazing story!</p>
+          <div class="bottomSection_endOfPage_arrow"></div>
         </div>
       </div>
     </main>
     <footer class="footer_color">
       <p class="copyright">© 2024 CatXx1212. All Rights Reserved.</p>
+      <a href="storylineNotepad/changelog.html">
+        <div class="seeChangelogButton importExportMenu_buttons_color">
+          <p>See full changelog</p>
+        </div>
+      </a>
       <a href="storylineNotepad/storyline-notepad.html">
         <div id="startWritingButton">
-          <p class="startWritingButton_text">Start Writing</p>
+          <p class="startWritingButton_text">Start Writing!</p>
         </div>
       </a>
       <a href="https://github.com/Midnightandstillup/StorylineNotepad/issues" target="_blank">
@@ -87,6 +156,14 @@
       </a>
       <p id="versionNumber"></p>
     </footer>
-    <script src="scripts/version.js"></script>
+    <div class="loadingScreen">
+      <div class="loadingScreen_spinner"></div>
+    </div>
+    <script>
+      let script = document.createElement("script");
+      script.defer = true;
+      script.src = `${"scripts/version.js"}?v=${currentVersionNumber}`;
+      document.body.appendChild(script);
+    </script>
   </body>
   </html>

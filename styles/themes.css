@@ -1,513 +1,1706 @@
-.fontSize_small .text {
+
+/* solid themes */
+
+.white_theme {
+  background-color: rgb(255, 255, 255);
+  color: rgb(20, 20, 20);
+}
+  .white_theme .header_color {
+    background-color: rgb(255, 240, 255);
+    border-bottom: 0.75vh solid rgb(50, 50, 55);
+  }
+    .white_theme .header_textColor {
+      color: rgb(20, 20, 20);
+      }
+  .white_theme .main_color {
+    background-color: rgb(245, 230, 245);
+    color: rgb(20, 20, 20);
+  }
+    .white_theme .storyBox_color {
+      background-color: rgb(220 , 210, 220);
+      border: 0.75vh solid rgb(50, 50, 55);
+    }
+      .white_theme .storyBox_innerColor {
+        background-color: rgb(220 , 210, 220);
+        color: rgb(20, 20, 20);
+      }
+        .white_theme .storyBox_innerColor::placeholder {
+          color: rgb(20, 20, 20);
+          opacity: 0.5;
+        }
+    .white_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(50, 50, 55);
+    }
+  .white_theme .footer_color {
+    background-color: rgb(255, 240, 255);
+    border-top: 0.75vh solid rgb(50, 50, 55);
+    color: rgb(20, 20, 20);
+  }
+    .white_theme #reportIssueButton {
+      border: 0.75vh solid rgb(50, 50, 55);
+      background-color: rgb(255, 240, 255);
+      color: rgb(20, 20, 20);
+    }
+    .white_theme #reportIssueButton:hover {
+      background-color: rgb(50, 50, 55);
+      border: 0.75vh solid rgb(255, 240, 255);
+      color: rgb(235, 235, 235);
+    }
+  .white_theme .menu_color {
+    border-top: 0.75vh solid rgb(50, 50, 55);
+    border-left: 0.75vh solid rgb(50, 50, 55);
+    border-bottom: 0.75vh solid rgb(50, 50, 55);
+  }
+    .white_theme .themeMenu_categorySection_color {
+      background-color: rgb(255, 240, 255);
+      border-right: 0.75vh solid rgb(50, 50, 55);
+    }
+      .white_theme .themeMenu_categorySection_text {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(50, 50, 55);
+      }
+      .white_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(235, 220, 235);
+      }
+    .white_theme .themeMenu_themeSection_color {
+      background-color: rgb(250, 235, 250);
+    }
+      .white_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(255, 240, 255);
+        border: 0.75vh solid rgb(50, 50, 55);
+        color: rgb(20,20,20);
+      }
+      .white_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(235, 220, 235);
+      }
+    .white_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(255, 240, 255);
+    }
+      .white_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(50, 50, 55);
+      }
+      .white_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(235, 220, 235);
+      }
+  .white_theme .popup_color {
+    border: 0.75vh solid rgb(50, 50, 55);
+  }
+  .white_theme .exportDiv_color {
+    border-right: 0.75vh solid rgb(50, 50, 55);
+    border-top: 0.75vh solid rgb(50, 50, 55);
+  }
+  .white_theme .importDiv_color {
+    border-top: 0.75vh solid rgb(50, 50, 55);
+  }
+    .white_theme .importExportMenu_buttons_color {
+      background-color: rgb(255, 240, 255);
+      border: 0.75vh solid rgb(50, 50, 55);
+      color: rgb(20, 20, 20);
+    }
+    .white_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(50, 50, 55);
+      border: 0.75vh solid rgb(255, 240, 255);
+      color: rgb(235, 235, 235);
+    }
+  .white_theme #startWritingButton {
+    border: 0.75vh solid rgb(50, 50, 55);
+    background-color: rgb(255, 240, 255);
+    color: rgb(20, 20, 20);
+  }
+  .white_theme #startWritingButton:hover {
+    background-color: rgb(50, 50, 55);
+    border: 0.75vh solid rgb(255, 240, 255);
+    color: rgb(235, 235, 235);
+  }
+  .white_theme .contextMenu_color {
+    background-color: rgb(250, 235, 250);
+    border: 0.75vh solid rgb(50, 50, 55);
+  }
+    .white_theme .contextMenu_buttons_color {
+      color: rgb(20, 20, 20);
+    }
+    .white_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(220, 215, 220);
+    }
+  
+      
+.black_theme {
+  background-color: rgb(0, 0, 0);
+  color: rgb(235, 235, 235);
+}
+  .black_theme .header_color {
+    background-color: rgb(20, 20, 25);
+    border-bottom: 0.75vh solid rgb(205, 205, 210);
+  }
+    .black_theme .header_textColor {
+      color: rgb(235, 235, 235);
+      }
+  .black_theme .main_color {
+    background-color: rgb(30, 30, 35);
+    color: rgb(235, 235, 235);
+  }
+    .black_theme .storyBox_color {
+      background-color: rgb(40 , 40, 45);
+      border: 0.75vh solid rgb(205, 205, 210);
+    }
+      .black_theme .storyBox_innerColor {
+        background-color: rgb(40 , 40, 45);
+        color: rgb(235, 235, 235);
+      }
+      .black_theme .storyBox_innerColor::placeholder {
+        color: rgb(235, 235, 235);
+        opacity: 0.5;
+      }
+    .black_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(205, 205, 210);
+    }
+  .black_theme .footer_color {
+    background-color: rgb(20, 20, 25);
+    border-top: 0.75vh solid rgb(205, 205, 210);
+    color: rgb(235, 235, 235);
+  }
+    .black_theme #reportIssueButton {
+      border: 0.75vh solid rgb(205, 205, 210);
+      background-color: rgb(20, 20, 25);
+      color: rgb(235, 235, 235);
+    }
+    .black_theme #reportIssueButton:hover {
+      background-color: rgb(205, 205, 210);
+      border: 0.75vh solid rgb(20, 20, 25);
+      color: rgb(20, 20, 20);
+    }
+  .black_theme .menu_color {
+    border-top: 0.75vh solid rgb(205, 205, 210);
+    border-left: 0.75vh solid rgb(205, 205, 210);
+    border-bottom: 0.75vh solid rgb(205, 205, 210);
+  }
+    .black_theme .themeMenu_categorySection_color {
+      background-color: rgb(20, 20, 25);
+      border-right: 0.75vh solid rgb(205, 205, 210);
+    }
+      .black_theme .themeMenu_categorySection_text {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(205, 205, 210);
+      }
+      .black_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(40, 40, 45);
+      }
+    .black_theme .themeMenu_themeSection_color {
+      background-color: rgb(25, 25, 30);
+    }
+      .black_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(20, 20, 25);
+        border: 0.75vh solid rgb(205, 205, 210);
+        color: rgb(235, 235, 235);
+      }
+      .black_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(40, 40, 45);
+      }
+    .black_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(25, 25, 30);
+    }
+      .black_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(205, 205, 210);
+      }
+      .black_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(40, 40, 45);
+      }
+  .black_theme .popup_color {
+    border: 0.75vh solid rgb(205, 205, 210);
+  }
+    .black_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(205, 205, 210);
+      border-top: 0.75vh solid rgb(205, 205, 210);
+    }
+    .black_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(205, 205, 210);
+    }
+    .black_theme .importExportMenu_buttons_color {
+      background-color: rgb(20, 20, 25);
+      border: 0.75vh solid rgb(205, 205, 210);
+      color: rgb(235, 235, 235);
+    }
+    .black_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(205, 205, 210);
+      border: 0.75vh solid rgb(20, 20, 25);
+      color: rgb(20, 20, 20);
+    }
+  .black_theme .contextMenu_color {
+    background-color: rgb(25, 25, 30);
+    border: 0.75vh solid rgb(205, 205, 210);
+  }
+    .black_theme .contextMenu_buttons_color {
+      color: rgb(235, 235, 235);
+    }
+    .black_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(45, 45, 50);
+    }
+
+
+
+.navyBlue_theme {
+  background-color: rgb(0, 0, 0);
+  color: rgb(235, 235, 235);
+}
+  .navyBlue_theme .header_color {
+    background-color: rgb(0, 0, 128);
+    border-bottom: 0.75vh solid rgb(160, 160, 210);
+  }
+    .navyBlue_theme .header_textColor {
+      color: rgb(235, 235, 235);
+      }
+  .navyBlue_theme .main_color {
+    background-color: rgb(0, 0, 108);
+    color: rgb(235, 235, 235);
+  }
+    .navyBlue_theme .storyBox_color {
+      background-color: rgb(0, 0, 118);
+      border: 0.75vh solid rgb(160, 160, 210);
+    }
+      .navyBlue_theme .storyBox_innerColor {
+        background-color: rgb(0, 0, 118);
+        color: rgb(235, 235, 235);
+      }
+      .navyBlue_theme .storyBox_innerColor::placeholder {
+        color: rgb(235, 235, 235);
+        opacity: 0.5;
+      }
+    .navyBlue_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(160, 160, 210);
+    }
+  .navyBlue_theme .footer_color {
+    background-color: rgb(0, 0, 128);
+    border-top: 0.75vh solid rgb(160, 160, 210);
+    color: rgb(235, 235, 235);
+  }
+    .navyBlue_theme #reportIssueButton {
+      border: 0.75vh solid rgb(160, 160, 210);
+      background-color: rgb(0, 0, 128);
+      color: rgb(235, 235, 235);
+    }
+    .navyBlue_theme #reportIssueButton:hover {
+      background-color: rgb(160, 160, 210);
+      border: 0.75vh solid rgb(0, 0, 128);
+      color: rgb(20, 20, 20);
+    }
+  .navyBlue_theme .menu_color {
+    border-top: 0.75vh solid rgb(160, 160, 210);
+    border-left: 0.75vh solid rgb(160, 160, 210);
+    border-bottom: 0.75vh solid rgb(160, 160, 210);
+  }
+    .navyBlue_theme .themeMenu_categorySection_color {
+    background-color: rgb(0, 0, 128);
+      border-right: 0.75vh solid rgb(160, 160, 210);
+    }
+      .navyBlue_theme .themeMenu_categorySection_text {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(160, 160, 210);
+      }
+      .navyBlue_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(0, 0, 108);
+      }
+    .navyBlue_theme .themeMenu_themeSection_color {
+      background-color: rgb(0, 0, 118);
+    }
+      .navyBlue_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(0, 0, 128);
+        border: 0.75vh solid rgb(160, 160, 210);
+        color: rgb(235, 235, 235);
+      }
+      .navyBlue_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(0, 0, 108);
+      }
+    .navyBlue_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(0, 0, 128);
+    }
+      .navyBlue_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(160, 160, 210);
+      }
+      .navyBlue_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(0, 0, 108);
+      }
+  .navyBlue_theme .popup_color {
+    border: 0.75vh solid rgb(160, 160, 210);
+  }
+    .navyBlue_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(160, 160, 210);
+      border-top: 0.75vh solid rgb(160, 160, 210);
+    }
+    .navyBlue_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(160, 160, 210);
+    }
+    .navyBlue_theme .importExportMenu_buttons_color {
+      background-color: rgb(0, 0, 128);
+      border: 0.75vh solid rgb(160, 160, 210);
+      color: rgb(235, 235, 235);
+    }
+    .navyBlue_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(160, 160, 210);
+      border: 0.75vh solid rgb(0, 0, 128);
+      color: rgb(20, 20, 20);
+    }
+  .navyBlue_theme .contextMenu_color {
+    background-color: rgb(0, 0, 128);
+    border: 0.75vh solid rgb(160, 160, 210);
+  }
+    .navyBlue_theme .contextMenu_buttons_color {
+      color: rgb(235, 235, 235);
+    }
+    .navyBlue_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(0, 0, 108);
+    }
+
+
+    
+.burntOrange_theme {
+  background-color: rgb(0, 0, 0);
+  color: rgb(20, 20, 20);
+}
+  .burntOrange_theme .header_color {
+    background-color: rgb(184, 65, 0);
+    border-bottom: 0.75vh solid rgb(200, 155, 100);
+  }
+    .burntOrange_theme .header_textColor {
+      color: rgb(20, 20, 20);
+      }
+  .burntOrange_theme .main_color {
+    background-color: rgb(189, 70, 0);
+    color: rgb(20, 20, 20);
+  }
+    .burntOrange_theme .storyBox_color {
+      background-color: rgb(184, 75, 0);
+      border: 0.75vh solid rgb(200, 155, 100);
+    }
+      .burntOrange_theme .storyBox_innerColor {
+        background-color: rgb(184, 75, 0);
+        color: rgb(20, 20, 20);
+      }
+      .burntOrange_theme .storyBox_innerColor::placeholder {
+        color: rgb(20, 20, 20);
+        opacity: 0.5;
+      }
+    .burntOrange_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(200, 155, 100);
+    }
+  .burntOrange_theme .footer_color {
+    background-color: rgb(184, 65, 0);
+    border-top: 0.75vh solid rgb(200, 155, 100);
+    color: rgb(20, 20, 20);
+  }
+    .burntOrange_theme #reportIssueButton {
+      border: 0.75vh solid rgb(200, 155, 100);
+      background-color: rgb(184, 65, 0);
+      color: rgb(20, 20, 20);
+    }
+    .burntOrange_theme #reportIssueButton:hover {
+      border: 0.75vh solid rgb(184, 65, 0);
+      background-color: rgb(200, 155, 100);
+      color: rgb(235, 235, 235);
+    }
+  .burntOrange_theme .menu_color {
+    border-top: 0.75vh solid rgb(200, 155, 100);
+    border-left: 0.75vh solid rgb(200, 155, 100);
+    border-bottom: 0.75vh solid rgb(200, 155, 100);
+  }
+    .burntOrange_theme .themeMenu_categorySection_color {
+      background-color: rgb(184, 65, 0);
+      border-right: 0.75vh solid rgb(200, 155, 100);
+    }
+      .burntOrange_theme .themeMenu_categorySection_text {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(200, 155, 100);
+      }
+      .burntOrange_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(164, 45, 0);
+      }
+    .burntOrange_theme .themeMenu_themeSection_color {
+      background-color: rgb(179, 60, 0);
+    }
+      .burntOrange_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(184, 65, 0);
+        border: 0.75vh solid rgb(200, 155, 100);
+        color: rgb(20, 20, 20);
+      }
+      .burntOrange_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(164, 45, 0);
+      }
+    .burntOrange_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(184, 65, 0);
+    }
+      .burntOrange_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(200, 155, 100);
+      }
+      .burntOrange_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(164, 45, 0);
+      }
+  .burntOrange_theme .popup_color {
+    border: 0.75vh solid rgb(200, 155, 100);
+  }
+    .burntOrange_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(200, 155, 100);
+      border-top: 0.75vh solid rgb(200, 155, 100);
+    }
+    .burntOrange_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(200, 155, 100);
+    }
+    .burntOrange_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(200, 155, 100);
+      background-color: rgb(184, 65, 0);
+      color: rgb(20, 20, 20);
+    }
+    .burntOrange_theme .importExportMenu_buttons_color:hover {
+      border: 0.75vh solid rgb(184, 65, 0);
+      background-color: rgb(200, 155, 100);
+      color: rgb(235, 235, 235);
+    }
+  .burntOrange_theme .contextMenu_color {
+    background-color: rgb(184, 65, 0);
+    border: 0.75vh solid rgb(200, 155, 100);
+  }
+    .burntOrange_theme .contextMenu_buttons_color {
+      color: rgb(20, 20, 20);
+    }
+    .burntOrange_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(164, 45, 0);
+    }
+
+
+
+.pink_theme {
+  background-color: rgb(230, 75, 150);
+  color: rgb(20, 20, 20);
+}
+  .pink_theme .header_color {
+    background-color: rgb(240, 85, 170);
+    border-bottom: 0.75vh solid rgb(40, 30, 35);
+  }
+    .pink_theme .header_textColor {
+      color: rgb(20, 20, 20);
+      }
+  .pink_theme .main_color {
+    background-color: rgb(230, 75, 160);
+    color: rgb(20, 20, 20);
+  }
+    .pink_theme .storyBox_color {
+      background-color: rgb(220, 65, 150);
+      border: 0.75vh solid rgb(40, 30, 35);
+    }
+      .pink_theme .storyBox_innerColor {
+        background-color: rgb(220, 65, 150);
+        color: rgb(20, 20, 20);
+      }
+      .pink_theme .storyBox_innerColor::placeholder {
+          color: rgb(20, 20, 20);
+          opacity: 0.5;
+      }
+    .pink_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(40, 30, 35);
+    }
+  .pink_theme .footer_color {
+    background-color: rgb(240, 85, 170);
+    border-top: 0.75vh solid rgb(40, 30, 35);
+    color: rgb(20, 20, 20);
+  }
+    .pink_theme #reportIssueButton {
+      border: 0.75vh solid rgb(40, 30, 35);
+      background-color: rgb(240, 85, 170);
+      color: rgb(20, 20, 20);
+    }
+    .pink_theme #reportIssueButton:hover {
+      background-color: rgb(40, 30, 35);
+      border: 0.75vh solid rgb(240, 85, 170);
+      color: rgb(235, 235, 235);
+    }
+  .pink_theme .menu_color {
+    border-top: 0.75vh solid rgb(40, 30, 35);
+    border-left: 0.75vh solid rgb(40, 30, 35);
+    border-bottom: 0.75vh solid rgb(40, 30, 35);
+  }
+    .pink_theme .themeMenu_categorySection_color {
+      background-color: rgb(240, 85, 170);
+      border-right: 0.75vh solid rgb(40, 30, 35);
+    }
+      .pink_theme .themeMenu_categorySection_text {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(40, 30, 35);
+      }
+      .pink_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(220, 65, 140);
+      }
+    .pink_theme .themeMenu_themeSection_color {
+      background-color: rgb(230, 75, 160);
+    }
+      .pink_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(240, 85, 170);
+        border: 0.75vh solid rgb(40, 30, 35);
+        color: rgb(20, 20, 20);
+      }
+      .pink_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(220, 65, 140);
+      }
+    .pink_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(230, 75, 160);
+    }
+      .pink_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(40, 30, 35);
+      }
+      .pink_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(220, 65, 140);
+      }
+  .pink_theme .popup_color {
+    border: 0.75vh solid rgb(40, 30, 35);
+  }
+    .pink_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(40, 30, 35);
+      border-top: 0.75vh solid rgb(40, 30, 35);
+    }
+    .pink_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(40, 30, 35);
+    }
+    .pink_theme .importExportMenu_buttons_color {
+      background-color: rgb(240, 85, 170);
+      border: 0.75vh solid rgb(40, 30, 35);
+      color: rgb(20, 20, 20);
+    }
+    .pink_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(40, 30, 35);
+      border: 0.75vh solid rgb(240, 85, 170);
+      color: rgb(235, 235, 235);
+    }
+  .pink_theme .contextMenu_color {
+    background-color: rgb(230, 75, 160);
+    border: 0.75vh solid rgb(40, 30, 35);
+  }
+    .pink_theme .contextMenu_buttons_color {
+      color: rgb(20, 20, 20);
+    }
+    .pink_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(210, 55, 140);
+    }
+
+
+
+.brown_theme {
+  background-color: rgb(230, 75, 150);
+  color: rgb(235, 235, 235);
+}
+  .brown_theme .header_color {
+    background-color: rgb(150, 75, 0);
+    border-bottom: 0.75vh solid rgb(200, 190, 160);
+  }
+    .brown_theme .header_textColor {
+      color: rgb(235, 235, 235);
+      }
+  .brown_theme .main_color {
+    background-color: rgb(140, 65, 0);
+    color: rgb(235, 235, 235);
+  }
+    .brown_theme .storyBox_color {
+      background-color: rgb(130, 55, 0);
+      border: 0.75vh solid rgb(200, 190, 160);
+    }
+      .brown_theme .storyBox_innerColor {
+        background-color: rgb(130, 55, 0);
+        color: rgb(235, 235, 235);
+      }
+      .brown_theme .storyBox_innerColor::placeholder {
+          color: rgb(235, 235, 235);
+          opacity: 0.5;
+      }
+    .brown_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(200, 190, 160);
+    }
+  .brown_theme .footer_color {
+    background-color: rgb(150, 75, 0);
+    border-top: 0.75vh solid rgb(200, 190, 160);
+    color: rgb(235, 235, 235);
+  }
+    .brown_theme #reportIssueButton {
+      border: 0.75vh solid rgb(200, 190, 160);
+      background-color: rgb(150, 75, 0);
+      color: rgb(235, 235, 235);
+    }
+    .brown_theme #reportIssueButton:hover {
+      background-color: rgb(200, 190, 160);
+      border: 0.75vh solid rgb(150, 75, 0);
+      color: rgb(20, 20, 20);
+    }
+  .brown_theme .menu_color {
+    border-top: 0.75vh solid rgb(200, 190, 160);
+    border-left: 0.75vh solid rgb(200, 190, 160);
+    border-bottom: 0.75vh solid rgb(200, 190, 160);
+  }
+    .brown_theme .themeMenu_categorySection_color {
+      background-color: rgb(150, 75, 0);
+      border-right: 0.75vh solid rgb(200, 190, 160);
+    }
+      .brown_theme .themeMenu_categorySection_text {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(200, 190, 160);
+      }
+      .brown_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(125, 50, 0);
+      }
+    .brown_theme .themeMenu_themeSection_color {
+      background-color: rgb(145, 70, 0);
+    }
+      .brown_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(150, 75, 0);
+        border: 0.75vh solid rgb(200, 190, 160);
+        color: rgb(235, 235, 235);
+      }
+      .brown_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(125, 50, 0);
+      }
+    .brown_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(145, 70, 0);
+    }
+      .brown_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(200, 190, 160);
+      }
+      .brown_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(125, 50, 0);
+      }
+  .brown_theme .popup_color {
+    border: 0.75vh solid rgb(200, 190, 160);
+  }
+    .brown_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(200, 190, 160);
+      border-top: 0.75vh solid rgb(200, 190, 160);
+    }
+    .brown_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(200, 190, 160);
+    }
+    .brown_theme .importExportMenu_buttons_color {
+      background-color: rgb(150, 75, 0);
+      border: 0.75vh solid rgb(200, 190, 160);
+      color: rgb(235, 235, 235);
+    }
+    .brown_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(200, 190, 160);
+      border: 0.75vh solid rgb(150, 75, 0);
+      color: rgb(20, 20, 20);
+    }
+  .brown_theme .contextMenu_color {
+    background-color: rgb(145, 70, 0);
+    border: 0.75vh solid rgb(200, 190, 160);
+  }
+    .brown_theme .contextMenu_buttons_color {
+      color: rgb(235, 235, 235);
+    }
+    .brown_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(125, 50, 0);
+    }
+
+
+
+.electricBlue_theme {
+  background-color: rgb(230, 75, 150);
+  color: rgb(20, 20, 20);
+}
+  .electricBlue_theme .header_color {
+    background-color: rgb(0, 232, 247);
+    border-bottom: 0.75vh solid rgb(35, 50, 75);
+  }
+    .electricBlue_theme .header_textColor {
+      color: rgb(20, 20, 20);
+      }
+  .electricBlue_theme .main_color {
+    background-color: rgb(0, 222, 237);
+    color: rgb(20, 20, 20);
+  }
+    .electricBlue_theme .storyBox_color {
+      background-color: rgb(0, 212, 227);
+      border: 0.75vh solid rgb(35, 50, 75);
+    }
+      .electricBlue_theme .storyBox_innerColor {
+        background-color: rgb(0, 212, 227);
+        color: rgb(20, 20, 20);
+      }
+      .electricBlue_theme .storyBox_innerColor::placeholder {
+          color: rgb(20, 20, 20);
+          opacity: 0.5;
+      }
+    .electricBlue_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(35, 50, 75);
+    }
+  .electricBlue_theme .footer_color {
+    background-color: rgb(0, 232, 247);
+    border-top: 0.75vh solid rgb(35, 50, 75);
+    color: rgb(20, 20, 20);
+  }
+    .electricBlue_theme #reportIssueButton {
+      border: 0.75vh solid rgb(35, 50, 75);
+      background-color: rgb(0, 232, 247);
+      color: rgb(20, 20, 20);
+    }
+    .electricBlue_theme #reportIssueButton:hover {
+      background-color: rgb(35, 50, 75);
+      border: 0.75vh solid rgb(0, 232, 247);
+      color: rgb(235, 235, 235);
+    }
+  .electricBlue_theme .menu_color {
+    border-top: 0.75vh solid rgb(35, 50, 75);
+    border-left: 0.75vh solid rgb(35, 50, 75);
+    border-bottom: 0.75vh solid rgb(35, 50, 75);
+  }
+    .electricBlue_theme .themeMenu_categorySection_color {
+      background-color: rgb(0, 232, 247);
+      border-right: 0.75vh solid rgb(35, 50, 75);
+    }
+      .electricBlue_theme .themeMenu_categorySection_text {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(35, 50, 75);
+      }
+      .electricBlue_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(0, 212, 227);
+      }
+    .electricBlue_theme .themeMenu_themeSection_color {
+      background-color: rgb(0, 222, 237);
+    }
+      .electricBlue_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(0, 232, 247);
+        border: 0.75vh solid rgb(35, 50, 75);
+        color: rgb(20, 20, 20);
+      }
+      .electricBlue_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(0, 212, 227);
+      }
+    .electricBlue_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(0, 232, 247);
+    }
+      .electricBlue_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(35, 50, 75);
+      }
+      .electricBlue_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(0, 212, 227);
+      }
+  .electricBlue_theme .popup_color {
+    border: 0.75vh solid rgb(35, 50, 75);
+  }
+    .electricBlue_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(35, 50, 75);
+      border-top: 0.75vh solid rgb(35, 50, 75);
+    }
+    .electricBlue_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(35, 50, 75);
+    }
+    .electricBlue_theme .importExportMenu_buttons_color {
+      background-color: rgb(0, 232, 247);
+      border: 0.75vh solid rgb(35, 50, 75);
+      color: rgb(20, 20, 20);
+    }
+    .electricBlue_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(35, 50, 75);
+      border: 0.75vh solid rgb(0, 232, 247);
+      color: rgb(235, 235, 235);
+    }
+  .electricBlue_theme .contextMenu_color {
+    background-color: rgb(0, 232, 247);
+    border: 0.75vh solid rgb(35, 50, 75);
+  }
+    .electricBlue_theme .contextMenu_buttons_color {
+      color: rgb(20, 20, 20);
+    }
+    .electricBlue_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(0, 212, 227);
+    }
+
+
+/* end of solid themes */
+
+
+
+/* Start of gradient themes */
+
+/* 
+
+
+
+*/
+
+.underwaterDream_theme {
+  background-color: rgb(8, 8, 8);
+  color: rgb(235, 235, 235);
+}
+  .underwaterDream_theme .header_color {
+    background-color: rgb(57, 11, 172);
+    border-bottom: 0.75vh solid rgb(195, 195, 210);
+  }
+    .underwaterDream_theme .header_textColor {
+      color: rgb(235, 235, 235);
+      }
+  .underwaterDream_theme .main_color {
+    background: linear-gradient(180deg, 
+    rgb(57, 11, 172) 0%, 
+    rgb(49, 8, 149) 25%, 
+    rgb(13, 20, 112) 75%, 
+    rgb(10, 24, 75) 100%);
+    color: rgb(235, 235, 235);
+  }
+    .underwaterDream_theme .storyBox_color {
+      background-color: rgb(13, 20, 112);
+      border: 0.75vh solid rgb(195, 195, 210);
+    }
+      .underwaterDream_theme .storyBox_innerColor {
+        background-color: rgb(13, 20, 112);
+        color: rgb(235, 235, 235);
+      }
+      .underwaterDream_theme .storyBox_innerColor::placeholder {
+          color: rgb(235, 235, 235);
+          opacity: 0.5;
+      }
+    .underwaterDream_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(195, 195, 210);
+    }
+  .underwaterDream_theme .footer_color {
+    background: linear-gradient(180deg, rgb(10, 24, 75) 0%, rgb(8, 8, 18) 100%);
+    border-top: 0.75vh solid rgb(195, 195, 210);
+    color: rgb(235, 235, 235);
+  }
+    .underwaterDream_theme #reportIssueButton {
+      border: 0.75vh solid rgb(195, 195, 210);
+      background-color: rgb(10, 24, 75);
+      color: rgb(235, 235, 235);
+    }
+    .underwaterDream_theme #reportIssueButton:hover {
+      background-color: rgb(195, 195, 210);
+      border: 0.75vh solid rgb(10, 24, 75);
+      color: rgb(20, 20, 20);
+    }
+  .underwaterDream_theme .menu_color {
+    border-top: 0.75vh solid rgb(195, 195, 210);
+    border-left: 0.75vh solid rgb(195, 195, 210);
+    border-bottom: 0.75vh solid rgb(195, 195, 210);
+  }
+    .underwaterDream_theme .themeMenu_categorySection_color {
+      background-color: rgb(57, 11, 172);
+      border-right: 0.75vh solid rgb(195, 195, 210);
+    }
+      .underwaterDream_theme .themeMenu_categorySection_text {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(195, 195, 210);
+      }
+      .underwaterDream_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(37, 0, 152);
+      }
+    .underwaterDream_theme .themeMenu_themeSection_color {
+      background-color: rgb(52, 6, 167);
+    }
+      .underwaterDream_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(57, 11, 172);
+        border: 0.75vh solid rgb(195, 195, 210);
+        color: rgb(235, 235, 235);
+      }
+      .underwaterDream_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(37, 0, 152);
+      }
+    .underwaterDream_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(52, 6, 167);
+    }
+      .underwaterDream_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(195, 195, 210);
+      }
+      .underwaterDream_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(37, 0, 152);
+      }
+  .underwaterDream_theme .popup_color {
+    border: 0.75vh solid rgb(195, 195, 210);
+  }
+    .underwaterDream_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(195, 195, 210);
+      border-top: 0.75vh solid rgb(195, 195, 210);
+    }
+    .underwaterDream_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(195, 195, 210);
+    }
+    .underwaterDream_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(195, 195, 210);
+      background-color: rgb(10, 24, 75);
+      color: rgb(235, 235, 235);
+    }
+    .underwaterDream_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(195, 195, 210);
+      border: 0.75vh solid rgb(10, 24, 75);
+      color: rgb(20, 20, 20);
+    }
+  .underwaterDream_theme .contextMenu_color {
+    background-color: rgb(52, 6, 167);
+    border: 0.75vh solid rgb(195, 195, 210);
+  }
+    .underwaterDream_theme .contextMenu_buttons_color {
+      color: rgb(235, 235, 235);
+    }
+    .underwaterDream_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(32, 0, 147);
+    }
+
+
+
+.thatOneSunset_theme {
+  background-color: rgb(8, 8, 8);
+  color: rgb(20, 20, 20);
+}
+  .thatOneSunset_theme .header_color {
+    background-color: rgb(255, 175, 69);
+    border-bottom: 0.75vh solid rgb(55, 40, 30);
+  }
+    .thatOneSunset_theme .header_textColor {
+      color: rgb(20, 20, 20);
+      }
+  .thatOneSunset_theme .main_color {
+    background: linear-gradient(180deg, 
+    rgb(255, 175, 69) 0%, 
+    rgb(251, 109, 72) 25%, 
+    rgb(215, 75, 118) 100%);
+    color: rgb(20, 20, 20);
+  }
+    .thatOneSunset_theme .storyBox_color {
+      background-color: rgb(255, 119, 82);
+      border: 0.75vh solid rgb(55, 40, 30);
+    }
+      .thatOneSunset_theme .storyBox_innerColor {
+        background-color: rgb(255, 119, 82);
+        color: rgb(20, 20, 20);
+      }
+      .thatOneSunset_theme .storyBox_innerColor::placeholder {
+          color: rgb(20, 20, 20);
+          opacity: 0.5;
+      }
+    .thatOneSunset_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(55, 40, 30);
+    }
+  .thatOneSunset_theme .footer_color {
+    background-color: rgb(103, 63, 105);
+    border-top: 0.75vh solid rgb(55, 40, 30);
+    color: rgb(20, 20, 20);
+  }
+    .thatOneSunset_theme #reportIssueButton {
+      border: 0.75vh solid rgb(55, 40, 30);
+      background-color: rgb(103, 63, 105);
+      color: rgb(20, 20, 20);
+    }
+    .thatOneSunset_theme #reportIssueButton:hover {
+      background-color: rgb(55, 40, 30);
+      border: 0.75vh solid rgb(103, 63, 105);
+      color: rgb(235, 235, 235);
+    }
+  .thatOneSunset_theme .menu_color {
+    border-top: 0.75vh solid rgb(55, 40, 30);
+    border-left: 0.75vh solid rgb(55, 40, 30);
+    border-bottom: 0.75vh solid rgb(55, 40, 30);
+  }
+    .thatOneSunset_theme .themeMenu_categorySection_color {
+      background-color: rgb(255, 175, 69);
+      border-right: 0.75vh solid rgb(55, 40, 30);
+    }
+      .thatOneSunset_theme .themeMenu_categorySection_text {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(55, 40, 30);
+      }
+      .thatOneSunset_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(235, 155, 49);
+      }
+    .thatOneSunset_theme .themeMenu_themeSection_color {
+      background-color: rgb(245, 165, 59);
+    }
+      .thatOneSunset_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(255, 175, 69);
+        border: 0.75vh solid rgb(55, 40, 30);
+        color: rgb(20, 20, 20);
+      }
+      .thatOneSunset_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(235, 155, 49);
+      }
+    .thatOneSunset_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(255, 175, 69);
+    }
+      .thatOneSunset_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(55, 40, 30);
+      }
+      .thatOneSunset_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(235, 155, 49);
+      }
+  .thatOneSunset_theme .popup_color {
+    border: 0.75vh solid rgb(55, 40, 30);
+  }
+    .thatOneSunset_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(55, 40, 30);
+      border-top: 0.75vh solid rgb(55, 40, 30);
+    }
+    .thatOneSunset_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(55, 40, 30);
+    }
+    .thatOneSunset_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(55, 40, 30);
+      background-color: rgb(103, 63, 105);
+      color: rgb(20, 20, 20);
+    }
+    .thatOneSunset_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(55, 40, 30);
+      border: 0.75vh solid rgb(103, 63, 105);
+      color: rgb(235, 235, 235);
+    }
+  .thatOneSunset_theme .contextMenu_color {
+    background-color: rgb(255, 175, 69);
+    border: 0.75vh solid rgb(55, 40, 30);
+  }
+    .thatOneSunset_theme .contextMenu_buttons_color {
+      color: rgb(20, 20, 20);
+    }
+    .thatOneSunset_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(235, 155, 49);
+    }
+
+
+
+.pinkCupcakeIcing_theme {
+  background-color: rgb(8, 8, 8);
+  color: rgb(20, 20, 20);
+}
+  .pinkCupcakeIcing_theme .header_color {
+    background-color: rgb(245, 238, 230);
+    border-bottom: 0.75vh solid rgb(40, 30, 40);
+  }
+    .pinkCupcakeIcing_theme .header_textColor {
+      color: rgb(20, 20, 20);
+      }
+  .pinkCupcakeIcing_theme .main_color {
+    background: linear-gradient(180deg, 
+    rgb(255, 248, 227) 0%, 
+    rgb(243, 215, 202) 25%, 
+    rgb(230, 164, 180) 100%);
+    color: rgb(20, 20, 20);
+  }
+    .pinkCupcakeIcing_theme .storyBox_color {
+      background-color: rgb(240, 174, 190);
+      border: 0.75vh solid rgb(40, 30, 40);
+    }
+      .pinkCupcakeIcing_theme .storyBox_innerColor {
+        background-color: rgb(240, 174, 190);
+        color: rgb(20, 20, 20);
+      }
+      .pinkCupcakeIcing_theme .storyBox_innerColor::placeholder {
+          color: rgb(20, 20, 20);
+          opacity: 0.5;
+      }
+    .pinkCupcakeIcing_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(40, 30, 40);
+    }
+  .pinkCupcakeIcing_theme .footer_color {
+    background-color: rgb(230, 164, 180);
+    border-top: 0.75vh solid rgb(40, 30, 40);
+    color: rgb(20, 20, 20);
+  }
+    .pinkCupcakeIcing_theme #reportIssueButton {
+      border: 0.75vh solid rgb(40, 30, 40);
+      background-color: rgb(230, 164, 180);
+      color: rgb(20, 20, 20);
+    }
+    .pinkCupcakeIcing_theme #reportIssueButton:hover {
+      background-color: rgb(40, 30, 40);
+      border: 0.75vh solid rgb(230, 164, 180);
+      color: rgb(235, 235, 235);
+    }
+  .pinkCupcakeIcing_theme .menu_color {
+    border-top: 0.75vh solid rgb(40, 30, 40);
+    border-left: 0.75vh solid rgb(40, 30, 40);
+    border-bottom: 0.75vh solid rgb(40, 30, 40);
+  }
+    .pinkCupcakeIcing_theme .themeMenu_categorySection_color {
+      background-color: rgb(245, 238, 230);
+      border-right: 0.75vh solid rgb(40, 30, 40);
+    }
+      .pinkCupcakeIcing_theme .themeMenu_categorySection_text {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(40, 30, 40);
+      }
+      .pinkCupcakeIcing_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(225, 218, 210);
+      }
+    .pinkCupcakeIcing_theme .themeMenu_themeSection_color {
+      background-color: rgb(235, 228, 220);
+    }
+      .pinkCupcakeIcing_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(245, 238, 230);
+        border: 0.75vh solid rgb(40, 30, 40);
+        color: rgb(20, 20, 20);
+      }
+      .pinkCupcakeIcing_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(225, 218, 210);
+      }
+    .pinkCupcakeIcing_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(245, 238, 230);
+    }
+      .pinkCupcakeIcing_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(40, 30, 40);
+      }
+      .pinkCupcakeIcing_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(225, 218, 210);
+      }
+  .pinkCupcakeIcing_theme .popup_color {
+    border: 0.75vh solid rgb(40, 30, 40);
+  }
+    .pinkCupcakeIcing_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(40, 30, 40);
+      border-top: 0.75vh solid rgb(40, 30, 40);
+    }
+    .pinkCupcakeIcing_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(40, 30, 40);
+    }
+    .pinkCupcakeIcing_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(40, 30, 40);
+      background-color: rgb(230, 164, 180);
+      color: rgb(20, 20, 20);
+    }
+    .pinkCupcakeIcing_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(40, 30, 40);
+      border: 0.75vh solid rgb(230, 164, 180);
+      color: rgb(235, 235, 235);
+    }
+  .pinkCupcakeIcing_theme .contextMenu_color {
+    background-color: rgb(245, 238, 230);
+    border: 0.75vh solid rgb(40, 30, 40);
+  }
+    .pinkCupcakeIcing_theme .contextMenu_buttons_color {
+      color: rgb(20, 20, 20);
+    }
+    .pinkCupcakeIcing_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(225, 218, 210);
+    }
+
+
+
+.blueCrystalCave_theme {
+  background-color: rgb(8, 8, 8);
+  color: rgb(235, 235, 235);
+}
+  .blueCrystalCave_theme .header_color {
+    background-color: rgb(22, 24, 26);
+    border-bottom: 0.75vh solid rgb(210, 225, 235);
+  }
+    .blueCrystalCave_theme .header_textColor {
+      color: rgb(235, 235, 235);
+      }
+  .blueCrystalCave_theme .main_color {
+    background: radial-gradient(50% 50%, 
+    rgb(128, 166, 201) 0%, 
+    rgb(75, 87, 148) 25%, 
+    rgb(49, 48, 56) 50%, 
+    rgb(30, 30, 34) 75%, 
+    rgb(22, 24, 26) 100%);
+    color: rgb(235, 235, 235);
+  }
+    .blueCrystalCave_theme .storyBox_color {
+      background-color: rgb(30, 30, 34);
+      border: 0.75vh solid rgb(210, 225, 235);
+    }
+      .blueCrystalCave_theme .storyBox_innerColor {
+        background-color: rgb(30, 30, 34);
+        color: rgb(235, 235, 235);
+      }
+      .blueCrystalCave_theme .storyBox_innerColor::placeholder {
+          color: rgb(235, 235, 235);
+          opacity: 0.5;
+      }
+    .blueCrystalCave_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(210, 225, 235);
+    }
+  .blueCrystalCave_theme .footer_color {
+    background-color: rgb(22, 24, 26);
+    border-top: 0.75vh solid rgb(210, 225, 235);
+    color: rgb(235, 235, 235);
+  }
+    .blueCrystalCave_theme #reportIssueButton {
+      border: 0.75vh solid rgb(210, 225, 235);
+      background-color: rgb(22, 24, 26);
+      color: rgb(235, 235, 235);
+    }
+    .blueCrystalCave_theme #reportIssueButton:hover {
+      background-color: rgb(210, 225, 235);
+      border: 0.75vh solid rgb(22, 24, 26);
+      color: rgb(235, 235, 235);
+    }
+  .blueCrystalCave_theme .menu_color {
+    border-top: 0.75vh solid rgb(210, 225, 235);
+    border-left: 0.75vh solid rgb(210, 225, 235);
+    border-bottom: 0.75vh solid rgb(210, 225, 235);
+  }
+    .blueCrystalCave_theme .themeMenu_categorySection_color {
+      background-color: rgb(22, 24, 26);
+      border-right: 0.75vh solid rgb(210, 225, 235);
+    }
+      .blueCrystalCave_theme .themeMenu_categorySection_text {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(210, 225, 235);
+      }
+      .blueCrystalCave_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(42, 44, 46);
+      }
+    .blueCrystalCave_theme .themeMenu_themeSection_color {
+      background-color: rgb(27, 29, 31);
+    }
+      .blueCrystalCave_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(22, 24, 26);
+        border: 0.75vh solid rgb(210, 225, 235);
+        color: rgb(235, 235, 235);
+      }
+      .blueCrystalCave_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(42, 44, 46);
+      }
+    .blueCrystalCave_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(22, 24, 26);
+    }
+      .blueCrystalCave_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(210, 225, 235);
+      }
+      .blueCrystalCave_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(42, 44, 46);
+      }
+  .blueCrystalCave_theme .popup_color {
+    border: 0.75vh solid rgb(210, 225, 235);
+  }
+    .blueCrystalCave_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(210, 225, 235);
+      border-top: 0.75vh solid rgb(210, 225, 235);
+    }
+    .blueCrystalCave_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(210, 225, 235);
+    }
+    .blueCrystalCave_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(210, 225, 235);
+      background-color: rgb(22, 24, 26);
+      color: rgb(235, 235, 235);
+    }
+    .blueCrystalCave_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(210, 225, 235);
+      border: 0.75vh solid rgb(22, 24, 26);
+      color: rgb(20, 20, 20);
+    }
+  .blueCrystalCave_theme .contextMenu_color {
+    background-color: rgb(22, 24, 26);
+    border: 0.75vh solid rgb(210, 225, 235);
+  }
+    .blueCrystalCave_theme .contextMenu_buttons_color {
+      color: rgb(235, 235, 235);
+    }
+    .blueCrystalCave_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(50, 50, 54);
+    }
+
+
+
+.pastelWoods_theme {
+  background-color: rgb(8, 8, 8);
+  color: rgb(20, 20, 20);
+}
+  .pastelWoods_theme .header_color {
+    background: radial-gradient(50% 100%, rgb(181, 193, 142) 75%, rgb(161, 173, 122) 100%);
+    border-bottom: 0.75vh solid rgb(30, 25, 0);
+  }
+    .pastelWoods_theme .header_textColor {
+      color: rgb(20, 20, 20);
+      }
+  .pastelWoods_theme .main_color {
+    background: linear-gradient(90deg,
+    rgb(227, 200, 165) 0%,
+    rgb(207, 180, 145) 24%,
+    rgb(185, 148, 112) 24%,
+    rgb(222, 172, 128) 25%,
+    rgb(222, 172, 128) 30%,
+    rgb(185, 148, 112) 31%,
+    rgb(207, 180, 145) 31%,
+    rgb(227, 200, 165) 50%,
+    rgb(207, 180, 145) 69%,
+    rgb(185, 148, 112) 69%,
+    rgb(222, 172, 128) 70%,
+    rgb(222, 172, 128) 75%,
+    rgb(185, 148, 112) 76%,
+    rgb(207, 180, 145) 76%,
+    rgb(227, 200, 165) 100%
+    
+    );
+    color: rgb(20, 20, 20);
+  }
+    .pastelWoods_theme .storyBox_color {
+      background-color: rgb(222, 172, 128);
+      border: 0.75vh solid rgb(30, 25, 0);
+    }
+      .pastelWoods_theme .storyBox_innerColor {
+        background-color: rgb(222, 172, 128);
+        color: rgb(20, 20, 20);
+      }
+      .pastelWoods_theme .storyBox_innerColor::placeholder {
+          color: rgb(20, 20, 20);
+          opacity: 0.5;
+      }
+    .pastelWoods_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(30, 25, 0);
+    }
+  .pastelWoods_theme .footer_color {
+    background-color: rgb(170, 133, 97);
+    border-top: 0.75vh solid rgb(30, 25, 0);
+    color: rgb(20, 20, 20);
+  }
+    .pastelWoods_theme #reportIssueButton {
+      border: 0.75vh solid rgb(30, 25, 0);
+      background-color: rgb(170, 133, 97);
+      color: rgb(20, 20, 20);
+    }
+    .pastelWoods_theme #reportIssueButton:hover {
+      background-color: rgb(30, 25, 0);
+      border: 0.75vh solid rgb(170, 133, 97);
+      color: rgb(235, 235, 235);
+    }
+  .pastelWoods_theme .menu_color {
+    border-top: 0.75vh solid rgb(30, 25, 0);
+    border-left: 0.75vh solid rgb(30, 25, 0);
+    border-bottom: 0.75vh solid rgb(30, 25, 0);
+  }
+    .pastelWoods_theme .themeMenu_categorySection_color {
+      background-color: rgb(181, 193, 142);
+      border-right: 0.75vh solid rgb(30, 25, 0);
+    }
+      .pastelWoods_theme .themeMenu_categorySection_text {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(30, 25, 0);
+      }
+      .pastelWoods_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(151, 163, 112);
+      }
+    .pastelWoods_theme .themeMenu_themeSection_color {
+      background-color: rgb(171, 183, 132);
+    }
+      .pastelWoods_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(181, 193, 142);
+        border: 0.75vh solid rgb(30, 25, 0);
+        color: rgb(20, 20, 20);
+      }
+      .pastelWoods_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(151, 163, 112);
+      }
+    .pastelWoods_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(181, 193, 142);
+    }
+      .pastelWoods_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(30, 25, 0);
+      }
+      .pastelWoods_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(151, 163, 112);
+      }
+  .pastelWoods_theme .popup_color {
+    border: 0.75vh solid rgb(30, 25, 0);
+  }
+    .pastelWoods_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(30, 25, 0);
+      border-top: 0.75vh solid rgb(30, 25, 0);
+    }
+    .pastelWoods_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(30, 25, 0);
+    }
+    .pastelWoods_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(30, 25, 0);
+      background-color: rgb(170, 133, 97);
+      color: rgb(20, 20, 20)
+    }
+    .pastelWoods_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(30, 25, 0);
+      border: 0.75vh solid rgb(170, 133, 97);
+      color: rgb(235, 235, 235);
+    }
+  .pastelWoods_theme .contextMenu_color {
+    background-color: rgb(181, 193, 142);
+    border: 0.75vh solid rgb(30, 25, 0);
+  }
+    .pastelWoods_theme .contextMenu_buttons_color {
+      color: rgb(20, 20, 20);
+    }
+    .pastelWoods_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(151, 163, 112);
+    }
+
+
+
+.dullSideRoads_theme {
+  background-color: rgb(8, 8, 8);
+  color: rgb(235, 235, 235);
+}
+  .dullSideRoads_theme .header_color {
+    background-color: rgb(86, 86, 86);
+    border-bottom: 0.75vh solid rgb(175, 175, 175);
+  }
+    .dullSideRoads_theme .header_textColor {
+      color: rgb(235, 235, 235);
+      }
+  .dullSideRoads_theme .main_color {
+    background: linear-gradient(90deg,
+    rgb(210, 183, 70) -10%,
+    rgb(71, 71, 71) 5%,
+    rgb(47, 47, 47) 40%,
+    rgb(47, 47, 47) 60%,
+    rgb(71, 71, 71) 95%,
+    rgb(210, 183, 70) 110%
+    );
+    color: rgb(235, 235, 235);
+  }
+    .dullSideRoads_theme .storyBox_color {
+      background-color: rgb(47, 47, 47);
+      border: 0.75vh solid rgb(175, 175, 175);
+    }
+      .dullSideRoads_theme .storyBox_innerColor {
+        background-color: rgb(47, 47, 47);
+        color: rgb(235, 235, 235);
+      }
+      .dullSideRoads_theme .storyBox_innerColor::placeholder {
+          color: rgb(235, 235, 235);
+          opacity: 0.5;
+      }
+    .dullSideRoads_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(175, 175, 175);
+    }
+  .dullSideRoads_theme .footer_color {
+    background-color: rgb(86, 86, 86);
+    border-top: 0.75vh solid rgb(175, 175, 175);
+    color: rgb(235, 235, 235);
+  }
+    .dullSideRoads_theme #reportIssueButton {
+      border: 0.75vh solid rgb(175, 175, 175);
+      background-color: rgb(86, 86, 86);
+      color: rgb(235, 235, 235);
+    }
+    .dullSideRoads_theme #reportIssueButton:hover {
+      background-color: rgb(175, 175, 175);
+      border: 0.75vh solid rgb(86, 86, 86);
+      color: rgb(20, 20, 20);
+    }
+  .dullSideRoads_theme .menu_color {
+    border-top: 0.75vh solid rgb(175, 175, 175);
+    border-left: 0.75vh solid rgb(175, 175, 175);
+    border-bottom: 0.75vh solid rgb(175, 175, 175);
+  }
+    .dullSideRoads_theme .themeMenu_categorySection_color {
+      background-color: rgb(86, 86, 86);
+      border-right: 0.75vh solid rgb(175, 175, 175);
+    }
+      .dullSideRoads_theme .themeMenu_categorySection_text {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(175, 175, 175);
+      }
+      .dullSideRoads_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(66, 66, 66);
+      }
+    .dullSideRoads_theme .themeMenu_themeSection_color {
+      background-color: rgb(76, 76, 76);
+    }
+      .dullSideRoads_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(86, 86, 86);
+        border: 0.75vh solid rgb(175, 175, 175);
+        color: rgb(235, 235, 235);
+      }
+      .dullSideRoads_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(66, 66, 66);
+      }
+    .dullSideRoads_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(86, 86, 86);
+    }
+      .dullSideRoads_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(175, 175, 175);
+      }
+      .dullSideRoads_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(66, 66, 66);
+      }
+  .dullSideRoads_theme .popup_color {
+    border: 0.75vh solid rgb(175, 175, 175);
+  }
+    .dullSideRoads_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(175, 175, 175);
+      border-top: 0.75vh solid rgb(175, 175, 175);
+    }
+    .dullSideRoads_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(175, 175, 175);
+    }
+    .dullSideRoads_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(175, 175, 175);
+      background-color: rgb(86, 86, 86);
+      color: rgb(235, 235, 235);
+    }
+    .dullSideRoads_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(175, 175, 175);
+      border: 0.75vh solid rgb(86, 86, 86);
+      color: rgb(20, 20, 20);
+    }
+  .dullSideRoads_theme .contextMenu_color {
+    background-color: rgb(86, 86, 86);
+    border: 0.75vh solid rgb(175, 175, 175);
+  }
+    .dullSideRoads_theme .contextMenu_buttons_color {
+      color: rgb(235, 235, 235);
+    }
+    .dullSideRoads_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(66, 66, 66);
+    }
+
+
+
+.redHorizon_theme {
+  background-color: rgb(8, 8, 8);
+  color: rgb(235, 235, 235);
+}
+  .redHorizon_theme .header_color {
+    background-color: rgb(65, 65, 65);
+    border-bottom: 0.75vh solid rgb(155, 155, 155);
+  }
+    .redHorizon_theme .header_textColor {
+      color: rgb(235, 235, 235);
+      }
+  .redHorizon_theme .main_color {
+    background: linear-gradient(180deg,
+    rgb(205, 0, 0) 0%,
+    rgb(125, 4, 4) 90%
+    );
+    color: rgb(235, 235, 235);
+  }
+    .redHorizon_theme .storyBox_color {
+      background-color: rgb(37, 37, 37);
+      border: 0.75vh solid rgb(155, 155, 155);
+    }
+      .redHorizon_theme .storyBox_innerColor {
+        background-color: rgb(37, 37, 37);
+        color: rgb(235, 235, 235);
+      }
+      .redHorizon_theme .storyBox_innerColor::placeholder {
+          color: rgb(235, 235, 235);
+          opacity: 0.5;
+      }
+    .redHorizon_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(155, 155, 155);
+    }
+  .redHorizon_theme .footer_color {
+    background-color: rgb(37, 37, 37);
+    border-top: 0.75vh solid rgb(155, 155, 155);
+    color: rgb(235, 235, 235);
+  }
+    .redHorizon_theme #reportIssueButton {
+      border: 0.75vh solid rgb(155, 155, 155);
+      background-color: rgb(37, 37, 37);
+      color: rgb(235, 235, 235);
+    }
+    .redHorizon_theme #reportIssueButton:hover {
+      background-color: rgb(155, 155, 155);
+      border: 0.75vh solid rgb(37, 37, 37);
+      color: rgb(20, 20, 20);
+    }
+  .redHorizon_theme .menu_color {
+    border-top: 0.75vh solid rgb(155, 155, 155);
+    border-left: 0.75vh solid rgb(155, 155, 155);
+    border-bottom: 0.75vh solid rgb(155, 155, 155);
+  }
+    .redHorizon_theme .themeMenu_categorySection_color {
+      background-color: rgb(65, 65, 65);
+      border-right: 0.75vh solid rgb(155, 155, 155);
+    }
+      .redHorizon_theme .themeMenu_categorySection_text {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(155, 155, 155);
+      }
+      .redHorizon_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(45, 45, 45);
+      }
+    .redHorizon_theme .themeMenu_themeSection_color {
+      background-color: rgb(55, 55, 55);
+    }
+      .redHorizon_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(65, 65, 65);
+        border: 0.75vh solid rgb(155, 155, 155);
+        color: rgb(235, 235, 235);
+      }
+      .redHorizon_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(45, 45, 45);
+      }
+    .redHorizon_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(65, 65, 65);
+    }
+      .redHorizon_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(155, 155, 155);
+      }
+      .redHorizon_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(45, 45, 45);
+      }
+  .redHorizon_theme .popup_color {
+    border: 0.75vh solid rgb(155, 155, 155);
+  }
+    .redHorizon_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(155, 155, 155);
+      border-top: 0.75vh solid rgb(155, 155, 155);
+    }
+    .redHorizon_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(155, 155, 155);
+    }
+    .redHorizon_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(155, 155, 155);
+      background-color: rgb(37, 37, 37);
+      color: rgb(235, 235, 235);
+    }
+    .redHorizon_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(155, 155, 155);
+      border: 0.75vh solid rgb(37, 37, 37);
+      color: rgb(20, 20, 20);
+    }
+  .redHorizon_theme .contextMenu_color {
+    background-color: rgb(65, 65, 65);
+    border: 0.75vh solid rgb(155, 155, 155);
+  }
+    .redHorizon_theme .contextMenu_buttons_color {
+      color: rgb(235, 235, 235);
+    }
+    .redHorizon_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(45, 45, 45);
+    }
+
+
+/* end of gradient themes */
+
+
+
+
+
+
+
+
+/* Global styles */
+
+.small_globalStyle .text {
   font-size: 2vh;
 }
-.fontSize_smallBold .text {
+.smallBold_globalStyle .text {
   font-size: 2vh;
   font-weight: bold;
 }
-.fontSize_normal .text {
+.normal_globalStyle .text {
   font-size: 2.5vh;
 }
-.fontSize_normalBold .text {
+.normalBold_globalStyle .text {
   font-size: 2.5vh;
   font-weight: bold;
 }
-.fontSize_large .text {
+.large_globalStyle .text {
   font-size: 3.5vh;
 }
-.fontSize_largeBold .text {
+.largeBold_globalStyle .text {
   font-size: 3.5vh;
   font-weight: bold;
 }
-
-/*  NOTE:  CHANGE PX TO VH!! <<<<<<<<<<<<   done <3 */   
-
-.coralReef_theme {
-  background-color: rgb(6, 189, 193);
-}
-.coralReef_theme .header_background_color {
-  background: linear-gradient(180deg, rgb(188, 102, 167) 0%, rgb(56, 44, 142) 35%, rgb(6, 189, 193) 100%);
-}
-.coralReef_theme .center_header_color {
-  background: linear-gradient(180deg, rgb(188, 102, 167) 0%, rgb(56, 44, 142) 35%, rgb(6, 189, 193) 100%);
-}
-.coralReef_theme .header_text_color {
-  color: rgb(20,20,20);
-}
-.coralReef_theme .main_color {
-  background: linear-gradient(180deg, rgb(6, 189, 193) 0%, rgb(5, 180, 214) 100%);
-}
-.coralReef_theme .story_box_color {
-  background-color: rgb(200, 255, 255);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.coralReef_theme textarea {
-  background-color: rgb(200, 255, 255);
-  color: rgb(20,20,20);
-}
-
-.coralReef_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(5, 180, 214) 0%, rgb(0, 103, 169) 100%);
-  color: rgb(20,20,20);
-}
-.coralReef_theme #reportIssueButton {
-  background-color: rgb(0, 103, 169);
-  border: 0.5vh solid rgb(5, 180, 214);
-  color: rgb(20, 20, 20);
-}
-.coralReef_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(0, 103, 169);
-  background-color: rgb(5, 180, 214);
-}
-
-
-
-.midnight_theme {
-  background-color: rgb(50,50,60);
-}
-.midnight_theme .header_background_color {
-  background-color: rgb(34, 21, 38);
-}
-.midnight_theme .center_header_color{
-  background: linear-gradient(180deg, rgb(34, 21, 38) 0%, rgb(65, 55, 89) 100%);
-}
-.midnight_theme .header_text_color {
-  color: rgb(240,240,240);
-}
-.midnight_theme .main_color {
-  background: linear-gradient(180deg, rgb(34, 21, 38) 10%, rgb(65, 55, 89) 75%, rgb(155, 192, 168) 100%);
-}
-.midnight_theme .story_box_color {
-  background-color: rgb(175, 149, 241);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.midnight_theme textarea {
-  background-color: rgb(175, 149, 241);
-  color: rgb(20, 20, 20);
-}
-.midnight_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(155, 192, 168) 0%, rgb(100, 112, 138) 100%);
-  color: rgb(20, 20, 20);
-}
-.midnight_theme #reportIssueButton {
-  background-color: rgb(100, 112, 138);
-  border: 0.5vh solid rgb(155, 192, 168);
-  color: rgb(20, 20, 20);
-}
-.midnight_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(100, 112, 138);
-  background-color: rgb(155, 192, 168);
-}
-
-
-
-.hellScape_theme {
-  background-color: rgb(180, 30, 30); 
-}
-.hellScape_theme .header_background_color {
-  background: linear-gradient(180deg, rgb(19, 0, 3) 0%, rgb(64, 3, 10) 100%);
-}
-.hellScape_theme .center_header_color{
-  background: linear-gradient(180deg, rgb(19, 0, 3) 0%, rgb(64, 3, 10) 100%);
-}
-.hellScape_theme .header_text_color {
-  color: rgb(250, 250, 250);
-}
-.hellScape_theme .main_color {
-  background: linear-gradient(180deg, rgb(64, 3, 10) 0%, rgb(88, 9, 5) 75%, rgb(37, 2, 9) 100%);
-}
-.hellScape_theme .story_box_color {
-  background-color: rgb(255, 190, 190);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.hellScape_theme textarea {
-  background-color: rgb(255, 190, 190);
-  color: rgb(20,20,20);
-}
-.hellScape_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(37, 2, 9) 25%, rgb(42, 0, 25) 100%);
-  color: rgb(240, 240, 240);
-}
-.hellScape_theme #reportIssueButton {
-  background-color: rgb(42, 0, 25);
-  border: 0.5vh solid rgb(37, 2, 9);
-  color: rgb(240, 240, 240);
-}
-.hellScape_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(42, 0, 25);
-  background-color: rgb(37, 2, 9);
-}
-
-
-
-.void_theme {
-  background-color: rgb(20, 8, 18);
-  color: rgb(230,230,230);
-}
-.void_theme .header_background_color {
-  background: linear-gradient(180deg, rgb(54, 45, 37) 0%, rgb(31, 13, 29) 100%);
-}
-.void_theme .center_header_color {
-  background-color: rgb(78, 31, 57);
-}
-.void_theme .header_text_color {
-  color: rgb(230, 230, 230);
-}
-.void_theme .main_color {
-  background: linear-gradient(180deg, rgb(31, 13, 29) 0%, rgb(20, 8, 18) 50%, rgb(18, 6, 16) 100%);
-}
-.void_theme .story_box_color {
-  background-color: rgb(100, 83, 99);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.void_theme textarea {
-  background-color: rgb(100, 83, 99);
-  color: rgb(10,10,10);
-}
-.void_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(18, 6, 16) 0%, rgb(78, 31, 56) 100%);
-  color: rgb(230,230,255);
-}
-.void_theme #reportIssueButton {
-  background-color: rgb(18, 6, 16);
-  border: 0.5vh solid rgb(78, 31, 56);
-  color: rgb(240, 240, 240);
-}
-.void_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(18, 6, 16);
-  background-color: rgb(78, 31, 56);
-}
-
-
-
-.sunset_theme {
-  background-color: rgb(20, 8, 18);
-  color: rgb(20,20,20);
-}
-.sunset_theme .header_background_color {
-  background-color: rgb(233, 120, 88);
-}
-.sunset_theme .center_header_color{
-  background: linear-gradient(180deg, rgb(233, 120, 88) 0%, rgb(203, 90, 58) 100%);
-}
-.sunset_theme .header_text_color {
-  color: rgb(20,20,20);
-}
-.sunset_theme .main_color {
-  background: linear-gradient(180deg, rgb(233, 120, 88) 5%, rgb(210, 68, 72) 30%, rgb(84, 70, 85) 65%, rgb(84, 70, 85) 85%, rgb(165, 197, 186) 100%);
-}
-.sunset_theme .story_box_color {
-  background-color: rgb(253, 140, 108);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.sunset_theme textarea {
-  background-color: rgb(253, 140, 108);
-  color: rgb(20,20,20);
-}
-.sunset_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background-color: rgb(165, 197, 186);
-  color: rgb(20,20,20);
-}
-.sunset_theme #reportIssueButton {
-  background-color: rgb(135, 167, 156);
-  border: 0.5vh solid rgb(165, 197, 186);
-  color: rgb(20, 20, 20);
-}
-.sunset_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(135, 167, 156);
-  background-color: rgb(165, 197, 186);
-}
-
-
-
-.candyIsland_theme {
-  background-color: rgb(20, 8, 18);
-  color: rgb(20,20,20);
-}
-.candyIsland_theme .header_background_color {
-  background: linear-gradient(180deg, rgb(29, 164, 129) 0%, rgb(192, 243, 236) 100%);
-}
-.candyIsland_theme .center_header_color{
-  background: linear-gradient(180deg, rgb(29, 164, 129) 0%, rgb(192, 243, 236) 100%);
-}
-.candyIsland_theme .header_text_color {
-  color: rgb(20,20,20);
-}
-.candyIsland_theme .main_color {
-  background: linear-gradient(180deg, rgb(192, 243, 236) 5%, rgb(217, 155, 132) 50%, rgb(218, 106, 134) 100%);
-}
-.candyIsland_theme .story_box_color {
-  background-color: rgb(119, 254, 219);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.candyIsland_theme textarea {
-  background-color: rgb(119, 254, 219);
-  color: rgb(20,20,20);
-}
-.candyIsland_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(218, 106, 134) 0%, rgb(188, 184, 191) 100%);
-  color: rgb(20,20,20);
-}
-.candyIsland_theme #reportIssueButton {
-  background-color: rgb(218, 106, 134);
-  border: 0.5vh solid rgb(188, 184, 191);
-  color: rgb(20, 20, 20);
-}
-.candyIsland_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(218, 106, 134);
-  background-color: rgb(188, 184, 191);
-}
-
-
-
-.plainLight_theme {
-  background-color: rgb(240, 200, 240);
-  color: rgb(20,20,20);
-}
-.plainLight_theme .header_background_color {
-  background: linear-gradient(180deg, rgb(240, 220, 240) 0%, rgb(200, 200, 200) 100%);
-}
-.plainLight_theme .center_header_color{
-  background: linear-gradient(180deg, rgb(240, 220, 240) 0%, rgb(200, 200, 200) 100%);
-}
-.plainLight_theme .header_text_color {
-  color: rgb(20,20,20);
-}
-.plainLight_theme .main_color {
-  background-color: rgb(200, 200, 200);
-}
-.plainLight_theme .story_box_color {
-  background-color: rgb(170, 170, 170);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.plainLight_theme textarea {
-  background-color: rgb(170, 170, 170);
-  color: rgb(20,20,20);
-}
-.plainLight_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(200, 200, 200) 0%, rgb(240, 220, 240) 100%);
-  color: rgb(20,20,20);
-}
-.plainLight_theme #reportIssueButton {
-  background-color: rgb(240, 220, 240);
-  border: 0.5vh solid rgb(200, 200, 200);
-}
-.plainLight_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(240, 220, 240);
-  background-color: rgb(200, 200, 200);
-}
-.plainLight_theme .reportIssueButton_text {
-  color: rgb(20, 20, 20);
-  transform: color 0.5s;
-}
-
-.plainDark_theme {
-  background-color: rgb(15, 35, 15);
-  color: rgb(240, 240, 240);
-}
-.plainDark_theme .header_background_color {
-  background: linear-gradient(180deg, rgb(15, 35, 15) 0%, rgb(55, 55, 55) 100%);
-}
-.plainDark_theme .center_header_color{
-  background: linear-gradient(180deg, rgb(15, 35, 15) 0%, rgb(55, 55, 55) 100%);
-}
-.plainDark_theme .header_text_color {
-  color: rgb(240, 240, 240);
-}
-.plainDark_theme .main_color {
-  background-color: rgb(55, 55, 55);
-}
-.plainDark_theme .story_box_color {
-  background-color: rgb(180, 180, 180);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.plainDark_theme textarea {
-  background-color: rgb(180, 180, 180);
-  color: rgb(20, 20, 20);
-}
-.plainDark_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(55, 55, 55) 0%, rgb(15, 35, 15) 100%);
-  color: rgb(240, 240, 240);
-}
-.plainDark_theme #reportIssueButton {
-  background-color: rgb(15, 35, 15);
-  border: 0.5vh solid rgb(55, 55, 55);
-  color: rgb(240, 240, 240);
-}
-.plainDark_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(15, 35, 15);
-  background-color: rgb(55, 55, 55);
-}
-
-
-
-.dreamySkies_theme {
-  background-color: rgb(15, 35, 15);
-  color: rgb(240, 240, 240);
-}
-.dreamySkies_theme .header_background_color {
-  background-color: rgb(190, 173, 250);
-}
-.dreamySkies_theme .center_header_color{
-  background-color: rgb(180, 163, 240);
-}
-.dreamySkies_theme .header_text_color {
-  color: rgb(20, 20, 20);
-}
-.dreamySkies_theme .main_color {
-  background: linear-gradient(180deg, rgb(190, 173, 250) 5%, rgb(208, 191, 255) 50%, rgb(223, 204, 251) 100%);
-}
-.dreamySkies_theme .story_box_color {
-  background-color: rgb(188, 171, 235);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.dreamySkies_theme textarea {
-  background-color: rgb(188, 171, 235);
-  color: rgb(20, 20, 20);
-}
-.dreamySkies_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(223, 204, 251) 0%, rgb(255, 243, 218) 100%);
-  color: rgb(20, 20, 20);
-}
-.dreamySkies_theme #reportIssueButton {
-  background-color: rgb(223, 204, 251);
-  border: 0.5vh solid rgb(255, 243, 218);
-  color: rgb(20, 20, 20);
-}
-.dreamySkies_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(223, 204, 251);
-  background-color: rgb(255, 243, 218);
-}
-
-
-
-.lightboundFields_theme {
-  background-color: rgb(15, 35, 15);
-  color: rgb(240, 240, 240);
-}
-.lightboundFields_theme .header_background_color {
-  background-color: rgb(181, 193, 142);
-}
-.lightboundFields_theme .center_header_color{
-  background-color: rgb(181, 193, 142);
-}
-.lightboundFields_theme .header_text_color {
-  color: rgb(20, 20, 20);
-}
-.lightboundFields_theme .main_color {
-  background: linear-gradient(180deg, rgb(181, 193, 142) 5%, rgb(247, 220, 185) 100%);
-}
-.lightboundFields_theme .story_box_color {
-  background-color: rgb(237, 210, 175);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.lightboundFields_theme textarea {
-  background-color: rgb(237, 210, 175);
-  color: rgb(20, 20, 20);
-}
-.lightboundFields_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(222, 172, 128) 0%, rgb(185, 148, 112) 100%);
-  color: rgb(20, 20, 20);
-}
-.lightboundFields_theme #reportIssueButton {
-  background-color: rgb(222, 172, 128);
-  border: 0.5vh solid rgb(185, 148, 112);
-  color: rgb(20, 20, 20);
-}
-.lightboundFields_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(222, 172, 128);
-  background-color: rgb(185, 148, 112);
-}
-
-
-
-.pinkNeonDisco_theme {
-  background-color: rgb(15, 35, 15);
-  color: rgb(240, 240, 240);
-}
-.pinkNeonDisco_theme .header_background_color {
-  background-color: rgb(255, 32, 78);
-}
-.pinkNeonDisco_theme .center_header_color{
-  background-color: rgb(245, 22, 68);
-}
-.pinkNeonDisco_theme .header_text_color {
-  color: rgb(240, 240, 240);
-}
-.pinkNeonDisco_theme .main_color {
-  background: linear-gradient(180deg, rgb(255, 32, 78) 5%, rgb(160, 21, 62) 50%, rgb(93, 14, 65) 100%);
-}
-.pinkNeonDisco_theme .story_box_color {
-  background-color: rgb(255, 52, 98);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.pinkNeonDisco_theme textarea {
-  background-color: rgb(255, 52, 98);
-  color: rgb(20, 20, 20);
-}
-.pinkNeonDisco_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(93, 14, 65) 0%, rgb(0, 34, 77) 100%);
-  color: rgb(240, 240, 240);
-}
-.pinkNeonDisco_theme #reportIssueButton {
-  background-color: rgb(93, 14, 65);
-  border: 0.5vh solid rgb(0, 34, 77);
-  color: rgb(240, 240, 240);
-}
-.pinkNeonDisco_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(93, 14, 65);
-  background-color: rgb(0, 34, 77);
-}
-
-
-
-.milkyCappuccino_theme {
-  background-color: rgb(15, 35, 15);
-  color: rgb(20, 20, 20);
-}
-.milkyCappuccino_theme .header_background_color {
-  background-color: rgb(241, 229, 209);
-}
-.milkyCappuccino_theme .center_header_color{
-  background-color: rgb(231, 219, 199);
-}
-.milkyCappuccino_theme .header_text_color {
-  color: rgb(20, 20, 20);
-}
-.milkyCappuccino_theme .main_color {
-  background: linear-gradient(180deg, rgb(241, 229, 209) 5%, rgb(219, 181, 181) 100%);
-}
-.milkyCappuccino_theme .story_box_color {
-  background-color: rgb(209, 171, 171);
-  border: 0.5vh solid rgb(20,20,20);
-}
-.milkyCappuccino_theme textarea {
-  background-color: rgb(209, 171, 171);
-  color: rgb(20, 20, 20);
-}
-.milkyCappuccino_theme .footer_color {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background: linear-gradient(180deg, rgb(219, 181, 181) 0%, rgb(131, 95, 95) 100%);
-  color: rgb(20, 20, 20);
-}
-.milkyCappuccino_theme #reportIssueButton {
-  background-color: rgb(219, 181, 181);
-  border: 0.5vh solid rgb(131, 95, 95);
-  color: rgb(20, 20, 20);
-}
-.milkyCappuccino_theme #reportIssueButton:hover {
-  border: 0.5vh solid rgb(219, 181, 181);
-  background-color: rgb(131, 95, 95);
-}
-

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="CatXx1212"/>
+    <meta name="Description" content="This is Storyline Notepad. A place to write full storylines bursting with exsitment or full deep of lore, or just write your mind on pap- *ahem* screen."/>
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script>
+      var currentVersionNumber = "0.3.0";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
+
+      let styleArray = ["../styles/animations.css", "../styles/titlePage.css", "../styles/themes.css"]
+      let loadedStyles = 0;
+      styleArray.forEach((stylesheetREF) => {
+        let stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = `${stylesheetREF}?v=${currentVersionNumber}`;
+        document.head.appendChild(stylesheet);
+
+        stylesheet.onload = function() {
+          loadedStyles++;
+          if(loadedStyles === styleArray.length) {
+            setTimeout(() => {
+              document.querySelector(".loadingScreen").remove();
+            }, 550);
+          }
+        }
+
+        stylesheet.onerror = function(event) {
+          document.querySelector(".loadingScreen").innerHTML = `
+          <p class="loadingScreenError">There was an error loading Storyline Notepad: stylesheet(${stylesheetREF}) could not be loaded.<br/> 
+            Please hard reload the page, if this does not fix the issue the please report it <span style="font-weight: bold;"><a href="https://github.com/Midnightandstillup/StorylineNotepad/issues">here</a></span>
+          </p>`;
+        }
+      });
+    </script>
+    <style>
+      .loadingScreen {
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(230, 230, 230);
+        z-index: 999999999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+        .loadingScreen_spinner {
+          height: 25%;
+          aspect-ratio: 1 / 1;
+          background-image: url("../assets/loadingDots.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          animation: loadingSpin 4s linear 0s infinite;
+        }
+          @keyframes loadingSpin { 
+            0% {
+              transform: rotate(0deg);
+            } 100% {
+              transform: rotate(360deg);
+            }
+          }
+      .loadingScreenError {
+        font-size: 2vw;
+        text-align: center;
+        color: rgb(20, 20, 20);
+      }
+      
+      hr {
+        margin: 2.5% 0 0 0;
+        border: 0.25vw solid rgb(50, 50, 55);
+      }
+      .changelog_version {
+        position: relative;
+        margin-top: 5%;
+        text-align: center;
+        font-size: 2vw;
+        color: rgb(20, 20, 20);
+        font-weight: bold;
+      }
+      .changelog_list {
+        position: relative;
+        width: 80%;
+        padding: 0 5%;
+        font-size: 1.70vw;
+        color: rgb(20, 20, 20);
+        pointer-events: none;
+        text-align: center;
+        margin:  2.5% auto 0 auto;
+      }
+      .changelog_list li {
+        text-align: center;
+        list-style-position: inside;
+        list-style-type: square;
+        margin-bottom: 1%;
+      }
+    </style>
+  </head>
+  <body class="white_theme">
+    <header class="header_color">
+      <div class="logoAndTitleContainer">
+        <a href="../index.html">
+          <img class="logoAndTitleContainer_logo" src="../assets/icons/storylineNotepad_logo1x1.png" title="Return to title page"/>
+        </a>
+        <p class="logoAndTitleContainer_title header_textColor">Storyline Notepad</p>
+      </div>
+    </header>
+    <main class="main_color" id="changelogList">
+
+    </main>
+    <footer class="footer_color">
+      <p class="copyright">© 2024 CatXx1212. All Rights Reserved.</p>
+      <!-- <a href="storylineNotepad/storyline-notepad.html">
+        <div id="startWritingButton">
+          <p class="startWritingButton_text">Start Writing!</p>
+        </div>
+      </a> -->
+      <a href="https://github.com/Midnightandstillup/StorylineNotepad/issues" target="_blank">
+        <div id="reportIssueButton" title="Report an issue">
+          <p class="reportIssueButton_text">Report Issue</p>
+        </div>
+      </a>
+      <p id="versionNumber"></p>
+    </footer>
+    <div class="loadingScreen">
+      <div class="loadingScreen_spinner"></div>
+    </div>
+    <script>
+      ["../scripts/changelog.js"].forEach((scriptREF) => {
+        let script = document.createElement("script");
+        script.defer = true;
+        script.src = `${scriptREF}?v=${currentVersionNumber}`;
+        document.body.appendChild(script);
+      })
+    </script>
+  </body>
+</html>

@@ -1,7 +1,8 @@
- /* The only thing stopping me from redoing all of this now is the fact i have a 
- game i want to finish first. Dosnt mean i havent added and redone some bits anyways :)
+a {
+  color: initial;
+  text-decoration: initial;
+}
 
- most of this code is from 2023 me, and i hate it all */
 p {
   margin: 0;
 }
@@ -22,28 +23,29 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 15%;
-  border-radius: 0 0 10% 10%;
+  height: 10%;
   z-index: 2;
+  transition: all 0.5s;
 }
   .logoAndTitleContainer {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 80%;
+    left: 0%;
+    transform: translateY(-50%);
+    height: 100%;
     aspect-ratio: 3 / 1;
-    background-color: rgb(78, 31, 57);
+    /* background-color: rgb(78, 31, 57); */
     border-radius: 3vh 1vh;
+    margin: 0 0 0 2.5%;
+    display: flex;
   }
     .logoAndTitleContainer_logo {
+      position: relative;
       aspect-ratio: 1 / 1;
-      height: 100%;
+      height: 90%;
       border-radius: 3vh 0 0 1vh;
-      position: absolute;
-      left: 0;
-      top: 0;
       transition: all 0.5s;
+      margin: 5% 0 0 0;
     }
     .logoAndTitleContainer_logo:hover {
       filter: brightness(115%);
@@ -51,299 +53,92 @@ header {
       transition: all 0.5s;
     }
     .logoAndTitleContainer_title {
-      height: 100%;
-      aspect-ratio: 2 / 1;
-      font-size: 5vh;
-      position: absolute;
-      right: 0;
-      top: 0;
+      position: relative;
+      font-size: 4.25vh;
       text-align: center;
       font-weight: bold;
+      transition: all 0.5s;
     }
 
 main {
   background-color: rgb(20, 8, 18);
   position: absolute;
-  top: 12%;
+  top: 7%;
   left: 0;
-  height: 77.5%;
+  height: 82.5%;
   width: 100vw;
-  overflow: hidden scroll;
+  overflow: scroll hidden;
   z-index: 1;
+  transition: all 0.5s;
 }
-  .storylineNotepad_main {
-    overflow: scroll hidden;
-  }
-  .sectionWrapper_left {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    width: 95%;
-    padding: 2.5% 2.5% 0 2.5%;
-  }
-  .sectionWrapper_right {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    width: 95%;
-    padding: 2.5% 2.5% 0 2.5%;
-  }
-  .sectionWrapper_center {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    width: 95%;
-    padding: 2.5% 2.5% 0 2.5%;
-    background: linear-gradient(180deg, rgb(20, 8, 18) 0%, rgb(10, 0, 8) 100%);
-  }
-  #firstSection_intro {
-    position: relative;
-    width: 50%;
-    margin: 2.5% 0;
-    background: linear-gradient(180deg,rgb(20, 8, 18) 0%,rgb(35, 23, 33) 100%);
-    border-radius: 1vh;
-  }
-    .firstSection_intro_heading {
-      width: 100%;
-      text-align: center;
-      font-size: 4vh;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-    .firstSection_intro_text1 {
-      width: 90%;
-      padding: 5%;
-      font-size: 3vh;
-      text-align: center;
-    }
-  #secondSection_features {
-    position: relative;
-    width: 50%;
-    margin: 2.5% 0;
-    background: linear-gradient(180deg,rgb(20, 8, 18) 0%,rgb(35, 23, 33) 100%);
-    border-radius: 1vh;
-  }
-    .secondSection_features_heading {
-      width: 100%;
-      text-align: center;
-      font-size: 4vh;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-    .secondSection_features_text1 {
-      width: 90%;
-      padding: 5%;
-      font-size: 3vh;
-      text-align: center;
-    }
-    .secondSection_features_list {
-      padding: 0 7.5% 0 7.5%;
-      width: 85%;
-    }
-      .secondSection_features_listItem {
-        width: 95%;
-        margin: 2.5% 0;
-        font-size: 2.5vh;
-        padding: 0 2.5%;
-      }
 
-  #thirdSection_issues {
-    position: relative;
-    width: 50%;
-    margin: 2.5% 0;
-    background: linear-gradient(180deg,rgb(20, 8, 18) 0%,rgb(30, 18, 28) 100%);
-    border-radius: 1vh;
 
-  }
-    .thirdSection_issues_heading {
-      width: 100%;
-      text-align: center;
-      font-size: 4vh;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-    .thirdSection_issues_text1 {
-      width: 90%;
-      padding: 5%;
-      font-size: 3vh;
-      text-align: center;
-    }
-    .thirdSection_issues_list {
-      padding: 0 7.5% 0 7.5%;
-      width: 85%;
-    }
-      .thirdSection_issues_listItem {
-        width: 95%;
-        margin: 2.5%;
-        font-size: 2.5vh;
-        padding: 0.5%;
-        border-radius: 1vh;
-      }
-      .pleaseReportIssues {
-        background: linear-gradient(90deg, rgb(150,0,0) 0%, rgb(0,0,150) 100%);
-      }
-  #fourthSection_howToUse {
-    position: relative;
-    width: 50%;
-    margin: 2.5% 0;
-    background: linear-gradient(180deg,rgb(20, 8, 18) 0%,rgb(30, 18, 28) 100%);
-    border-radius: 1vh;
-
-  }
-    .fourthSection_howToUse_heading {
-      width: 100%;
-      text-align: center;
-      font-size: 4vh;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-    .fourthSection_howToUse_text1 {
-      width: 90%;
-      padding: 5%;
-      font-size: 3vh;
-      text-align: center;
-    }
-    .fourthSection_howToUse_list {
-      padding: 0 7.5% 0 7.5%;
-      width: 85%;
-    }
-      .fourthSection_howToUse_listItem {
-        width: 95%;
-        margin: 2.5%;
-        font-size: 2.5vh;
-        padding: 0.5%;
-        border-radius: 1vh;
-      }
-  #fithSection_endOfPage {
-    position: relative;
-    width: 50%;
-    margin: 2.5% 0 0 0;
-    border-radius: 1vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-    .fithSection_endOfPAge_text {
-      width: 90%;
-      padding: 5%;
-      font-size: 3vh;
-      text-align: center;
-    }
-    .fithSection_endOfPage_arrow {
-      width: 0; 
-      height: 0; 
-      border-left: 5vh solid transparent;
-      border-right: 5vh solid transparent;
-      border-top: 5vh solid rgb(78, 31, 57);
-      padding: 0 0 5% 0;
-    }
 footer {
-  border-top: 0.5vh solid rgb(20,20,20);
-  background-color: rgb(32, 14, 30);
   position: absolute;
   bottom: 0;
   left: 0;
   height: 10%;
   width: 100%;
+  transition: all 0.5s;
 }
   .copyright {
     text-align: center;
-    font-size: 2vh;
+    font-size: 1.15vw;
     font-weight: bold;
     position: absolute;
     left: 2.5%;
     top: 50%;
     transform: translateY(-50%);
   }
-  #startWritingButton {
-    position: absolute;
-    left: 50%;
+  #reportIssueButton {
+    /* position: absolute;
+    right: 15%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 14%;
-    aspect-ratio: 4 / 1;
-    background-color: rgb(78, 31, 57);
+    height: 50%;
+    aspect-ratio: 4 / 1;  old
     border-radius: 2vh;
-    border: 0.5vh solid rgb(100, 83, 99);
-    transition: all 0.5s
-  }
-  #startWritingButton:hover {
-    transform: translate(-50%, -60%) scale(105%);
-    background-color: rgb(100, 83, 99);
-    border-radius: 1vh 3vh;
-    border: 0.5vh solid rgb(78, 31, 57);
-    transition: all 0.5s
-  }
-    .startWritingButton_text {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2vw;
-      text-align: center;
-      width: 100%;
-      color: rgb(230, 230, 230)
-    }
-  #reportIssueButton {
+    transition: all 0.5s; */
     position: absolute;
     right: 15%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 11%;
+    height: 2.5vw;
     aspect-ratio: 4 / 1;
     border-radius: 2vh;
     transition: all 0.5s;
   }
-    #reportIssueButton:hover {
-       transition: all 0.5s;
-    }
+  #reportIssueButton:hover {
+      transition: all 0.5s;
+  }
   .reportIssueButton_text {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.5vw;
+    font-size: 1.25vw;
     text-align: center;
     width: 100%;
-    transform: color 0.5s;
     font-weight: bold;
   }
   #versionNumber {
     text-align: center;
-    font-size: 2vh;
+    font-size: 1.15vw;
     font-weight: bold;
     position: absolute;
     right: 2.5%;
     top: 50%;
     transform: translateY(-50%);
+
   }
 
-.theme_menu_container {
+#themeMenuButton {
   position: absolute;
   right: 15%;
   height: 100%;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  aspect-ratio: 1 / 1;
+  transition: all 0.5s
 }
-  .theme_menu { 
-    height: fit-content;
-    width: fit-content;
-    font-size: 1vw;
-    padding: 1%;
-    transition: background-color 0.5s
-  }
-    .themeSelect_label {
-      font-size: 1.25vw;
-      margin-right: 0.5vw;
-    }
-  .theme_menu:focus {
-    outline: none;
-  }
 .fontSizeSelect_menu_container {
   position: absolute;
   left: 13.5%;
@@ -358,70 +153,56 @@ footer {
     width: fit-content;
     font-size: 1vw;
     padding: 1%;
-    transition: background-color 0.5s
+    transition: all 0.5s
   }
     .fontSizeSelect_menu_label {
       font-size: 1.25vw;
       position: relative;
       left: 10%;
-      /* margin-right: 0.5vw; */
     }
   .fontSizeSelect_menu:focus {
     outline: none;
   }
-.clearAllAndSaveDiv {
+#saveButton {
   position: absolute;
-  left: 0%;
-  /* aspect-ratio: 5 / 2; */
+  right: 5%;
   height: 100%;
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  aspect-ratio: 1 / 1;
+  transition: all 0.5s
 }
-  #clearDataButton {
-    width: 60%;
-    height: fit-content;
-    font-size: 1vw;
-    border-radius: 0.5vh;
-    margin-bottom: 0.5vh;
-    transition: background-color 0.5s
-  }
-  #saveButton {
-    width: 60%;
-    height: fit-content;
-    font-size: 1vw;
-    border-radius: 0.5vh;
-    margin-top: 0.5vh;
-    transition: background-color 0.5s
-} 
-.importAndExportDiv {
+#globalStyleMenuButton {
   position: absolute;
-  right: 0%;
-  /* aspect-ratio: 3 / 2; */
+  right: 25%;
   height: 100%;
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  aspect-ratio: 1 / 1;
+  transition: all 0.5s
 }
-#importDataButton {
-  width: 60%;
-  height: fit-content;
-  font-size: 1vw;
-  border-radius: 0.5vh;
-  margin-top: 0.5vh;
-  transition: background-color 0.5s
+#clearDataButton {
+  position: absolute;
+  right: 35%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  transition: all 0.5s
 }
-#exportDataButton {
-  width: 60%;
-  height: fit-content;
-  font-size: 1vw;
-  border-radius: 0.5vh;
-  margin-bottom: 0.5vh;
-  transition: background-color 0.5s
+#importExportButton {
+  position: absolute;
+  right: 45%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  transition: all 0.5s
+}
+.iconButton_dark:hover {
+  background-color: rgba(250, 250, 250, 0.05);
+  transform: scale(95%);
+  transition: all 0.5s;
+}
+.iconButton_light:hover {
+  background-color: rgba(5, 5, 5, 0.05);
+  transform: scale(95%);
+  transition: all 0.5s;
+}
+.button {
+  cursor: pointer;
 }
 .popUpBackground {
   width: 100vw;
@@ -435,73 +216,6 @@ footer {
   align-items: center;
   z-index: 999;
 }
-  .exportDataOutputDiv {
-    position: relative;
-    width: 60vw;
-    height: 40vh;
-    border-radius: 5%;
-  }
-  .exportDataOutputDiv > p:nth-child(1) {
-    font-size: 4vh;
-    text-align: center;
-    position: relative;
-    padding-top: 3.5vh;
-  }
-  .exportDataOutputDiv > p:nth-child(2) {
-    font-size: 2.5vh;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0 5% 0 5%;
-  }
-
-  .importDataOutputDiv {
-    position: relative;
-    width: 60vw;
-    height: 40vh;
-    border-radius: 5%;
-  }
-  .importDataOutputDiv > p:nth-child(1) {
-    font-size: 4vh;
-    text-align: center;
-    position: relative;
-    padding-top: 3.5vh;
-  }
-  #importDataInput {
-    width: 90%;
-    height: 10%;
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%, -50%);
-  }
-  #importDataInput:focus {
-    outline: none;
-  }
-  .importDataOutputDiv > p:nth-child(3) {
-    font-size: 2.5vh;
-    text-align: center;
-    position: absolute;
-    bottom: 15%;
-    transform: translateY(-50%);
-    padding: 0 5% 0 5%;
-  }
-  #ImportButton {
-    position: absolute;
-    width: 10%;
-    bottom: 5%;
-    left: 45%;
-    transform: translateX(-50%);
-  }
-  #cancelImportButton {
-    position: absolute;
-    width: 10%;
-    bottom: 5%;
-    right: 45%;
-    transform: translateX(50%);
-  }
 
 #okButton {
   position: absolute;
@@ -515,7 +229,7 @@ footer {
   top: 17%;
   width: 100%;
   height: fit-content;
-  font-size: 5vh;
+  font-size: 2.75vw;
   text-align: center;
   z-index: 24;
   display: flex;
@@ -523,8 +237,9 @@ footer {
 }
 
 #storylineTitle{
-  width: 50%;
+  width: 40%;
   height: 100%;
+  cursor: pointer;
 }
 
 #storylineNotepad {
@@ -555,7 +270,7 @@ footer {
   aspect-ratio: 1 / 1;
   border-radius: 1vh;
   padding: 2.5%;
-  transition: background-color 0.5s
+  transition: all 0.5s
 }
 
 textarea {
@@ -567,16 +282,20 @@ textarea {
   resize: none;
   outline: none;
   text-align: center;
-  transition: background-color 0.5s
+  transition: all 0.5s
 }
 
 .arrow {
   position: relative;
   top: 50%;
   transform: translate(0, -50%);
-  width: 25vh;
+  width: 30vh;
   height: fit-content;
   padding: 0 1vh 0 1vh;
+  transition: all 0.5s;
+}
+.arrow:hover {
+  transform: scale(105%) translate(0, -50%);
 }
 
 .arrow img {
@@ -586,71 +305,49 @@ textarea {
 
 
 
-#addNewButton {
+#addNewStoryboxButton {
   position: relative;
   top: 50%;
-  transform: translate(0, -50%);
-  height: 60%;
+  transform: translateY(-50%);
+  height: 55%;
   aspect-ratio: 1 / 1;
+  border-radius: 2vh;
   cursor: pointer;
 }
 
-.button_background {
+.addNewStoryboxButton_center {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  border-radius: 15px;
-  height: 100%;
-}
-
-.button_center {
-  position: absolute;
-  left: 50%;
   top: 50%;
-  height: 100%;
-  text-align: center;
-  transform: translate(-50% , -50%);
-  display: flex;
-  align-items: center;
-}
-
-.button_center img {
+  left: 50%;
+  transform: translate(-50%, -50%);
   height: 30%;
   aspect-ratio: 1 / 1;
+  pointer-events: none;
+  transition: transform 0.75s;
 }
 
-
-#removeButton {
-  height: 50%;
+#addNewStoryboxButton:hover .addNewStoryboxButton_center {
+  transform: translate(-50%, -50%) rotate(360deg);
 }
+
 
 
 #contextMenu {
-  display: none;
   position: fixed;
-  background-color: rgb(250, 250, 250);
-  border: 0.5vh solid rgb(220, 220, 220);
   z-index: 1000;
-  box-shadow: 1vh 1vh 3vh 0px rgb(10, 10, 10);
 }
-#contextMenu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  color: rgb(10, 10, 10);
-}
-#contextMenu ul li {
-  padding: 1vh 2vh;
-  cursor: pointer;
-}
-#contextMenu ul li:hover {
-  background-color: rgb(255, 230, 255);
-}
+  .contextMenu_buttons {
+    text-align: center;
+    width: 90%;
+    padding: 5%;
+    font-size: 2.5vh;
+    transition: 0.25s all;
+    cursor: pointer;
+  }
 
 
 .wrongScreenAspectRatioElement {
-  position: absolute;
+  position: fixed;
   left: 0%;
   top: 0%;
   width: 100%;
@@ -685,25 +382,24 @@ textarea {
   aspect-ratio: 5 / 3;
   transform: translate(-50%, -50%);
   z-index: 999;
-  border: 1vh solid rgb(20, 20, 20);
   border-radius: 2vh;
 }
-  #newUpdateElement_closeButton {
+  #popupElement_closeButton {
     position: absolute;
     right: 2.5%;
     top: 2.5%;
     height: 10%;
     aspect-ratio: 1 / 1;
-    background-color: red;
     border-radius: 0.5vh;
     transition: all 0.5s;
+    border: 0.25vw solid rgb(20, 20, 20);
   }
-  #newUpdateElement_closeButton:hover {
+  #popupElement_closeButton:hover {
     transition: all 0.5s;
     filter: brightness(125%);
     transform: scale(105%);
   }
-  .newUpdateElement_title {
+  .newUpdateElement_heading {
     position: relative;
     margin-top: 5%;
     width: 90%;
@@ -712,30 +408,32 @@ textarea {
     pointer-events: none;
     text-align: center;
     text-decoration: underline;
+    font-weight: bold;
   }
   .newUpdateElement_version {
+    position: relative;
+    margin-top: 1.5%;
+    width: 90%;
+    padding: 0 5%;
+    font-size: 2vw;
+    pointer-events: none;
+    text-align: center;
+    font-weight: bold;
+  }
+  .newUpdateElement_subHeading {
     position: relative;
     margin-top: 2.5%;
     width: 90%;
     padding: 0 5%;
-    font-size: 1.75vw;
-    pointer-events: none;
-    text-align: center;
-  }
-  .newUpdateElement_changedTitle {
-    position: relative;
-    margin-top: 5%;
-    width: 90%;
-    padding: 0 5%;
-    font-size: 2.5vw;
+    font-size: 2.25vw;
     pointer-events: none;
     text-align: center;
   }
   .newUpdateElement_list {
     position: relative;
-    width: 75%;
+    width: 80%;
     padding: 0 5%;
-    font-size: 1.5vw;
+    font-size: 1.70vw;
     pointer-events: none;
     text-align: center;
     margin:  2.5% auto 0 auto;
@@ -748,10 +446,214 @@ textarea {
     }
   .newUpdateElement_text1 {
     position: relative;
-    margin-top: 5%;
+    margin-top: 2%;
     width: 90%;
     padding: 0 5%;
     font-size: 1.75vw;
     pointer-events: none;
     text-align: center;
   }
+  .seeChangelogButton {
+    position: relative;
+    left: 50%;
+    margin-top: 2.5%;
+    transform: translateX(-50%);
+    aspect-ratio: 4 / 1;
+    width: 23%;
+    border-radius: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+  }
+    .seeChangelogButton p {
+      text-align: center;
+      font-size: 1.5vw;
+      font-weight: bold;
+    }
+
+
+
+#themeMenu {
+  position: absolute;
+  right: 0;
+  top: 10%;
+  width: 30%;
+  height: 40%;
+  z-index: 10;
+  transition: all 0.5s;
+}
+ .clickThrough {
+  pointer-events: none;
+ }
+  #themeMenu_categorySection {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    transition: all 0.5s;
+  }
+    .themeMenu_categorySection_text {
+      width: 100%;
+      padding: 5% 0;
+      font-size: 1.5vw;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+      .selectedThemeCategory {
+        font-weight: bold;
+      }
+  #themeMenu_themeSection {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: calc(75% - 0.60vh);
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    transition: all 0.5s;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y: auto;
+  }
+    .themeMenu_themeSection_themeButton {
+      position: relative;
+      margin-top: 2.5%;
+      width: 45%;
+      aspect-ratio: 3 / 2;
+      border-radius: 2vh;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+      .selectedMenuButton {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      .themeMenu_themeSection_themeButton_themeTitle {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        font-size: 1vw;
+        bottom: 10%;
+        text-decoration: inherit;
+      }
+      .previewContainer {
+        width: 50%;
+        aspect-ratio: 3 / 2;
+        border-radius: 1vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5% 25% 0 25%;
+        transition: border 0.5s;
+      }
+        .preview_noPreview {
+          font-size: 1.5vw;
+        }
+
+        .previewBar {
+          flex: 1;
+          height: 100%;
+        }
+
+#globalStyleMenu {
+  position: absolute;
+  right: 0;
+  top: 10%;
+  width: 15%;
+  height: 40%;
+  z-index: 10;
+  transition: all 0.5s;
+}
+  #globalStyleMenu_buttonSection {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+  }
+    .globalStlyeMenu_buttonSection_styleButton {
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+      .globalStlyeMenu_buttonSection_text {
+        text-align: center;
+        width: 100%;
+        padding: 5% 0;
+        font-size: 1.5vw;
+      }
+
+
+#importExportElement {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  aspect-ratio: 5 / 3;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  border-radius: 2vh;
+}
+  .importExport_title {
+    position: relative;
+    margin-top: 4%;
+    width: 90%;
+    padding: 0 5%;
+    font-size: 2.75vw;
+    font-weight: bold;
+    pointer-events: none;
+    text-align: center;
+    text-decoration: underline;
+  }
+  .exportDiv {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+    .importExportButton {
+      aspect-ratio: 3 / 1;
+      width: 60%;
+      border-radius: 2vw;
+      display: flex;
+      align-items: center;
+      transition: all 0.5s;
+    }
+      .exportButton_currentActiveStoryline_text {
+        text-align: center;
+        font-size: 2vw;
+        width: 90%;
+        padding: 0 5%;
+      }
+      /* .exportButton_allData_text {
+        text-align: center;
+        font-size: 2vw;
+        width: 90%;
+        padding: 0 5%;
+      } */
+  .importDiv {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+    .importButton_storyline_text {
+      text-align: center;
+      font-size: 2vw;
+      width: 90%;
+      padding: 0 5%;
+    }

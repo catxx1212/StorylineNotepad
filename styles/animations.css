@@ -1,23 +1,9 @@
-  /* animations for addButton */
-  
-  .button_center_spin {
-    transition: transform 0.5s;
-  }
+.flashGreen {
+  animation: flashGreen 1s ease 0s forwards;
+}
 
-  #addNewButton:hover .button_center_spin {
-    transform: rotate(360deg);
-    transition: all 0.5s;
+@keyframes flashGreen {
+  50% {
+    background-color: rgba(70,200,70, 0.75);
   }
-  /* end of animations for addButton */
-
-
-
-  .flashGreen {
-    animation: flashGreen 1s ease 0s forwards;
-  }
-  
-  @keyframes flashGreen {
-    50% {
-      background-color: rgb(70,200,70);
-    }
-  }
+}

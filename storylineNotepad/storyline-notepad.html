@@ -5,77 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Author" content="CatXx1212"/>
     <meta name="Description" content="This is Storyline Notepad. A place to write full storylines bursting with exsitment or full deep of lore, or just write your mind on pap- *ahem* screen."/>
-    <link rel="stylesheet" href="../styles/main.css"/>
-    <link rel="stylesheet" href="../styles/animations.css"/>
-    <link rel="stylesheet" href="../styles/themes.css"/>
-    <link rel="icon" href="../assets/ico/favicon.ico" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <style>
+      .loadingScreen {
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(230, 230, 230);
+        z-index: 999999999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+        .loadingScreen_spinner {
+          height: 25%;
+          aspect-ratio: 1 / 1;
+          background-image: url("../assets/loadingDots.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          animation: loadingSpin 4s linear 0s infinite;
+        }
+          @keyframes loadingSpin { 
+            0% {
+              transform: rotate(0deg);
+            } 100% {
+              transform: rotate(360deg);
+            }
+          }
+      .loadingScreenError {
+        font-size: 2vw;
+        text-align: center;
+        color: black;
+      }
+    </style>
+    <script>
+      
+      var currentVersionNumber = "0.3.0";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
+
+      let styleArray = ["../styles/animations.css", "../styles/main.css", "../styles/themes.css"]
+      let loadedStyles = 0;
+      styleArray.forEach((stylesheetREF) => {
+        let stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = `${stylesheetREF}?v=${currentVersionNumber}`;
+        document.head.appendChild(stylesheet);
+
+        stylesheet.onload = function() {
+          loadedStyles++;
+          if(loadedStyles === styleArray.length) {
+            setTimeout(() => {
+              document.querySelector(".loadingScreen").remove();
+            }, 525);
+          }
+        }
+
+        stylesheet.onerror = function(event) {
+          document.querySelector(".loadingScreen").innerHTML = `
+          <p class="loadingScreenError">There was an error loading Storyline Notepad: stylesheet(${stylesheetREF}) could not be loaded.<br/> 
+            Please hard reload the page, if this does not fix the issue the please report it <span style="font-weight: bold;"><a href="https://github.com/Midnightandstillup/StorylineNotepad/issues">here</a></span>
+          </p>`;
+        }
+      });
+    </script>
+    <link rel="icon" href="../assets/favicon/favicon.ico" />
     <title>Storyline Notepad</title>
+    <meta name="robots" content="noindex">
   </head>
   <body>
-    <header class="header_background_color">
-      <div class="logoAndTitleContainer center_header_color">
+    <header class="header_color">
+      <div class="logoAndTitleContainer">
         <a href="../index.html">
-          <img class="logoAndTitleContainer_logo" src="../assets/storylineNotepad_logo1x1.png"/>
+          <img class="logoAndTitleContainer_logo" src="../assets/icons/storylineNotepad_logo1x1.png" title="Return to title page"/>
         </a>
-        <p class="logoAndTitleContainer_title header_text_color">Storyline Notepad</p>
+        <p class="logoAndTitleContainer_title header_textColor">Storyline Notepad</p>
       </div>
-      <div class="clearAllAndSaveDiv">
-        <button id="clearDataButton" class="story_box_color">Clear All Data</button>
-        <button id="saveButton" class="story_box_color">Manual save</button>
-      </div>
-      <div class="theme_menu_container">
-        <label for="themeSelect" class="themeSelect_label header_text_color">Theme:</label>
-        <select id="themeSelect" class="story_box_color theme_menu" title="Change current theme">
-          <option value="plainLight"selected>Plain Light</option>
-          <option value="plainDark"selected>Plain Dark</option>
-          <option value="coralReef"selected>Coral Reef</option>
-          <option value="midnight">Midnight</option>
-          <option value="hellScape">HellScape</option>
-          <option value="void">Void</option>
-          <option value="sunset">Sunset</option>
-          <option value="candyIsland">Candy Island</option>
-          <option value="dreamySkies">Dreamy Skies</option>
-          <option value="lightboundFields">Lightbound Fields</option>
-          <option value="pinkNeonDisco">Pink Neon Disco</option>
-          <option value="milkyCappuccino">Milky Cappuccino</option>
-        </select>
-      </div>
-      <div class="fontSizeSelect_menu_container">
-        <label for="fontSizeSelect" class="fontSizeSelect_menu_label header_text_color">Font Size:</label>
-        <select id="fontSizeSelect" class="story_box_color theme_menu" title="Change font size">
-          <option value="small">Small</option>
-          <option value="smallBold">Small Bold</option>
-          <option value="normal" selected>Normal</option>
-          <option value="normalBold" selected>Normal Bold</option>
-          <option value="large">Large</option>
-          <option value="largeBold">Large Bold</option>
-        </select>
-      </div>
-      <div class="importAndExportDiv">
-        <button id="exportDataButton" class="story_box_color">Export</button>
-        <button id="importDataButton" class="story_box_color">Import</button>
-      </div>
+      <img id="importExportButton" class="icon button iconButton_dark" src="../assets/icons/inportExportButton_light.png" title="Import or export data"/>
+      <img id="clearDataButton" class="icon button iconButton_dark" src="../assets/icons/clearAllButton_light.png" title="Clear current storyline"/>
+      <img id="globalStyleMenuButton" class="icon button iconButton_dark" src="../assets/icons/styleButton_light.png" title="Change global styles"/>
+      <img id="themeMenuButton" class="icon button iconButton_dark"  src="../assets/icons/themeButton_light.png" title="Change theme"/>
+      <img id="saveButton" class="icon button iconButton_dark" src="../assets/icons/saveButton_light.png" title="Save"/>
     </header>
-    <main class="storylineNotepad_main main_color">
+    <main class="main_color">
       <div class="stroylineTitle_div">
-        <p title="Click to change" id="storylineTitle" class="header_text_color"></p>
+        <p title="Click to change title" id="storylineTitle" class="header_text_color"></p>
       </div>
       <div id="storylineNotepad">
         <div id="StoryBoxSection">
 
         </div>
-        <div id="addNewButton" title="Add a new section">
-            <img class="button_background" src="../assets/background-for-addButton.png"/>
-          <div class="button_center">
-            <img src="../assets/center-button-image.png" class="button_center_spin"/>
-          </div>
+        <div id="addNewStoryboxButton" class="addNewStoryboxButton_color" title="Add a new section">
+          <img src="../assets/icons/addNewStoryboxIcon_dark.png" class="addNewStoryboxButton_center icon"/>
         </div>
       </div>
-      <div id="contextMenu">
-        <ul>
-          <li onclick="removeLastStorybox()">Remove Last Box</li>
-        </ul>
-    </div>
     </main>
     <footer class="footer_color">
       <p class="copyright">© 2024 CatXx1212. All Rights Reserved.</p>
@@ -86,7 +111,16 @@
       </a>
       <p id="versionNumber"></p>
     </footer>
-    <script src="../scripts/version.js"></script>
-    <script src="../scripts/main.js"></script>
+    <div class="loadingScreen">
+      <div class="loadingScreen_spinner"></div>
+    </div>
+    <script>
+      ["../scripts/version.js", "../scripts/main.js"].forEach((scriptREF) => {
+        let script = document.createElement("script");
+        script.defer = true;
+        script.src = `${scriptREF}?v=${currentVersionNumber}`;
+        document.body.appendChild(script);
+      })
+    </script>
   </body>
 </html>
