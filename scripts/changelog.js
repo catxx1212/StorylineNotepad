@@ -1,6 +1,14 @@
 var changelogs = [
   // copy upwards
   {
+    versionRef: "Version 0.3.1",
+    changeList: `
+      <li>Added one new theme: Pale skies.</li>
+      <li>Fixed another issue with the context menu.</li>
+      <li>Added "pre-code" for an upcoming new feature.</li>
+    `,
+  },
+  {
     versionRef: "Version 0.3.0",
     changeList: `
       <li>Significant UI changes and additions, including new menus and icons.</li>

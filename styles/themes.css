@@ -1672,6 +1672,127 @@
     }
 
 
+    
+.paleSkies_theme {
+  background-color: rgb(8, 8, 8);
+  color: rgb(20, 20, 20);
+}
+  .paleSkies_theme .header_color {
+    background-color: rgb(255, 212, 229);
+    border-bottom: 0.75vh solid rgb(25, 25, 25);
+  }
+    .paleSkies_theme .header_textColor {
+      color: rgb(20, 20, 20);
+      }
+  .paleSkies_theme .main_color {
+    background: linear-gradient(180deg,
+    rgb(255, 212, 229) 0%,
+    rgb(255, 233, 174) 25%,
+    rgb(212, 255, 178) 50%,
+    rgb(219, 220, 255) 75%,
+    rgb(238, 203, 255) 100%
+    );
+    color: rgb(20, 20, 20);
+  }
+    .paleSkies_theme .storyBox_color {
+      background-color: rgb(222, 255, 188);
+      border: 0.75vh solid rgb(25, 25, 25);
+    }
+      .paleSkies_theme .storyBox_innerColor {
+        background-color: rgb(222, 255, 188);
+        color: rgb(20, 20, 20);
+      }
+      .paleSkies_theme .storyBox_innerColor::placeholder {
+          color: rgb(20, 20, 20);
+          opacity: 0.5;
+      }
+    .paleSkies_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(25, 25, 25);
+    }
+  .paleSkies_theme .footer_color {
+    background-color: rgb(238, 203, 255);
+    border-top: 0.75vh solid rgb(25, 25, 25);
+    color: rgb(20, 20, 20);
+  }
+    .paleSkies_theme #reportIssueButton {
+      border: 0.75vh solid rgb(25, 25, 25);
+      background-color: rgb(238, 203, 255);
+      color: rgb(20, 20, 20);
+    }
+    .paleSkies_theme #reportIssueButton:hover {
+      background-color: rgb(25, 25, 25);
+      border: 0.75vh solid rgb(238, 203, 255);
+      color: rgb(235, 235, 235);
+    }
+  .paleSkies_theme .menu_color {
+    border-top: 0.75vh solid rgb(25, 25, 25);
+    border-left: 0.75vh solid rgb(25, 25, 25);
+    border-bottom: 0.75vh solid rgb(25, 25, 25);
+  }
+    .paleSkies_theme .themeMenu_categorySection_color {
+      background-color: rgb(255, 212, 229);
+      border-right: 0.75vh solid rgb(25, 25, 25);
+    }
+      .paleSkies_theme .themeMenu_categorySection_text {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(25, 25, 25);
+      }
+      .paleSkies_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(235, 192, 209);
+      }
+    .paleSkies_theme .themeMenu_themeSection_color {
+      background-color: rgb(245, 202, 219);
+    }
+      .paleSkies_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(255, 212, 229);
+        border: 0.75vh solid rgb(25, 25, 25);
+        color: rgb(20, 20, 20);
+      }
+      .paleSkies_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(235, 192, 209);
+      }
+    .paleSkies_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(255, 212, 229);
+    }
+      .paleSkies_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(25, 25, 25);
+      }
+      .paleSkies_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(235, 192, 209);
+      }
+  .paleSkies_theme .popup_color {
+    border: 0.75vh solid rgb(25, 25, 25);
+  }
+    .paleSkies_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(25, 25, 25);
+      border-top: 0.75vh solid rgb(25, 25, 25);
+    }
+    .paleSkies_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(25, 25, 25);
+    }
+    .paleSkies_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(25, 25, 25);
+      background-color: rgb(238, 203, 255);
+      color: rgb(20, 20, 20);
+    }
+    .paleSkies_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(25, 25, 25);
+      border: 0.75vh solid rgb(238, 203, 255);
+      color: rgb(235, 235, 235);
+    }
+  .paleSkies_theme .contextMenu_color {
+    background-color: rgb(255, 212, 229);
+    border: 0.75vh solid rgb(25, 25, 25);
+  }
+    .paleSkies_theme .contextMenu_buttons_color {
+      color: rgb(20, 20, 20);
+    }
+    .paleSkies_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(235, 192, 209);
+    }
+
+
 /* end of gradient themes */
 
 

@@ -9,16 +9,25 @@ var currentActiveGlobalStyle = "";
 
 if(!localStorage.getItem("storylineNotepad_global")) {
   let defaultStorylineNotepad_globalObject = {
+    userPreferences: {
+
+    },
     storylineSaves: {
 
     },
   };
   localStorage.setItem("storylineNotepad_global", JSON.stringify(defaultStorylineNotepad_globalObject));
+} else {
+  let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+  storylineNotepad_global_setUserPreferences.userPreferences = {
+    // future update feature :3
+  };
+  localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+
 }
 
+
 // data loading
-
-
 
 var uid = 0;
 function generateUID(increment) {
@@ -154,7 +163,7 @@ addNewStoryboxButton.addEventListener("click" , () => {
   let storyBox = `
     <div class="box_container" id="box${generateUID(true)}">
       <div class="storyBox storyBox_color">
-        <textarea class="text storyBox_innerColor" id="textarea${generateUID()}" placeholder="Start typing:"></textarea>
+        <textarea class="text storyBox_innerColor" id="textarea${generateUID()}" oncontextmenu="contextMenuForStoryboxes(event)" placeholder="Start typing:"></textarea>
       </div>
       <div class="arrow" oncontextmenu="showContextMenu('addRemove', event, ${generateUID()})" title="Right click for more options">
         <img src="../assets/icons/arrow_${currentActiveThemeType}.png"/>
@@ -395,6 +404,20 @@ var themeList = {
         "rgb(125, 4, 4)",
         "rgb(37, 37, 37)",
         "rgb(155, 155, 155)",
+      ],
+    },
+    {
+      themeID: "paleSkies",
+      themeTitle: "Pale Skies",
+      themeType: "light",
+      themeCategory: "gradient",
+      preview: [
+        "rgb(255, 212, 229)",
+        "rgb(255, 233, 174)",
+        "rgb(212, 255, 178)",
+        "rgb(219, 220, 255)",
+        "rgb(238, 203, 255)",
+        "rgb(25, 25, 25)",
       ],
     },
   ],
@@ -970,21 +993,21 @@ newUpdateElement.classList.add("footer_color", "popup_color");
 newUpdateElement.innerHTML = `
   <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
   <p class="newUpdateElement_heading">Storyline Notepad has been updated!</p>
-  <p class="newUpdateElement_version">Version 0.2.5 => 0.3.0</p>
+  <p class="newUpdateElement_version">Version 0.3.0 => 0.3.1</p>
   <p class="newUpdateElement_subHeading">Here are some highlights of this update:</p>
   <ul class="newUpdateElement_list">
-    <li>Significant UI changes and additions, including new menus and icons.</li>
-    <li>New storyline save data structure.</li>
-    <li>Import and export now use files instead of text.</li>
-    <li>You can now add or remove any story box in any part of your storyline.</li>
-    <li>Added theme categories and brand new themes.</li>
+    <li>Added one new theme: Pale skies.</li>
+    <li>Fixed another issue with the context menu.</li>
+    <li>Added "pre-code" for an upcoming new feature.</li>
   </ul>
-  <a href="changelog.html">
-    <div class="seeChangelogButton importExportMenu_buttons_color">
-      <p>See full changelog</p>
-    </div>
-  </a>
-  <p class="newUpdateElement_text1 header_textColor">I hope these updates make it a better experience for you. <br/> Have a nice day as well!!</p>
+  <div class="bottomOfNewUpdateElement">
+    <a href="changelog.html">
+      <div class="seeChangelogButton importExportMenu_buttons_color">
+        <p>See full changelog</p>
+      </div>
+    </a>
+    <p class="newUpdateElement_text1 header_textColor">I hope these updates make it a better experience for you. <br/> Have a nice day as well!!</p>
+  </div>
 `;
 
 
@@ -995,7 +1018,7 @@ popUpMainElement_newUpdate.appendChild(newUpdateElement);
 
 
 
-var flipToUse = 1;  // <<<<<<<  change this each update PLEASE :3   last changed: 0.2.5 = 1    <<< (this might help)
+var flipToUse = 1;  // <<<<<<<  change this each update PLEASE :3   last changed: 0.2.5 = 1 | 0.3.0 = 2 | | 0.3.1 = 1  |  <<< (this might help)
 var otherFlip = function() {
   if(flipToUse === 1) {
     return 2
@@ -1071,7 +1094,7 @@ function addBoxToTheRightOrLeft(UID, side) {
   let storyBox = `
   <div class="box_container" id="box${generateUID(true)}">
     <div class="storyBox storyBox_color">
-      <textarea class="text storyBox_innerColor" id="textarea${generateUID()}" placeholder="Start typing:"></textarea>
+      <textarea class="text storyBox_innerColor" id="textarea${generateUID()}" oncontextmenu="contextMenuForStoryboxes(event)" placeholder="Start typing:"></textarea>
     </div>
     <div class="arrow" oncontextmenu="showContextMenu('addRemove', event, ${generateUID()})" title="Right click for more options">
       <img src="../assets/icons/arrow_${currentActiveThemeType}.png"/>
@@ -1079,10 +1102,10 @@ function addBoxToTheRightOrLeft(UID, side) {
   </div>`;
   switch(side) {
     case "left":
-      document.getElementById("box" + UID).insertAdjacentHTML("afterend", storyBox);
+      document.getElementById("box" + UID).insertAdjacentHTML("beforebegin", storyBox);
       break;
     case "right":
-      document.getElementById("box" + UID).insertAdjacentHTML("beforebegin", storyBox);
+      document.getElementById("box" + UID).insertAdjacentHTML("afterend", storyBox);
       break;
   }
 }

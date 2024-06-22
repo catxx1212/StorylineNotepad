@@ -444,6 +444,11 @@ textarea {
       list-style-type: square;
       margin-bottom: 1%;
     }
+  .bottomOfNewUpdateElement {
+    position: absolute; 
+    bottom: 5%;
+    width: 100%;
+  }
   .newUpdateElement_text1 {
     position: relative;
     margin-top: 2%;

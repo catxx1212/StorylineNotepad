@@ -1,15 +1,9 @@
-# VER 0.3.0
+# VER 0.3.1
 
 ## Changes in this update:
-  - Significant UI changes and additions, including new menus and icons.
-  - New storyline save data structure.
-  - Import and export now use files instead of text.
-  - You can now add or remove any story box in any part of your storyline.
-  - Added theme categories and brand new themes.
-  - Added a custom context menu (right-click the arrows).
-  - New title page.
-  - Started the changelog.
-  - Some optimizations and bug fixes.  
+  - Added one new theme: Pale skies.
+  - Fixed another issue with the context menu.
+  - Added "pre-code" for an upcoming new feature.
 
 ---
 
