@@ -6,28 +6,50 @@ var currentActiveThemeCategory = "";
 
 var currentActiveGlobalStyle = "";
 
+function isObjectEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
 
-if(!localStorage.getItem("storylineNotepad_global")) {
+var userPreferences_expectedObjectLength = 3;
+
+if (!localStorage.getItem("storylineNotepad_global")) {
   let defaultStorylineNotepad_globalObject = {
     userPreferences: {
-
+      appendTimeAndDateToFileExport: "enabled",
+      defaultFallbackTheme: "white",
+      autoExportWhenImporting: "enabled",
     },
     storylineSaves: {
 
     },
+    lastTimeStamp: undefined,
   };
   localStorage.setItem("storylineNotepad_global", JSON.stringify(defaultStorylineNotepad_globalObject));
 } else {
-  let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
-  storylineNotepad_global_setUserPreferences.userPreferences = {
-    // future update feature :3
-  };
-  localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
 
+  let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+
+  if (!storylineNotepad_global_setUserPreferences.userPreferences || isObjectEmpty(storylineNotepad_global_setUserPreferences.userPreferences) || !(Object.keys(storylineNotepad_global_setUserPreferences.userPreferences).length === userPreferences_expectedObjectLength)) {
+    storylineNotepad_global_setUserPreferences.userPreferences = {
+      appendTimeAndDateToFileExport: "enabled",
+      defaultFallbackTheme: "white",
+      autoExportWhenImporting: "enabled",
+    };
+    localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+    setTimeout(() => {
+      UI.error("User Preferences was reset because it was either missing or malformed.")
+    }, 500);
+  }
 }
 
 
+//  load user preferences
+
+var loadedUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global")).userPreferences;
+
 // data loading
+
+
 
 var uid = 0;
 function generateUID(increment) {
@@ -45,7 +67,9 @@ try {
   loadSuccessful = true;
 
 } catch (error) {
-  alert("something went wrong with loading your data, This is most likey because of incorrect import data. Please try again. If this does not work, then report the issue. Error code: 2")
+  setTimeout(() => {
+    UI.error("Something went wrong with loading your data. This is most likely because of incorrect import data. Please try again. If this does not work, then report the issue. Error code: 2")
+  }, 500);
   loadSuccessful = false;
 }
 if(storylineNotepad_global_storylineSave !== undefined) {
@@ -64,6 +88,10 @@ if(storylineNotepad_global_storylineSave !== undefined) {
     });
     storyBoxSection.insertAdjacentHTML("beforeend" , loadedStoryBoxes);
   }
+} else {
+  setTimeout(() => {
+    UI.warn("Nothing will save unless there's storyline data to save.");
+  }, 500);
 }
 
 
@@ -82,18 +110,18 @@ if(storylineNotepad_global_storylineSaves_title === null || storylineNotepad_glo
 storylineTitle.textContent = loadedTitle;
 sessionStorage.setItem("savedStorylineTitle", loadedTitle);
 
-storylineTitle.addEventListener("click" , () => {
-  let newTitle = prompt("New Title:");
+storylineTitle.onclick = function() {
+  let newTitle = prompt("New Title:", sessionStorage.getItem("savedStorylineTitle"));
   if(newTitle === null) return;
   if(newTitle.trim() !== ``) {
     if(newTitle.length >= 40) {
-      alert("Storyline title too large. Must be under 40 characters.");
+      UI.warn("Storyline title too large. Must be under 40 characters");
       return;
     }
     storylineTitle.textContent = newTitle;
     sessionStorage.setItem("savedStorylineTitle" , newTitle)
   }
-});
+};
 
 
 // storyline saving
@@ -114,7 +142,7 @@ function savestorylineData(textData, numberData, titleData, activeTheme, activeG
       localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_storylineSaves));
       return true;
     } catch {
-      alert("There was an issue saving, please don't close or refresh page and try again. Error code: 1")
+      UI.error("Failed to save to disk. Please export your storyline to prevent data loss. Error code: 1")
       return false;
     }
   }
@@ -158,7 +186,7 @@ window.addEventListener("beforeunload", beforeUnloadEvent);
 
 const addNewStoryboxButton = document.getElementById("addNewStoryboxButton");
 
-addNewStoryboxButton.addEventListener("click" , () => {
+addNewStoryboxButton.onclick = function () {
 
   let storyBox = `
     <div class="box_container" id="box${generateUID(true)}">
@@ -173,7 +201,7 @@ addNewStoryboxButton.addEventListener("click" , () => {
     storyBoxSection.insertAdjacentHTML("beforeend" , storyBox);
 
     reloadWindowEventListener();
-});
+};
 
 function removeStoryBox(id) {
   const removeLastStoryBox = document.getElementById(id);
@@ -198,7 +226,7 @@ function clearAllData() {
 
       let storylineNotepad_global_getCurrentSaveData_clearAll = JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef];
       if(storylineNotepad_global_getCurrentSaveData_clearAll === undefined || storylineNotepad_global_getCurrentSaveData_clearAll.storylineTitle === undefined) {
-        alert("You can't export nothing!!");
+        UI.warn("You can't export nothing!!");
         return;
       } 
       downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData_clearAll), storylineNotepad_global_getCurrentSaveData_clearAll.storylineTitle.replace(/ /g, "_") , "_backup");
@@ -216,9 +244,9 @@ function clearAllData() {
   }
 }
 
-clearDataButton.addEventListener("click" , () => {
+clearDataButton.onclick = function() {
   clearAllData("clearAllData");
-});
+};
 
 
 // theme select
@@ -307,6 +335,18 @@ var themeList = {
         "rgb(0, 222, 237)",
         "rgb(0, 212, 227)",
         "rgb(35, 50, 75)",
+      ],
+    },
+    {
+      themeID: "tannedPaper",
+      themeTitle: "Tanned Paper",
+      themeType: "light",
+      themeCategory: "solid",
+      preview: [
+        "rgb(226, 218, 207)",
+        "rgb(216, 208, 197)",
+        "rgb(206, 198, 187)",
+        "rgb(50, 45, 40)",
       ],
     },
   ],
@@ -407,8 +447,8 @@ var themeList = {
       ],
     },
     {
-      themeID: "paleSkies",
-      themeTitle: "Pale Skies",
+      themeID: "gentleRainbow",
+      themeTitle: "Gentle Rainbow",
       themeType: "light",
       themeCategory: "gradient",
       preview: [
@@ -418,6 +458,19 @@ var themeList = {
         "rgb(219, 220, 255)",
         "rgb(238, 203, 255)",
         "rgb(25, 25, 25)",
+      ],
+    },
+    {
+      themeID: "corruptedVoid",
+      themeTitle: "Corrupted Void",
+      themeType: "dark",
+      themeCategory: "gradient",
+      preview: [
+        "rgb(5, 5, 5)",
+        "rgb(255, 0, 0)",
+        "rgb(0, 255, 0)",
+        "rgb(0, 0, 255)",
+        "rgb(225, 225, 225)",
       ],
     },
   ],
@@ -431,7 +484,7 @@ function getThemeByID(themeArray, ID) {
   }
 }
 
-var fallbackTheme = getThemeByID(themeList.solid, "white");
+var fallbackTheme = getThemeByID(themeList.solid, loadedUserPreferences.defaultFallbackTheme);
 var loadedLastTheme;
 try {
   loadedLastTheme = getThemeByID(themeList[JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef].activeTheme[0]], JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef].activeTheme[1]);
@@ -450,15 +503,20 @@ if(loadedLastTheme) {
 
   sessionStorage.setItem("lastUsedTheme", JSON.stringify([loadedLastTheme.themeCategory, loadedLastTheme.themeID]));
 } else {
-  console.error("Something went wrong finding that theme. Defaulting to fallback theme.");
-  sessionStorage.setItem("lastUsedTheme", JSON.stringify(["solid", "white"]));
-
-  document.body.classList.add(`${fallbackTheme.themeID}_theme`);
-  changeIconButtonColor(fallbackTheme.themeType);
+  setTimeout(() => {
+    UI.error("Something went wrong finding that theme. Defaulting to fallback theme.");
+  }, 500);
 
   currentActiveTheme = fallbackTheme.themeID;
   currentActiveThemeType = fallbackTheme.themeType;
   currentActiveThemeCategory = fallbackTheme.themeCategory;
+
+  sessionStorage.setItem("lastUsedTheme", JSON.stringify([currentActiveThemeCategory, currentActiveTheme]));
+
+  document.body.classList.add(`${fallbackTheme.themeID}_theme`);
+  changeIconButtonColor(fallbackTheme.themeType);
+
+
 }
 
 
@@ -470,12 +528,15 @@ function changeTheme(newTheme, themeType, themeCategory) {
       element.classList.remove("selectedMenuButton");
     }
   });
-  document.getElementById(newTheme + "_themeButton").classList.add("selectedMenuButton");
-  sessionStorage.setItem("lastUsedTheme", JSON.stringify([themeCategory, newTheme]));
-  
+
   currentActiveTheme = newTheme;
   currentActiveThemeType = themeType;
   currentActiveThemeCategory = themeCategory;
+
+  document.getElementById(newTheme + "_themeButton").classList.add("selectedMenuButton");
+  sessionStorage.setItem("lastUsedTheme", JSON.stringify([currentActiveThemeCategory, currentActiveTheme]));
+  
+
 
   changeIconButtonColor(themeType);
 }
@@ -612,7 +673,7 @@ themeMenuButton.addEventListener("click", function openTheThemeMenu(event) {
       };
   
     } catch {
-      console.log("unable to attach themeMenu to themeMenu container. This is a peaceful error so its ok")
+      // UI.warn("Unable to attach themeMenu to themeMenu container. You clicked out of the menu too fast.")
     }
   }, 100);
 
@@ -675,16 +736,18 @@ if(loadedLastUsedGlobalStyle !== null && checkSavedStyleAgainstStyleList(loadedL
   sessionStorage.setItem("lastUsedGlobalStyle", loadedLastUsedGlobalStyle);
   currentActiveGlobalStyle = loadedLastUsedGlobalStyle;
 } else {
-  console.error("Something went wrong finding that globalStyle. Defaulting to fallback style.");
+  setTimeout(() => {
+    UI.error("Something went wrong finding that globalStyle. Defaulting to fallback style.");
+  }, 500);
   sessionStorage.setItem("lastUsedGlobalStyle", fallbackGlobalStyle);
   document.body.classList.add(`${fallbackGlobalStyle}_globalStyle`);
   currentActiveGlobalStyle = fallbackGlobalStyle;
 }
 
 function changeGlobalStyle(styleID) {
-  console.log("new style: " + styleID)
+  // console.log("new style: " + styleID)
   let currentGlobalStyle = [...document.body.classList].find(clss => clss.includes('_globalStyle'));
-  console.log("current Theme: " + currentGlobalStyle)
+  // console.log("current style: " + currentGlobalStyle)
   document.body.classList.replace(currentGlobalStyle, styleID + "_globalStyle")
   document.querySelectorAll(".globalStlyeMenu_buttonSection_styleButton").forEach(element => {
     if(element.classList.contains("selectedMenuButton")) {
@@ -727,10 +790,10 @@ globalStyleMenu.classList.add("menu_color");
 const globalStyleMenuButton = document.getElementById("globalStyleMenuButton");
 
 
-function closeOpenGlobalStyleMenu(event) {
+function closeGlobalStyleMenu(event) {
   if(document.getElementById("globalStyleMenu") && (event.target.id !== "globalStyleMenu" && event.target.id !== "globalStyleMenuButton" && !event.target.classList.contains("menuSubElement"))) {
     document.getElementById("globalStyleMenu").remove();
-    document.removeEventListener("click", closeOpenGlobalStyleMenu);
+    document.removeEventListener("click", closeGlobalStyleMenu);
   }
 }
 
@@ -750,15 +813,21 @@ globalStyleMenuButton.addEventListener("click", function openTheGlobalStyleMenu(
       document.getElementById("globalStyleMenu_buttonSection").innerHTML = loadGlobalStyleButtons();
 
     } catch {
-      console.log("unable to attach globalStyleMenu to globalStyleMenu container. This is a peaceful error so its ok")
+      // UI.warn("Unable to attach globalStyleMenu to globalStyleMenu container. You clicked out of the menu too fast.")
     }
   }, 100);
 
-  document.addEventListener("click", closeOpenGlobalStyleMenu, true);
+  document.addEventListener("click", closeGlobalStyleMenu, true);
   event.stopPropagation();
 });
 
 const importExportButton = document.getElementById("importExportButton");
+
+function timeAndDateOfExport() {
+  if(loadedUserPreferences.appendTimeAndDateToFileExport === "disabled") return "";
+  let timeAndDate = new Date();
+  return `_${timeAndDate.getDate().toString().padStart(2, "0")}_${(timeAndDate.getMonth() + 1).toString().padStart(2, "0")}_${timeAndDate.getFullYear()}___${timeAndDate.getHours().toString().padStart(2, "0")}_${timeAndDate.getMinutes().toString().padStart(2, "0")}`; 
+}
 
 function downloadTextFile(fileContent, fileTitle, filePrefix) {
     let newBlob = new Blob([fileContent], { type: 'text/plain' });
@@ -766,7 +835,7 @@ function downloadTextFile(fileContent, fileTitle, filePrefix) {
     let download = document.createElement('a');
 
     download.href = url;
-    download.download = fileTitle + filePrefix + ".storylinenotepad";
+    download.download = fileTitle + filePrefix + timeAndDateOfExport() + ".storylinenotepad";
     document.body.appendChild(download);
     download.click();
     document.body.removeChild(download);
@@ -821,7 +890,7 @@ importExportButton.addEventListener("click", function() {
         let storylineNotepad_global_getCurrentSaveData = JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef];
 
         if(storylineNotepad_global_getCurrentSaveData === undefined || storylineNotepad_global_getCurrentSaveData.storylineTitle === undefined) {
-          alert("You can't export nothing!!");
+          UI.warn("You can't export nothing!!");
           return;
         } 
         downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData), storylineNotepad_global_getCurrentSaveData.storylineTitle.replace(/ /g, "_") , "");
@@ -848,7 +917,7 @@ importExportButton.addEventListener("click", function() {
       if (importedFile) {
         let fileExtension = importedFile.name.split('.').pop().toLowerCase();
         if (fileExtension !== "storylinenotepad") {
-            alert("Invalid file type. Only '.storylinenotepad' is allowed");
+            UI.error("Invalid file type. Only '.storylinenotepad' is allowed.");
             return;
         }
         await new Promise((resolve, reject) => {
@@ -858,9 +927,9 @@ importExportButton.addEventListener("click", function() {
               window.removeEventListener("beforeunload" , beforeUnloadEvent);
               let storylineNotepad_global_getCurrentSaveData = JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef];
               if(storylineNotepad_global_getCurrentSaveData === undefined || storylineNotepad_global_getCurrentSaveData.storylineTitle === undefined) {
-                console.log("nothing to export, skipping export")
+                // console.log("nothing to export, skipping export")
               } else {
-                downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData), storylineNotepad_global_getCurrentSaveData.storylineTitle.replace(/ /g, "_") , "_backup");
+                if(loadedUserPreferences.autoExportWhenImporting === "enabled") downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData), storylineNotepad_global_getCurrentSaveData.storylineTitle.replace(/ /g, "_") , "_backup");
               }
               setTimeout(() => {
                 let storylineNotepad_global_overwriteCurrentStoryline = JSON.parse(localStorage.getItem("storylineNotepad_global"));
@@ -873,7 +942,7 @@ importExportButton.addEventListener("click", function() {
             resolve();
           };
           reader.onerror = function(error) {
-              console.error("An error occurred while reading the file", error);
+              UI.error("An error occurred while reading the file", error);
               reject();
           };
           reader.readAsText(importedFile);
@@ -908,9 +977,9 @@ importExportButton.addEventListener("click", function() {
         window.removeEventListener("beforeunload" , beforeUnloadEvent);
         let storylineNotepad_global_getCurrentSaveData = JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef];
         if(storylineNotepad_global_getCurrentSaveData === undefined || storylineNotepad_global_getCurrentSaveData.storylineTitle === undefined) {
-          console.log("nothing to export, skipping export");
+          // console.log("nothing to export, skipping export");
         } else {
-          downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData), storylineNotepad_global_getCurrentSaveData.storylineTitle.replace(/ /g, "_") , "_backup");
+          if(loadedUserPreferences.autoExportWhenImporting === "enabled") downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData), storylineNotepad_global_getCurrentSaveData.storylineTitle.replace(/ /g, "_") , "_backup");
         }
         setTimeout(() => {
           let storylineNotepad_global_overwriteCurrentStoryline = JSON.parse(localStorage.getItem("storylineNotepad_global"));
@@ -921,7 +990,7 @@ importExportButton.addEventListener("click", function() {
           }, 150);
         }, 150);
       } catch(e) {
-        alert("Error converting your v0.2 export data into v0.3  : " + e)
+        UI.error("Error converting your v0.2 export data into v0.3: <br/><br/> " + e)
         return;
       }
     };
@@ -966,13 +1035,15 @@ document.querySelector("main").addEventListener("wheel", function(event) {
 window.addEventListener("resize", function() {
   if(window.innerHeight > window.innerWidth) {
     var wrongScreenAspectRatioElement = document.createElement("div");
-    wrongScreenAspectRatioElement.classList.add("wrongScreenAspectRatioElement", "header_color");
-    wrongScreenAspectRatioElement.innerHTML = `
-      <p class="wrongScreenAspectRatioElement_firstText">Hold on a second</p>
-      <p class="wrongScreenAspectRatioElement_lastText">Your screen height is larger than your screen width. Storyline Notepad was designed for laptop / monitors. Maybe in a future version _(0.0)/ </p>
-    `;
-    wrongScreenAspectRatioElement.id = "wrongScreenAspectRatioElement";
-    document.body.appendChild(wrongScreenAspectRatioElement);
+    if(!document.getElementById("wrongScreenAspectRatioElement")) {
+      wrongScreenAspectRatioElement.classList.add("wrongScreenAspectRatioElement", "header_color");
+      wrongScreenAspectRatioElement.innerHTML = `
+        <p class="wrongScreenAspectRatioElement_firstText">Hold on a second</p>
+        <p class="wrongScreenAspectRatioElement_lastText">Your screen height is larger than your screen width. Storyline Notepad was designed for laptop / monitors. Maybe in a future version _(0.0)/ </p>
+      `;
+      wrongScreenAspectRatioElement.id = "wrongScreenAspectRatioElement";
+      document.body.appendChild(wrongScreenAspectRatioElement);
+    }
   } else {
     if(document.getElementById("wrongScreenAspectRatioElement")) {
       setTimeout(() => {
@@ -993,12 +1064,12 @@ newUpdateElement.classList.add("footer_color", "popup_color");
 newUpdateElement.innerHTML = `
   <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
   <p class="newUpdateElement_heading">Storyline Notepad has been updated!</p>
-  <p class="newUpdateElement_version">Version 0.3.0 => 0.3.1</p>
+  <p class="newUpdateElement_version">Version 0.3.1 => 0.4.0</p>
   <p class="newUpdateElement_subHeading">Here are some highlights of this update:</p>
   <ul class="newUpdateElement_list">
-    <li>Added one new theme: Pale skies.</li>
-    <li>Fixed another issue with the context menu.</li>
-    <li>Added "pre-code" for an upcoming new feature.</li>
+    <li>Added a user preferences menu. You can now configure some of Storyline Notepad's behavior.</li>
+    <li>Added in-window message, warning, and error notifications.</li>
+    <li>Added a weekly in-window notification to remind you to hard reload the page. This will ensure you have the latest version (due to cache issues).</li>
   </ul>
   <div class="bottomOfNewUpdateElement">
     <a href="changelog.html">
@@ -1027,8 +1098,8 @@ var otherFlip = function() {
   }
 }
 if(!localStorage.getItem("newUpdate_flip1") && !localStorage.getItem("newUpdate_flip2")) {
-  localStorage.setItem("newUpdate_flip1", true);
-  localStorage.setItem("newUpdate_flip2", false);
+  localStorage.setItem(`newUpdate_flip${flipToUse}`, true);
+  localStorage.setItem(`newUpdate_flip${otherFlip()}`, false);
 }
 
 if(localStorage.getItem(`newUpdate_flip${flipToUse}`) === 'true') {
@@ -1040,9 +1111,44 @@ if(localStorage.getItem(`newUpdate_flip${flipToUse}`) === 'true') {
       }
     });
   }, 150);
-  localStorage.setItem(`newUpdate_flip${flipToUse}`, false);
-  localStorage.setItem(`newUpdate_flip${otherFlip()}`, true);
+  // localStorage.setItem(`newUpdate_flip${flipToUse}`, false);
+  // localStorage.setItem(`newUpdate_flip${otherFlip()}`, true);
 }
+
+
+// weekly reminder
+
+function resetWeeklyTimer(mainObject) {
+  mainObject.lastTimeStamp = Date.now();
+  // mainObject.lastTimeStamp = new Date("2024-07-08T12:00:00").getTime();
+  localStorage.setItem("storylineNotepad_global", JSON.stringify(mainObject));
+}
+
+let storylineNotepad_global_getLastTimeStamp = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+
+if (!storylineNotepad_global_getLastTimeStamp || storylineNotepad_global_getLastTimeStamp.lastTimeStamp === undefined) {
+  resetWeeklyTimer(storylineNotepad_global_getLastTimeStamp);
+} else {
+
+  // let futureDate = new Date("2025-07-08T12:00:00");
+  let currentDate = new Date()
+
+  let oneWeek = 7 * 24 * 60 * 60 * 1000;
+
+  if ((currentDate.getTime() - storylineNotepad_global_getLastTimeStamp.lastTimeStamp) >= oneWeek) {
+    setTimeout(() => {
+      UI.message("This is a weekly reminder to do a hard reload. This ensures you have the latest version :)");
+      let storylineNotepad_global_setLastTimeStamp = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+      resetWeeklyTimer(storylineNotepad_global_setLastTimeStamp);
+    }, 500);
+  }
+}
+
+
+
+
+
+
 
 
 
@@ -1109,3 +1215,292 @@ function addBoxToTheRightOrLeft(UID, side) {
       break;
   }
 }
+
+
+
+// right drop down menu
+
+var rightDropDownMenu = document.createElement("div");
+rightDropDownMenu.id = "rightDropDownMenu";
+rightDropDownMenu.classList.add("menu_color", "globalStyleMenu_buttonSection_color");
+
+const rightDropDownMenuButton = document.getElementById("rightDropDownMenuButton");
+
+
+function closeRightDropDownMenu(event) {
+  if(document.getElementById("rightDropDownMenu") && (event.target.id !== "rightDropDownMenu" && !event.target.classList.contains("menuSubElement"))) {
+    rightDropDownMenuButton.classList.toggle("rightDropDownMenuButton_rotated");
+    document.getElementById("rightDropDownMenu").remove();
+    document.removeEventListener("click", closeRightDropDownMenu);
+  }
+}
+
+rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu(event) {
+  
+  if(document.getElementById("rightDropDownMenu")) return;
+  
+  rightDropDownMenuButton.classList.toggle("rightDropDownMenuButton_rotated");
+  rightDropDownMenu.innerHTML = `
+    <img id="userPreferencesButton" class="icon button iconButton_${currentActiveThemeType} " src="../assets/icons/settingsIcon_${currentActiveThemeType}.png" title="User preferences"/>
+  `;
+  document.body.appendChild(rightDropDownMenu);
+  setTimeout(() => {
+    try {
+      // document.getElementById("rightDropDownMenu").querySelectorAll('*').forEach(element => {element.classList.add("menuSubElement")})
+      
+
+
+      // user preferences menu
+
+      function get_addTimeAndDateToFileExportData() {
+        // console.log(loadedUserPreferences.appendTimeAndDateToFileExport);
+        if(loadedUserPreferences.appendTimeAndDateToFileExport !== "enabled" && loadedUserPreferences.appendTimeAndDateToFileExport !== "disabled") {
+
+          let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+          storylineNotepad_global_setUserPreferences.userPreferences.appendTimeAndDateToFileExport = "enabled";
+          localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+          addTimeGapForUserPreferences();
+
+          return  `
+            <option selected value="enabled">Enabled</option>
+            <option value="disabled">Disabled</option>
+          `;
+        }
+        switch(loadedUserPreferences.appendTimeAndDateToFileExport) {
+          case "enabled":
+            return  `
+              <option selected value="enabled">Enabled</option>
+              <option value="disabled">Disabled</option>
+            `;
+          case "disabled":
+            return  `
+              <option value="enabled">Enabled</option>
+              <option selected value="disabled">Disabled</option>
+            `;
+        }
+      };
+
+      function get_defaultFallbackTheme() {
+        // console.log(loadedUserPreferences.defaultFallbackTheme);
+        if(loadedUserPreferences.defaultFallbackTheme !== "white" && loadedUserPreferences.defaultFallbackTheme !== "black") {
+
+          let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+          storylineNotepad_global_setUserPreferences.userPreferences.defaultFallbackTheme = "white";
+          localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+          addTimeGapForUserPreferences();
+
+          return  `
+            <option selected value="white">White</option>
+            <option value="black">Black</option>
+          `;
+        }
+        switch(loadedUserPreferences.defaultFallbackTheme) {
+          case "white":
+            return  `
+              <option selected value="white">White</option>
+              <option value="black">Black</option>
+            `;
+          case "black":
+            return  `
+              <option value="white">White</option>
+              <option selected value="black">Black</option>
+            `;
+        }
+      };
+
+      function get_autoExportWhenImporting() {
+        console.log(loadedUserPreferences.autoExportWhenImporting);
+        if(loadedUserPreferences.autoExportWhenImporting !== "enabled" && loadedUserPreferences.autoExportWhenImporting !== "disabled") {
+
+          let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+          storylineNotepad_global_setUserPreferences.userPreferences.autoExportWhenImporting = "enabled";
+          localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+          addTimeGapForUserPreferences();
+
+          return  `
+            <option selected value="enabled">Enabled</option>
+            <option value="disabled">Disabled</option>
+          `;
+        }
+        switch(loadedUserPreferences.autoExportWhenImporting) {
+          case "enabled":
+            return  `
+              <option selected value="enabled">Enabled</option>
+              <option value="disabled">Disabled</option>
+            `;
+          case "disabled":
+            return  `
+              <option value="enabled">Enabled</option>
+              <option selected value="disabled">Disabled</option>
+            `;
+        }
+      };
+      userPreferencesButton.onclick = function() {
+        var userPreferencesElement = document.createElement("div");
+        userPreferencesElement.id = "userPreferencesElement";
+        userPreferencesElement.classList.add("footer_color", "popup_color");
+        userPreferencesElement.innerHTML = `
+          <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
+          <p class="userPreferencesElement_title">User Preferences</p>
+          <p class="userPreferencesElement_subtitle">Hover over each option for more details.</p>
+          <div class="userPreferencesElement_optionsContainer">
+
+            <div class="userPreferencesElement_inputWrapper" title="Choose whether to add the time and date of export to the file name">
+            
+              <lable for="userPreferenceInput_addTimeAndDateToFileExport">Append Time And Date To File Export:</lable>
+              <select id="userPreferenceInput_addTimeAndDateToFileExport" class="userPreferenceInput">
+                ${get_addTimeAndDateToFileExportData()}
+              </select>
+
+            </div>
+            <div class="userPreferencesElement_inputWrapper" title="When a theme can't be loaded or when you start a new storyline, choose a default theme">
+
+              <lable for="userPreferenceInput_fallbackTheme">Fallback theme:</lable>
+              <select id="userPreferenceInput_fallbackTheme" class="userPreferenceInput">
+                ${get_defaultFallbackTheme()}
+              </select>
+
+            </div>
+            <div class="userPreferencesElement_inputWrapper"  title="WARNING: You will permanently lose the storyline you're overwriting if you disable this.">
+
+              <lable for="userPreferenceInput_autoExportWhenImporting">Auto export when importing:</lable>
+              <select id="userPreferenceInput_autoExportWhenImporting" class="userPreferenceInput">
+                ${get_autoExportWhenImporting()}
+              </select>
+            </div>
+
+          </div>
+        `;
+
+        var popUpMainElement_userPreferences = document.createElement("div");
+        popUpMainElement_userPreferences.classList.add("popUpBackground");
+        popUpMainElement_userPreferences.id = "popUpMainElement_userPreferences";
+        popUpMainElement_userPreferences.appendChild(userPreferencesElement);
+
+        document.body.appendChild(popUpMainElement_userPreferences);
+
+        setTimeout(() => {
+          document.addEventListener("click", function(event) {
+            if(event.target.id === "popupElement_closeButton" || event.target.id === "popUpMainElement_userPreferences") {
+              popUpMainElement_userPreferences.remove();
+            }
+          });
+
+          var userPreferenceInput_addTimeAndDateToFileExport = document.getElementById("userPreferenceInput_addTimeAndDateToFileExport");
+          var userPreferenceInput_fallbackTheme = document.getElementById("userPreferenceInput_fallbackTheme");
+          var userPreferenceInput_autoExportWhenImporting = document.getElementById("userPreferenceInput_autoExportWhenImporting");
+          
+          userPreferenceInput_fallbackTheme.onchange = function() {
+            let changedValue = userPreferenceInput_fallbackTheme.value;
+            loadedUserPreferences.defaultFallbackTheme = changedValue;
+            let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+            storylineNotepad_global_setUserPreferences.userPreferences.defaultFallbackTheme = changedValue;
+            localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+            addTimeGapForUserPreferences();
+          };
+          
+          userPreferenceInput_addTimeAndDateToFileExport.onchange = function() {
+            let changedValue = userPreferenceInput_addTimeAndDateToFileExport.value;
+            loadedUserPreferences.appendTimeAndDateToFileExport = changedValue;
+            let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+            storylineNotepad_global_setUserPreferences.userPreferences.appendTimeAndDateToFileExport = changedValue;
+            localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+            addTimeGapForUserPreferences();
+          };
+
+          userPreferenceInput_autoExportWhenImporting.onchange = function() {
+            let changedValue = userPreferenceInput_autoExportWhenImporting.value;
+            loadedUserPreferences.autoExportWhenImporting = changedValue;
+            let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+            storylineNotepad_global_setUserPreferences.userPreferences.autoExportWhenImporting = changedValue;
+            localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+            addTimeGapForUserPreferences();
+          };
+
+
+        }, 100);
+      };
+
+
+
+
+    } catch {
+      // UI.warn("unable to attach event listener to rightDropDownMenu container. This is a peaceful error so its ok")
+    }
+  }, 100);
+
+  document.addEventListener("click", closeRightDropDownMenu, true);
+  event.stopPropagation();
+});
+
+
+function addTimeGapForUserPreferences() {
+  document.querySelectorAll("select").forEach((element) => {
+    element.disabled = true;
+  });
+  setTimeout(() => {
+    document.querySelectorAll("select").forEach((element) => {
+      element.disabled = false;
+    });
+  }, 500);
+}
+
+
+
+
+
+// UI messages, warnings, and error notifications
+
+const UImessageContainer = document.getElementById("UImessageContainer");
+
+
+function slideOutUINotification(notificationMain) {
+  notificationMain.classList.replace("UImessage_slideIn", "UImessage_slideOut");
+  notificationMain.onanimationend = function() { notificationMain.remove(); };
+}
+
+var UI = {
+  message: function(message) {
+    let messageElement = document.createElement("div");
+    messageElement.classList.add("UImessage", "contextMenu_color", "UImessage_slideIn");
+    messageElement.innerHTML = `
+      <div class="UImessage_iconContainer">
+        <img title="message" src="../assets/icons/messageIcon_${currentActiveThemeType}.png" class="icon"/>
+      </div>
+      <p class="UImessage_text">${message}</p>
+      <div class="UImessage_closeButtonContainer">
+        <img class="icon button iconButton_dark" title="Close" src="../assets/icons/otherCloseButton_${currentActiveThemeType}.png" onclick="slideOutUINotification(this.parentElement.parentElement)"/>
+      </div>
+    `;
+    UImessageContainer.appendChild(messageElement);
+
+  },
+  warn: function(message) {
+    let messageElement = document.createElement("div");
+    messageElement.classList.add("UImessage", "contextMenu_color", "UImessage_slideIn");
+    messageElement.innerHTML = `
+      <div class="UImessage_iconContainer">
+        <img title="warning" src="../assets/icons/warningIcon_${currentActiveThemeType}.png" class="icon"/>
+      </div>
+      <p class="UImessage_text">${message}</p>
+      <div class="UImessage_closeButtonContainer">
+        <img class="icon button iconButton_dark" title="Close" src="../assets/icons/otherCloseButton_${currentActiveThemeType}.png" onclick="slideOutUINotification(this.parentElement.parentElement)"/>
+      </div>
+    `;
+    UImessageContainer.appendChild(messageElement);
+  },
+  error: function(message) {
+    let messageElement = document.createElement("div");
+    messageElement.classList.add("UImessage", "contextMenu_color", "UImessage_slideIn");
+    messageElement.innerHTML = `
+      <div class="UImessage_iconContainer">
+        <img title="error" src="../assets/icons/errorIcon_${currentActiveThemeType}.png" class="icon"/>
+      </div>
+      <p class="UImessage_text">${message}</p>
+      <div class="UImessage_closeButtonContainer">
+        <img class="icon button iconButton_dark" title="Close" src="../assets/icons/otherCloseButton_${currentActiveThemeType}.png" onclick="slideOutUINotification(this.parentElement.parentElement)"/>
+      </div>
+    `;
+    UImessageContainer.appendChild(messageElement);
+  },
+};

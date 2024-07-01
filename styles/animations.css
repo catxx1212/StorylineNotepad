@@ -7,3 +7,17 @@
     background-color: rgba(70,200,70, 0.75);
   }
 }
+
+.UImessage_slideIn {
+  animation: UImessage_slideIn 0.5s ease-out 0s 1 forwards;
+}
+  @keyframes UImessage_slideIn {
+    to { transform: translate(0%); }
+  }
+.UImessage_slideOut {
+  animation: UImessage_slideOut 0.5s ease-in 0s 1 forwards;
+}
+  @keyframes UImessage_slideOut {
+    from { transform: translate(0%); }
+    to { transform: translate(150%); }
+  }

@@ -132,65 +132,61 @@ footer {
 
   }
 
-#themeMenuButton {
+
+#rightDropDownMenuButton {
   position: absolute;
-  right: 15%;
+  right: 4%;
   height: 100%;
   aspect-ratio: 1 / 1;
   transition: all 0.5s
 }
-.fontSizeSelect_menu_container {
-  position: absolute;
-  left: 13.5%;
-  height: 100%;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-  .fontSizeSelect_menu { 
-    height: fit-content;
-    width: fit-content;
-    font-size: 1vw;
-    padding: 1%;
-    transition: all 0.5s
-  }
-    .fontSizeSelect_menu_label {
-      font-size: 1.25vw;
-      position: relative;
-      left: 10%;
-    }
-  .fontSizeSelect_menu:focus {
-    outline: none;
+  .rightDropDownMenuButton_rotated {
+    transform: rotate(180deg);
   }
 #saveButton {
   position: absolute;
-  right: 5%;
+  right: 13%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  transition: all 0.5s
+}
+#themeMenuButton {
+  position: absolute;
+  right: 22%;
   height: 100%;
   aspect-ratio: 1 / 1;
   transition: all 0.5s
 }
 #globalStyleMenuButton {
   position: absolute;
-  right: 25%;
+  right: 31%;
   height: 100%;
   aspect-ratio: 1 / 1;
   transition: all 0.5s
 }
 #clearDataButton {
   position: absolute;
-  right: 35%;
+  right: 40%;
   height: 100%;
   aspect-ratio: 1 / 1;
   transition: all 0.5s
 }
 #importExportButton {
   position: absolute;
-  right: 45%;
+  right: 49%;
   height: 100%;
   aspect-ratio: 1 / 1;
   transition: all 0.5s
 }
+#userPreferencesButton {
+  position: absolute;
+  right: 0%;
+  top: 5%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  transition: all 0.5s
+}
+
 .iconButton_dark:hover {
   background-color: rgba(250, 250, 250, 0.05);
   transform: scale(95%);
@@ -295,7 +291,7 @@ textarea {
   transition: all 0.5s;
 }
 .arrow:hover {
-  transform: scale(105%) translate(0, -50%);
+  transform: scale(95%) translate(0, -50%);
 }
 
 .arrow img {
@@ -444,11 +440,6 @@ textarea {
       list-style-type: square;
       margin-bottom: 1%;
     }
-  .bottomOfNewUpdateElement {
-    position: absolute; 
-    bottom: 5%;
-    width: 100%;
-  }
   .newUpdateElement_text1 {
     position: relative;
     margin-top: 2%;
@@ -476,6 +467,11 @@ textarea {
       font-size: 1.5vw;
       font-weight: bold;
     }
+  .bottomOfNewUpdateElement {
+    position: absolute; 
+    bottom: 5%;
+    width: 100%;
+  }
 
 
 
@@ -662,3 +658,123 @@ textarea {
       width: 90%;
       padding: 0 5%;
     }
+
+
+
+
+    #rightDropDownMenu {
+      position: absolute;
+      right: 0;
+      top: 10%;
+      width: 10vh;
+      height: 40%;
+      z-index: 10;
+      transition: all 0.5s;
+    }
+      .rightDropDownMenu_buttonSection {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+      }
+
+
+
+
+
+
+#userPreferencesElement {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  aspect-ratio: 5 / 3;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  border-radius: 2vh;
+}
+  .userPreferencesElement_title {
+    position: relative;
+    margin-top: 4%;
+    width: 90%;
+    padding: 0 5%;
+    font-size: 3vw;
+    font-weight: bold;
+    pointer-events: none;
+    text-align: center;
+    text-decoration: underline;
+  }
+  .userPreferencesElement_subtitle {
+    text-align: center;
+    margin-top: 1%;
+    font-size: 1.5vw;
+    font-weight: bold;
+  }
+    .userPreferencesElement_optionsContainer {
+      position: relative;
+      margin-top: 5%;
+    }
+      .userPreferencesElement_inputWrapper {
+        position: relative;
+        margin-top: 2.5%;
+        display: flex; 
+        justify-content: center; 
+        width: 100%;
+        font-size: 1.5vw;
+      }
+        .userPreferenceInput {
+          margin-left: 2%;
+          font-size: 1.5vw;
+          padding: 0.5%;
+          transform: translateY(-20%);
+        }
+
+
+
+
+#UImessageContainer {
+  position: fixed;
+  bottom: 15vh;
+  right: 1vw;
+  width: 25vw;
+  height: fit-content;
+}
+.UImessage {
+  display: flex;
+  align-items: center;
+  margin-top: 2.5vh;
+  width: 100%;
+  height: fit-content;
+  border-radius: 2vw 0vw 0vw 2vw;
+  transform: translateX(150%);
+  transition: background-color 0.5s, border 0.5s;
+}
+
+
+.UImessage_iconContainer {
+  width: 4vw;
+  padding: 0 2.5%;
+}
+
+.UImessage_iconContainer img {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.UImessage_text {
+  flex: 1;
+  font-size: 1.4vw;
+  padding: 2.5% 0;
+}
+
+.UImessage_closeButtonContainer {
+  width: 2.25vw;
+  padding: 0 2.5%;
+}
+
+.UImessage_closeButtonContainer img {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}

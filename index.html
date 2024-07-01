@@ -42,7 +42,7 @@
         }
     </style>
     <script>
-      var currentVersionNumber = "0.3.1";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
+      var currentVersionNumber = "0.4.0";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
 
       let styleArray = ["styles/animations.css", "styles/titlePage.css", "styles/themes.css"]
       let loadedStyles = 0;
@@ -80,6 +80,7 @@
         </a>
         <p class="logoAndTitleContainer_title header_textColor">Storyline Notepad</p>
       </div>
+      <img id="darkLightToggle" src="assets/icons/darkIcon_dark.png"/>
     </header>
     <main class="main_color">
       <div class="firstSectionWelcome">
@@ -145,7 +146,7 @@
         </div>
       </a>
       <a href="storylineNotepad/storyline-notepad.html">
-        <div id="startWritingButton">
+        <div id="startWritingButton" class="importExportMenu_buttons_color">
           <p class="startWritingButton_text">Start Writing!</p>
         </div>
       </a>
@@ -164,6 +165,49 @@
       script.defer = true;
       script.src = `${"scripts/version.js"}?v=${currentVersionNumber}`;
       document.body.appendChild(script);
+
+      // resize checker
+
+      window.addEventListener("resize", function() {
+        if(window.innerHeight > window.innerWidth) {
+          var wrongScreenAspectRatioElement = document.createElement("div");
+          if(!document.getElementById("wrongScreenAspectRatioElement")) {
+            wrongScreenAspectRatioElement.classList.add("wrongScreenAspectRatioElement", "header_color");
+            wrongScreenAspectRatioElement.innerHTML = `
+              <p class="wrongScreenAspectRatioElement_firstText">Hold on a second</p>
+              <p class="wrongScreenAspectRatioElement_lastText">Your screen height is larger than your screen width. Storyline Notepad was designed for laptop / monitors. Maybe in a future version _(0.0)/ </p>
+            `;
+            wrongScreenAspectRatioElement.id = "wrongScreenAspectRatioElement";
+            document.body.appendChild(wrongScreenAspectRatioElement);
+          }
+        } else {
+          if(document.getElementById("wrongScreenAspectRatioElement")) {
+            setTimeout(() => {
+              try {
+                document.getElementById("wrongScreenAspectRatioElement").remove();
+              } catch {}
+            }, 150);
+          }
+        }
+      });
+
+
+      var darkLightToggle = document.getElementById("darkLightToggle");
+      var toggle = true;
+
+      darkLightToggle.onclick = function() {
+        if(toggle) {
+          toggle = false;
+          darkLightToggle.src = "assets/icons/lightIcon_light.png";
+          document.body.classList.replace("white_theme", "black_theme");
+
+        } else if(!toggle) {
+          toggle = true;
+          darkLightToggle.src = "assets/icons/darkIcon_dark.png";
+          document.body.classList.replace("black_theme", "white_theme");
+          
+        }
+      }
     </script>
   </body>
   </html>

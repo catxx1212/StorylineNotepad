@@ -1,6 +1,21 @@
 var changelogs = [
   // copy upwards
   {
+    versionRef: "Version 0.4.0",
+    changeList: `
+      <li>Added a user preferences menu. You can now configure some of Storyline Notepad's behavior.</li>
+      <li>Added in-window message, warning, and error notifications.</li>
+      <li>Added a weekly in-window notification to remind you to hard reload the page. This will ensure you have the latest version (due to cache issues).</li>
+      <li>Added two new themes: Corrupted Void and Tanned Paper.</li>
+      <li>Renamed Pale skies to Gentle Rainbow.</li>
+      <li>Added time and date extensions to storyline export filenames.</li>
+      <li>Added a dark mode option for title page and changelog page.</li>
+      <li>Some smaller adjustments to general behavior.</li>
+      <li>Added "wrong aspect ratio" screen too all pages now.</li>
+      <li>Other fixes and small changes.</li>
+    `,
+  },
+  {
     versionRef: "Version 0.3.1",
     changeList: `
       <li>Added one new theme: Pale skies.</li>
@@ -32,21 +47,21 @@ changelogs.forEach((changelog, index) => {
   if(index === 0) {
     changelogHTML += `
     <div class="changelogEntryDiv">
-      <p class="changelog_version">${changelog.versionRef} (Current version)</p>
-      <ul class="changelog_list">
+      <p class="changelog_version header_textColor">${changelog.versionRef} (Current version)</p>
+      <ul class="changelog_list header_textColor">
         ${changelog.changeList}
       </ul>
-      <hr/>
+      <hr class="popup_color"/>
     </div>
     `;
   } else {
     changelogHTML += `
       <div class="changelogEntryDiv">
-        <p class="changelog_version">${changelog.versionRef}</p>
-        <ul class="changelog_list">
+        <p class="changelog_version header_textColor">${changelog.versionRef}</p>
+        <ul class="changelog_list header_textColor">
           ${changelog.changeList}
         </ul>
-        <hr/>
+        <hr class="popup_color"/>
       </div>
     `;
   }

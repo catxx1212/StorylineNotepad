@@ -54,6 +54,19 @@ header {
       transition: all 0.5s;
     }
 
+  #darkLightToggle {
+    position: absolute;
+    top: 0%;
+    right: 5%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  #darkLightToggle:hover {
+    transform: scale(95%);
+  }
+
 main {
   background-color: rgb(20, 8, 18);
   position: absolute;
@@ -248,7 +261,6 @@ footer {
     left: 2.5%;
     top: 50%;
     transform: translateY(-50%);
-    transition: all 0.5s;
   }
   #startWritingButton {
     position: absolute;
@@ -273,7 +285,6 @@ footer {
       font-size: 1.5vw;
       text-align: center;
       width: 100%;
-      transform: color 0.5s;
       font-weight: bold;
     }
   #reportIssueButton {
@@ -308,7 +319,6 @@ footer {
     right: 2.5%;
     top: 50%;
     transform: translateY(-50%);
-    transition: all 0.5s;
   }
 
 
@@ -334,3 +344,32 @@ footer {
       transform: color 0.5s;
       font-weight: bold;
     }
+
+
+
+
+.wrongScreenAspectRatioElement {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center
+}
+  .wrongScreenAspectRatioElement_firstText {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 10vw;
+  }
+  .wrongScreenAspectRatioElement_lastText {
+    position: relative;
+    width: 90%;
+    text-align: center;
+    font-size: 5vw;
+    padding: 0 5% 0 5%;
+  }
