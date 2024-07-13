@@ -473,6 +473,32 @@ var themeList = {
         "rgb(225, 225, 225)",
       ],
     },
+    {
+      themeID: "cherrySkies",
+      themeTitle: "Cherry Skies",
+      themeType: "light",
+      themeCategory: "gradient",
+      preview: [
+        "rgb(243, 145, 137)",
+        "rgb(187, 128, 130)",
+        "rgb(110, 117, 130)",
+        "rgb(4, 101, 130)",
+        "rgb(245, 205, 235)",
+      ],
+    },
+    {
+      themeID: "hopefulFields",
+      themeTitle: "Hopeful Fields",
+      themeType: "light",
+      themeCategory: "gradient",
+      preview: [
+        "rgb(221, 255, 187)",
+        "rgb(199, 233, 176)",
+        "rgb(179, 201, 156)",
+        "rgb(164, 188, 146)",
+        "rgb(105, 145, 135)",
+      ],
+    },
   ],
 };
 
@@ -1089,7 +1115,7 @@ popUpMainElement_newUpdate.appendChild(newUpdateElement);
 
 
 
-var flipToUse = 1;  // <<<<<<<  change this each update PLEASE :3   last changed: 0.2.5 = 1 | 0.3.0 = 2 | | 0.3.1 = 1  |  <<< (this might help)
+var flipToUse = 2;  // <<<<<<<  change this each update PLEASE :3   last changed: 0.2.5 = 1 | 0.3.0 = 2 | 0.3.1 = 1  | 0.4.0 = 2 <<< (this might help)
 var otherFlip = function() {
   if(flipToUse === 1) {
     return 2
@@ -1111,8 +1137,8 @@ if(localStorage.getItem(`newUpdate_flip${flipToUse}`) === 'true') {
       }
     });
   }, 150);
-  // localStorage.setItem(`newUpdate_flip${flipToUse}`, false);
-  // localStorage.setItem(`newUpdate_flip${otherFlip()}`, true);
+  localStorage.setItem(`newUpdate_flip${flipToUse}`, false);
+  localStorage.setItem(`newUpdate_flip${otherFlip()}`, true);
 }
 
 

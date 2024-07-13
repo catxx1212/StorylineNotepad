@@ -1,6 +1,12 @@
 var changelogs = [
   // copy upwards
   {
+    versionRef: "Version 0.4.1",
+    changeList: `
+      <li>Added two new themes: Cherry Skies and Hopeful Fields</li>
+    `,
+  },
+  {
     versionRef: "Version 0.4.0",
     changeList: `
       <li>Added a user preferences menu. You can now configure some of Storyline Notepad's behavior.</li>

@@ -1,15 +1,6 @@
-# VER 0.4.0
+# VER 0.4.1
 ## Changes in this update:
-  - Added a user preferences menu. You can now configure some of Storyline Notepad's behavior.
-  - Added in-window message, warning, and error notifications.
-  - Added a weekly in-window notification to remind you to hard reload the page. This will ensure you have the latest version (due to cache issues).
-  - Added two new themes: Corrupted Void and Tanned Paper.
-  - Renamed Pale skies to Gentle Rainbow.
-  - Added time and date extensions to storyline export filenames.
-  - Added a dark mode option for title page and changelog page.
-  - Some smaller adjustments to general behavior.
-  - Added "wrong aspect ratio" screen too all pages now.
-  - Other fixes and small changes.
+  - Added two new themes: Cherry Skies and Hopeful Fields
 
 ---
 
@@ -19,7 +10,7 @@
 
 ## Known issues (Found by me, if you find one that is not listed here, please open an issue)
   - Having the same storyline open in two tabs or windows will result in one overwriting the other.
-  - Using the browser's back arrow can sometimes cause issues with saved data.
+  - Using the browser's back arrow can cause issues with saved data.
   - Storyline Notepad still is not made for phone users yet.
 
 ### Features that will eventually be in storyline notepad:
