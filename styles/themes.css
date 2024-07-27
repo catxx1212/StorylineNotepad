@@ -36,16 +36,6 @@
     border-top: 0.75vh solid rgb(50, 50, 55);
     color: rgb(20, 20, 20);
   }
-    .white_theme #reportIssueButton {
-      border: 0.75vh solid rgb(50, 50, 55);
-      background-color: rgb(255, 240, 255);
-      color: rgb(20, 20, 20);
-    }
-    .white_theme #reportIssueButton:hover {
-      background-color: rgb(50, 50, 55);
-      border: 0.75vh solid rgb(255, 240, 255);
-      color: rgb(235, 235, 235);
-    }
   .white_theme .menu_color {
     border-top: 0.75vh solid rgb(50, 50, 55);
     border-left: 0.75vh solid rgb(50, 50, 55);
@@ -103,16 +93,6 @@
       border: 0.75vh solid rgb(255, 240, 255);
       color: rgb(235, 235, 235);
     }
-  .white_theme #startWritingButton {
-    border: 0.75vh solid rgb(50, 50, 55);
-    background-color: rgb(255, 240, 255);
-    color: rgb(20, 20, 20);
-  }
-  .white_theme #startWritingButton:hover {
-    background-color: rgb(50, 50, 55);
-    border: 0.75vh solid rgb(255, 240, 255);
-    color: rgb(235, 235, 235);
-  }
   .white_theme .contextMenu_color {
     background-color: rgb(250, 235, 250);
     border: 0.75vh solid rgb(50, 50, 55);
@@ -160,16 +140,6 @@
     border-top: 0.75vh solid rgb(205, 205, 210);
     color: rgb(235, 235, 235);
   }
-    .black_theme #reportIssueButton {
-      border: 0.75vh solid rgb(205, 205, 210);
-      background-color: rgb(20, 20, 25);
-      color: rgb(235, 235, 235);
-    }
-    .black_theme #reportIssueButton:hover {
-      background-color: rgb(205, 205, 210);
-      border: 0.75vh solid rgb(20, 20, 25);
-      color: rgb(20, 20, 20);
-    }
   .black_theme .menu_color {
     border-top: 0.75vh solid rgb(205, 205, 210);
     border-left: 0.75vh solid rgb(205, 205, 210);
@@ -275,16 +245,6 @@
     border-top: 0.75vh solid rgb(160, 160, 210);
     color: rgb(235, 235, 235);
   }
-    .navyBlue_theme #reportIssueButton {
-      border: 0.75vh solid rgb(160, 160, 210);
-      background-color: rgb(0, 0, 128);
-      color: rgb(235, 235, 235);
-    }
-    .navyBlue_theme #reportIssueButton:hover {
-      background-color: rgb(160, 160, 210);
-      border: 0.75vh solid rgb(0, 0, 128);
-      color: rgb(20, 20, 20);
-    }
   .navyBlue_theme .menu_color {
     border-top: 0.75vh solid rgb(160, 160, 210);
     border-left: 0.75vh solid rgb(160, 160, 210);
@@ -390,16 +350,6 @@
     border-top: 0.75vh solid rgb(200, 155, 100);
     color: rgb(20, 20, 20);
   }
-    .burntOrange_theme #reportIssueButton {
-      border: 0.75vh solid rgb(200, 155, 100);
-      background-color: rgb(184, 65, 0);
-      color: rgb(20, 20, 20);
-    }
-    .burntOrange_theme #reportIssueButton:hover {
-      border: 0.75vh solid rgb(184, 65, 0);
-      background-color: rgb(200, 155, 100);
-      color: rgb(235, 235, 235);
-    }
   .burntOrange_theme .menu_color {
     border-top: 0.75vh solid rgb(200, 155, 100);
     border-left: 0.75vh solid rgb(200, 155, 100);
@@ -505,16 +455,6 @@
     border-top: 0.75vh solid rgb(40, 30, 35);
     color: rgb(20, 20, 20);
   }
-    .pink_theme #reportIssueButton {
-      border: 0.75vh solid rgb(40, 30, 35);
-      background-color: rgb(240, 85, 170);
-      color: rgb(20, 20, 20);
-    }
-    .pink_theme #reportIssueButton:hover {
-      background-color: rgb(40, 30, 35);
-      border: 0.75vh solid rgb(240, 85, 170);
-      color: rgb(235, 235, 235);
-    }
   .pink_theme .menu_color {
     border-top: 0.75vh solid rgb(40, 30, 35);
     border-left: 0.75vh solid rgb(40, 30, 35);
@@ -620,16 +560,6 @@
     border-top: 0.75vh solid rgb(200, 190, 160);
     color: rgb(235, 235, 235);
   }
-    .brown_theme #reportIssueButton {
-      border: 0.75vh solid rgb(200, 190, 160);
-      background-color: rgb(150, 75, 0);
-      color: rgb(235, 235, 235);
-    }
-    .brown_theme #reportIssueButton:hover {
-      background-color: rgb(200, 190, 160);
-      border: 0.75vh solid rgb(150, 75, 0);
-      color: rgb(20, 20, 20);
-    }
   .brown_theme .menu_color {
     border-top: 0.75vh solid rgb(200, 190, 160);
     border-left: 0.75vh solid rgb(200, 190, 160);
@@ -735,16 +665,6 @@
     border-top: 0.75vh solid rgb(35, 50, 75);
     color: rgb(20, 20, 20);
   }
-    .electricBlue_theme #reportIssueButton {
-      border: 0.75vh solid rgb(35, 50, 75);
-      background-color: rgb(0, 232, 247);
-      color: rgb(20, 20, 20);
-    }
-    .electricBlue_theme #reportIssueButton:hover {
-      background-color: rgb(35, 50, 75);
-      border: 0.75vh solid rgb(0, 232, 247);
-      color: rgb(235, 235, 235);
-    }
   .electricBlue_theme .menu_color {
     border-top: 0.75vh solid rgb(35, 50, 75);
     border-left: 0.75vh solid rgb(35, 50, 75);
@@ -850,16 +770,6 @@
     border-top: 0.75vh solid rgb(50, 45, 40);
     color: rgb(20, 20, 20);
   }
-    .tannedPaper_theme #reportIssueButton {
-      border: 0.75vh solid rgb(50, 45, 40);
-      background-color: rgb(226, 218, 207);
-      color: rgb(20, 20, 20);
-    }
-    .tannedPaper_theme #reportIssueButton:hover {
-      background-color: rgb(50, 45, 40);
-      border: 0.75vh solid rgb(226, 218, 207);
-      color: rgb(235, 235, 235);
-    }
   .tannedPaper_theme .menu_color {
     border-top: 0.75vh solid rgb(50, 45, 40);
     border-left: 0.75vh solid rgb(50, 45, 40);
@@ -980,16 +890,6 @@
     border-top: 0.75vh solid rgb(195, 195, 210);
     color: rgb(235, 235, 235);
   }
-    .underwaterDream_theme #reportIssueButton {
-      border: 0.75vh solid rgb(195, 195, 210);
-      background-color: rgb(10, 24, 75);
-      color: rgb(235, 235, 235);
-    }
-    .underwaterDream_theme #reportIssueButton:hover {
-      background-color: rgb(195, 195, 210);
-      border: 0.75vh solid rgb(10, 24, 75);
-      color: rgb(20, 20, 20);
-    }
   .underwaterDream_theme .menu_color {
     border-top: 0.75vh solid rgb(195, 195, 210);
     border-left: 0.75vh solid rgb(195, 195, 210);
@@ -1098,16 +998,6 @@
     border-top: 0.75vh solid rgb(55, 40, 30);
     color: rgb(20, 20, 20);
   }
-    .thatOneSunset_theme #reportIssueButton {
-      border: 0.75vh solid rgb(55, 40, 30);
-      background-color: rgb(103, 63, 105);
-      color: rgb(20, 20, 20);
-    }
-    .thatOneSunset_theme #reportIssueButton:hover {
-      background-color: rgb(55, 40, 30);
-      border: 0.75vh solid rgb(103, 63, 105);
-      color: rgb(235, 235, 235);
-    }
   .thatOneSunset_theme .menu_color {
     border-top: 0.75vh solid rgb(55, 40, 30);
     border-left: 0.75vh solid rgb(55, 40, 30);
@@ -1216,16 +1106,6 @@
     border-top: 0.75vh solid rgb(40, 30, 40);
     color: rgb(20, 20, 20);
   }
-    .pinkCupcakeIcing_theme #reportIssueButton {
-      border: 0.75vh solid rgb(40, 30, 40);
-      background-color: rgb(230, 164, 180);
-      color: rgb(20, 20, 20);
-    }
-    .pinkCupcakeIcing_theme #reportIssueButton:hover {
-      background-color: rgb(40, 30, 40);
-      border: 0.75vh solid rgb(230, 164, 180);
-      color: rgb(235, 235, 235);
-    }
   .pinkCupcakeIcing_theme .menu_color {
     border-top: 0.75vh solid rgb(40, 30, 40);
     border-left: 0.75vh solid rgb(40, 30, 40);
@@ -1336,16 +1216,6 @@
     border-top: 0.75vh solid rgb(210, 225, 235);
     color: rgb(235, 235, 235);
   }
-    .blueCrystalCave_theme #reportIssueButton {
-      border: 0.75vh solid rgb(210, 225, 235);
-      background-color: rgb(22, 24, 26);
-      color: rgb(235, 235, 235);
-    }
-    .blueCrystalCave_theme #reportIssueButton:hover {
-      background-color: rgb(210, 225, 235);
-      border: 0.75vh solid rgb(22, 24, 26);
-      color: rgb(235, 235, 235);
-    }
   .blueCrystalCave_theme .menu_color {
     border-top: 0.75vh solid rgb(210, 225, 235);
     border-left: 0.75vh solid rgb(210, 225, 235);
@@ -1468,16 +1338,6 @@
     border-top: 0.75vh solid rgb(30, 25, 0);
     color: rgb(20, 20, 20);
   }
-    .pastelWoods_theme #reportIssueButton {
-      border: 0.75vh solid rgb(30, 25, 0);
-      background-color: rgb(170, 133, 97);
-      color: rgb(20, 20, 20);
-    }
-    .pastelWoods_theme #reportIssueButton:hover {
-      background-color: rgb(30, 25, 0);
-      border: 0.75vh solid rgb(170, 133, 97);
-      color: rgb(235, 235, 235);
-    }
   .pastelWoods_theme .menu_color {
     border-top: 0.75vh solid rgb(30, 25, 0);
     border-left: 0.75vh solid rgb(30, 25, 0);
@@ -1590,16 +1450,6 @@
     border-top: 0.75vh solid rgb(175, 175, 175);
     color: rgb(235, 235, 235);
   }
-    .dullSideRoads_theme #reportIssueButton {
-      border: 0.75vh solid rgb(175, 175, 175);
-      background-color: rgb(86, 86, 86);
-      color: rgb(235, 235, 235);
-    }
-    .dullSideRoads_theme #reportIssueButton:hover {
-      background-color: rgb(175, 175, 175);
-      border: 0.75vh solid rgb(86, 86, 86);
-      color: rgb(20, 20, 20);
-    }
   .dullSideRoads_theme .menu_color {
     border-top: 0.75vh solid rgb(175, 175, 175);
     border-left: 0.75vh solid rgb(175, 175, 175);
@@ -1708,16 +1558,6 @@
     border-top: 0.75vh solid rgb(155, 155, 155);
     color: rgb(235, 235, 235);
   }
-    .redHorizon_theme #reportIssueButton {
-      border: 0.75vh solid rgb(155, 155, 155);
-      background-color: rgb(37, 37, 37);
-      color: rgb(235, 235, 235);
-    }
-    .redHorizon_theme #reportIssueButton:hover {
-      background-color: rgb(155, 155, 155);
-      border: 0.75vh solid rgb(37, 37, 37);
-      color: rgb(20, 20, 20);
-    }
   .redHorizon_theme .menu_color {
     border-top: 0.75vh solid rgb(155, 155, 155);
     border-left: 0.75vh solid rgb(155, 155, 155);
@@ -1828,16 +1668,6 @@
     border-top: 0.75vh solid rgb(25, 25, 25);
     color: rgb(20, 20, 20);
   }
-    .gentleRainbow_theme #reportIssueButton {
-      border: 0.75vh solid rgb(25, 25, 25);
-      background-color: rgb(238, 203, 255);
-      color: rgb(20, 20, 20);
-    }
-    .gentleRainbow_theme #reportIssueButton:hover {
-      background-color: rgb(25, 25, 25);
-      border: 0.75vh solid rgb(238, 203, 255);
-      color: rgb(235, 235, 235);
-    }
   .gentleRainbow_theme .menu_color {
     border-top: 0.75vh solid rgb(25, 25, 25);
     border-left: 0.75vh solid rgb(25, 25, 25);
@@ -1995,16 +1825,6 @@
     border-top: 0.75vh solid rgb(225, 225, 225);
     color: rgb(235, 235, 235);
   }
-    .corruptedVoid_theme #reportIssueButton {
-      border: 0.75vh solid rgb(225, 225, 225);
-      background-color: rgb(5, 5, 5);
-      color: rgb(235, 235, 235);
-    }
-    .corruptedVoid_theme #reportIssueButton:hover {
-      background-color: rgb(225, 225, 225);
-      border: 0.75vh solid rgb(5, 5, 5);
-      color: rgb(20, 20, 20);
-    }
   .corruptedVoid_theme .menu_color {
     border-top: 0.75vh solid rgb(225, 225, 225);
     border-left: 0.75vh solid rgb(225, 225, 225);
@@ -2117,16 +1937,6 @@
     border-top: 0.75vh solid rgb(245, 205, 235);
     color: rgb(20, 20, 20);
   }
-    .cherrySkies_theme #reportIssueButton {
-      border: 0.75vh solid rgb(245, 205, 235);
-      background-color: rgb(110, 117, 130);
-      color: rgb(20, 20, 20);
-    }
-    .cherrySkies_theme #reportIssueButton:hover {
-      background-color: rgb(245, 205, 235);
-      border: 0.75vh solid rgb(110, 117, 130);
-      color: rgb(20, 20, 20);
-    }
   .cherrySkies_theme .menu_color {
     border-top: 0.75vh solid rgb(245, 205, 235);
     border-left: 0.75vh solid rgb(245, 205, 235);
@@ -2236,16 +2046,6 @@
     border-top: 0.75vh solid rgb(105, 145, 135);
     color: rgb(20, 20, 20);
   }
-    .hopefulFields_theme #reportIssueButton {
-      border: 0.75vh solid rgb(105, 145, 135);
-      background-color: rgb(164, 188, 146);
-      color: rgb(20, 20, 20);
-    }
-    .hopefulFields_theme #reportIssueButton:hover {
-      background-color: rgb(105, 145, 135);
-      border: 0.75vh solid rgb(164, 188, 146);
-      color: rgb(235, 235, 235);
-    }
   .hopefulFields_theme .menu_color {
     border-top: 0.75vh solid rgb(105, 145, 135);
     border-left: 0.75vh solid rgb(105, 145, 135);
@@ -2312,6 +2112,114 @@
     }
     .hopefulFields_theme .contextMenu_buttons_color:hover {
       background-color: rgb(201, 235, 167);
+    }
+
+
+    
+.pillowTalk_theme {
+  background-color: rgb(8, 8, 8);
+  color: rgb(20, 20, 20);
+}
+  .pillowTalk_theme .header_color {
+    background-color: rgb(227, 214, 236);
+    border-bottom: 0.75vh solid rgb(45, 25, 25);
+  }
+    .pillowTalk_theme .header_textColor {
+      color: rgb(20, 20, 20);
+      }
+  .pillowTalk_theme .main_color {
+    background: linear-gradient(180deg,
+      rgb(255, 255, 255) 0%,
+      rgb(225, 225, 225) 100%
+    );
+    color: rgb(20, 20, 20);
+  }
+    .pillowTalk_theme .storyBox_color {
+      background-color: rgb(245, 245, 245);
+      border: 0.75vh solid rgb(45, 25, 25);
+    }
+      .pillowTalk_theme .storyBox_innerColor {
+        background-color: rgb(245, 245, 245);
+        color: rgb(20, 20, 20);
+      }
+      .pillowTalk_theme .storyBox_innerColor::placeholder {
+          color: rgb(20, 20, 20);
+          opacity: 0.5;
+      }
+    .pillowTalk_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(45, 25, 25);
+    }
+  .pillowTalk_theme .footer_color {
+    background-color: rgb(234, 249, 253);
+    border-top: 0.75vh solid rgb(45, 25, 25);
+    color: rgb(20, 20, 20);
+  }
+  .pillowTalk_theme .menu_color {
+    border-top: 0.75vh solid rgb(45, 25, 25);
+    border-left: 0.75vh solid rgb(45, 25, 25);
+    border-bottom: 0.75vh solid rgb(45, 25, 25);
+  }
+    .pillowTalk_theme .themeMenu_categorySection_color {
+      background-color: rgb(227, 214, 236);
+      border-right: 0.75vh solid rgb(45, 25, 25);
+    }
+      .pillowTalk_theme .themeMenu_categorySection_text {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(45, 25, 25);
+      }
+      .pillowTalk_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(207, 194, 216);       
+      }
+    .pillowTalk_theme .themeMenu_themeSection_color {
+      background-color: rgb(217, 204, 226);
+    }
+      .pillowTalk_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(227, 214, 236);
+        border: 0.75vh solid rgb(45, 25, 25);
+        color: rgb(20, 20, 20);
+      }
+      .pillowTalk_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(207, 194, 216);
+      }
+    .pillowTalk_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(227, 214, 236);
+    }
+      .pillowTalk_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(20, 20, 20);
+        border-bottom: 0.75vh solid rgb(45, 25, 25);
+      }
+      .pillowTalk_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(207, 194, 216);
+      }
+  .pillowTalk_theme .popup_color {
+    border: 0.75vh solid rgb(45, 25, 25);
+  }
+    .pillowTalk_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(45, 25, 25);
+      border-top: 0.75vh solid rgb(45, 25, 25);
+    }
+    .pillowTalk_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(45, 25, 25);
+    }
+    .pillowTalk_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(45, 25, 25);
+      background-color: rgb(234, 249, 253);
+      color: rgb(20, 20, 20);
+    }
+    .pillowTalk_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(45, 25, 25);
+      border: 0.75vh solid rgb(234, 249, 253);
+      color: rgb(235, 235, 235);
+    }
+  .pillowTalk_theme .contextMenu_color {
+    background-color: rgb(227, 214, 236);
+    border: 0.75vh solid rgb(45, 25, 25);
+  }
+    .pillowTalk_theme .contextMenu_buttons_color {
+      color: rgb(20, 20, 20);
+    }
+    .pillowTalk_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(207, 194, 216);
     }
 
 /* end of gradient themes */

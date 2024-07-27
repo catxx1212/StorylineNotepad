@@ -1,4 +1,8 @@
-const currentActiveSaveRef = 0;
+const currentActiveSaveRef = sessionStorage.getItem("activeSaveSlot") || -1;
+
+if(currentActiveSaveRef < 0 || currentActiveSaveRef > 9) {
+  location.href = "saveSlots.html";
+}
 
 var currentActiveTheme = "";
 var currentActiveThemeType = "";
@@ -6,41 +10,41 @@ var currentActiveThemeCategory = "";
 
 var currentActiveGlobalStyle = "";
 
-function isObjectEmpty(obj) {
-  return Object.keys(obj).length === 0;
-}
+// function isObjectEmpty(obj) {
+//   return Object.keys(obj).length === 0;
+// }
 
-var userPreferences_expectedObjectLength = 3;
+// var userPreferences_expectedObjectLength = 3;
 
-if (!localStorage.getItem("storylineNotepad_global")) {
-  let defaultStorylineNotepad_globalObject = {
-    userPreferences: {
-      appendTimeAndDateToFileExport: "enabled",
-      defaultFallbackTheme: "white",
-      autoExportWhenImporting: "enabled",
-    },
-    storylineSaves: {
+// if (!localStorage.getItem("storylineNotepad_global")) {
+//   let defaultStorylineNotepad_globalObject = {
+//     userPreferences: {
+//       appendTimeAndDateToFileExport: "enabled",
+//       defaultFallbackTheme: "white",
+//       autoExportWhenImporting: "enabled",
+//     },
+//     storylineSaves: {
 
-    },
-    lastTimeStamp: undefined,
-  };
-  localStorage.setItem("storylineNotepad_global", JSON.stringify(defaultStorylineNotepad_globalObject));
-} else {
+//     },
+//     lastTimeStamp: undefined,
+//   };
+//   localStorage.setItem("storylineNotepad_global", JSON.stringify(defaultStorylineNotepad_globalObject));
+// } else {
 
-  let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+//   let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
 
-  if (!storylineNotepad_global_setUserPreferences.userPreferences || isObjectEmpty(storylineNotepad_global_setUserPreferences.userPreferences) || !(Object.keys(storylineNotepad_global_setUserPreferences.userPreferences).length === userPreferences_expectedObjectLength)) {
-    storylineNotepad_global_setUserPreferences.userPreferences = {
-      appendTimeAndDateToFileExport: "enabled",
-      defaultFallbackTheme: "white",
-      autoExportWhenImporting: "enabled",
-    };
-    localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
-    setTimeout(() => {
-      UI.error("User Preferences was reset because it was either missing or malformed.")
-    }, 500);
-  }
-}
+//   if (!storylineNotepad_global_setUserPreferences.userPreferences || isObjectEmpty(storylineNotepad_global_setUserPreferences.userPreferences) || !(Object.keys(storylineNotepad_global_setUserPreferences.userPreferences).length === userPreferences_expectedObjectLength)) {
+//     storylineNotepad_global_setUserPreferences.userPreferences = {
+//       appendTimeAndDateToFileExport: "enabled",
+//       defaultFallbackTheme: "white",
+//       autoExportWhenImporting: "enabled",
+//     };
+//     localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+//     setTimeout(() => {
+//       UI.error("User Preferences was reset because it was either missing or malformed.")
+//     }, 500);
+//   }
+// }
 
 
 //  load user preferences
@@ -116,6 +120,9 @@ storylineTitle.onclick = function() {
   if(newTitle.trim() !== ``) {
     if(newTitle.length >= 40) {
       UI.warn("Storyline title too large. Must be under 40 characters");
+      return;
+    } else if(newTitle.toLowerCase() === "empty") {
+      UI.warn("You cannot name a storyline 'empty' as it is reserved.");
       return;
     }
     storylineTitle.textContent = newTitle;
@@ -211,42 +218,7 @@ function removeStoryBox(id) {
 };
 
 
-// clear all button
 
-
-const clearDataButton = document.getElementById("clearDataButton");
-
-function clearAllData() {
-  const askIfUserWantsToClearCurrentStroyline = confirm("Are you sure you want to clear your current storyline?");
-  if(askIfUserWantsToClearCurrentStroyline) {
-    saveDataForCurrentStoryline();
-    window.removeEventListener("beforeunload" , beforeUnloadEvent);
-    let askIfUserWantsToBackup = confirm("Would you like to backup your current storyline?");
-    if(askIfUserWantsToBackup) {
-
-      let storylineNotepad_global_getCurrentSaveData_clearAll = JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef];
-      if(storylineNotepad_global_getCurrentSaveData_clearAll === undefined || storylineNotepad_global_getCurrentSaveData_clearAll.storylineTitle === undefined) {
-        UI.warn("You can't export nothing!!");
-        return;
-      } 
-      downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData_clearAll), storylineNotepad_global_getCurrentSaveData_clearAll.storylineTitle.replace(/ /g, "_") , "_backup");
-
-    }
-    setTimeout(() => {
-      let storylineNotepad_global_clearStorylineNotepadData = JSON.parse(localStorage.getItem("storylineNotepad_global"));
-      delete storylineNotepad_global_clearStorylineNotepadData.storylineSaves[currentActiveSaveRef];
-      localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_clearStorylineNotepadData));
-
-      setTimeout(() => {
-        location.reload();
-      }, 150);
-    }, 150);
-  }
-}
-
-clearDataButton.onclick = function() {
-  clearAllData("clearAllData");
-};
 
 
 // theme select
@@ -497,6 +469,19 @@ var themeList = {
         "rgb(179, 201, 156)",
         "rgb(164, 188, 146)",
         "rgb(105, 145, 135)",
+      ],
+    },
+    {
+      themeID: "pillowTalk",
+      themeTitle: "Pillow Talk",
+      themeType: "light",
+      themeCategory: "gradient",
+      preview: [
+        "rgb(227, 214, 236)",
+        "rgb(255, 255, 255)",
+        "rgb(225, 225, 225)",
+        "rgb(234, 249, 253)",
+        "rgb(45, 25, 25)",
       ],
     },
   ],
@@ -1115,20 +1100,12 @@ popUpMainElement_newUpdate.appendChild(newUpdateElement);
 
 
 
-var flipToUse = 2;  // <<<<<<<  change this each update PLEASE :3   last changed: 0.2.5 = 1 | 0.3.0 = 2 | 0.3.1 = 1  | 0.4.0 = 2 <<< (this might help)
-var otherFlip = function() {
-  if(flipToUse === 1) {
-    return 2
-  } else if(flipToUse === 2) {
-    return 1;
-  }
-}
-if(!localStorage.getItem("newUpdate_flip1") && !localStorage.getItem("newUpdate_flip2")) {
-  localStorage.setItem(`newUpdate_flip${flipToUse}`, true);
-  localStorage.setItem(`newUpdate_flip${otherFlip()}`, false);
+if(localStorage.getItem("newUpdate_flip1") || localStorage.getItem("newUpdate_flip2")) {
+  localStorage.removeItem("newUpdate_flip1");
+  localStorage.removeItem("newUpdate_flip2");
 }
 
-if(localStorage.getItem(`newUpdate_flip${flipToUse}`) === 'true') {
+if(localStorage.getItem("newUpdate_flip") !== currentVersionNumber) {
   document.body.appendChild(popUpMainElement_newUpdate);
   setTimeout(() => {
     document.addEventListener("click", function(event) {
@@ -1137,9 +1114,9 @@ if(localStorage.getItem(`newUpdate_flip${flipToUse}`) === 'true') {
       }
     });
   }, 150);
-  localStorage.setItem(`newUpdate_flip${flipToUse}`, false);
-  localStorage.setItem(`newUpdate_flip${otherFlip()}`, true);
+  localStorage.setItem("newUpdate_flip", currentVersionNumber);
 }
+
 
 
 // weekly reminder
@@ -1267,7 +1244,8 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
   
   rightDropDownMenuButton.classList.toggle("rightDropDownMenuButton_rotated");
   rightDropDownMenu.innerHTML = `
-    <img id="userPreferencesButton" class="icon button iconButton_${currentActiveThemeType} " src="../assets/icons/settingsIcon_${currentActiveThemeType}.png" title="User preferences"/>
+    <img id="userPreferencesButton" class="icon button iconButton_${currentActiveThemeType}" src="../assets/icons/settingsIcon_${currentActiveThemeType}.png" title="User preferences"/>
+    <img id="clearDataButton" class="icon button iconButton_${currentActiveThemeType}" src="../assets/icons/clearAllButton_${currentActiveThemeType}.png" title="Clear current storyline"/>
   `;
   document.body.appendChild(rightDropDownMenu);
   setTimeout(() => {
@@ -1361,7 +1339,7 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
             `;
         }
       };
-      userPreferencesButton.onclick = function() {
+      document.getElementById("userPreferencesButton").onclick = function() {
         var userPreferencesElement = document.createElement("div");
         userPreferencesElement.id = "userPreferencesElement";
         userPreferencesElement.classList.add("footer_color", "popup_color");
@@ -1379,7 +1357,7 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
               </select>
 
             </div>
-            <div class="userPreferencesElement_inputWrapper" title="When a theme can't be loaded or when you start a new storyline, choose a default theme">
+            <div class="userPreferencesElement_inputWrapper" title="When a theme can't be loaded or when you start a new storyline, choose a default theme. Also effects the save slot screen.">
 
               <lable for="userPreferenceInput_fallbackTheme">Fallback theme:</lable>
               <select id="userPreferenceInput_fallbackTheme" class="userPreferenceInput">
@@ -1429,7 +1407,7 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
             let changedValue = userPreferenceInput_addTimeAndDateToFileExport.value;
             loadedUserPreferences.appendTimeAndDateToFileExport = changedValue;
             let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
-            storylineNotepad_global_setUserPreferences.userPreferences.appendTimeAndDateToFileExport = changedValue;
+            storylineNotepad_global_setUserPreferences.Preferences.appendTimeAndDateToFileExport = changedValue;
             localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
             addTimeGapForUserPreferences();
           };
@@ -1443,12 +1421,43 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
             addTimeGapForUserPreferences();
           };
 
-
         }, 100);
       };
 
 
+      // clear all button
 
+      function clearAllData() {
+        const askIfUserWantsToClearCurrentStroyline = confirm("Are you sure you want to clear your current storyline?");
+        if(askIfUserWantsToClearCurrentStroyline) {
+          saveDataForCurrentStoryline();
+          window.removeEventListener("beforeunload" , beforeUnloadEvent);
+          let askIfUserWantsToBackup = confirm("Would you like to backup your current storyline?");
+          if(askIfUserWantsToBackup) {
+
+            let storylineNotepad_global_getCurrentSaveData_clearAll = JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef];
+            if(storylineNotepad_global_getCurrentSaveData_clearAll === undefined || storylineNotepad_global_getCurrentSaveData_clearAll.storylineTitle === undefined) {
+              UI.warn("You can't export nothing!!");
+              return;
+            } 
+            downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData_clearAll), storylineNotepad_global_getCurrentSaveData_clearAll.storylineTitle.replace(/ /g, "_") , "_backup");
+
+          }
+          setTimeout(() => {
+            let storylineNotepad_global_clearStorylineNotepadData = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+            delete storylineNotepad_global_clearStorylineNotepadData.storylineSaves[currentActiveSaveRef];
+            localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_clearStorylineNotepadData));
+
+            setTimeout(() => {
+              location.href = "saveSlots.html";
+            }, 150);
+          }, 150);
+        }
+      }
+
+      document.getElementById("clearDataButton").onclick = function() {
+        clearAllData("clearAllData");
+      };
 
     } catch {
       // UI.warn("unable to attach event listener to rightDropDownMenu container. This is a peaceful error so its ok")

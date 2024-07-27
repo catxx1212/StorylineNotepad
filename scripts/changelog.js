@@ -1,6 +1,15 @@
 var changelogs = [
   // copy upwards
   {
+    versionRef: "Version 0.5.0",
+    changeList: `
+      <li>Added the Storyline save slot page. You can now have up to ten Storylines at one time!</li>
+      <li>Made slight changes to the general layout, including moving the "clear current storyline" button to the sidebar.</li>
+      <li>Added a new theme: Pillow Talk.</li>
+      <li>Some smaller fixes and optimizations.</li>
+    `,
+  },
+  {
     versionRef: "Version 0.4.1",
     changeList: `
       <li>Added two new themes: Cherry Skies and Hopeful Fields</li>

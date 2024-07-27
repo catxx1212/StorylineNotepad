@@ -23,7 +23,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 10%;
+  height: 8%;
   z-index: 2;
   transition: all 0.5s;
 }
@@ -34,7 +34,6 @@ header {
     transform: translateY(-50%);
     height: 100%;
     aspect-ratio: 3 / 1;
-    /* background-color: rgb(78, 31, 57); */
     border-radius: 3vh 1vh;
     margin: 0 0 0 2.5%;
     display: flex;
@@ -54,7 +53,7 @@ header {
     }
     .logoAndTitleContainer_title {
       position: relative;
-      font-size: 4.25vh;
+      font-size: 3.25vh;
       text-align: center;
       font-weight: bold;
       transition: all 0.5s;
@@ -91,14 +90,6 @@ footer {
     transform: translateY(-50%);
   }
   #reportIssueButton {
-    /* position: absolute;
-    right: 15%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 50%;
-    aspect-ratio: 4 / 1;  old
-    border-radius: 2vh;
-    transition: all 0.5s; */
     position: absolute;
     right: 15%;
     top: 50%;
@@ -135,48 +126,49 @@ footer {
 
 #rightDropDownMenuButton {
   position: absolute;
-  right: 4%;
+  right: 1%;
   height: 100%;
   aspect-ratio: 1 / 1;
-  transition: all 0.5s
+  transition: all 0.5s;
 }
   .rightDropDownMenuButton_rotated {
     transform: rotate(180deg);
   }
 #saveButton {
   position: absolute;
-  right: 13%;
+  right: 9%;
   height: 100%;
   aspect-ratio: 1 / 1;
-  transition: all 0.5s
+  transition: all 0.5s;
 }
 #themeMenuButton {
   position: absolute;
-  right: 22%;
+  right: 18%;
   height: 100%;
   aspect-ratio: 1 / 1;
-  transition: all 0.5s
+  transition: all 0.5s;
 }
 #globalStyleMenuButton {
   position: absolute;
-  right: 31%;
+  right: 27%;
   height: 100%;
   aspect-ratio: 1 / 1;
-  transition: all 0.5s
-}
-#clearDataButton {
-  position: absolute;
-  right: 40%;
-  height: 100%;
-  aspect-ratio: 1 / 1;
-  transition: all 0.5s
+  transition: all 0.5s;
 }
 #importExportButton {
   position: absolute;
-  right: 49%;
+  right: 36%;
   height: 100%;
   aspect-ratio: 1 / 1;
-  transition: all 0.5s
+  transition: all 0.5s;
+}
+#clearDataButton {
+  position: absolute;
+  right: 0%;
+  top: 35%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  transition: all 0.5s;
 }
 #userPreferencesButton {
   position: absolute;
@@ -184,7 +176,7 @@ footer {
   top: 5%;
   width: 100%;
   aspect-ratio: 1 / 1;
-  transition: all 0.5s
+  transition: all 0.5s;
 }
 
 .iconButton_dark:hover {
@@ -478,8 +470,8 @@ textarea {
 #themeMenu {
   position: absolute;
   right: 0;
-  top: 10%;
-  width: 30%;
+  top: 8%;
+  width: 35%;
   height: 40%;
   z-index: 10;
   transition: all 0.5s;
@@ -563,7 +555,7 @@ textarea {
 #globalStyleMenu {
   position: absolute;
   right: 0;
-  top: 10%;
+  top: 8%;
   width: 15%;
   height: 40%;
   z-index: 10;
@@ -665,7 +657,7 @@ textarea {
     #rightDropDownMenu {
       position: absolute;
       right: 0;
-      top: 10%;
+      top: 8%;
       width: 10vh;
       height: 40%;
       z-index: 10;

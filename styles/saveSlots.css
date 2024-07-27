@@ -1,0 +1,36 @@
+main {
+  overflow: hidden;
+}
+
+.saveSlotsContainer {
+  position: relative;
+  margin: 2.5% 0 0 2.5%;
+  width: 95%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+  .saveSlot {
+    aspect-ratio: 4 / 3;
+    width: 15%;
+    margin: 1%;
+    border-radius: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+    .saveSlot_title {
+      font-size: 1.75vw;
+    }
+
+header > p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2vw;
+}

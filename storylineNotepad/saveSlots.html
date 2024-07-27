@@ -23,7 +23,7 @@
         .loadingScreen_spinner {
           height: 25%;
           aspect-ratio: 1 / 1;
-          background-image: url("assets/loadingDots.png");
+          background-image: url("../assets/loadingDots.png");
           background-size: contain;
           background-repeat: no-repeat;
           animation: loadingSpin 4s linear 0s infinite;
@@ -44,7 +44,7 @@
     <script>
       var currentVersionNumber = "0.5.0";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
 
-      let styleArray = ["styles/animations.css", "styles/titlePage.css", "styles/themes.css"]
+      let styleArray = ["../styles/animations.css", "../styles/titlePage.css", "../styles/themes.css", "../styles/saveSlots.css"]
       let loadedStyles = 0;
       styleArray.forEach((stylesheetREF) => {
         let stylesheet = document.createElement("link");
@@ -69,77 +69,56 @@
         }
       });
     </script>
-    <link rel="icon" href="assets/favicon/favicon.ico" />
+    <link rel="icon" href="../assets/favicon/favicon.ico" />
     <title>Storyline Notepad</title>
   </head>
-  <body class="white_theme">
+  <body >
     <header class="header_color">
       <div class="logoAndTitleContainer">
-        <a href="index.html">
-          <img class="logoAndTitleContainer_logo" src="assets/icons/storylineNotepad_logo1x1.png" title="Return to title page"/>
+        <a href="../index.html">
+          <img class="logoAndTitleContainer_logo" src="../assets/icons/storylineNotepad_logo1x1.png" title="Return to title page"/>
         </a>
         <p class="logoAndTitleContainer_title header_textColor">Storyline Notepad</p>
       </div>
-      <img id="darkLightToggle" src="assets/icons/darkIcon_dark.png"/>
+      <p>Storyline save slots</p>
+      <img id="darkLightToggle" src="../assets/icons/darkIcon_dark.png"/>
     </header>
     <main class="main_color">
-      <div class="firstSectionWelcome">
-        <div class="leftSideText">
-          <p class="firstSectionWelcome_leftSideText_text">
-            Welcome to Storyline Notepad! A place to weave your own stories, full of lore and excitement, 
-            or maybe something more mysterious, looped with loopholes and intriguing catches and alleyways. 
-            Whatever your story is, the first thing you need is to plan it, right? The storyline of any 
-            good story is a solid foundation to start from, even if you decide to change things later on.
-          </p>
+      <div class="saveSlotsContainer">
+        <div id="saveSlot_0" class="saveSlot importExportMenu_buttons_color" onclick="openSaveSlot(0)">
+          <p class="saveSlot_title">Empty</p>
         </div>
-        <div class="rightSideImage">
-          <img class="firstSectionWelcome_rightSideImage_image storyBox_color" src="assets/stroylineExample.png"/>
+        <div id="saveSlot_1" class="saveSlot importExportMenu_buttons_color" onclick="openSaveSlot(1)">
+          <p class="saveSlot_title">Empty</p>
         </div>
-      </div>
-      <div class="secondSection">
-        <div class="rightSideText">
-          <p class="secondSection_rightSideText_text">
-            Storyline Notepad offers a vast variety of themes and colors to enhance your writing experience. 
-            Immerse yourself in your unique world as you type, with backgrounds matching the mood and 
-            setting of your story. With an ever-expanding library of themes and new additions regularly, 
-            your creative possibilities are endless!
-          </p>
+        <div id="saveSlot_2" class="saveSlot importExportMenu_buttons_color" onclick="openSaveSlot(2)">
+          <p class="saveSlot_title">Empty</p>
         </div>
-        <div class="leftSideImage">
-          <img class="secondSection_leftSideImage_image storyBox_color" src="assets/storylineThemeExample.png"/>
+        <div id="saveSlot_3" class="saveSlot importExportMenu_buttons_color" onclick="openSaveSlot(3)">
+          <p class="saveSlot_title">Empty</p>
         </div>
-      </div>
-      <div class="thirdSection">
-        <div class="leftSideText">
-          <p class="thirdSection_leftSideText_text">
-            Storyline Notepad was one of my earliest utility products. I built it for personal use in 2023 and didn't really think about 
-            its appearance since it was just for me. It started as a tool to help me plan story plots for a game idea I had. After major 
-            redesigns and script updates, I'm proud of what Storyline Notepad has become.
-          </p>
+        <div id="saveSlot_4" class="saveSlot importExportMenu_buttons_color" onclick="openSaveSlot(4)">
+          <p class="saveSlot_title">Empty</p>
         </div>
-        <div class="rightSideImage">
-          <img class="thirdSection_rightSideImage_image storyBox_color" src="assets/loveForStorylineNotepad.png"/>
+        <div id="saveSlot_5" class="saveSlot importExportMenu_buttons_color" onclick="openSaveSlot(5)">
+          <p class="saveSlot_title">Empty</p>
         </div>
-      </div>
-      <div class="bottomSection">
-        <div id="bottomSection_endOfPage">
-          <p class="bottomSection_endOfPage_text">you've hit the bottom of the page, click here to start writing your next amazing story!</p>
-          <div class="bottomSection_endOfPage_arrow"></div>
+        <div id="saveSlot_6" class="saveSlot importExportMenu_buttons_color" onclick="openSaveSlot(6)">
+          <p class="saveSlot_title">Empty</p>
+        </div>
+        <div id="saveSlot_7" class="saveSlot importExportMenu_buttons_color" onclick="openSaveSlot(7)">
+          <p class="saveSlot_title">Empty</p>
+        </div>
+        <div id="saveSlot_8" class="saveSlot importExportMenu_buttons_color" onclick="openSaveSlot(8)">
+          <p class="saveSlot_title">Empty</p>
+        </div>
+        <div id="saveSlot_9" class="saveSlot importExportMenu_buttons_color" onclick="openSaveSlot(9)">
+          <p class="saveSlot_title">Empty</p>
         </div>
       </div>
     </main>
     <footer class="footer_color">
       <p class="copyright">© 2024 CatXx1212. All Rights Reserved.</p>
-      <a href="storylineNotepad/changelog.html">
-        <div class="seeChangelogButton importExportMenu_buttons_color">
-          <p>See full changelog</p>
-        </div>
-      </a>
-      <a href="storylineNotepad/saveSlots.html">
-        <div id="startWritingButton" class="importExportMenu_buttons_color">
-          <p class="startWritingButton_text">Start Writing!</p>
-        </div>
-      </a>
       <a href="https://github.com/Midnightandstillup/StorylineNotepad/issues" target="_blank">
         <div id="reportIssueButton" class="importExportMenu_buttons_color" title="Report an issue">
           <p class="reportIssueButton_text">Report Issue</p>
@@ -151,10 +130,12 @@
       <div class="loadingScreen_spinner"></div>
     </div>
     <script>
-      let script = document.createElement("script");
-      script.defer = true;
-      script.src = `${"scripts/version.js"}?v=${currentVersionNumber}`;
-      document.body.appendChild(script);
+      ["../scripts/version.js", "../scripts/saveSlots.js"].forEach((scriptREF) => {
+        let script = document.createElement("script");
+        script.defer = true;
+        script.src = `${scriptREF}?v=${currentVersionNumber}`;
+        document.body.appendChild(script);
+      })
 
       
       function checkResize() {
@@ -182,24 +163,6 @@
 
       checkResize();
       window.addEventListener("resize", checkResize);
-
-
-      var darkLightToggle = document.getElementById("darkLightToggle");
-      var toggle = true;
-
-      darkLightToggle.onclick = function() {
-        if(toggle) {
-          toggle = false;
-          darkLightToggle.src = "assets/icons/lightIcon_light.png";
-          document.body.classList.replace("white_theme", "black_theme");
-
-        } else if(!toggle) {
-          toggle = true;
-          darkLightToggle.src = "assets/icons/darkIcon_dark.png";
-          document.body.classList.replace("black_theme", "white_theme");
-          
-        }
-      }
     </script>
   </body>
   </html>
