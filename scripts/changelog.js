@@ -1,6 +1,14 @@
 var changelogs = [
   // copy upwards
   {
+    versionRef: "Version 0.5.1",
+    changeList: `
+      <li>Added a new theme: Starry Midnight.</li>
+      <li>Theme requests are now open!</li>
+      <li>Small fixes to window size checker.</li>
+    `,
+  },
+  {
     versionRef: "Version 0.5.0",
     changeList: `
       <li>Added the Storyline save slot page. You can now have up to ten Storylines at one time!</li>
@@ -12,7 +20,7 @@ var changelogs = [
   {
     versionRef: "Version 0.4.1",
     changeList: `
-      <li>Added two new themes: Cherry Skies and Hopeful Fields</li>
+      <li>Added two new themes: Cherry Skies and Hopeful Fields.</li>
     `,
   },
   {

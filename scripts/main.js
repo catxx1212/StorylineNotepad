@@ -485,6 +485,21 @@ var themeList = {
       ],
     },
   ],
+  animated: [
+    {
+      themeID: "starryMidnight",
+      themeTitle: "Starry Midnight",
+      themeType: "dark",
+      themeCategory: "animated",
+      preview: [
+        "rgb(29, 9, 115)",
+        "rgb(39, 9, 114)",
+        "rgb(54, 8, 112)",
+        "rgb(64, 8, 111)",
+        "rgb(200, 200, 225)",
+      ],
+    },
+  ],
 };
 
 function getThemeByID(themeArray, ID) {
@@ -540,6 +555,9 @@ function changeTheme(newTheme, themeType, themeCategory) {
     }
   });
 
+  console.log(newTheme)
+  console.log(themeType)
+  console.log(themeCategory)
   currentActiveTheme = newTheme;
   currentActiveThemeType = themeType;
   currentActiveThemeCategory = themeCategory;
@@ -621,6 +639,8 @@ themeMenuButton.addEventListener("click", function openTheThemeMenu(event) {
     <div id="themeMenu_categorySection" class="themeMenu_categorySection_color">
       <p id="solidTheme_CategoryButton" class="themeMenu_categorySection_text">Solid</p>
       <p id="gradientTheme_CategoryButton" class="themeMenu_categorySection_text">Gradient</p>
+      <p id="animatedTheme_CategoryButton" class="themeMenu_categorySection_text">Animated</p>
+      <p id="RequestTheme_button" class="themeMenu_categorySection_text">Request a new theme</p>
     </div>
     <div id="themeMenu_themeSection" class="themeMenu_themeSection_color">
     
@@ -635,10 +655,12 @@ themeMenuButton.addEventListener("click", function openTheThemeMenu(event) {
       
       var solidTheme_CategoryButton = document.getElementById("solidTheme_CategoryButton");
       var gradientTheme_CategoryButton = document.getElementById("gradientTheme_CategoryButton");
+      var animatedTheme_CategoryButton = document.getElementById("animatedTheme_CategoryButton");
 
       var themeCategoryButtonArray = [
         solidTheme_CategoryButton, 
-        gradientTheme_CategoryButton
+        gradientTheme_CategoryButton,
+        animatedTheme_CategoryButton,
       ];
   
       themeCategoryButtonArray.forEach(button => {
@@ -655,6 +677,10 @@ themeMenuButton.addEventListener("click", function openTheThemeMenu(event) {
         case "gradient":
           gradientTheme_CategoryButton.classList.add("selectedThemeCategory");
           themeMenu_themeSection.innerHTML = loadThemeButtons("gradient");
+          break;
+        case "animated":
+          animatedTheme_CategoryButton.classList.add("selectedThemeCategory");
+          themeMenu_themeSection.innerHTML = loadThemeButtons("animated");
           break;
 
       }
@@ -680,7 +706,20 @@ themeMenuButton.addEventListener("click", function openTheThemeMenu(event) {
         gradientTheme_CategoryButton.classList.add("selectedThemeCategory");
   
         themeMenu_themeSection.innerHTML = loadThemeButtons("gradient");
+      };
+      animatedTheme_CategoryButton.onclick = function() {
+        themeCategoryButtonArray.forEach(button => {
+          if(button.classList.contains("selectedThemeCategory")) {
+            button.classList.remove("selectedThemeCategory")
+          }
+        });
+        animatedTheme_CategoryButton.classList.add("selectedThemeCategory");
   
+        themeMenu_themeSection.innerHTML = loadThemeButtons("animated");
+      };
+
+      RequestTheme_button.onclick = function() {
+        window.open("https://catxx1212.com/discord", "_blank");
       };
   
     } catch {
@@ -1043,7 +1082,7 @@ document.querySelector("main").addEventListener("wheel", function(event) {
 
 // resize checker
 
-window.addEventListener("resize", function() {
+function checkWindowSize() {
   if(window.innerHeight > window.innerWidth) {
     var wrongScreenAspectRatioElement = document.createElement("div");
     if(!document.getElementById("wrongScreenAspectRatioElement")) {
@@ -1064,7 +1103,9 @@ window.addEventListener("resize", function() {
       }, 150);
     }
   }
-});
+}
+window.addEventListener("resize", checkWindowSize);
+checkWindowSize();
 
 
 // update alert
@@ -1075,12 +1116,12 @@ newUpdateElement.classList.add("footer_color", "popup_color");
 newUpdateElement.innerHTML = `
   <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
   <p class="newUpdateElement_heading">Storyline Notepad has been updated!</p>
-  <p class="newUpdateElement_version">Version 0.3.1 => 0.4.0</p>
+  <p class="newUpdateElement_version">Version 0.5.0 => 0.5.1</p>
   <p class="newUpdateElement_subHeading">Here are some highlights of this update:</p>
   <ul class="newUpdateElement_list">
-    <li>Added a user preferences menu. You can now configure some of Storyline Notepad's behavior.</li>
-    <li>Added in-window message, warning, and error notifications.</li>
-    <li>Added a weekly in-window notification to remind you to hard reload the page. This will ensure you have the latest version (due to cache issues).</li>
+    <li>Added a new theme: Starry Midnight.</li>
+    <li>Theme requests are now open!</li>
+    <li>Small fixes to window size checker.</li>
   </ul>
   <div class="bottomOfNewUpdateElement">
     <a href="changelog.html">

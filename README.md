@@ -1,10 +1,9 @@
-# VER 0.5.0
+# VER 0.5.1
 ## Changes in this update:
 
-  - Added the Storyline save slot page. You can now have up to ten Storylines at one time!
-  - Made slight changes to the general layout, including moving the "clear current storyline" button to the sidebar.
-  - Added a new theme: Pillow Talk.
-  - Some smaller fixes and optimizations.
+- Added a new theme: Starry Midnight.
+- Theme requests are now open!
+- Small fixes to window size checker.
 
 ---
 
