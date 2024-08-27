@@ -15,19 +15,29 @@
         left: 0%;
         width: 100vw;
         height: 100vh;
-        background-color: rgb(230, 230, 230);
         z-index: 999999999;
         display: flex;
         justify-content: center;
         align-items: center;
       }
+      .loadingScreen_white {
+        background-color: rgb(230, 230, 230);
+      }
+      .loadingScreen_black {
+        background-color: rgb(25, 25, 25);
+      }
         .loadingScreen_spinner {
           height: 25%;
           aspect-ratio: 1 / 1;
-          background-image: url("../assets/loadingDots.png");
           background-size: contain;
           background-repeat: no-repeat;
           animation: loadingSpin 4s linear 0s infinite;
+        }
+        .loadingScreen_spinner_white {
+          background-image: url("../assets/loadingDots_dark.png");
+        }
+        .loadingScreen_spinner_black {
+          background-image: url("../assets/loadingDots_light.png");
         }
           @keyframes loadingSpin { 
             0% {
@@ -44,7 +54,7 @@
     </style>
     <script>
       
-      var currentVersionNumber = "0.5.1";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
+      var currentVersionNumber = "0.6.0";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
 
       let styleArray = ["../styles/animations.css", "../styles/main.css", "../styles/themes.css"]
       let loadedStyles = 0;
@@ -66,9 +76,19 @@
         stylesheet.onerror = function(event) {
           document.querySelector(".loadingScreen").innerHTML = `
           <p class="loadingScreenError">There was an error loading Storyline Notepad: stylesheet(${stylesheetREF}) could not be loaded.<br/> 
-            Please hard reload the page, if this does not fix the issue the please report it <span style="font-weight: bold;"><a href="https://github.com/Midnightandstillup/StorylineNotepad/issues">here</a></span>
+            Please hard reload the page, if this does not fix the issue the please report it <span style="font-weight: bold;"><a href="https://github.com/catxx1212/StorylineNotepad/issues">here</a></span>
           </p>`;
         }
+      });
+
+      let userPreferences_fallbackTheme_loadingScreen = ((JSON.parse(localStorage.getItem("storylineNotepad_global")) || {}).userPreferences || {}).defaultFallbackTheme || "white";
+
+      document.addEventListener("DOMContentLoaded", function() {
+        document.body.insertAdjacentHTML("beforeend", `
+          <div class="loadingScreen loadingScreen_${userPreferences_fallbackTheme_loadingScreen}">
+            <div class="loadingScreen_spinner loadingScreen_spinner_${userPreferences_fallbackTheme_loadingScreen}"></div>
+          </div>
+        `)
       });
     </script>
     <link rel="icon" href="../assets/favicon/favicon.ico" />
@@ -83,7 +103,7 @@
         </a>
         <p class="logoAndTitleContainer_title header_textColor">Storyline Notepad</p>
       </div>
-      <img id="importExportButton" class="icon button iconButton_dark" src="../assets/icons/inportExportButton_light.png" title="Import or export data"/>
+      <img id="importExportButton" class="icon button iconButton_dark" src="../assets/icons/inportExportButton_light.png" title="Import and export data"/>
       <img id="globalStyleMenuButton" class="icon button iconButton_dark" src="../assets/icons/styleButton_light.png" title="Change global styles"/>
       <img id="themeMenuButton" class="icon button iconButton_dark"  src="../assets/icons/themeButton_light.png" title="Change theme"/>
       <img id="saveButton" class="icon button iconButton_dark" src="../assets/icons/saveButton_light.png" title="Save"/>
@@ -108,16 +128,13 @@
     </main>
     <footer class="footer_color">
       <p class="copyright">© 2024 CatXx1212. All Rights Reserved.</p>
-      <a href="https://github.com/Midnightandstillup/StorylineNotepad/issues" target="_blank">
+      <a href="https://github.com/catxx1212/StorylineNotepad/issues" target="_blank">
         <div id="reportIssueButton" class="importExportMenu_buttons_color" title="Report an issue" class="reportButton">
           <p class="reportIssueButton_text">Report Issue</p>
         </div>
       </a>
       <p id="versionNumber"></p>
     </footer>
-    <div class="loadingScreen">
-      <div class="loadingScreen_spinner"></div>
-    </div>
     <script>
       ["../scripts/version.js", "../scripts/main.js"].forEach((scriptREF) => {
         let script = document.createElement("script");

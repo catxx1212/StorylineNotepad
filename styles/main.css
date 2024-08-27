@@ -3,6 +3,12 @@ a {
   text-decoration: initial;
 }
 
+html {
+  overflow: hidden;
+  background-color: rgb(150, 150, 150);
+  scroll-behavior: smooth;
+}
+
 p {
   margin: 0;
 }
@@ -126,7 +132,7 @@ footer {
 
 #rightDropDownMenuButton {
   position: absolute;
-  right: 1%;
+  right: 2%;
   height: 100%;
   aspect-ratio: 1 / 1;
   transition: all 0.5s;
@@ -136,28 +142,28 @@ footer {
   }
 #saveButton {
   position: absolute;
-  right: 9%;
+  right: 10%;
   height: 100%;
   aspect-ratio: 1 / 1;
   transition: all 0.5s;
 }
 #themeMenuButton {
   position: absolute;
-  right: 18%;
+  right: 19%;
   height: 100%;
   aspect-ratio: 1 / 1;
   transition: all 0.5s;
 }
 #globalStyleMenuButton {
   position: absolute;
-  right: 27%;
+  right: 28%;
   height: 100%;
   aspect-ratio: 1 / 1;
   transition: all 0.5s;
 }
 #importExportButton {
   position: absolute;
-  right: 36%;
+  right: 37%;
   height: 100%;
   aspect-ratio: 1 / 1;
   transition: all 0.5s;
@@ -192,6 +198,17 @@ footer {
 .button {
   cursor: pointer;
 }
+.popUpBackground0 {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
 .popUpBackground {
   width: 100vw;
   height: 100vh;
@@ -214,7 +231,7 @@ footer {
 
 .stroylineTitle_div {
   position: fixed;
-  top: 17%;
+  top: 15%;
   width: 100%;
   height: fit-content;
   font-size: 2.75vw;
@@ -254,6 +271,7 @@ footer {
 }
 
 .storyBox{
+  position: relative;
   height: 95%;
   aspect-ratio: 1 / 1;
   border-radius: 1vh;
@@ -301,6 +319,7 @@ textarea {
   aspect-ratio: 1 / 1;
   border-radius: 2vh;
   cursor: pointer;
+  transition: border 0.5s;
 }
 
 .addNewStoryboxButton_center {
@@ -410,7 +429,7 @@ textarea {
   }
   .newUpdateElement_subHeading {
     position: relative;
-    margin-top: 2.5%;
+    margin-top: 1.0%;
     width: 90%;
     padding: 0 5%;
     font-size: 2.25vw;
@@ -627,12 +646,12 @@ textarea {
         width: 90%;
         padding: 0 5%;
       }
-      /* .exportButton_allData_text {
+      .exportButton_allData_text {
         text-align: center;
         font-size: 2vw;
         width: 90%;
         padding: 0 5%;
-      } */
+      }
   .importDiv {
     position: absolute;
     right: 0;
@@ -675,7 +694,30 @@ textarea {
 
 
 
-
+#clearDataMenuElement {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  aspect-ratio: 5 / 3;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  border-radius: 2vh;
+}
+  .clearDataButtons {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+  }
+    #clearDataButton_currentStoryline, #clearDataButton_everything {
+      width: 35%;
+    }
 
 #userPreferencesElement {
   position: absolute;
@@ -700,7 +742,7 @@ textarea {
   }
   .userPreferencesElement_subtitle {
     text-align: center;
-    margin-top: 1%;
+    margin-top: 2%;
     font-size: 1.5vw;
     font-weight: bold;
   }
@@ -764,9 +806,39 @@ textarea {
 .UImessage_closeButtonContainer {
   width: 2.25vw;
   padding: 0 2.5%;
+  display: flex;
 }
 
 .UImessage_closeButtonContainer img {
   aspect-ratio: 1 / 1;
   width: 100%;
 }
+
+
+
+
+
+#previewDeletBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  aspect-ratio: 1 / 1;
+  opacity: 0;
+  border-radius: 2vh;
+}
+
+#previewNewBox {
+  position: relative;
+  top: 27.5%;
+  /* left: 50%; */
+  transform: translate(-50%, -50%);
+  height: 50%;
+  width: 0%;
+  opacity: 0;
+  border-radius: 2vh;
+}
+
+
+

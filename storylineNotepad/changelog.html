@@ -18,22 +18,31 @@
         stylesheet.rel = "stylesheet";
         stylesheet.href = `${stylesheetREF}?v=${currentVersionNumber}`;
         document.head.appendChild(stylesheet);
-
         stylesheet.onload = function() {
           loadedStyles++;
           if(loadedStyles === styleArray.length) {
             setTimeout(() => {
               document.querySelector(".loadingScreen").remove();
-            }, 550);
+            }, 600);
           }
         }
 
         stylesheet.onerror = function(event) {
           document.querySelector(".loadingScreen").innerHTML = `
           <p class="loadingScreenError">There was an error loading Storyline Notepad: stylesheet(${stylesheetREF}) could not be loaded.<br/> 
-            Please hard reload the page, if this does not fix the issue the please report it <span style="font-weight: bold;"><a href="https://github.com/Midnightandstillup/StorylineNotepad/issues">here</a></span>
+            Please hard reload the page, if this does not fix the issue the please report it <span style="font-weight: bold;"><a href="https://github.com/catxx1212/StorylineNotepad/issues">here</a></span>
           </p>`;
         }
+      });
+
+      let userPreferences_fallbackTheme_loadingScreen = ((JSON.parse(localStorage.getItem("storylineNotepad_global")) || {}).userPreferences || {}).defaultFallbackTheme || "white";
+
+      document.addEventListener("DOMContentLoaded", function() {
+        document.body.insertAdjacentHTML("beforeend", `
+          <div class="loadingScreen loadingScreen_${userPreferences_fallbackTheme_loadingScreen}">
+            <div class="loadingScreen_spinner loadingScreen_spinner_${userPreferences_fallbackTheme_loadingScreen}"></div>
+          </div>
+        `)
       });
     </script>
     <style>
@@ -43,19 +52,29 @@
         left: 0%;
         width: 100vw;
         height: 100vh;
-        background-color: rgb(230, 230, 230);
         z-index: 999999999;
         display: flex;
         justify-content: center;
         align-items: center;
       }
+      .loadingScreen_white {
+        background-color: rgb(230, 230, 230);
+      }
+      .loadingScreen_black {
+        background-color: rgb(25, 25, 25);
+      }
         .loadingScreen_spinner {
           height: 25%;
           aspect-ratio: 1 / 1;
-          background-image: url("../assets/loadingDots.png");
           background-size: contain;
           background-repeat: no-repeat;
           animation: loadingSpin 4s linear 0s infinite;
+        }
+        .loadingScreen_spinner_white {
+          background-image: url("../assets/loadingDots_dark.png");
+        }
+        .loadingScreen_spinner_black {
+          background-image: url("../assets/loadingDots_light.png");
         }
           @keyframes loadingSpin { 
             0% {
@@ -84,13 +103,20 @@
         font-weight: bold;
         transition: all 0.5s;
       }
+      .changelog_date {
+        position: relative;
+        margin-top: 0.5%;
+        text-align: center;
+        font-size: 1.25vw;
+        color: rgb(20, 20, 20);
+        transition: all 0.5s; 
+      }
       .changelog_list {
         position: relative;
         width: 80%;
         padding: 0 5%;
-        font-size: 1.70vw;
+        font-size: 1.60vw;
         color: rgb(20, 20, 20);
-        pointer-events: none;
         text-align: center;
         margin:  2.5% auto 0 auto;
         transition: all 0.5s;
@@ -151,6 +177,18 @@
       #darkLightToggle:hover {
         transform: scale(95%);
       }
+
+      .spanForDownload {
+        
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+        color: rgb(235, 235, 235);
+
+      }
+      .spanForDownload:hover {
+        color: rgb(0, 255, 255);
+      }
     </style>
     <link rel="icon" href="../assets/favicon/favicon.ico" />
     <title>Storyline Notepad (Changelog)</title>
@@ -172,16 +210,13 @@
     </main>
     <footer class="footer_color">
       <p class="copyright">© 2024 CatXx1212. All Rights Reserved.</p>
-      <a href="https://github.com/Midnightandstillup/StorylineNotepad/issues" target="_blank">
+      <a href="https://github.com/catxx1212/StorylineNotepad/issues" target="_blank">
         <div id="reportIssueButton" class="importExportMenu_buttons_color" title="Report an issue">
           <p class="reportIssueButton_text">Report Issue</p>
         </div>
       </a>
       <p id="versionNumber"></p>
     </footer>
-    <div class="loadingScreen">
-      <div class="loadingScreen_spinner"></div>
-    </div>
     <script>
       ["../scripts/changelog.js"].forEach((scriptREF) => {
         let script = document.createElement("script");
@@ -217,7 +252,23 @@
       });
 
       var darkLightToggle = document.getElementById("darkLightToggle");
-      var toggle = true;
+      var toggle;
+
+      let userPreferences_fallbackTheme = ((JSON.parse(localStorage.getItem("storylineNotepad_global")) || {}).userPreferences || {}).defaultFallbackTheme || "white";
+
+      if(userPreferences_fallbackTheme === "white" || userPreferences_fallbackTheme === undefined) {
+
+        toggle = true;
+        darkLightToggle.src = "../assets/icons/darkIcon_dark.png";
+        document.body.classList = "white_theme";
+
+      } else {
+
+        toggle = false;
+        darkLightToggle.src = "../assets/icons/lightIcon_light.png";
+        document.body.classList = "black_theme";
+        
+      }
 
       darkLightToggle.onclick = function() {
         if(toggle) {
@@ -225,11 +276,21 @@
           darkLightToggle.src = "../assets/icons/lightIcon_light.png";
           document.body.classList.replace("white_theme", "black_theme");
 
+          let changedValue = "black";
+          let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+          storylineNotepad_global_setUserPreferences.userPreferences.defaultFallbackTheme = changedValue;
+          localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+
         } else if(!toggle) {
           toggle = true;
           darkLightToggle.src = "../assets/icons/darkIcon_dark.png";
           document.body.classList.replace("black_theme", "white_theme");
           
+          let changedValue = "white";
+          let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+          storylineNotepad_global_setUserPreferences.userPreferences.defaultFallbackTheme = changedValue;
+          localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+
         }
       }
     </script>

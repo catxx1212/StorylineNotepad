@@ -21,3 +21,51 @@
     from { transform: translate(0%); }
     to { transform: translate(150%); }
   }
+
+
+
+.obliterateBody_deteleAllAnimation {
+  animation: obliterateBody_deteleAllAnimation 3s ease-in-out 0s 1 forwards;
+}
+
+@keyframes obliterateBody_deteleAllAnimation {
+  to {
+    transform: skew(100deg, 100deg);
+  }
+}
+
+#pageOverlay_deteleAllAnimation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(15, 15, 15);
+  opacity: 0;
+  animation: pageOverlay_deteleAllAnimation 1s ease-in 0s 1 forwards;
+  z-index: 99999999999;
+}
+
+@keyframes pageOverlay_deteleAllAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+
+.previewDeletBox_pulse {
+  animation: previewDeletBox_pulse 1s ease-in-out 0s infinite forwards;
+}
+
+@keyframes previewDeletBox_pulse {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(95%);
+  } 50% {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(100%);
+  } 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(95%);
+  }
+}

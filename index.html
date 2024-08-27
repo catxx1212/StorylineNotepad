@@ -14,19 +14,29 @@
         left: 0%;
         width: 100vw;
         height: 100vh;
-        background-color: rgb(230, 230, 230);
         z-index: 999999999;
         display: flex;
         justify-content: center;
         align-items: center;
       }
+      .loadingScreen_white {
+        background-color: rgb(230, 230, 230);
+      }
+      .loadingScreen_black {
+        background-color: rgb(25, 25, 25);
+      }
         .loadingScreen_spinner {
           height: 25%;
           aspect-ratio: 1 / 1;
-          background-image: url("assets/loadingDots.png");
           background-size: contain;
           background-repeat: no-repeat;
           animation: loadingSpin 4s linear 0s infinite;
+        }
+        .loadingScreen_spinner_white {
+          background-image: url("assets/loadingDots_dark.png");
+        }
+        .loadingScreen_spinner_black {
+          background-image: url("assets/loadingDots_light.png");
         }
           @keyframes loadingSpin { 
             0% {
@@ -42,7 +52,7 @@
         }
     </style>
     <script>
-      var currentVersionNumber = "0.5.1";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
+      var currentVersionNumber = "0.6.0";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
 
       let styleArray = ["styles/animations.css", "styles/titlePage.css", "styles/themes.css"]
       let loadedStyles = 0;
@@ -57,16 +67,26 @@
           if(loadedStyles === styleArray.length) {
             setTimeout(() => {
               document.querySelector(".loadingScreen").remove();
-            }, 550);
+            }, 600);
           }
         }
 
         stylesheet.onerror = function(event) {
           document.querySelector(".loadingScreen").innerHTML = `
           <p class="loadingScreenError">There was an error loading Storyline Notepad: stylesheet(${stylesheetREF}) could not be loaded.<br/> 
-            Please hard reload the page, if this does not fix the issue the please report it <span style="font-weight: bold;"><a href="https://github.com/Midnightandstillup/StorylineNotepad/issues">here</a></span>
+            Please hard reload the page, if this does not fix the issue the please report it <span style="font-weight: bold;"><a href="https://github.com/catxx1212/StorylineNotepad/issues">here</a></span>
           </p>`;
         }
+      });
+
+      let userPreferences_fallbackTheme_loadingScreen = ((JSON.parse(localStorage.getItem("storylineNotepad_global")) || {}).userPreferences || {}).defaultFallbackTheme || "white";
+
+      document.addEventListener("DOMContentLoaded", function() {
+        document.body.insertAdjacentHTML("beforeend", `
+          <div class="loadingScreen loadingScreen_${userPreferences_fallbackTheme_loadingScreen}">
+            <div class="loadingScreen_spinner loadingScreen_spinner_${userPreferences_fallbackTheme_loadingScreen}"></div>
+          </div>
+        `)
       });
     </script>
     <link rel="icon" href="assets/favicon/favicon.ico" />
@@ -140,16 +160,14 @@
           <p class="startWritingButton_text">Start Writing!</p>
         </div>
       </a>
-      <a href="https://github.com/Midnightandstillup/StorylineNotepad/issues" target="_blank">
+      <a href="https://github.com/catxx1212/StorylineNotepad/issues" target="_blank">
         <div id="reportIssueButton" class="importExportMenu_buttons_color" title="Report an issue">
           <p class="reportIssueButton_text">Report Issue</p>
         </div>
       </a>
       <p id="versionNumber"></p>
     </footer>
-    <div class="loadingScreen">
-      <div class="loadingScreen_spinner"></div>
-    </div>
+
     <script>
       let script = document.createElement("script");
       script.defer = true;
@@ -183,9 +201,33 @@
       checkResize();
       window.addEventListener("resize", checkResize);
 
+      let defaultStorylineNotepad_globalObject = {
+        userPreferences: {
+          appendTimeAndDateToFileExport: "enabled",
+          defaultFallbackTheme: "white",
+          autoExportWhenImporting: "enabled",
+          textAlign: "center",               // theres a copy of this on the save slot page script, please keep synced
+        },  
+        storylineSaves: {       
+          0: {"versionNumber":"0.6.0","textData":[{"storyboxNumber":0,"storyBoxTextContent":"Welcome to Storyline Notepad!\n\nThis save file is here to help users who don't know how to use Storyline Notepad yet.\n\n(You can delete this storyline if you don't need it anymore)\n\n(This will come back if you reset Storyline Notepad)"},{"storyboxNumber":1,"storyBoxTextContent":"Title Changing:\n\nJust click the title above the storyboxes to change it."},{"storyboxNumber":2,"storyBoxTextContent":"Storybox Management:\n(These boxes)\n\nYou can add a new box to the end of the storyline with the add button at the end.\n\nRight click the arrows for more options on box management.\n\nHover over each action to see a preview."},{"storyboxNumber":3,"storyBoxTextContent":"Themes Menu:\n\nThe brush icon in the top tray opens the Themes Menu.\n\nClick it to view all available themes."},{"storyboxNumber":4,"storyBoxTextContent":"Global Styles Menu:\n\nThe \"Aa\" icon in the top tray opens the Global Styles Menu.\n\nUse this to adjust font sizes and font boldness."},{"storyboxNumber":5,"storyBoxTextContent":"The Save Button:\n\nIt's pretty self explanatory, to be honest.\n\nStoryline Notepad also saves automatically when you exit."},{"storyboxNumber":6,"storyBoxTextContent":"The Import and Export Menu:\n\nThe two arrows icon in the top tray opens the Import and Export Menu.\n\nHere, you can export your current storyline to a file, either as a backup or to share with someone else.\n\nYou can also import data here, including support for version 0.2."},{"storyboxNumber":7,"storyBoxTextContent":"The Drop Down Menu:\n\nThe single arrow icon in the top tray opens the Drop Down Menu.\n\nThis is where you can find the User Preferences Menu and the Clear Data Menu."},{"storyboxNumber":8,"storyBoxTextContent":"The User Preferences Menu:\n\nThe cog icon in the dropdown menu opens the User Preferences Menu.\n\nHere, you can adjust some of Storyline Notepad's behaviours."},{"storyboxNumber":9,"storyBoxTextContent":"The Clear Data Menu:\n\nThe bin icon in the drop down menu opens the Clear Data Menu.\n\nHere, you can choose to either delete your current storyline or delete everything, including all your storyline saves and user preferences."},{"storyboxNumber":10,"storyBoxTextContent":"Tips and tricks:\n\nHold shift to scroll faster."},{"storyboxNumber":11,"storyBoxTextContent":"Tutorial Version 1.0.0\n\nThis can be downloaded from the Import/Export Menu or from:\n\nhttps://storylinenotepad.catxx1212.com/storylineNotepad/downloads/tutorialSaveFile/\n\nThank you for taking the time to read this! <3"}],"storylineTitle":"Tutorial","activeTheme":["anything","pleaseGoToFallbackTheme"],"activeGlobalStyle":"normalBold"},
+        },
+        lastTimeStamp: undefined,
+      };
 
       var darkLightToggle = document.getElementById("darkLightToggle");
-      var toggle = true;
+      var toggle;
+
+      let userPreferences_fallbackTheme = ((JSON.parse(localStorage.getItem("storylineNotepad_global")) || {}).userPreferences || {}).defaultFallbackTheme || "white";
+
+      if(userPreferences_fallbackTheme === "white" || userPreferences_fallbackTheme === undefined) {
+        toggle = true;
+        darkLightToggle.src = "assets/icons/darkIcon_dark.png";
+        document.body.classList = "white_theme";
+      } else {
+        toggle = false;
+        darkLightToggle.src = "assets/icons/lightIcon_light.png";
+        document.body.classList = "black_theme";
+      }
 
       darkLightToggle.onclick = function() {
         if(toggle) {
@@ -193,11 +235,21 @@
           darkLightToggle.src = "assets/icons/lightIcon_light.png";
           document.body.classList.replace("white_theme", "black_theme");
 
+          let changedValue = "black";
+          let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global")) || defaultStorylineNotepad_globalObject;
+          storylineNotepad_global_setUserPreferences.userPreferences.defaultFallbackTheme = changedValue;
+          localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+
         } else if(!toggle) {
           toggle = true;
           darkLightToggle.src = "assets/icons/darkIcon_dark.png";
           document.body.classList.replace("black_theme", "white_theme");
           
+          let changedValue = "white";
+          let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global")) || defaultStorylineNotepad_globalObject;
+          storylineNotepad_global_setUserPreferences.userPreferences.defaultFallbackTheme = changedValue;
+          localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+
         }
       }
     </script>

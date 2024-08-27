@@ -10,46 +10,51 @@ var currentActiveThemeCategory = "";
 
 var currentActiveGlobalStyle = "";
 
-// function isObjectEmpty(obj) {
-//   return Object.keys(obj).length === 0;
-// }
+function isObjectEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
 
-// var userPreferences_expectedObjectLength = 3;
+var userPreferences_expectedObjectLength = 4;
 
-// if (!localStorage.getItem("storylineNotepad_global")) {
-//   let defaultStorylineNotepad_globalObject = {
-//     userPreferences: {
-//       appendTimeAndDateToFileExport: "enabled",
-//       defaultFallbackTheme: "white",
-//       autoExportWhenImporting: "enabled",
-//     },
-//     storylineSaves: {
+const defaultStorylineNotepad_globalObject = {
+  userPreferences: {
+    appendTimeAndDateToFileExport: "enabled",
+    defaultFallbackTheme: "white",
+    autoExportWhenImporting: "enabled", 
+    textAlign: "center",
+  },
+  storylineSaves: {       
+    0: {"versionNumber":"0.6.0","textData":[{"storyboxNumber":0,"storyBoxTextContent":"Welcome to Storyline Notepad!\n\nThis save file is here to help users who don't know how to use Storyline Notepad yet.\n\n(You can delete this storyline if you don't need it anymore)\n\n(This will come back if you reset Storyline Notepad)"},{"storyboxNumber":1,"storyBoxTextContent":"Title Changing:\n\nJust click the title above the storyboxes to change it."},{"storyboxNumber":2,"storyBoxTextContent":"Storybox Management:\n(These boxes)\n\nYou can add a new box to the end of the storyline with the add button at the end.\n\nRight click the arrows for more options on box management.\n\nHover over each action to see a preview."},{"storyboxNumber":3,"storyBoxTextContent":"Themes Menu:\n\nThe brush icon in the top tray opens the Themes Menu.\n\nClick it to view all available themes."},{"storyboxNumber":4,"storyBoxTextContent":"Global Styles Menu:\n\nThe \"Aa\" icon in the top tray opens the Global Styles Menu.\n\nUse this to adjust font sizes and font boldness."},{"storyboxNumber":5,"storyBoxTextContent":"The Save Button:\n\nIt's pretty self explanatory, to be honest.\n\nStoryline Notepad also saves automatically when you exit."},{"storyboxNumber":6,"storyBoxTextContent":"The Import and Export Menu:\n\nThe two arrows icon in the top tray opens the Import and Export Menu.\n\nHere, you can export your current storyline to a file, either as a backup or to share with someone else.\n\nYou can also import data here, including support for version 0.2."},{"storyboxNumber":7,"storyBoxTextContent":"The Drop Down Menu:\n\nThe single arrow icon in the top tray opens the Drop Down Menu.\n\nThis is where you can find the User Preferences Menu and the Clear Data Menu."},{"storyboxNumber":8,"storyBoxTextContent":"The User Preferences Menu:\n\nThe cog icon in the dropdown menu opens the User Preferences Menu.\n\nHere, you can adjust some of Storyline Notepad's behaviours."},{"storyboxNumber":9,"storyBoxTextContent":"The Clear Data Menu:\n\nThe bin icon in the drop down menu opens the Clear Data Menu.\n\nHere, you can choose to either delete your current storyline or delete everything, including all your storyline saves and user preferences."},{"storyboxNumber":10,"storyBoxTextContent":"Tips and tricks:\n\nHold shift to scroll faster."},{"storyboxNumber":11,"storyBoxTextContent":"Tutorial Version 1.0.0\n\nThis can be downloaded from the Import/Export Menu or from:\n\nhttps://storylinenotepad.catxx1212.com/storylineNotepad/downloads/tutorialSaveFile/\n\nThank you for taking the time to read this! <3"}],"storylineTitle":"Tutorial","activeTheme":["anything","pleaseGoToFallbackTheme"],"activeGlobalStyle":"normalBold"},
+  },
+  lastTimeStamp: undefined,
+};
 
-//     },
-//     lastTimeStamp: undefined,
-//   };
-//   localStorage.setItem("storylineNotepad_global", JSON.stringify(defaultStorylineNotepad_globalObject));
-// } else {
+if (!localStorage.getItem("storylineNotepad_global")) {
+  localStorage.setItem("storylineNotepad_global", JSON.stringify(defaultStorylineNotepad_globalObject));
+} else {
 
-//   let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+  let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
 
-//   if (!storylineNotepad_global_setUserPreferences.userPreferences || isObjectEmpty(storylineNotepad_global_setUserPreferences.userPreferences) || !(Object.keys(storylineNotepad_global_setUserPreferences.userPreferences).length === userPreferences_expectedObjectLength)) {
-//     storylineNotepad_global_setUserPreferences.userPreferences = {
-//       appendTimeAndDateToFileExport: "enabled",
-//       defaultFallbackTheme: "white",
-//       autoExportWhenImporting: "enabled",
-//     };
-//     localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
-//     setTimeout(() => {
-//       UI.error("User Preferences was reset because it was either missing or malformed.")
-//     }, 500);
-//   }
-// }
+  if(!storylineNotepad_global_setUserPreferences.userPreferences || isObjectEmpty(storylineNotepad_global_setUserPreferences.userPreferences) || !(Object.keys(storylineNotepad_global_setUserPreferences.userPreferences).length === userPreferences_expectedObjectLength)) {
+    storylineNotepad_global_setUserPreferences.userPreferences = {
+      appendTimeAndDateToFileExport: "enabled",
+      defaultFallbackTheme: "white",
+      autoExportWhenImporting: "enabled", 
+      textAlign: "center",
+    };
+    localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+    setTimeout(() => {
+      UI.error("User Preferences was reset because it was either missing or malformed.")
+    }, 500);
+  }
+}
 
 
 //  load user preferences
 
 var loadedUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global")).userPreferences;
+
+document.body.classList.add(`userPreferences_textAlign_${loadedUserPreferences.textAlign}`)
 
 // data loading
 
@@ -210,12 +215,12 @@ addNewStoryboxButton.onclick = function () {
     reloadWindowEventListener();
 };
 
-function removeStoryBox(id) {
-  const removeLastStoryBox = document.getElementById(id);
-  if(removeLastStoryBox) {
-    removeLastStoryBox.remove();
-  }
-};
+// function removeStoryBox(id) {
+//   const removeLastStoryBox = document.getElementById(id);
+//   if(removeLastStoryBox) {
+//     removeLastStoryBox.remove();
+//   }
+// };
 
 
 
@@ -484,6 +489,32 @@ var themeList = {
         "rgb(45, 25, 25)",
       ],
     },
+    {
+      themeID: "oceansideNap",
+      themeTitle: "Oceanside Nap",
+      themeType: "dark",
+      themeCategory: "gradient",
+      preview: [
+        "rgb(0, 69, 132)",
+        "rgb(0, 58, 111)",
+        "rgb(0, 48, 105)",
+        "rgb(3, 0, 46)",
+        "rgb(175, 205, 255)",
+      ],
+    },
+    {
+      themeID: "cosyBed",
+      themeTitle: "Cosy Bed",
+      themeType: "dark",
+      themeCategory: "gradient",
+      preview: [
+        "rgb(48, 48, 79)",
+        "rgb(71, 61, 84)",
+        "rgb(77, 67, 90)",
+        "rgb(105, 98, 117)",
+        "rgb(197, 199, 232)",
+      ],
+    },
   ],
   animated: [
     {
@@ -497,6 +528,17 @@ var themeList = {
         "rgb(54, 8, 112)",
         "rgb(64, 8, 111)",
         "rgb(200, 200, 225)",
+      ],
+    },
+    {
+      themeID: "rainyDay",
+      themeTitle: "Rainy Day",
+      themeType: "light",
+      themeCategory: "animated",
+      preview: [
+        "rgb(200, 216, 232)",
+        "rgb(175, 191, 208)",
+        "rgb(50, 50, 75)",
       ],
     },
   ],
@@ -673,14 +715,26 @@ themeMenuButton.addEventListener("click", function openTheThemeMenu(event) {
         case "solid":
           solidTheme_CategoryButton.classList.add("selectedThemeCategory");
           themeMenu_themeSection.innerHTML = loadThemeButtons("solid");
+          document.getElementById(currentActiveTheme + "_themeButton").scrollIntoView({
+            block: "center",
+            inline: "start",
+          });
           break;
         case "gradient":
           gradientTheme_CategoryButton.classList.add("selectedThemeCategory");
           themeMenu_themeSection.innerHTML = loadThemeButtons("gradient");
+          document.getElementById(currentActiveTheme + "_themeButton").scrollIntoView({
+            block: "center",
+            inline: "start",
+          });
           break;
         case "animated":
           animatedTheme_CategoryButton.classList.add("selectedThemeCategory");
           themeMenu_themeSection.innerHTML = loadThemeButtons("animated");
+          document.getElementById(currentActiveTheme + "_themeButton").scrollIntoView({
+            block: "center",
+            inline: "start",
+          });
           break;
 
       }
@@ -871,7 +925,8 @@ globalStyleMenuButton.addEventListener("click", function openTheGlobalStyleMenu(
   event.stopPropagation();
 });
 
-const importExportButton = document.getElementById("importExportButton");
+
+// import export menu
 
 function timeAndDateOfExport() {
   if(loadedUserPreferences.appendTimeAndDateToFileExport === "disabled") return "";
@@ -880,16 +935,16 @@ function timeAndDateOfExport() {
 }
 
 function downloadTextFile(fileContent, fileTitle, filePrefix) {
-    let newBlob = new Blob([fileContent], { type: 'text/plain' });
-    let url = URL.createObjectURL(newBlob);
-    let download = document.createElement('a');
+  let newBlob = new Blob([fileContent], { type: 'text/plain' });
+  let url = URL.createObjectURL(newBlob);
+  let download = document.createElement('a');
 
-    download.href = url;
-    download.download = fileTitle + filePrefix + timeAndDateOfExport() + ".storylinenotepad";
-    document.body.appendChild(download);
-    download.click();
-    document.body.removeChild(download);
-    URL.revokeObjectURL(url);
+  download.href = url;
+  download.download = fileTitle + filePrefix + timeAndDateOfExport() + ".storylinenotepad";
+  document.body.appendChild(download);
+  download.click();
+  document.body.removeChild(download);
+  URL.revokeObjectURL(url);
 }
 
 var importExportElement = document.createElement("div");
@@ -897,12 +952,12 @@ importExportElement.id = "importExportElement";
 importExportElement.classList.add("footer_color", "popup_color");
 importExportElement.innerHTML = `
   <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
-  <p class="importExport_title">Import or Export Menu</p>
+  <p class="importExport_title">Import and Export Menu</p>
   <div class="exportDiv exportDiv_color">
     <div id="exportButton_currentActiveStoryline" class="importExportMenu_buttons_color button importExportButton">
       <p class="exportButton_currentActiveStoryline_text">Export Current Storyline</p>
     </div>
-    <!-- <div id="exportButton_allData" class="exportDiv_buttons_color button exportButton">
+    <!-- <div id="exportButton_allData" class="importExportMenu_buttons_color button importExportButton">
       <p class="exportButton_allData_text">Export All Your Data</p>
     </div> -->
   </div>
@@ -923,7 +978,7 @@ popUpMainElement_importExport.id = "popUpMainElement_importExport";
 popUpMainElement_importExport.appendChild(importExportElement);
 
 
-importExportButton.addEventListener("click", function() {
+document.getElementById("importExportButton").onclick = function() {
   document.body.appendChild(popUpMainElement_importExport);
 
   setTimeout(() => {
@@ -953,7 +1008,7 @@ importExportButton.addEventListener("click", function() {
 
     //   setTimeout(() => {
     //     let storylineNotepad_global_getAll = JSON.parse(localStorage.getItem("storylineNotepad_global"));
-    //     downloadTextFile(JSON.stringify(storylineNotepad_global_getAll), getFileTitle, "_ALL");
+    //     downloadTextFile(JSON.stringify(storylineNotepad_global_getAll), getFileTitle, "");
     //   }, 250);
     // };
 
@@ -964,35 +1019,44 @@ importExportButton.addEventListener("click", function() {
 
     document.getElementById("importButton_storyline_fileInput").onchange = async function(event) {
       let importedFile = event.target.files[0];
-      if (importedFile) {
+      if(importedFile) {
         let fileExtension = importedFile.name.split('.').pop().toLowerCase();
-        if (fileExtension !== "storylinenotepad") {
-            UI.error("Invalid file type. Only '.storylinenotepad' is allowed.");
-            return;
+        if(fileExtension !== "storylinenotepad") {
+          UI.error("Invalid file type. Only '.storylinenotepad' is allowed.");
+          popUpMainElement_importExport.remove();
+          return;
         }
         await new Promise((resolve, reject) => {
           var reader = new FileReader();
           reader.onload = function(event) {
-              let storylineImportData = JSON.parse(event.target.result);
-              window.removeEventListener("beforeunload" , beforeUnloadEvent);
-              let storylineNotepad_global_getCurrentSaveData = JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef];
-              if(storylineNotepad_global_getCurrentSaveData === undefined || storylineNotepad_global_getCurrentSaveData.storylineTitle === undefined) {
-                // console.log("nothing to export, skipping export")
-              } else {
-                if(loadedUserPreferences.autoExportWhenImporting === "enabled") downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData), storylineNotepad_global_getCurrentSaveData.storylineTitle.replace(/ /g, "_") , "_backup");
-              }
+            let storylineImportData;
+            try {
+              storylineImportData = JSON.parse(event.target.result);
+            } catch(error) {
+              UI.error("An error occurred while reading the file", error);
+              popUpMainElement_importExport.remove();
+              return;
+            }
+            window.removeEventListener("beforeunload" , beforeUnloadEvent);
+            let storylineNotepad_global_getCurrentSaveData = JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef];
+            if(storylineNotepad_global_getCurrentSaveData === undefined || storylineNotepad_global_getCurrentSaveData.storylineTitle === undefined) {
+              // console.log("nothing to export, skipping export")
+            } else {
+              if(loadedUserPreferences.autoExportWhenImporting === "enabled") downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData), storylineNotepad_global_getCurrentSaveData.storylineTitle.replace(/ /g, "_") , "_backup");
+            }
+            setTimeout(() => {
+              let storylineNotepad_global_overwriteCurrentStoryline = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+              storylineNotepad_global_overwriteCurrentStoryline.storylineSaves[currentActiveSaveRef] = storylineImportData;
+              localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_overwriteCurrentStoryline));
               setTimeout(() => {
-                let storylineNotepad_global_overwriteCurrentStoryline = JSON.parse(localStorage.getItem("storylineNotepad_global"));
-                storylineNotepad_global_overwriteCurrentStoryline.storylineSaves[currentActiveSaveRef] = storylineImportData;
-                localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_overwriteCurrentStoryline));
-                setTimeout(() => {
-                  location.reload();
-                }, 150);
+                location.reload();
               }, 150);
+            }, 150);
             resolve();
           };
           reader.onerror = function(error) {
               UI.error("An error occurred while reading the file", error);
+              popUpMainElement_importExport.remove();
               reject();
           };
           reader.readAsText(importedFile);
@@ -1040,12 +1104,14 @@ importExportButton.addEventListener("click", function() {
           }, 150);
         }, 150);
       } catch(e) {
-        UI.error("Error converting your v0.2 export data into v0.3: <br/><br/> " + e)
+        UI.error("Error converting your v0.2 export data into v0.3+: <br/><br/> " + e)
+
+        popUpMainElement_importExport.remove();
         return;
       }
     };
   }, 150);
-});
+};
 
 // save button
 
@@ -1053,6 +1119,10 @@ importExportButton.addEventListener("click", function() {
 const saveButton = document.getElementById("saveButton");
 saveButton.addEventListener("click", function() {
   saveDataForCurrentStoryline()
+  if(!sessionStorage.getItem("pressedSaveButtonAlready")) {
+    UI.message("Storyline Notepad automatically saves when exiting as well.");
+    sessionStorage.setItem("pressedSaveButtonAlready", true);
+}
   this.classList.add("flashGreen")
   this.onanimationend = function() {
     this.classList.remove("flashGreen");
@@ -1070,9 +1140,21 @@ document.addEventListener("keydown", function(event) {
   }
 });
 
+// var saveInterval = setInterval(() => {
+//   saveDataForCurrentStoryline()
+// }, saveIntervalValue);
+
+
+
 // scroll sideways default
 
+function scrollableBox(textarea) {
+  return textarea.scrollHeight > textarea.clientHeight;
+
+}
+
 document.querySelector("main").addEventListener("wheel", function(event) {
+  if(event.target.tagName.toLowerCase() === "textarea" && scrollableBox(event.target)) return;
   if(event.deltaY !== 0) {
       // event.preventDefault();
       this.scrollLeft += event.deltaY;
@@ -1116,12 +1198,13 @@ newUpdateElement.classList.add("footer_color", "popup_color");
 newUpdateElement.innerHTML = `
   <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
   <p class="newUpdateElement_heading">Storyline Notepad has been updated!</p>
-  <p class="newUpdateElement_version">Version 0.5.0 => 0.5.1</p>
+  <p class="newUpdateElement_version">Version 0.5.1 => 0.6.0</p>
   <p class="newUpdateElement_subHeading">Here are some highlights of this update:</p>
   <ul class="newUpdateElement_list">
-    <li>Added a new theme: Starry Midnight.</li>
-    <li>Theme requests are now open!</li>
-    <li>Small fixes to window size checker.</li>
+    <li>Added three new themes: Oceanside Nap, Cozy Bed, and Rainy Day.</li>
+    <li>Added a new user preference: text alignment.</li>
+    <li>Added a "Clear Data" menu.</li>
+    <li>Created a tutorial storyline. If you were a user before this update, you can download it from the changelog.</li>
   </ul>
   <div class="bottomOfNewUpdateElement">
     <a href="changelog.html">
@@ -1216,9 +1299,9 @@ function showContextMenu(locationOfClick, event, UID) {
   switch(locationOfClick) {
     case "addRemove": 
       baseContextMenu.innerHTML = `
-        <p class="contextMenu_buttons contextMenu_buttons_color" onclick="addBoxToTheRightOrLeft(${UID}, 'left')">Add box to the left</p>
-        <p class="contextMenu_buttons contextMenu_buttons_color" onclick="addBoxToTheRightOrLeft(${UID}, 'right')">Add box to the right</p>
-        <p class="contextMenu_buttons contextMenu_buttons_color" onclick="removeBoxToTheLeft(${UID})">Remove box to the left</p>
+        <p class="contextMenu_buttons contextMenu_buttons_color" onclick="addBoxToTheRightOrLeft(${UID}, 'left')" onmouseover="previewContextMenuAction('addBoxToTheLeft', ${UID})" onmouseleave="previewContextMenuAction('addBoxToTheLeft', ${UID}, true)">Add box to the left</p>
+        <p class="contextMenu_buttons contextMenu_buttons_color" onclick="addBoxToTheRightOrLeft(${UID}, 'right')" onmouseover="previewContextMenuAction('addBoxToTheRight', ${UID})" onmouseleave="previewContextMenuAction('addBoxToTheRight', ${UID}, true)">Add box to the right</p>
+        <p class="contextMenu_buttons contextMenu_buttons_color" onclick="removeBoxToTheLeft(${UID})" onmouseover="previewContextMenuAction('removeBoxToTheLeft', ${UID})" onmouseleave="previewContextMenuAction('removeBoxToTheLeft', ${UID}, true)">Remove box to the left</p>
         <!--<p class="contextMenu_buttons contextMenu_buttons_color" onclick=""></p> -->
       `;
       break;
@@ -1234,6 +1317,50 @@ function showContextMenu(locationOfClick, event, UID) {
       document.getElementById("contextMenu").remove();
       }
     });
+}
+
+function previewContextMenuAction(action, UID, reset = false) {
+  if(reset) {
+    switch(action) {
+      case "addBoxToTheLeft":
+        if(document.getElementById("previewNewBox")) {
+          document.getElementById("previewNewBox").remove()
+        }
+      case "addBoxToTheRight":
+        if(document.getElementById("previewNewBox")) {
+          document.getElementById("previewNewBox").remove()
+        }
+        break;
+      case "removeBoxToTheLeft":
+        if(document.getElementById("previewDeletBox")) {
+          document.getElementById("previewDeletBox").remove()
+        }
+        break;
+    }
+  } else {
+
+    let previewNewBox = document.createElement("div");
+    previewNewBox.id = "previewNewBox";
+    previewNewBox.classList.add("popup_color", "previewDeletBox_pulse");
+
+    switch(action) {
+      case "addBoxToTheLeft":
+        document.getElementById("box" + UID).insertAdjacentElement("beforebegin", previewNewBox);
+        document.getElementById("previewNewBox").scrollIntoView();
+        break;
+      case "addBoxToTheRight":
+        document.getElementById("box" + UID).insertAdjacentElement("afterend", previewNewBox);
+        document.getElementById("previewNewBox").scrollIntoView();
+        break;
+      case "removeBoxToTheLeft":
+        let previewDeletBox = document.createElement("div");
+        previewDeletBox.id = "previewDeletBox";
+        previewDeletBox.classList.add("popup_color", "previewDeletBox_pulse");
+
+        document.querySelector(`#box${UID} > .storyBox`).appendChild(previewDeletBox);
+        break;
+    }
+  }
 }
 
 function removeBoxToTheLeft(UID) {
@@ -1257,6 +1384,9 @@ function addBoxToTheRightOrLeft(UID, side) {
     case "right":
       document.getElementById("box" + UID).insertAdjacentHTML("afterend", storyBox);
       break;
+  }
+  if(document.getElementById("previewNewBox")) {
+    document.getElementById("previewNewBox").remove()
   }
 }
 
@@ -1380,6 +1510,43 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
             `;
         }
       };
+
+      function get_textAlign() {
+        console.log(loadedUserPreferences.textAlign);
+        if(loadedUserPreferences.autoExportWhenImporting !== "left" && loadedUserPreferences.autoExportWhenImporting !== "center" && loadedUserPreferences.textAlign !== "right") {
+
+          let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+          storylineNotepad_global_setUserPreferences.userPreferences.textAlign = "center";
+          localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+          addTimeGapForUserPreferences();
+
+          return  `
+            <option value="left">Left</option>
+            <option selected value="center">Center</option>
+            <option value="right">Right</option>
+          `;
+        }
+        switch(loadedUserPreferences.textAlign) {
+          case "left":
+            return  `
+              <option selected value="left">Left</option>
+              <option value="center">Center</option>
+              <option value="right">Right</option>
+            `;
+          case "center":
+            return  `
+              <option value="left">Left</option>
+              <option selected value="center">Center</option>
+              <option value="right">Right</option>
+            `;
+          case "center":
+            return  `
+              <option value="left">Left</option>
+              <option value="center">Center</option>
+              <option selected value="right">Right</option>
+            `;
+        }
+      };
       document.getElementById("userPreferencesButton").onclick = function() {
         var userPreferencesElement = document.createElement("div");
         userPreferencesElement.id = "userPreferencesElement";
@@ -1392,13 +1559,13 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
 
             <div class="userPreferencesElement_inputWrapper" title="Choose whether to add the time and date of export to the file name">
             
-              <lable for="userPreferenceInput_addTimeAndDateToFileExport">Append Time And Date To File Export:</lable>
+              <lable for="userPreferenceInput_addTimeAndDateToFileExport">Append time and date to file export:</lable>
               <select id="userPreferenceInput_addTimeAndDateToFileExport" class="userPreferenceInput">
                 ${get_addTimeAndDateToFileExportData()}
               </select>
 
             </div>
-            <div class="userPreferencesElement_inputWrapper" title="When a theme can't be loaded or when you start a new storyline, choose a default theme. Also effects the save slot screen.">
+            <div class="userPreferencesElement_inputWrapper" title="When a theme can't be loaded or when you start a new storyline, choose a default theme. This can also be changed on all other pages that have the darkLight toggle.">
 
               <lable for="userPreferenceInput_fallbackTheme">Fallback theme:</lable>
               <select id="userPreferenceInput_fallbackTheme" class="userPreferenceInput">
@@ -1411,6 +1578,13 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
               <lable for="userPreferenceInput_autoExportWhenImporting">Auto export when importing:</lable>
               <select id="userPreferenceInput_autoExportWhenImporting" class="userPreferenceInput">
                 ${get_autoExportWhenImporting()}
+              </select>
+            </div>
+            <div class="userPreferencesElement_inputWrapper"  title="Choose whether to have your text on the left, center or right.">
+
+              <lable for="userPreferenceInput_autoExportWhenImporting">Text alignment:</lable>
+              <select id="userPreferenceInput_textAlign" class="userPreferenceInput">
+                ${get_textAlign()}
               </select>
             </div>
 
@@ -1434,6 +1608,7 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
           var userPreferenceInput_addTimeAndDateToFileExport = document.getElementById("userPreferenceInput_addTimeAndDateToFileExport");
           var userPreferenceInput_fallbackTheme = document.getElementById("userPreferenceInput_fallbackTheme");
           var userPreferenceInput_autoExportWhenImporting = document.getElementById("userPreferenceInput_autoExportWhenImporting");
+          var userPreferenceInput_textAlign = document.getElementById("userPreferenceInput_textAlign");
           
           userPreferenceInput_fallbackTheme.onchange = function() {
             let changedValue = userPreferenceInput_fallbackTheme.value;
@@ -1462,42 +1637,113 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
             addTimeGapForUserPreferences();
           };
 
+          userPreferenceInput_textAlign.onchange = function() {
+            let changedValue = userPreferenceInput_textAlign.value;
+            loadedUserPreferences.textAlign = changedValue;
+
+            ["userPreferences_textAlign_left", "userPreferences_textAlign_center", "userPreferences_textAlign_right"].forEach((className) => {
+              if(document.body.classList.contains(className)) {
+                document.body.classList.replace(className, `userPreferences_textAlign_${changedValue}`);
+              }
+            });
+
+            let storylineNotepad_global_setUserPreferences = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+            storylineNotepad_global_setUserPreferences.userPreferences.textAlign = changedValue;
+            localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_setUserPreferences));
+            addTimeGapForUserPreferences();
+          };
+
         }, 100);
       };
 
 
       // clear all button
 
-      function clearAllData() {
-        const askIfUserWantsToClearCurrentStroyline = confirm("Are you sure you want to clear your current storyline?");
-        if(askIfUserWantsToClearCurrentStroyline) {
-          saveDataForCurrentStoryline();
-          window.removeEventListener("beforeunload" , beforeUnloadEvent);
-          let askIfUserWantsToBackup = confirm("Would you like to backup your current storyline?");
-          if(askIfUserWantsToBackup) {
+      var clearDataMenuElement = document.createElement("div");
+      clearDataMenuElement.id = "clearDataMenuElement";
+      clearDataMenuElement.classList.add("footer_color", "popup_color");
+      clearDataMenuElement.innerHTML = `
+        <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
+        <p class="importExport_title">Clear Data Menu</p>
+        <div class="clearDataButtons importDiv_color">
+          <div id="clearDataButton_currentStoryline" class="importExportMenu_buttons_color button importExportButton">
+            <p class="exportButton_currentActiveStoryline_text">Delete Current Storyline</p>
+          </div>
+          <div id="clearDataButton_everything" class="importExportMenu_buttons_color button importExportButton">
+            <p class="exportButton_allData_text">Delete EVERYTHING</p>
+          </div>
+        </div>
+      </div>
+      `;
 
-            let storylineNotepad_global_getCurrentSaveData_clearAll = JSON.parse(localStorage.getItem("storylineNotepad_global")).storylineSaves[currentActiveSaveRef];
-            if(storylineNotepad_global_getCurrentSaveData_clearAll === undefined || storylineNotepad_global_getCurrentSaveData_clearAll.storylineTitle === undefined) {
-              UI.warn("You can't export nothing!!");
-              return;
-            } 
-            downloadTextFile(JSON.stringify(storylineNotepad_global_getCurrentSaveData_clearAll), storylineNotepad_global_getCurrentSaveData_clearAll.storylineTitle.replace(/ /g, "_") , "_backup");
+      var popUpMainElement_clearDataMenu = document.createElement("div");
+      popUpMainElement_clearDataMenu.classList.add("popUpBackground");
+      popUpMainElement_clearDataMenu.id = "popUpMainElement_clearDataMenu";
+      popUpMainElement_clearDataMenu.appendChild(clearDataMenuElement);
 
-          }
-          setTimeout(() => {
-            let storylineNotepad_global_clearStorylineNotepadData = JSON.parse(localStorage.getItem("storylineNotepad_global"));
-            delete storylineNotepad_global_clearStorylineNotepadData.storylineSaves[currentActiveSaveRef];
-            localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_clearStorylineNotepadData));
-
-            setTimeout(() => {
-              location.href = "saveSlots.html";
-            }, 150);
-          }, 150);
-        }
-      }
 
       document.getElementById("clearDataButton").onclick = function() {
-        clearAllData("clearAllData");
+        document.body.appendChild(popUpMainElement_clearDataMenu);
+
+        setTimeout(() => {
+          document.addEventListener("click", function(event) {
+            if(event.target.id === "popupElement_closeButton" || event.target.id === "popUpMainElement_clearDataMenu") {
+              popUpMainElement_clearDataMenu.remove();
+            }
+          });
+
+          document.getElementById("clearDataButton_currentStoryline").onclick = async function() {
+            if(!confirm("This will delete your current storyline. Do you want to continue?")) return;
+            window.removeEventListener("beforeunload" , beforeUnloadEvent);
+            popUpMainElement_clearDataMenu.remove();
+
+            await addTimeGap(500);
+            document.body.classList.add("obliterateBody_deteleAllAnimation");
+            await addTimeGap(1500);
+            let pageOverlay_deteleAllAnimation = document.createElement("div");
+            pageOverlay_deteleAllAnimation.id = "pageOverlay_deteleAllAnimation";
+            document.body.appendChild(pageOverlay_deteleAllAnimation);
+            await addTimeGap(1500);
+            
+            setTimeout(() => {
+              let storylineNotepad_global_clearStorylineNotepadData = JSON.parse(localStorage.getItem("storylineNotepad_global"));
+              delete storylineNotepad_global_clearStorylineNotepadData.storylineSaves[currentActiveSaveRef];
+              localStorage.setItem("storylineNotepad_global", JSON.stringify(storylineNotepad_global_clearStorylineNotepadData));
+
+              setTimeout(() => {
+                location.href = "saveSlots.html";
+              }, 150);
+            }, 250);
+          };
+          document.getElementById("clearDataButton_everything").onclick = async function() {
+            if(!confirm("You will lose all your saved storylines and user preferences. Are you sure you want to continue?")) return;
+            let deleteEverything_prompt= prompt("Please type 'confirm', to continue");
+            if(!deleteEverything_prompt) {
+              alert("Action cancelled");
+              return;
+            } else if(deleteEverything_prompt !== "confirm") {
+              alert("Wrong input")
+              return;
+            }
+            window.removeEventListener("beforeunload" , beforeUnloadEvent);
+            popUpMainElement_clearDataMenu.remove();
+
+            await addTimeGap(500);
+            document.body.classList.add("obliterateBody_deteleAllAnimation");
+            await addTimeGap(1500);
+            let pageOverlay_deteleAllAnimation = document.createElement("div");
+            pageOverlay_deteleAllAnimation.id = "pageOverlay_deteleAllAnimation";
+            document.body.appendChild(pageOverlay_deteleAllAnimation);
+            await addTimeGap(1500);
+            setTimeout(() => {
+              localStorage.setItem("storylineNotepad_global", JSON.stringify(defaultStorylineNotepad_globalObject));
+
+              setTimeout(() => {
+                location.href = "../index.html";
+              }, 150);
+            }, 250);
+          };
+        }, 150);
       };
 
     } catch {
@@ -1535,7 +1781,7 @@ function slideOutUINotification(notificationMain) {
   notificationMain.onanimationend = function() { notificationMain.remove(); };
 }
 
-var UI = {
+const UI = {
   message: function(message) {
     let messageElement = document.createElement("div");
     messageElement.classList.add("UImessage", "contextMenu_color", "UImessage_slideIn");
@@ -1579,4 +1825,17 @@ var UI = {
     `;
     UImessageContainer.appendChild(messageElement);
   },
+};
+
+
+
+
+
+
+
+
+
+
+async function addTimeGap(timeWait) {
+  return new Promise(resolve => setTimeout(resolve , timeWait));
 };

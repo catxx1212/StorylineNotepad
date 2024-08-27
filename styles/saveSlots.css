@@ -34,3 +34,18 @@ header > p {
   transform: translate(-50%, -50%);
   font-size: 2vw;
 }
+
+
+/* .extrasMenu {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  width: 50%;
+  aspect-ratio: 5 / 3;
+  transform: translate(-50%, -0%);
+  z-index: 999;
+  border-radius: 2vh;
+}
+  #extrasMenu_pullTag {
+
+  } */
