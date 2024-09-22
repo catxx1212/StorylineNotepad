@@ -54,7 +54,7 @@
     </style>
     <script>
       
-      var currentVersionNumber = "0.6.0";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
+      var currentVersionNumber = "0.6.1";  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< the vesion number is here now
 
       let styleArray = ["../styles/animations.css", "../styles/main.css", "../styles/themes.css"]
       let loadedStyles = 0;
@@ -98,16 +98,16 @@
   <body>
     <header class="header_color">
       <div class="logoAndTitleContainer">
-        <a href="../index.html">
-          <img class="logoAndTitleContainer_logo" src="../assets/icons/storylineNotepad_logo1x1.png" title="Return to title page"/>
+        <a href="/index.html">
+          <img class="logoAndTitleContainer_logo" src="../assets/icons/storylineNotepad_logo1x1.png" title="Return to title page" loading="lazy" alt="storyline notepad logo"/>
         </a>
         <p class="logoAndTitleContainer_title header_textColor">Storyline Notepad</p>
       </div>
-      <img id="importExportButton" class="icon button iconButton_dark" src="../assets/icons/inportExportButton_light.png" title="Import and export data"/>
-      <img id="globalStyleMenuButton" class="icon button iconButton_dark" src="../assets/icons/styleButton_light.png" title="Change global styles"/>
-      <img id="themeMenuButton" class="icon button iconButton_dark"  src="../assets/icons/themeButton_light.png" title="Change theme"/>
-      <img id="saveButton" class="icon button iconButton_dark" src="../assets/icons/saveButton_light.png" title="Save"/>
-      <img id="rightDropDownMenuButton" class="icon button iconButton_dark" src="../assets/icons/dropDownIcon_light.png" title="Click for more"/>
+      <img id="importExportButton" class="icon button iconButton_dark" src="../assets/icons/importExportButton_light.png" title="Import and export data" loading="lazy" alt="Import and export menu icon"/>
+      <img id="globalStyleMenuButton" class="icon button iconButton_dark" src="../assets/icons/styleButton_light.png" title="Change global styles" loading="lazy" alt="global styles menu icon"/>
+      <img id="themeMenuButton" class="icon button iconButton_dark"  src="../assets/icons/themeButton_light.png" title="Change theme" loading="lazy" alt="theme menu icon"/>
+      <img id="saveButton" class="icon button iconButton_dark" src="../assets/icons/saveButton_light.png" title="Save" loading="lazy" alt="save icon"/>
+      <img id="rightDropDownMenuButton" class="icon button iconButton_dark" src="../assets/icons/dropDownIcon_light.png" title="Click for more" loading="lazy" alt="drop down menu icon"/>
     </header>
     <main class="main_color">
       <div class="stroylineTitle_div">
@@ -118,13 +118,11 @@
 
         </div>
         <div id="addNewStoryboxButton" class="addNewStoryboxButton_color" title="Add a new section">
-          <img src="../assets/icons/addNewStoryboxIcon_dark.png" class="addNewStoryboxButton_center icon"/>
+          <img src="../assets/icons/addNewStoryboxIcon_dark.png" class="addNewStoryboxButton_center icon" loading="lazy" alt="add new storybox icon"/>
         </div>
       </div>
-      <div id="UImessageContainer">
-
+      <div id="UImessageContainer"></div>
       </div>
-
     </main>
     <footer class="footer_color">
       <p class="copyright">© 2024 CatXx1212. All Rights Reserved.</p>

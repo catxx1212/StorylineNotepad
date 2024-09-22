@@ -2,7 +2,7 @@ var changelogs = [
   // copy upwards
   {
     versionRef: "Version 0.6.0",
-    date: "??/08/2024",
+    date: "27/08/2024",
     changeList: `
       <li>Added three new themes: Oceanside Nap, Cozy Bed, and Rainy Day.</li>
       <li>Added a new user preference: text alignment.</li>

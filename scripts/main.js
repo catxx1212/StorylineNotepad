@@ -24,7 +24,7 @@ const defaultStorylineNotepad_globalObject = {
     textAlign: "center",
   },
   storylineSaves: {       
-    0: {"versionNumber":"0.6.0","textData":[{"storyboxNumber":0,"storyBoxTextContent":"Welcome to Storyline Notepad!\n\nThis save file is here to help users who don't know how to use Storyline Notepad yet.\n\n(You can delete this storyline if you don't need it anymore)\n\n(This will come back if you reset Storyline Notepad)"},{"storyboxNumber":1,"storyBoxTextContent":"Title Changing:\n\nJust click the title above the storyboxes to change it."},{"storyboxNumber":2,"storyBoxTextContent":"Storybox Management:\n(These boxes)\n\nYou can add a new box to the end of the storyline with the add button at the end.\n\nRight click the arrows for more options on box management.\n\nHover over each action to see a preview."},{"storyboxNumber":3,"storyBoxTextContent":"Themes Menu:\n\nThe brush icon in the top tray opens the Themes Menu.\n\nClick it to view all available themes."},{"storyboxNumber":4,"storyBoxTextContent":"Global Styles Menu:\n\nThe \"Aa\" icon in the top tray opens the Global Styles Menu.\n\nUse this to adjust font sizes and font boldness."},{"storyboxNumber":5,"storyBoxTextContent":"The Save Button:\n\nIt's pretty self explanatory, to be honest.\n\nStoryline Notepad also saves automatically when you exit."},{"storyboxNumber":6,"storyBoxTextContent":"The Import and Export Menu:\n\nThe two arrows icon in the top tray opens the Import and Export Menu.\n\nHere, you can export your current storyline to a file, either as a backup or to share with someone else.\n\nYou can also import data here, including support for version 0.2."},{"storyboxNumber":7,"storyBoxTextContent":"The Drop Down Menu:\n\nThe single arrow icon in the top tray opens the Drop Down Menu.\n\nThis is where you can find the User Preferences Menu and the Clear Data Menu."},{"storyboxNumber":8,"storyBoxTextContent":"The User Preferences Menu:\n\nThe cog icon in the dropdown menu opens the User Preferences Menu.\n\nHere, you can adjust some of Storyline Notepad's behaviours."},{"storyboxNumber":9,"storyBoxTextContent":"The Clear Data Menu:\n\nThe bin icon in the drop down menu opens the Clear Data Menu.\n\nHere, you can choose to either delete your current storyline or delete everything, including all your storyline saves and user preferences."},{"storyboxNumber":10,"storyBoxTextContent":"Tips and tricks:\n\nHold shift to scroll faster."},{"storyboxNumber":11,"storyBoxTextContent":"Tutorial Version 1.0.0\n\nThis can be downloaded from the Import/Export Menu or from:\n\nhttps://storylinenotepad.catxx1212.com/storylineNotepad/downloads/tutorialSaveFile/\n\nThank you for taking the time to read this! <3"}],"storylineTitle":"Tutorial","activeTheme":["anything","pleaseGoToFallbackTheme"],"activeGlobalStyle":"normalBold"},
+    0: {"versionNumber":"0.6.1","textData":[{"storyboxNumber":0,"storyBoxTextContent":"Welcome to Storyline Notepad!\n\nThis save file is here to help users who don't know how to use Storyline Notepad yet.\n\n(You can delete this storyline if you don't need it anymore)\n\n(This will come back if you reset Storyline Notepad)"},{"storyboxNumber":1,"storyBoxTextContent":"Title Changing:\n\nJust click the title above the storyboxes to change it."},{"storyboxNumber":2,"storyBoxTextContent":"Storybox Management:\n(These boxes)\n\nYou can add a new box to the end of the storyline with the add button at the end.\n\nRight click the arrows for more options on box management.\n\nHover over each action to see a preview."},{"storyboxNumber":3,"storyBoxTextContent":"Themes Menu:\n\nThe brush icon in the top tray opens the Themes Menu.\n\nClick it to view all available themes."},{"storyboxNumber":4,"storyBoxTextContent":"Global Styles Menu:\n\nThe \"Aa\" icon in the top tray opens the Global Styles Menu.\n\nUse this to adjust font sizes and font boldness."},{"storyboxNumber":5,"storyBoxTextContent":"The Save Button:\n\nIt's pretty self explanatory, to be honest.\n\nStoryline Notepad also saves automatically when you exit."},{"storyboxNumber":6,"storyBoxTextContent":"The Import and Export Menu:\n\nThe two arrows icon in the top tray opens the Import and Export Menu.\n\nHere, you can export your current storyline to a file, either as a backup or to share with someone else.\n\nYou can also import data here, including support for version 0.2."},{"storyboxNumber":7,"storyBoxTextContent":"The Drop Down Menu:\n\nThe single arrow icon in the top tray opens the Drop Down Menu.\n\nThis is where you can find the User Preferences Menu and the Clear Data Menu."},{"storyboxNumber":8,"storyBoxTextContent":"The User Preferences Menu:\n\nThe cog icon in the dropdown menu opens the User Preferences Menu.\n\nHere, you can adjust some of Storyline Notepad's behaviours."},{"storyboxNumber":9,"storyBoxTextContent":"The Clear Data Menu:\n\nThe bin icon in the drop down menu opens the Clear Data Menu.\n\nHere, you can choose to either delete your current storyline or delete everything, including all your storyline saves and user preferences."},{"storyboxNumber":10,"storyBoxTextContent":"Tips and tricks:\n\nHold shift to scroll faster."},{"storyboxNumber":11,"storyBoxTextContent":"Tutorial Version 1.0.0\n\nThis can be downloaded from the Import/Export Menu or from:\n\nhttps://storylinenotepad.catxx1212.com/storylineNotepad/downloads/tutorialSaveFile/\n\nThank you for taking the time to read this! <3"}],"storylineTitle":"Tutorial","activeTheme":["anything","pleaseGoToFallbackTheme"],"activeGlobalStyle":"normalBold"},
   },
   lastTimeStamp: undefined,
 };
@@ -91,7 +91,7 @@ if(storylineNotepad_global_storylineSave !== undefined) {
             <textarea class="text storyBox_innerColor" id="textarea${generateUID()}" oncontextmenu="contextMenuForStoryboxes(event)" placeholder="Start typing:">${textareaToLoad.storyBoxTextContent}</textarea>
           </div>
           <div class="arrow" oncontextmenu="showContextMenu('addRemove', event, ${generateUID()})" title="Right click for more options">
-            <img src="../assets/icons/arrow_light.png" class="icon"/>
+            <img src="../assets/icons/arrow_light.png" class="icon" loading="lazy" alt="arrow"/>
           </div>
         </div>`;
     });
@@ -206,7 +206,7 @@ addNewStoryboxButton.onclick = function () {
         <textarea class="text storyBox_innerColor" id="textarea${generateUID()}" oncontextmenu="contextMenuForStoryboxes(event)" placeholder="Start typing:"></textarea>
       </div>
       <div class="arrow" oncontextmenu="showContextMenu('addRemove', event, ${generateUID()})" title="Right click for more options">
-        <img src="../assets/icons/arrow_${currentActiveThemeType}.png"/>
+        <img src="../assets/icons/arrow_${currentActiveThemeType}.png" loading="lazy" alt="arrow"/>
       </div>
     </div>`;
 
@@ -513,6 +513,19 @@ var themeList = {
         "rgb(77, 67, 90)",
         "rgb(105, 98, 117)",
         "rgb(197, 199, 232)",
+      ],
+    },
+    {
+      themeID: "undergroundSunset",
+      themeTitle: "Underground Sunset",
+      themeType: "light",
+      themeCategory: "gradient",
+      preview: [
+        "rgb(35, 69, 85)",
+        "rgb(229, 111, 83)",
+        "rgb(235, 137, 90)",
+        "rgb(231, 195, 107)",
+        "rgb(0,34, 50)",
       ],
     },
   ],
@@ -951,7 +964,7 @@ var importExportElement = document.createElement("div");
 importExportElement.id = "importExportElement";
 importExportElement.classList.add("footer_color", "popup_color");
 importExportElement.innerHTML = `
-  <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
+  <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close" loading="lazy" alt="pop up close icon"/>
   <p class="importExport_title">Import and Export Menu</p>
   <div class="exportDiv exportDiv_color">
     <div id="exportButton_currentActiveStoryline" class="importExportMenu_buttons_color button importExportButton">
@@ -962,13 +975,13 @@ importExportElement.innerHTML = `
     </div> -->
   </div>
   <div class="importDiv importDiv_color">
-  <div id="importButton_storyline_fileImport" class="importExportMenu_buttons_color button importExportButton">
-    <p class="importButton_storyline_text">Import Storyline From File</p>
-    <input id="importButton_storyline_fileInput" type="file" style="display: none;"/>
-  </div>
-  <div id="importButton_storyline_textImport" class="importExportMenu_buttons_color button importExportButton">
-    <p class="importButton_storyline_text">Import Storyline From text (v0.2)</p>
-  </div>
+    <div id="importButton_storyline_fileImport" class="importExportMenu_buttons_color button importExportButton">
+      <p class="importButton_storyline_text">Import Storyline From File</p>
+      <input id="importButton_storyline_fileInput" type="file" style="display: none;"/>
+    </div>
+    <div id="importButton_storyline_textImport" class="importExportMenu_buttons_color button importExportButton">
+      <p class="importButton_storyline_text">Import Storyline From text (v0.2)</p>
+    </div>
   </div>
 `;
 
@@ -1196,15 +1209,13 @@ var newUpdateElement = document.createElement("div");
 newUpdateElement.id = "newUpdateElement";
 newUpdateElement.classList.add("footer_color", "popup_color");
 newUpdateElement.innerHTML = `
-  <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
+  <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close" loading="lazy" alt="pop up close icon"/>
   <p class="newUpdateElement_heading">Storyline Notepad has been updated!</p>
-  <p class="newUpdateElement_version">Version 0.5.1 => 0.6.0</p>
+  <p class="newUpdateElement_version">Version 0.6.0 => 0.6.1</p>
   <p class="newUpdateElement_subHeading">Here are some highlights of this update:</p>
   <ul class="newUpdateElement_list">
-    <li>Added three new themes: Oceanside Nap, Cozy Bed, and Rainy Day.</li>
-    <li>Added a new user preference: text alignment.</li>
-    <li>Added a "Clear Data" menu.</li>
-    <li>Created a tutorial storyline. If you were a user before this update, you can download it from the changelog.</li>
+    <li>Added one new theme: Underground Sunset.</li>
+    <li>Some optimisations to all storyline notepad pages.</li>
   </ul>
   <div class="bottomOfNewUpdateElement">
     <a href="changelog.html">
@@ -1374,7 +1385,7 @@ function addBoxToTheRightOrLeft(UID, side) {
       <textarea class="text storyBox_innerColor" id="textarea${generateUID()}" oncontextmenu="contextMenuForStoryboxes(event)" placeholder="Start typing:"></textarea>
     </div>
     <div class="arrow" oncontextmenu="showContextMenu('addRemove', event, ${generateUID()})" title="Right click for more options">
-      <img src="../assets/icons/arrow_${currentActiveThemeType}.png"/>
+      <img src="../assets/icons/arrow_${currentActiveThemeType}.png" loading="lazy" alt="arrow"/>
     </div>
   </div>`;
   switch(side) {
@@ -1415,8 +1426,8 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
   
   rightDropDownMenuButton.classList.toggle("rightDropDownMenuButton_rotated");
   rightDropDownMenu.innerHTML = `
-    <img id="userPreferencesButton" class="icon button iconButton_${currentActiveThemeType}" src="../assets/icons/settingsIcon_${currentActiveThemeType}.png" title="User preferences"/>
-    <img id="clearDataButton" class="icon button iconButton_${currentActiveThemeType}" src="../assets/icons/clearAllButton_${currentActiveThemeType}.png" title="Clear current storyline"/>
+    <img id="userPreferencesButton" class="icon button iconButton_${currentActiveThemeType}" src="../assets/icons/settingsIcon_${currentActiveThemeType}.png" title="User preferences" loading="lazy" alt="user prefrence menu icon"/>
+    <img id="clearDataButton" class="icon button iconButton_${currentActiveThemeType}" src="../assets/icons/clearAllButton_${currentActiveThemeType}.png" title="Clear current storyline" loading="lazy" alt="clear all data menu icon"/>
   `;
   document.body.appendChild(rightDropDownMenu);
   setTimeout(() => {
@@ -1552,7 +1563,7 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
         userPreferencesElement.id = "userPreferencesElement";
         userPreferencesElement.classList.add("footer_color", "popup_color");
         userPreferencesElement.innerHTML = `
-          <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
+          <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close" loading="lazy" alt="pop up close icon"/>
           <p class="userPreferencesElement_title">User Preferences</p>
           <p class="userPreferencesElement_subtitle">Hover over each option for more details.</p>
           <div class="userPreferencesElement_optionsContainer">
@@ -1663,7 +1674,7 @@ rightDropDownMenuButton.addEventListener("click", function openRightDropDownMenu
       clearDataMenuElement.id = "clearDataMenuElement";
       clearDataMenuElement.classList.add("footer_color", "popup_color");
       clearDataMenuElement.innerHTML = `
-        <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close"/>
+        <img id="popupElement_closeButton" src="../assets/closeButton.png" title="Close" loading="lazy" alt="pop up close icon"/>
         <p class="importExport_title">Clear Data Menu</p>
         <div class="clearDataButtons importDiv_color">
           <div id="clearDataButton_currentStoryline" class="importExportMenu_buttons_color button importExportButton">
@@ -1787,11 +1798,11 @@ const UI = {
     messageElement.classList.add("UImessage", "contextMenu_color", "UImessage_slideIn");
     messageElement.innerHTML = `
       <div class="UImessage_iconContainer">
-        <img title="message" src="../assets/icons/messageIcon_${currentActiveThemeType}.png" class="icon"/>
+        <img title="message" src="../assets/icons/messageIcon_${currentActiveThemeType}.png" class="icon" loading="lazy" alt="UI message icon"/>
       </div>
       <p class="UImessage_text">${message}</p>
       <div class="UImessage_closeButtonContainer">
-        <img class="icon button iconButton_dark" title="Close" src="../assets/icons/otherCloseButton_${currentActiveThemeType}.png" onclick="slideOutUINotification(this.parentElement.parentElement)"/>
+        <img class="icon button iconButton_dark" title="Close" src="../assets/icons/otherCloseButton_${currentActiveThemeType}.png" onclick="slideOutUINotification(this.parentElement.parentElement)" loading="lazy" alt="close UI message icon"/>
       </div>
     `;
     UImessageContainer.appendChild(messageElement);
@@ -1802,11 +1813,11 @@ const UI = {
     messageElement.classList.add("UImessage", "contextMenu_color", "UImessage_slideIn");
     messageElement.innerHTML = `
       <div class="UImessage_iconContainer">
-        <img title="warning" src="../assets/icons/warningIcon_${currentActiveThemeType}.png" class="icon"/>
+        <img title="warning" src="../assets/icons/warningIcon_${currentActiveThemeType}.png" class="icon" loading="lazy" alt="UI warning icon"/>
       </div>
       <p class="UImessage_text">${message}</p>
       <div class="UImessage_closeButtonContainer">
-        <img class="icon button iconButton_dark" title="Close" src="../assets/icons/otherCloseButton_${currentActiveThemeType}.png" onclick="slideOutUINotification(this.parentElement.parentElement)"/>
+        <img class="icon button iconButton_dark" title="Close" src="../assets/icons/otherCloseButton_${currentActiveThemeType}.png" onclick="slideOutUINotification(this.parentElement.parentElement)" loading="lazy" alt="close UI warning icon"/>
       </div>
     `;
     UImessageContainer.appendChild(messageElement);
@@ -1816,11 +1827,11 @@ const UI = {
     messageElement.classList.add("UImessage", "contextMenu_color", "UImessage_slideIn");
     messageElement.innerHTML = `
       <div class="UImessage_iconContainer">
-        <img title="error" src="../assets/icons/errorIcon_${currentActiveThemeType}.png" class="icon"/>
+        <img title="error" src="../assets/icons/errorIcon_${currentActiveThemeType}.png" class="icon" loading="lazy" alt="UI error icon"/>
       </div>
       <p class="UImessage_text">${message}</p>
       <div class="UImessage_closeButtonContainer">
-        <img class="icon button iconButton_dark" title="Close" src="../assets/icons/otherCloseButton_${currentActiveThemeType}.png" onclick="slideOutUINotification(this.parentElement.parentElement)"/>
+        <img class="icon button iconButton_dark" title="Close" src="../assets/icons/otherCloseButton_${currentActiveThemeType}.png" onclick="slideOutUINotification(this.parentElement.parentElement)" loading="lazy" alt="close UI error icon"/>
       </div>
     `;
     UImessageContainer.appendChild(messageElement);

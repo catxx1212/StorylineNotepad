@@ -1,19 +1,8 @@
-# VER 0.6.0
+# VER 0.6.1
 ## Changes in this update:
 
-- Added three new themes: Oceanside Nap, Cozy Bed, and Rainy Day.
-- Added a new user preference: text alignment.
-- Added a "Clear Data" menu.
-- The theme menu now jumps to your current active theme when opened.
-- Made slight adjustments to the layout.
-- Changing the light or dark mode on pages using the toggle now updates the fallback theme. This ensures that when navigating to another page, the theme remains consistent (does not affect the storyline notepad if a theme is already set).
-- The loading screen now follows the selected fallback theme.
-- Created a tutorial storyline. If you were a user before this update, you can download it from the changelog.
-- Fixed a bug with the import buttons.
-- Added dates to the changelog.
-- Added action previews for the arrow context menu.
-- Added scroll priority: when your mouse is over a scrollable storybox, it will scroll that box instead of the entire storyline.
-- Made some other small changes, fixes, and optimizations.
+ - Added one new theme: Underground Sunset.
+ - Some optimisations to all storyline notepad pages.
 
 
 ---

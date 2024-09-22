@@ -2438,6 +2438,114 @@
       background-color: rgb(28, 28, 59); 
     }
 
+
+
+.undergroundSunset_theme {
+  background-color: rgb(8, 8, 8);
+  color: rgb(235, 235, 235);
+}
+  .undergroundSunset_theme .header_color {
+    background-color: rgb(35, 69, 85);
+    border-bottom: 0.75vh solid rgb(0,34, 50);
+  }
+    .undergroundSunset_theme .header_textColor {
+      color: rgb(20, 20, 20);
+      }
+  .undergroundSunset_theme .main_color {
+    background: linear-gradient(180deg,
+      rgb(229, 111, 83) 0%,
+      rgb(240, 162, 97) 100%
+    );
+    color: rgb(20, 20, 20);
+  }
+    .undergroundSunset_theme .storyBox_color {
+      background-color: rgb(240, 162, 97);
+      border: 0.75vh solid rgb(0,34, 50);
+    }
+      .undergroundSunset_theme .storyBox_innerColor {
+        background-color: rgb(240, 162, 97);
+        color: rgb(20, 20, 20);
+      }
+      .undergroundSunset_theme .storyBox_innerColor::placeholder {
+          color: rgb(20, 20, 20);
+          opacity: 0.5;
+      }
+    .undergroundSunset_theme .addNewStoryboxButton_color {
+      border: 0.75vh solid rgb(0,34, 50);
+    }
+  .undergroundSunset_theme .footer_color {
+    background-color: rgb(231, 195, 107);
+    border-top: 0.75vh solid rgb(0,34, 50);
+    color: rgb(20, 20, 20);
+  }
+  .undergroundSunset_theme .menu_color {
+    border-top: 0.75vh solid rgb(0,34, 50);
+    border-left: 0.75vh solid rgb(0,34, 50);
+    border-bottom: 0.75vh solid rgb(0,34, 50);
+  }
+    .undergroundSunset_theme .themeMenu_categorySection_color {
+      background-color: rgb(35, 69, 85);
+      border-right: 0.75vh solid rgb(0,34, 50);
+    }
+      .undergroundSunset_theme .themeMenu_categorySection_text {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(0,34, 50);
+      }
+      .undergroundSunset_theme .themeMenu_categorySection_text:hover {
+        background-color: rgb(15, 49, 65);       
+      }
+    .undergroundSunset_theme .themeMenu_themeSection_color {
+      background-color: rgb(25, 59, 75);
+    }
+      .undergroundSunset_theme .themeMenu_themeSection_themeButton_color {
+        background-color: rgb(35, 69, 85);
+        border: 0.75vh solid rgb(0,34, 50);
+        color: rgb(235, 235, 235);
+      }
+      .undergroundSunset_theme .themeMenu_themeSection_themeButton_color:hover {
+        background-color: rgb(15, 49, 65);
+      }
+    .undergroundSunset_theme .globalStyleMenu_buttonSection_color {
+      background-color: rgb(35, 69, 85);
+    }
+      .undergroundSunset_theme .globalStlyeMenu_buttonSection_styleButton_color {
+        color: rgb(235, 235, 235);
+        border-bottom: 0.75vh solid rgb(0,34, 50);
+      }
+      .undergroundSunset_theme .globalStlyeMenu_buttonSection_styleButton_color:hover {
+        background-color: rgb(15, 49, 65); 
+      }
+  .undergroundSunset_theme .popup_color {
+    border: 0.75vh solid rgb(0,34, 50);
+  }
+    .undergroundSunset_theme .exportDiv_color {
+      border-right: 0.75vh solid rgb(0,34, 50);
+      border-top: 0.75vh solid rgb(0,34, 50);
+    }
+    .undergroundSunset_theme .importDiv_color {
+      border-top: 0.75vh solid rgb(0,34, 50);
+    }
+    .undergroundSunset_theme .importExportMenu_buttons_color {
+      border: 0.75vh solid rgb(0,34, 50);
+      background-color: rgb(231, 195, 107);
+      color: rgb(20, 20, 20);
+    }
+    .undergroundSunset_theme .importExportMenu_buttons_color:hover {
+      background-color: rgb(0,34, 50);
+      border: 0.75vh solid rgb(231, 195, 107);
+      color: rgb(235, 235, 235);
+    }
+  .undergroundSunset_theme .contextMenu_color {
+    background-color: rgb(35, 69, 85);
+    border: 0.75vh solid rgb(0,34, 50);
+  }
+    .undergroundSunset_theme .contextMenu_buttons_color {
+      color: rgb(235, 235, 235);
+    }
+    .undergroundSunset_theme .contextMenu_buttons_color:hover {
+      background-color: rgb(15, 49, 65); 
+    }
+
 /* end of gradient themes */
 
 
